@@ -3,7 +3,7 @@
  *  @date 08/02/2018
  */
 
-package coding.temp;
+package coding.leetcode;
 
 import common.TreeNode;
 
@@ -30,19 +30,15 @@ public class _0559_Maximum_Depth_of_N_ary_Tree {
     public int maxDepth_BFS(TreeNode root) {
         int depth = 0;
         if (root != null) {
-            Queue<TreeNode> que = new LinkedList<>();
-            que.add(root);
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
             TreeNode node;
-            while (!que.isEmpty()) {
-                int size = que.size();
-                depth++;
-                for (int i = 0; i < size; i++) {
-                    node = que.remove();
-                    for (TreeNode child : node.children) {
-                        if (child != null) {
-                            que.add(child);
-                        }
-                    }
+            while (!queue.isEmpty()) {
+                ++depth;
+                int size = queue.size();
+                for (int i = 0; i < size; ++i) {
+                    node = queue.poll();
+                    node.children.stream().forEach(queue::add);
                 }
             }
         }
@@ -51,13 +47,13 @@ public class _0559_Maximum_Depth_of_N_ary_Tree {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int maxDepth(TreeNode root) {
+    public int maxDepth_DFS(TreeNode root) {
         if (root == null) {
             return 0;
         }
         int depth = 0;
         for (TreeNode child : root.children) {
-            depth = Math.max(depth, maxDepth(child));
+            depth = Math.max(depth, maxDepth_DFS(child));
         }
         return depth + 1;
     }
