@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date 01/29/2018
- */
-
 package coding.temp;
 
 import common.TreeNode;
@@ -10,6 +5,7 @@ import common.TreeNode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -38,31 +34,30 @@ public class _0107_Binary_Tree_Level_Order_Traversal_II {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // BFS
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> levelOrderBottom_BFS(TreeNode root) {
+        LinkedList<List<Integer>> list = new LinkedList<>();
         if (root != null) {
-            Queue<TreeNode> que = new ArrayDeque<>();
-            que.offer(root);
-            List<Integer> level;
+            Queue<TreeNode> queue = new ArrayDeque<>();
+            queue.offer(root);
             TreeNode node;
-            while (!que.isEmpty()) {
-                int size = que.size();
-                level = new ArrayList<>();
-                for (int i = 0; i < size; i++) {
-                    node = que.poll();
-                    level.add(node.val);
+            List<Integer> l;
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+                l = new ArrayList();
+                while (size-- > 0) {
+                    node = queue.poll();
+                    l.add(node.val);
                     if (node.left != null) {
-                        que.offer(node.left);
+                        queue.offer(node.left);
                     }
                     if (node.right != null) {
-                        que.offer(node.right);
+                        queue.offer(node.right);
                     }
                 }
-                res.add(0, level);
+                list.addFirst(l);
             }
         }
-        return res;
+        return list;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,15 +69,14 @@ public class _0107_Binary_Tree_Level_Order_Traversal_II {
         return res;
     }
 
-    private void DFS(TreeNode node, List<List<Integer>> res, int depth) {
+    private void DFS(TreeNode node, List<List<Integer>> list, int d) {
         if (node != null) {
-            if (res.size() == depth) {
-                res.add(new ArrayList<>());
+            if (list.size() == d) {
+                list.add(new ArrayList<>());
             }
-            List<Integer> list = res.get(depth);
-            list.add(node.val);
-            DFS(node.left, res, depth + 1);
-            DFS(node.right, res, depth + 1);
+            list.get(d).add(node.val);
+            DFS(node.left, list, d + 1);
+            DFS(node.right, list, d + 1);
         }
     }
 }

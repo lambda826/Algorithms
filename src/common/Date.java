@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Date.java
  *  Execution:    java Date
- *  Dependencies: StdOut.java
+ *  Dependencies: java
  *
  *  An immutable data type for dates.
  *
@@ -9,7 +9,8 @@
 
 package common;
 
-import common.utils.StdOut;
+
+import static jdk.nashorn.internal.objects.Global.println;
 
 /**
  *  The {@code Date} class is an immutable data type to encapsulate a
@@ -230,21 +231,21 @@ public class Date implements Comparable<Date> {
      */
     public static void main(String[] args) {
         Date today = new Date(2, 25, 2004);
-        StdOut.println(today);
+        println(today);
         for (int i = 0; i < 10; i++) {
             today = today.next();
-            StdOut.println(today);
+            println(today);
         }
 
-        StdOut.println(today.isAfter(today.next()));
-        StdOut.println(today.isAfter(today));
-        StdOut.println(today.next().isAfter(today));
+        println(today.isAfter(today.next()));
+        println(today.isAfter(today));
+        println(today.next().isAfter(today));
 
         Date birthday = new Date(10, 16, 1971);
-        StdOut.println(birthday);
+        println(birthday);
         for (int i = 0; i < 10; i++) {
             birthday = birthday.next();
-            StdOut.println(birthday);
+            println(birthday);
         }
     }
 
