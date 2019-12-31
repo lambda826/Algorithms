@@ -3,7 +3,7 @@
  *  @date Jul 10, 2018 2:28:14 PM
  */
 
-package coding.leetcode.todo;
+package coding.temp;
 
 import java.util.Arrays;
 import java.util.HashMap;

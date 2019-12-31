@@ -17,12 +17,12 @@ public interface Palindrome {
     coding.temp._0647_Palindromic_Substrings _0647_Palindromic_Substrings = null;
     coding.temp._0564_Find_the_Closest_Palindrome _0564_Find_the_Closest_Palindrome = null; ///
     coding.temp._0234_Palindrome_Linked_List _0234_Palindrome_Linked_List = null;
-    coding.leetcode.todo._0680_Valid_Palindrome_II _0680_Valid_Palindrome_II = null;
+    coding.temp._0680_Valid_Palindrome_II _0680_Valid_Palindrome_II = null;
 
     coding.temp._0730_Count_Different_Palindromic_Subsequences _0730_Count_Different_Palindromic_Subsequences = null;
 
     _0479_Largest_Palindrome_Product __0479_Largest_Palindrome_Product = null; //
-    coding.leetcode.todo._0125_Valid_Palindrome _0125_Valid_Palindrome = null;
+    coding.temp._0125_Valid_Palindrome _0125_Valid_Palindrome = null;
     coding.temp._0009_Palindrome_Number _0009_Palindrome_Number = null;
 
     coding.temp._0266_Palindrome_Permutation _0266_Palindrome_Permutation = null;

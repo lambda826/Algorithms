@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date 01/29/2018
- */
-
 package coding.temp;
 
 import common.TreeNode;
@@ -33,12 +28,40 @@ public class _0111_Minimum_Depth_of_Binary_Tree {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int minDepth(TreeNode root) {
+    public int minDepth_BFS(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            ++depth;
+            int size = queue.size();
+            while (size-- > 0) {
+                TreeNode node = queue.poll();
+                if (node.left == null && node.right == null) {
+                    return depth;
+                }
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+        }
+        return depth;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public int minDepth_DFS(TreeNode root) {
         if (root == null) {
             return 0;
         } else {
-            int left = minDepth(root.left);
-            int right = minDepth(root.right);
+            int left = minDepth_DFS(root.left);
+            int right = minDepth_DFS(root.right);
             if (left == 0) {
                 return right + 1;
             } else if (right == 0) {
@@ -47,34 +70,6 @@ public class _0111_Minimum_Depth_of_Binary_Tree {
                 return 1 + Math.min(left, right);
             }
         }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int minDepth_BFS(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        Queue<TreeNode> que = new ArrayDeque<>();
-        que.offer(root);
-        int depth = 0;
-        while (!que.isEmpty()) {
-            depth++;
-            int size = que.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = que.poll();
-                if (node.left == null && node.right == null) {
-                    return depth;
-                }
-                if (node.left != null) {
-                    que.add(node.left);
-                }
-                if (node.right != null) {
-                    que.add(node.right);
-                }
-            }
-        }
-        return depth;
     }
 
 }

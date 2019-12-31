@@ -109,7 +109,7 @@ public interface WalmartLabs {
     coding.temp._0002_Add_Two_Numbers _0002_Add_Two_Numbers = null;
     coding.temp._0206_Reverse_Linked_List _0206_Reverse_Linked_List = null;
     coding.temp._0876_Middle_of_the_Linked_List _0876_Middle_of_the_Linked_List = null;
-    coding.leetcode.todo._0028_Implement_strStr _0028_Implement_strStr = null;
+    coding.temp._0028_Implement_strStr _0028_Implement_strStr = null;
     coding.temp._0032_Longest_Valid_Parentheses _0032_Longest_Valid_Parentheses = null; /////
     coding.temp._0053_Maximum_Subarray _0053_Maximum_Subarray = null;
 

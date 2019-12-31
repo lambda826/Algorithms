@@ -51,7 +51,7 @@ public interface _Amazon {
     __1636_Aerial_Movie __1636_Aerial_Movie = null;
     __1638_Least_Substring __1638_Least_Substring = null;
     coding.temp._0005_Longest_Palindromic_Substring _0005_Longest_Palindromic_Substring = null;
-    coding.leetcode.todo._0819_Most_Common_Word _0819_Most_Common_Word = null;
+    coding.temp._0819_Most_Common_Word _0819_Most_Common_Word = null;
     __1369_Most_Common_Word __1369_Most_Common_Word = null;
     coding.leetcode._0937_Reorder_Log_Files _0937_Reorder_Log_Files = null;
     MST MST = null;
@@ -114,7 +114,7 @@ public interface _Amazon {
     coding.temp._0215_Kth_Largest_Element_in_an_Array _0215_Kth_Largest_Element_in_an_Array = null;
     coding.temp._0295_Find_Median_from_Data_Stream _0295_Find_Median_from_Data_Stream = null; // coding: design a class which when having a stream of data coming in, you could get min, max, avg, median
     // Hashing
-    coding.leetcode.todo._0387_First_Unique_Character_in_a_String _0387_First_Unique_Character_in_a_String = null;
+    coding.temp._0387_First_Unique_Character_in_a_String _0387_First_Unique_Character_in_a_String = null;
     // Design
     coding.temp._0380_Insert_Delete_GetRandom_O1 _0380_Insert_Delete_GetRandom_O1 = null;
     coding.temp._0706_Design_HashMap _0706_Design_HashMap = null;

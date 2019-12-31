@@ -40,7 +40,7 @@ public interface _01_Tree {
     coding.temp._0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null; // DFS
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     coding.temp._0538_Convert_BST_to_Greater_Tree _0538_Convert_BST_to_Greater_Tree = null; // Amazon
-    coding.leetcode.todo.__0606_Construct_String_from_Binary_Tree __0606_Construct_String_from_Binary_Tree = null; // Amazon
+    coding.temp.__0606_Construct_String_from_Binary_Tree __0606_Construct_String_from_Binary_Tree = null; // Amazon
     coding.temp._0508_Most_Frequent_Subtree_Sum _0508_Most_Frequent_Subtree_Sum = null; // Amazon
     coding.temp._0662_Maximum_Width_of_Binary_Tree _0662_Maximum_Width_of_Binary_Tree = null; // Amazon
     coding.temp._0545_Boundary_of_Binary_Tree _0545_Boundary_of_Binary_Tree = null; // Amazon

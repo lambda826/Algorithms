@@ -1,12 +1,8 @@
-/**
- *  @author Yunxiang He
- *  @date 01/25/2018
- */
-
 package coding.temp;
 
 import common.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -54,11 +50,11 @@ public class _0101_Symmetric_Tree {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public boolean isSymmetric2(TreeNode root) {
+    public boolean isSymmetric_BFS(TreeNode root) {
         if (root != null) {
-            Queue<TreeNode> que = new LinkedList<>();
-            que.add(root);
-            que.add(root);
+            Queue<TreeNode> que = new ArrayDeque<>();
+            que.offer(root);
+            que.offer(root);
             while (!que.isEmpty()) {
                 TreeNode n1 = que.poll();
                 TreeNode n2 = que.poll();
