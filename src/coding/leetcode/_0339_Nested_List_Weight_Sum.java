@@ -1,9 +1,4 @@
-/**
- *  @author Yunxiang He
- *  @date 01/12/2018
- */
-
-package coding.temp;
+package coding.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.List;
@@ -25,6 +20,10 @@ Example 2:
     Output: 27 
     Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
 
+
+History:
+    3/27/2020
+
 */
 
 public class _0339_Nested_List_Weight_Sum {
@@ -45,65 +44,66 @@ public class _0339_Nested_List_Weight_Sum {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int depthSum(List<NestedInteger> nestedList) {
+    public int depthSum_BFS(List<NestedInteger> nestedList) {
         int depth = 1;
         int sum = 0;
-        Queue<NestedInteger> que = new ArrayDeque<>();
-        que.addAll(nestedList);
-        int size = 0;
+        Queue<NestedInteger> queue = new ArrayDeque<>();
+        queue.addAll(nestedList);
         NestedInteger temp;
-        while (!que.isEmpty()) {
-            size = que.size();
-            for (int i = 0; i < size; ++i) {
-                temp = que.poll();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size-- > 0) {
+                temp = queue.poll();
                 if (temp.isInteger()) {
                     sum += temp.getInteger() * depth;
                 } else {
-                    que.addAll(temp.getList());
+                    queue.addAll(temp.getList());
                 }
             }
             depth++;
         }
         return sum;
     }
+
+   private static class NestedInteger {
+
+        private List<NestedInteger> list;
+        private int value;
+
+        public NestedInteger() {
+        }
+
+        // Constructor initializes a single integer.
+        public NestedInteger(int value) {
+            this.value = value;
+        }
+
+        // @return true if this NestedInteger holds a single integer, rather than a nested list.
+        public boolean isInteger() {
+            return false;
+        }
+
+        // @return the single integer that this NestedInteger holds, if it holds a single integer
+        // Return null if this NestedInteger holds a nested list
+        public Integer getInteger() {
+            return this.value;
+        }
+
+        // Set this NestedInteger to hold a single integer.
+        public void setInteger(int value) {
+            this.value = value;
+        }
+
+        // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+        public void add(NestedInteger ni) {
+        }
+
+        // @return the nested list that this NestedInteger holds, if it holds a nested list
+        // Return null if this NestedInteger holds a single integer
+        public List<NestedInteger> getList() {
+            return this.list;
+        }
+    }
 }
 
-class NestedInteger {
 
-    private List<NestedInteger> list;
-    private int value;
-
-    public NestedInteger() {
-    }
-
-    // Constructor initializes a single integer.
-    public NestedInteger(int value) {
-        this.value = value;
-    }
-
-    // @return true if this NestedInteger holds a single integer, rather than a nested list.
-    public boolean isInteger() {
-        return false;
-    }
-
-    // @return the single integer that this NestedInteger holds, if it holds a single integer
-    // Return null if this NestedInteger holds a nested list
-    public Integer getInteger() {
-        return this.value;
-    }
-
-    // Set this NestedInteger to hold a single integer.
-    public void setInteger(int value) {
-        this.value = value;
-    }
-
-    // Set this NestedInteger to hold a nested list and adds a nested integer to it.
-    public void add(NestedInteger ni) {
-    }
-
-    // @return the nested list that this NestedInteger holds, if it holds a nested list
-    // Return null if this NestedInteger holds a single integer
-    public List<NestedInteger> getList() {
-        return this.list;
-    }
-}

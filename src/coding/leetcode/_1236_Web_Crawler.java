@@ -67,7 +67,82 @@ Constraints:
     See:  https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames
     You may assume there're no duplicates in url library.
 
-
 */
+
+import common.HtmlParser;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
 public class _1236_Web_Crawler {
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public List<String> crawl_BFS(String startUrl, HtmlParser htmlParser) {
+        List<String> result = new ArrayList<>();
+        String domain = getDomain(startUrl);
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new ArrayDeque<>();
+        queue.offer(startUrl);
+        while (!queue.isEmpty()) {
+            String next = queue.poll();
+            if (visited.add(next) && domain.equals(getDomain(next))) {
+                result.add(next);
+                for (String nei : htmlParser.getUrls(next)) {
+                    queue.offer(nei);
+                }
+            }
+        }
+        return result;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public List<String> crawl_faster_BFS(String startUrl, HtmlParser htmlParser) {
+        List<String> result = new ArrayList<>();
+        result.add(startUrl);
+        String domain = getDomain(startUrl);
+        Set<String> visited = new HashSet<>();
+        visited.add(startUrl);
+        Queue<String> queue = new ArrayDeque<>();
+        queue.offer(startUrl);
+        while (!queue.isEmpty()) {
+            String next = queue.poll();
+            for (String nei : htmlParser.getUrls(next)) {
+                if (visited.add(nei) && domain.equals(getDomain(nei))) {
+                    queue.offer(nei);
+                    result.add(nei);
+                }
+            }
+        }
+        return result;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public List<String> crawl_DFS(String startUrl, HtmlParser htmlParser) {
+        List<String> result = new ArrayList<>();
+        DFS(result, new HashSet<>(), getDomain(startUrl), htmlParser, startUrl);
+        return result;
+    }
+
+    private void DFS(List<String> result, Set<String> visited, String domain, HtmlParser htmlParser, String url) {
+        if (visited.add(url) && domain.equals(getDomain(url))) {
+            result.add(url);
+            for (String nei : htmlParser.getUrls(url)) {
+                DFS(result, visited, domain, htmlParser, nei);
+            }
+        }
+    }
+
+    private String getDomain(String url) {
+        url = url.substring(7);
+        int idx = url.indexOf("/");
+        int to = (idx == -1) ? url.length() : idx;
+        return url.substring(0, to);
+    }
 }

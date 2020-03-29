@@ -39,7 +39,7 @@ public class Topological {
         }
 
         // BFS
-        // Delete 0 indegree vertex from the queue, update indegreeMap
+        // Delete 0 indegree vertex from the queue, update `indegreeMap
         while (!oIndegree.isEmpty()) {
             int vertex = oIndegree.remove();
             ordering.add(vertex);

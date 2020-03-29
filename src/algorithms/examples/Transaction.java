@@ -1,7 +1,6 @@
-package algorithms.hashing.examples;
+package algorithms.examples;
 
 import common.Date;
-import common.utils.StdOut;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -108,32 +107,32 @@ public class Transaction implements Comparable<Transaction> {
         a[2] = new Transaction("Knuth    6/14/1999  288.34");
         a[3] = new Transaction("Dijkstra 8/22/2007 2678.40");
 
-        StdOut.println("Unsorted");
+        System.out.println("Unsorted");
         for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+            System.out.println(a[i]);
         }
-        StdOut.println();
+        System.out.println();
 
-        StdOut.println("Sort by date");
+        System.out.println("Sort by date");
         Arrays.sort(a, new Transaction.WhenOrder());
         for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+            System.out.println(a[i]);
         }
-        StdOut.println();
+        System.out.println();
 
-        StdOut.println("Sort by customer");
+        System.out.println("Sort by customer");
         Arrays.sort(a, new Transaction.WhoOrder());
         for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+            System.out.println(a[i]);
         }
-        StdOut.println();
+        System.out.println();
 
-        StdOut.println("Sort by amount");
+        System.out.println("Sort by amount");
         Arrays.sort(a, new Transaction.HowMuchOrder());
         for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+            System.out.println(a[i]);
         }
-        StdOut.println();
+        System.out.println();
     }
 
 }

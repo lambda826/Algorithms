@@ -101,7 +101,7 @@ public interface WalmartLabs {
     coding.temp._0102_Binary_Tree_Level_Order_Traversal _0102_Binary_Tree_Level_Order_Traversal = null;
     coding.temp._0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal = null;
     coding.temp._0098_Validate_Binary_Search_Tree _0098_Validate_Binary_Search_Tree = null;
-    coding.temp._0108_Convert_Sorted_Array_to_Binary_Search_Tree _0108_Convert_Sorted_Array_to_Binary_Search_Tree = null;
+    coding.leetcode._0108_Convert_Sorted_Array_to_Binary_Search_Tree _0108_Convert_Sorted_Array_to_Binary_Search_Tree = null;
     coding.temp._0062_Unique_Paths _0062_Unique_Paths = null;
     coding.temp._0322_Coin_Change _0322_Coin_Change = null;
     coding.temp._0026_Remove_Duplicates_from_Sorted_Array _0026_Remove_Duplicates_from_Sorted_Array = null;

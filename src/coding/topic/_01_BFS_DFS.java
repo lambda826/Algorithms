@@ -23,7 +23,7 @@ public interface _01_BFS_DFS {
     coding.temp._0695_Max_Area_of_Island _0695_Max_Area_of_Island = null;
     coding.temp._0301_Remove_Invalid_Parentheses _0301_Remove_Invalid_Parentheses = null; /////
     coding.temp._0394_Decode_String _0394_Decode_String = null; ///
-    coding.temp._0339_Nested_List_Weight_Sum _0339_Nested_List_Weight_Sum = null;
+    coding.leetcode._0339_Nested_List_Weight_Sum _0339_Nested_List_Weight_Sum = null;
     coding.temp._0130_Surrounded_Regions _0130_Surrounded_Regions = null;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ public interface _01_BFS_DFS {
     coding.temp._0429_N_ary_Tree_Level_Order_Traversal _0429_N_ary_Tree_Level_Order_Traversal = null;
     coding.leetcode._0559_Maximum_Depth_of_N_ary_Tree _0559_Maximum_Depth_of_N_ary_Tree = null;
     coding.leetcode._0690_Employee_Importance _0690_Employee_Importance = null;
-    coding.temp._0872_Leaf_Similar_Trees _0872_Leaf_Similar_Trees = null;
+    coding.leetcode._0872_Leaf_Similar_Trees _0872_Leaf_Similar_Trees = null;
 
     // Medium
     coding.temp._0022_Generate_Parentheses _0022_Generate_Parentheses = null;

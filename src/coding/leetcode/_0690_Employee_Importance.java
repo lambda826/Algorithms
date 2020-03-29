@@ -36,6 +36,10 @@ Note:
     One employee has at most one direct leader and may have several subordinates.
     The maximum number of employees won't exceed 2000.
 
+
+History:
+    3/28/2020
+
 */
 
 public class _0690_Employee_Importance {

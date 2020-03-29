@@ -26,6 +26,10 @@ Note:
     The depth of the tree is at most 1000.
     The total number of nodes is at most 5000.
 
+
+History:
+    3/28/2020
+
 */
 
 public class _0559_Maximum_Depth_of_N_ary_Tree {
@@ -53,12 +57,13 @@ public class _0559_Maximum_Depth_of_N_ary_Tree {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int maxDepth_DFS(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
         int depth = 0;
-        for (TreeNode child : root.children) {
-            depth = Math.max(depth, maxDepth_DFS(child));
+        if (root == null) {
+            return depth;
+        } else {
+            for (TreeNode child : root.children) {
+                depth = Math.max(depth, maxDepth_DFS(child));
+            }
         }
         return depth + 1;
     }

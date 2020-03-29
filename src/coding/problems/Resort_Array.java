@@ -5,7 +5,6 @@
 
 package coding.problems;
 
-import common.utils.RandomIntGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,14 +69,4 @@ public class Resort_Array {
         return order.toArray(new Integer[array.length]);
     }
 
-    public static void main(String[] args) {
-        int[] nums = RandomIntGenerator.generateIntArray();
-        System.out.println(Arrays.toString(nums));
-        int[] nums2 = Arrays.copyOf(nums, nums.length);
-        Arrays.sort(nums2);
-        System.out.println(Arrays.toString(nums2));
-        //        System.out.println(Arrays.toString(resortArray_BucketSort(nums)));
-        System.out.println("--------------------------------------");
-        System.out.println(Arrays.toString(resortArray_BinarySearch(nums)));
-    }
 }

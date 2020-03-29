@@ -5,9 +5,6 @@
 
 package coding.temp;
 
-import common.utils.RandomIntGenerator;
-
-import java.util.Arrays;
 
 /*
  *
@@ -24,18 +21,6 @@ import java.util.Arrays;
  */
 
 public class _0004_Median_of_Two_Sorted_Arrays {
-    public static void main(String[] args) {
-
-        int[] nums1 = RandomIntGenerator.generateIntArray(15, 30);
-        int[] nums2 = RandomIntGenerator.generateIntArray(9, 30);
-        //        int[] nums1 = { 3 };
-        //        int[] nums2 = {3};
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        System.out.println(Arrays.toString(nums1));
-        System.out.println(Arrays.toString(nums2));
-        System.out.println(new _0004_Median_of_Two_Sorted_Arrays().findMedianSortedArrays(nums1, nums2));
-    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

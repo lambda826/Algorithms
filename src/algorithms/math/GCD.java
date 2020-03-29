@@ -1,7 +1,5 @@
 package algorithms.math;
 
-import static common.utils.PrintUtil.println;
-
 public class GCD {
 
     /**
@@ -16,6 +14,6 @@ public class GCD {
     }
 
     public static void main(String[] args) {
-        println(gcd(15, 12));
+        System.out.println(gcd(15, 12));
     }
 }

@@ -1,9 +1,4 @@
-/**
- *  @author Yunxiang He
- *  @date 01/30/2019
- */
-
-package coding.temp;
+package coding.leetcode;
 
 /*
 
@@ -45,8 +40,33 @@ Note:
     The number of nodes in the given tree will be between 1 and 100.
     Each node will have a unique integer value from 0 to 1000.
 
+
+History:
+    3/27/2020
+
 */
+
+import common.TreeNode;
 
 public class _0897_Increasing_Order_Search_Tree {
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private TreeNode pre;
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode first = new TreeNode(0);
+        pre = first;
+        inorder(root);
+        return first.right;
+    }
+
+    private void inorder(TreeNode curr) {
+        if (curr != null) {
+            inorder(curr.left);
+            pre.left = null;
+            pre.right = curr;
+            pre = curr;
+            inorder(curr.right);
+        }
+    }
 }

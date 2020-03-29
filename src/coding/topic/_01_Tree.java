@@ -10,7 +10,7 @@ import coding.temp._0692_Top_K_Frequent_Words;
 
 public interface _01_Tree {
 
-    coding.temp._0104_Maximum_Depth_of_Binary_Tree _0104_Maximum_Depth_of_Binary_Tree = null; // height
+    coding.leetcode._0104_Maximum_Depth_of_Binary_Tree _0104_Maximum_Depth_of_Binary_Tree = null; // height
     coding.temp._0111_Minimum_Depth_of_Binary_Tree _0111_Minimum_Depth_of_Binary_Tree = null;
     coding.temp._0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null; // height
     coding.temp._0226_Invert_Binary_Tree _0226_Invert_Binary_Tree = null;
@@ -64,7 +64,7 @@ public interface _01_Tree {
 
     // BST
     coding.temp._0173_Binary_Search_Tree_Iterator _0173_Binary_Search_Tree_Iterator = null; // inorder
-    coding.temp._0108_Convert_Sorted_Array_to_Binary_Search_Tree _0108_Convert_Sorted_Array_to_Binary_Search_Tree = null;
+    coding.leetcode._0108_Convert_Sorted_Array_to_Binary_Search_Tree _0108_Convert_Sorted_Array_to_Binary_Search_Tree = null;
     coding.temp._0109_Convert_Sorted_List_to_Binary_Search_Tree _0109_Convert_Sorted_List_to_Binary_Search_Tree = null; ///
     coding.temp._0669_Trim_a_Binary_Search_Tree _0669_Trim_a_Binary_Search_Tree = null;
     coding.temp._0099_Recover_Binary_Search_Tree _0099_Recover_Binary_Search_Tree = null; // inorder
