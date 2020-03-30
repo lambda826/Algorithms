@@ -114,7 +114,7 @@ public interface WalmartLabs {
     coding.temp._0053_Maximum_Subarray _0053_Maximum_Subarray = null;
 
     coding.temp._0103_Binary_Tree_Zigzag_Level_Order_Traversal _0103_Binary_Tree_Zigzag_Level_Order_Traversal = null;
-    coding.temp._0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null;
+    coding.leetcode._0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null;
 
     coding.temp._0138_Copy_List_with_Random_Pointer _0138_Copy_List_with_Random_Pointer = null;
     coding.temp._0142_Linked_List_Cycle_II _0142_Linked_List_Cycle_II = null;

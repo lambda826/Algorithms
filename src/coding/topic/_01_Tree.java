@@ -12,11 +12,11 @@ public interface _01_Tree {
 
     coding.leetcode._0104_Maximum_Depth_of_Binary_Tree _0104_Maximum_Depth_of_Binary_Tree = null; // height
     coding.temp._0111_Minimum_Depth_of_Binary_Tree _0111_Minimum_Depth_of_Binary_Tree = null;
-    coding.temp._0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null; // height
+    coding.leetcode._0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null; // height
     coding.temp._0226_Invert_Binary_Tree _0226_Invert_Binary_Tree = null;
     coding.temp._0617_Merge_Two_Binary_Trees _0617_Merge_Two_Binary_Trees = null; // Amazon
-    coding.temp._0100_Same_Tree _0100_Same_Tree = null;
-    coding.temp._0101_Symmetric_Tree _0101_Symmetric_Tree = null;
+    coding.leetcode._0100_Same_Tree _0100_Same_Tree = null;
+    coding.leetcode._0101_Symmetric_Tree _0101_Symmetric_Tree = null;
     coding.temp._0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree = null; // Amazon
     coding.temp._0236_Lowest_Common_Ancestor_of_a_Binary_Tree _0236_Lowest_Common_Ancestor_of_a_Binary_Tree = null; // Amazon //
     coding.temp._0297_Serialize_and_Deserialize_Binary_Tree _0297_Serialize_and_Deserialize_Binary_Tree = null; // Amazon ///
@@ -37,7 +37,7 @@ public interface _01_Tree {
     coding.temp._0116_Populating_Next_Right_Pointers_in_Each_Node _0116_Populating_Next_Right_Pointers_in_Each_Node = null;
     coding.temp._0222_Count_Complete_Tree_Nodes _0222_Count_Complete_Tree_Nodes = null; // Binary search
     coding.temp._0199_Binary_Tree_Right_Side_View _0199_Binary_Tree_Right_Side_View = null; // Amazon // DFS, BFS
-    coding.temp._0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null; // DFS
+    coding.leetcode._0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null; // DFS
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     coding.temp._0538_Convert_BST_to_Greater_Tree _0538_Convert_BST_to_Greater_Tree = null; // Amazon
     coding.temp.__0606_Construct_String_from_Binary_Tree __0606_Construct_String_from_Binary_Tree = null; // Amazon
@@ -50,7 +50,7 @@ public interface _01_Tree {
     coding.temp._0663_Equal_Tree_Partition _0663_Equal_Tree_Partition = null; // Amazon
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    coding.temp._0112_Path_Sum _0112_Path_Sum = null;
+    coding.leetcode._0112_Path_Sum _0112_Path_Sum = null;
     coding.temp._0230_Kth_Smallest_Element_in_a_BST _0230_Kth_Smallest_Element_in_a_BST = null;
     coding.temp._0437_Path_Sum_III _0437_Path_Sum_III = null;
     coding.temp._0103_Binary_Tree_Zigzag_Level_Order_Traversal _0103_Binary_Tree_Zigzag_Level_Order_Traversal = null;

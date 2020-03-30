@@ -1,17 +1,22 @@
 package coding.leetcode.topics;
 
+import coding.leetcode._0100_Same_Tree;
+import coding.leetcode._0257_Binary_Tree_Paths;
 import coding.leetcode._0339_Nested_List_Weight_Sum;
 import coding.leetcode._0559_Maximum_Depth_of_N_ary_Tree;
 import coding.leetcode._0690_Employee_Importance;
+import coding.leetcode._0733_Flood_Fill;
 import coding.leetcode._0872_Leaf_Similar_Trees;
 import coding.leetcode._0993_Cousins_in_Binary_Tree;
 import coding.leetcode._0994_Rotting_Oranges;
 import coding.leetcode._1236_Web_Crawler;
-import coding.temp._0101_Symmetric_Tree;
+import coding.leetcode._0101_Symmetric_Tree;
 import coding.temp._0102_Binary_Tree_Level_Order_Traversal;
 import coding.leetcode._0104_Maximum_Depth_of_Binary_Tree;
 import coding.temp._0107_Binary_Tree_Level_Order_Traversal_II;
+import coding.leetcode._0110_Balanced_Binary_Tree;
 import coding.temp._0111_Minimum_Depth_of_Binary_Tree;
+import coding.leetcode._0112_Path_Sum;
 import coding.temp._0199_Binary_Tree_Right_Side_View;
 import coding.temp._0323_Number_of_Connected_Components_in_an_Undirected_Graph;
 import coding.temp._0429_N_ary_Tree_Level_Order_Traversal;
@@ -24,8 +29,12 @@ public interface Search {
     // BFS
     _0994_Rotting_Oranges _0994_Rotting_Oranges = null;
 
-    // DFS
+    // DFS | Backtracking
     _0872_Leaf_Similar_Trees _0872_Leaf_Similar_Trees = null;
+    _0100_Same_Tree _0100_Same_Tree = null;
+    _0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null;
+    _0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null;
+    _0112_Path_Sum _0112_Path_Sum = null;
 
     // BFS & DFS
     _0559_Maximum_Depth_of_N_ary_Tree _0559_Maximum_Depth_of_N_ary_Tree = null;
@@ -37,6 +46,7 @@ public interface Search {
     _1236_Web_Crawler _1236_Web_Crawler = null;
     _0339_Nested_List_Weight_Sum _0339_Nested_List_Weight_Sum = null;
     _0104_Maximum_Depth_of_Binary_Tree _0104_Maximum_Depth_of_Binary_Tree = null;
+    _0733_Flood_Fill _0733_Flood_Fill = null;
 
     // DFS + DP
 

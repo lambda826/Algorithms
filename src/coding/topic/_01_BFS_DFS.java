@@ -72,7 +72,7 @@ public interface _01_BFS_DFS {
     coding.temp._0909_Snakes_and_Ladders _0909_Snakes_and_Ladders = null;
 
     // Easy
-    coding.temp._0101_Symmetric_Tree _0101_Symmetric_Tree = null;
+    coding.leetcode._0101_Symmetric_Tree _0101_Symmetric_Tree = null;
     coding.temp._0107_Binary_Tree_Level_Order_Traversal_II _0107_Binary_Tree_Level_Order_Traversal_II = null;
     coding.temp._0111_Minimum_Depth_of_Binary_Tree _0111_Minimum_Depth_of_Binary_Tree = null;
     coding.temp._0429_N_ary_Tree_Level_Order_Traversal _0429_N_ary_Tree_Level_Order_Traversal = null;
