@@ -1,9 +1,4 @@
-/**
- *  @author Yunxiang He
- *  @date 10/17/2017
- */
-
-package coding.temp;
+package coding.leetcode;
 
 /*
 
@@ -32,6 +27,10 @@ Example 2:
 Note:
     Given n will be a positive integer.
 
+
+History:
+    4/7/2020
+
 */
 
 public class _0070_Climbing_Stairs {
@@ -39,19 +38,18 @@ public class _0070_Climbing_Stairs {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int climbStairs_DP(int n) {
-        if (n == 1) {
-            return 1;
-        } else if (n == 2) {
-            return 2;
+        int ways = 0;
+        if (n < 3) {
+            ways = n;
+        } else {
+            int pre1 = 2;
+            int pre2 = 1;
+            for (int i = 3; i <= n; ++i) {
+                ways = pre1 + pre2;
+                pre2 = pre1;
+                pre1 = ways;
+            }
         }
-        int step = 0;
-        int pre1 = 1;
-        int pre2 = 2;
-        for (int i = 2; i < n; ++i) {
-            step = pre2 + pre1;
-            pre1 = pre2;
-            pre2 = step;
-        }
-        return step;
+        return ways;
     }
 }
