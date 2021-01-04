@@ -1,14 +1,6 @@
 package coding.leetcode;
 
-import common.Employee;
-
-import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /*
 
@@ -36,9 +28,6 @@ Note:
     One employee has at most one direct leader and may have several subordinates.
     The maximum number of employees won't exceed 2000.
 
-
-History:
-    3/28/2020
 
 */
 
@@ -83,4 +72,12 @@ public class _0690_Employee_Importance {
         return importance;
     }
 
+
+    // Common
+    static class Employee {
+        public int id;
+        public int importance;
+        public List<Integer> subordinates;
+    }
 }
+

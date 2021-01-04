@@ -41,7 +41,7 @@ public interface _05_BinarySearch {
     //    _0363_Max_Sum_of_Rectangle_No_Larger_Than_K _0363_Max_Sum_of_Rectangle_No_Larger_Than_K = null;
     coding.temp._0528_Random_Pick_with_Weight _0528_Random_Pick_with_Weight = null;
     coding.temp._0475_Heaters _0475_Heaters = null;
-    coding.temp._0392_Is_Subsequence _0392_Is_Subsequence = null;
+    coding.leetcode._0392_Is_Subsequence _0392_Is_Subsequence = null;
     //    _0887_Super_Egg_Drop _0887_Super_Egg_Drop = null;
     coding.temp._0367_Valid_Perfect_Square _0367_Valid_Perfect_Square = null;
     coding.temp._0441_Arranging_Coins _0441_Arranging_Coins = null;

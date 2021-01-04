@@ -3,7 +3,6 @@ package coding.leetcode;
 import common.TreeNode;
 
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 import java.util.Queue;
 
 /*
@@ -31,9 +30,6 @@ Note:
     Bonus points if you could solve it both recursively and iteratively.
 
 
-History:
-    3/29/2020
-
 */
 
 public class _0101_Symmetric_Tree {
@@ -54,26 +50,34 @@ public class _0101_Symmetric_Tree {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Solution 2: BFS
     public boolean isSymmetric_BFS(TreeNode root) {
+        boolean isSymmetric = true;
         if (root != null) {
-            Queue<TreeNode> que = new ArrayDeque<>();
-            que.offer(root);
-            que.offer(root);
-            while (!que.isEmpty()) {
-                TreeNode n1 = que.poll();
-                TreeNode n2 = que.poll();
-                if (n1 == null && n2 == null) {
-                    continue;
-                } else if (n1 == null || n2 == null || n1.val != n2.val) {
-                    return false;
+            Queue<TreeNode> queue = new ArrayDeque<>();
+            queue.offer(root);
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                TreeNode node1 = queue.poll();
+                TreeNode node2 = queue.poll();
+                if (node1.val != node2.val
+                        || !offer(node1.left, node2.right, queue)
+                        || !offer(node1.right, node2.left, queue)) {
+                    isSymmetric = false;
+                    break;
                 }
-                que.offer(n1.left);
-                que.offer(n2.right);
-                que.offer(n1.right);
-                que.offer(n2.left);
             }
         }
-        return true;
+        return isSymmetric;
+    }
+
+    private boolean offer(TreeNode node1, TreeNode node2, Queue<TreeNode> queue) {
+        if (node1 != null && node2 != null) {
+            queue.offer(node1);
+            queue.offer(node2);
+            return true;
+        }
+        return node1 == node2;
     }
 
 }

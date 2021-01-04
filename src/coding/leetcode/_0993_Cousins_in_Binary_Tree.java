@@ -38,8 +38,8 @@ public class _0993_Cousins_in_Binary_Tree {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean isCousins_BFS(TreeNode root, int x, int y) {
         if (root != null) {
-            TreeNode px = null;
-            TreeNode py = null;
+            TreeNode parentX = null;
+            TreeNode parentY = null;
             Queue<TreeNode> queue = new ArrayDeque<>();
             queue.offer(root);
             TreeNode node;
@@ -49,27 +49,24 @@ public class _0993_Cousins_in_Binary_Tree {
                     node = queue.poll();
                     if (node.left != null) {
                         if (node.left.val == x) {
-                            px = node;
-                        }
-                        if (node.left.val == y) {
-                            py = node;
+                            parentX = node;
+                        } else if (node.left.val == y) {
+                            parentY = node;
                         }
                         queue.offer(node.left);
                     }
                     if (node.right != null) {
                         if (node.right.val == x) {
-                            px = node;
-                        }
-                        if (node.right.val == y) {
-                            py = node;
+                            parentX = node;
+                        } else if (node.right.val == y) {
+                            parentY = node;
                         }
                         queue.offer(node.right);
                     }
                 }
-                if (px != null && py != null) {
-                    return px != py;
-                }
-                if (px != py) {
+                if (parentX != null && parentY != null) {
+                    return parentX != parentY;
+                } else if (parentX != parentY) { // either parentX != null or parentX != null, if parentX == parentY == null, continue
                     return false;
                 }
             }
