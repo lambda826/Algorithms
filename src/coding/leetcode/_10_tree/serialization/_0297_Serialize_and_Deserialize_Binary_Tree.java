@@ -1,4 +1,4 @@
-package coding.leetcode.temp;
+package coding.leetcode._10_tree.serialization;
 
 import common.TreeNode;
 
