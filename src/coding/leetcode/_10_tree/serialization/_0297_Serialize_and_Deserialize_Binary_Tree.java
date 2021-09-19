@@ -75,8 +75,7 @@ public class _0297_Serialize_and_Deserialize_Binary_Tree {
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
-            String[] dataArray = data.split(",");
-            return preOrderDeserialize(dataArray, new int[] { 0 });
+            return preOrderDeserialize(data.split(","), new int[] { 0 });
         }
 
         private TreeNode preOrderDeserialize(String[] data, int[] index) {
