@@ -54,52 +54,58 @@ public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public Node lowestCommonAncestor(Node p, Node q) {
-        Deque<Node> que1 = new ArrayDeque<>();
-        Deque<Node> que2 = new ArrayDeque<>();
-        enque(p, que1);
-        enque(q, que2);
-        Node lca = null;
-        while (que1.peekFirst() != null && que1.peekFirst() == que2.peekFirst()) {
-            lca = que1.pollFirst();
-            que2.pollFirst();
+    public class Solution_CountDepth {
+        public Node lowestCommonAncestor2(Node p, Node q) {
+            int lc = getLc(p);
+            int rc = getLc(q);
+            while (lc > rc) {
+                --lc;
+                p = p.parent;
+            }
+            while (lc < rc) {
+                --rc;
+                q = q.parent;
+            }
+            while (p != q) {
+                p = p.parent;
+                q = q.parent;
+            }
+            return p;
         }
-        return lca;
-    }
 
-    private void enque(Node node, Deque<Node> que) {
-        while (node != null) {
-            que.offerFirst(node);
-            node = node.parent;
+        private int getLc(Node node) {
+            int depth = 0;
+            while (node != null) {
+                node = node.parent;
+                ++depth;
+            }
+            return depth;
         }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public Node lowestCommonAncestor2(Node p, Node q) {
-        int lc = getLc(p);
-        int rc = getLc(q);
-        while (lc > rc) {
-            --lc;
-            p = p.parent;
+    // 1. Use a stack to store parents;
+    // 2. Find the last equal parent.
+    public class Solution_CompareParent {
+        public Node lowestCommonAncestor(Node p, Node q) {
+            Deque<Node> que1 = new ArrayDeque<>();
+            Deque<Node> que2 = new ArrayDeque<>();
+            enqueue(p, que1);
+            enqueue(q, que2);
+            Node lca = null;
+            while (que1.peekFirst() != null && que1.peekFirst() == que2.peekFirst()) {
+                lca = que1.pollFirst();
+                que2.pollFirst();
+            }
+            return lca;
         }
-        while (lc < rc) {
-            --rc;
-            q = q.parent;
-        }
-        while (p != q) {
-            p = p.parent;
-            q = q.parent;
-        }
-        return p;
-    }
 
-    private int getLc(Node node) {
-        int depth = 0;
-        while (node != null) {
-            node = node.parent;
-            ++depth;
+        private void enqueue(Node node, Deque<Node> que) {
+            while (node != null) {
+                que.offerFirst(node);
+                node = node.parent;
+            }
         }
-        return depth;
     }
 }
