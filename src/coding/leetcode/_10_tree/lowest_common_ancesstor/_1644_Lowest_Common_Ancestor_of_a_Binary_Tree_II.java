@@ -10,7 +10,9 @@ If either node p or q does not exist in the tree, return null. All values of the
 
 Example 1:
     Input:
-        root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+        root = [3,5,1,6,2,0,8,null,null,7,4],
+        p = 5,
+        q = 1
     Output:
         3
     Explanation:
@@ -18,7 +20,9 @@ Example 1:
 
 Example 2:
     Input:
-        root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+        root = [3,5,1,6,2,0,8,null,null,7,4],
+        p = 5,
+        q = 4
     Output:
         5
     Explanation:
@@ -26,7 +30,9 @@ Example 2:
 
 Example 3:
     Input:
-        root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10
+        root = [3,5,1,6,2,0,8,null,null,7,4],
+        p = 5,
+        q = 10
     Output:
         null
     Explanation:
@@ -34,8 +40,8 @@ Example 3:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [1, 104].
-    -109 <= Node.val <= 109
+    The number of nodes in the tree is in the range [1, 10000].
+    -1000000000 <= Node.val <= 1000000000
     All Node.val are unique.
     p != q
 

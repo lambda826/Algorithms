@@ -41,7 +41,7 @@ Example 3:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [2, 105].
+    The number of nodes in the tree is in the range [2, 100000].
     -1000000000 <= Node.val <= 1000000000
     All Node.val are unique.
     p != q
