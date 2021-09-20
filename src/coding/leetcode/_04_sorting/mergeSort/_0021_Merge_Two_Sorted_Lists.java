@@ -1,4 +1,4 @@
-package coding.leetcode.temp;
+package coding.leetcode._04_sorting.mergeSort;
 
 import common.ListNode;
 
