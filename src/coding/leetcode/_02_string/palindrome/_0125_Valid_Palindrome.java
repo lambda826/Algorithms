@@ -32,23 +32,22 @@ public class _0125_Valid_Palindrome {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Two pointer
     public class Solution {
 
         public boolean isPalindrome(String s) {
-            int i = 0;
-            int j = s.length() - 1;
-            while (i < j) {
-                while (i < j && Character.isLetter(s.charAt(i))) {
-                    ++i;
+            int p1 = 0;
+            int p2 = s.length() - 1;
+            while (p1 < p2) {
+                while (p1 < p2 && !Character.isLetterOrDigit(s.charAt(p1))) {
+                    ++p1;
                 }
-                while (i < j && Character.isLetter(s.charAt(j))) {
-                    --j;
+                while (p1 < p2 && !Character.isLetterOrDigit(s.charAt(p2))) {
+                    --p2;
                 }
-                if (Character.toLowerCase(s.charAt(i)) != (Character.toLowerCase(s.charAt(j)))) {
+                if (Character.toLowerCase(s.charAt(p1++)) != (Character.toLowerCase(s.charAt(p2--)))) {
                     return false;
                 }
-                ++i;
-                --j;
             }
             return true;
         }
