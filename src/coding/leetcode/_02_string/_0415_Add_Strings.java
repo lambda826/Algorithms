@@ -10,22 +10,25 @@ You must also not convert the inputs to integers directly.
 
 Example 1:
     Input:
-        num1 = "11", num2 = "123"
+        num1 = "11",
+        num2 = "123"
     Output:
         "134"
 
 Example 2:
     Input:
-        num1 = "456", num2 = "77"
+        num1 = "456",
+        num2 = "77"
     Output:
         "533"
 
 Example 3:
-    Input: num1 = "0", num2 = "0"
+    Input: num1 = "0",
+    num2 = "0"
     Output: "0"
 
 Constraints:
-    1 <= num1.length, num2.length <= 104
+    1 <= num1.length, num2.length <= 10^4
     num1 and num2 consist of only digits.
     num1 and num2 don't have any leading zeros except for the zero itself.
 
@@ -35,24 +38,21 @@ public class _0415_Add_Strings {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public String addStrings(String num1, String num2) {
-        StringBuilder sb = new StringBuilder();
-        int i1 = num1.length() - 1;
-        int i2 = num2.length() - 1;
-        int carry = 0;
-        while (i1 >= 0 || i2 >= 0) {
-            int v1 = i1 < 0 ? 0 : Character.getNumericValue(num1.charAt(i1));
-            int v2 = i2 < 0 ? 0 : Character.getNumericValue(num2.charAt(i2));
-            int sum = v1 + v2 + carry;
-            carry = sum / 10;
-            sb.insert(0, sum % 10);
-            --i1;
-            --i2;
+    public class Solution {
+        public String addStrings(String num1, String num2) {
+            StringBuilder sb = new StringBuilder();
+            int carry = 0;
+            int l1 = num1.length() - 1;
+            int l2 = num2.length() - 1;
+            while (l1 >= 0 || l2 >= 0 || carry > 0) {
+                int sum = (l1 < 0 ? 0 : num1.charAt(l1--) - '0')
+                          + (l2 < 0 ? 0 : num2.charAt(l2--) - '0')
+                          + carry;
+                carry = sum / 10;
+                sum = sum % 10;
+                sb.insert(0, sum);
+            }
+            return sb.toString();
         }
-        if (carry != 0) {
-            sb.insert(0, carry);
-        }
-        return sb.toString();
     }
-
 }
