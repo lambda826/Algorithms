@@ -62,15 +62,17 @@ public class _0023_Merge_k_Sorted_Lists {
             if (lists == null || lists.length == 0) {
                 return null;
             }
-            return mergeSort(lists, 0, lists.length - 1);
+            return partition(lists, 0, lists.length - 1);
         }
 
-        private ListNode mergeSort(ListNode[] lists, int lo, int hi) {
-            if (lo < hi) {
-                int mid = (lo + hi) / 2;
-                return merge(mergeSort(lists, lo, mid), mergeSort(lists, mid + 1, hi));
-            } else {
+        private ListNode partition(ListNode[] lists, int lo, int hi) {
+            if (lo == hi) {
                 return lists[lo];
+            } else {
+                int mid = lo + (hi - lo) / 2;
+                ListNode left = partition(lists, lo, mid);
+                ListNode right = partition(lists, mid + 1, hi);
+                return merge(left, right);
             }
         }
 
