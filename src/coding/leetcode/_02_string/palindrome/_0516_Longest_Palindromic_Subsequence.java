@@ -1,4 +1,4 @@
-package coding.leetcode.temp;
+package coding.leetcode._02_string.palindrome;
 
 /*
 
