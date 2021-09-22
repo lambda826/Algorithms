@@ -37,7 +37,7 @@ public class _0449_Serialize_and_Deserialize_BST {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // preOrder
     // Return current node
-    public class Solution_DFS {
+    class Solution_DFS {
 
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {

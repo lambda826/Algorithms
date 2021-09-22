@@ -56,7 +56,7 @@ public class _0023_Merge_k_Sorted_Lists {
     // Merge Sort:
     // 1. Partition: until it cannot be further partition (single list)
     // 2. Merge: merge two sorted list
-    public class Solution_MergeSort {
+    class Solution_MergeSort {
 
         public ListNode mergeKLists(ListNode[] lists) {
             if (lists == null || lists.length == 0) {
@@ -100,7 +100,7 @@ public class _0023_Merge_k_Sorted_Lists {
     //
     // Lesson learned:
     //      Comparator.comparingInt(ToIntFunction<? super T> keyExtractor)
-    public class Solution_Heap {
+    class Solution_Heap {
         public ListNode mergeKLists(ListNode[] lists) {
             if (lists == null || lists.length == 0) {
                 return null;

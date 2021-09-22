@@ -54,7 +54,7 @@ public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public class Solution_CountDepth {
+    class Solution_CountDepth {
         public Node lowestCommonAncestor2(Node p, Node q) {
             int lc = getLc(p);
             int rc = getLc(q);
@@ -87,7 +87,7 @@ public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 1. Use a stack to store parents;
     // 2. Find the last equal parent.
-    public class Solution_CompareParent {
+    class Solution_CompareParent {
         public Node lowestCommonAncestor(Node p, Node q) {
             Deque<Node> que1 = new ArrayDeque<>();
             Deque<Node> que2 = new ArrayDeque<>();

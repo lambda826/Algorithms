@@ -1,28 +1,28 @@
 package coding.leetcode.topics;
 
-import coding.leetcode._0100_Same_Tree;
-import coding.leetcode._0257_Binary_Tree_Paths;
-import coding.leetcode._0339_Nested_List_Weight_Sum;
-import coding.leetcode._0559_Maximum_Depth_of_N_ary_Tree;
-import coding.leetcode._0690_Employee_Importance;
-import coding.leetcode._0733_Flood_Fill;
-import coding.leetcode._0872_Leaf_Similar_Trees;
-import coding.leetcode._0993_Cousins_in_Binary_Tree;
-import coding.leetcode._0994_Rotting_Oranges;
-import coding.leetcode._1236_Web_Crawler;
-import coding.leetcode._0101_Symmetric_Tree;
-import coding.temp._0102_Binary_Tree_Level_Order_Traversal;
-import coding.leetcode._0104_Maximum_Depth_of_Binary_Tree;
-import coding.leetcode._0107_Binary_Tree_Level_Order_Traversal_II;
-import coding.leetcode._0110_Balanced_Binary_Tree;
-import coding.leetcode._0111_Minimum_Depth_of_Binary_Tree;
-import coding.leetcode._0112_Path_Sum;
-import coding.temp._0199_Binary_Tree_Right_Side_View;
-import coding.temp._0323_Number_of_Connected_Components_in_an_Undirected_Graph;
-import coding.temp._0429_N_ary_Tree_Level_Order_Traversal;
-import coding.temp._0513_Find_Bottom_Left_Tree_Value;
-import coding.temp._0515_Find_Largest_Value_in_Each_Tree_Row;
-import coding.temp._0529_Minesweeper;
+import coding.leetcode.temp._0100_Same_Tree;
+import coding.leetcode.temp._0257_Binary_Tree_Paths;
+import coding.leetcode._10_tree.traversal.level_order._0339_Nested_List_Weight_Sum;
+import coding.leetcode._10_tree.traversal.level_order._0559_Maximum_Depth_of_N_ary_Tree;
+import coding.leetcode._10_tree.traversal.universal_traversal._0690_Employee_Importance;
+import coding.leetcode.temp._0733_Flood_Fill;
+import coding.leetcode.temp._0872_Leaf_Similar_Trees;
+import coding.leetcode._10_tree.traversal.level_order._0993_Cousins_in_Binary_Tree;
+import coding.leetcode.temp._0994_Rotting_Oranges;
+import coding.leetcode._11_graph.search.string._1236_Web_Crawler;
+import coding.leetcode._10_tree.traversal.level_order._0101_Symmetric_Tree;
+import coding.leetcode._10_tree.traversal.level_order._0102_Binary_Tree_Level_Order_Traversal;
+import coding.leetcode.temp._0104_Maximum_Depth_of_Binary_Tree;
+import coding.leetcode.temp._0107_Binary_Tree_Level_Order_Traversal_II;
+import coding.leetcode.temp._0110_Balanced_Binary_Tree;
+import coding.leetcode._10_tree.traversal.level_order._0111_Minimum_Depth_of_Binary_Tree;
+import coding.leetcode.temp._0112_Path_Sum;
+import coding.leetcode._06_bfs_dfs._0199_Binary_Tree_Right_Side_View;
+import coding.leetcode.temp._0323_Number_of_Connected_Components_in_an_Undirected_Graph;
+import coding.leetcode.temp._0429_N_ary_Tree_Level_Order_Traversal;
+import coding.leetcode.temp._0513_Find_Bottom_Left_Tree_Value;
+import coding.leetcode.temp._0515_Find_Largest_Value_in_Each_Tree_Row;
+import coding.leetcode.temp._0529_Minesweeper;
 
 public interface Search {
 

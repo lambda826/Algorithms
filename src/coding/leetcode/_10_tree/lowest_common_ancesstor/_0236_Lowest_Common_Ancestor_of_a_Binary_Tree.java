@@ -57,7 +57,7 @@ public class _0236_Lowest_Common_Ancestor_of_a_Binary_Tree {
     //         root is the LCA
     // case 2: p,q reside on the left or right of the root
     //         LCA reside on the left or right of the root
-    public class Solution_PostOrder {
+    class Solution_PostOrder {
 
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (root == null || root.val == p.val || root.val == q.val) {

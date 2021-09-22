@@ -1,0 +1,18 @@
+/**
+ *  @author: Yunxiang He
+ *  @date  : 2018-06-27
+ */
+
+package coding.leetcode._10_tree.bst;
+
+import algorithms.tree.BST;
+import common.TreeNode;
+
+public class _0701_Insert_into_a_Binary_Search_Tree {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        return BST.put(root, val);
+    }
+}

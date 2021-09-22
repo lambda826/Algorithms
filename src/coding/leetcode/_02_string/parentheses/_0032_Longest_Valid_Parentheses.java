@@ -43,7 +43,7 @@ public class _0032_Longest_Valid_Parentheses {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Find index of valid parentheses
-    public class Solution {
+    class Solution {
 
         public int longestValidParentheses(String s) {
             boolean[] visited = new boolean[s.length()];
@@ -77,7 +77,7 @@ public class _0032_Longest_Valid_Parentheses {
     // If the current is ')' then
     //   If previous is '(', dp[i] = 2 + dp[i - 2];
     //   Or if previous is ')' 
-    public class Solution_DP {
+    class Solution_DP {
 
         public int longestValidParentheses(String s) {
             int max = 0;

@@ -54,7 +54,7 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // record number of Children
     // pre-order, return current node
-    public class Solution_RecordNumberOfChildren {
+    class Solution_RecordNumberOfChildren {
 
         public String serialize(Node root) {
             if (root != null) {
@@ -100,7 +100,7 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Embrace children nodes in []
-    public class Solution_DFS {
+    class Solution_DFS {
 
         // Encodes a tree to a single string.
         public String serialize(Node root) {

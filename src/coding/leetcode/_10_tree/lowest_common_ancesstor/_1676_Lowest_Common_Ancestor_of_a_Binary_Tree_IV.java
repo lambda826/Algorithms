@@ -62,7 +62,7 @@ public class _1676_Lowest_Common_Ancestor_of_a_Binary_Tree_IV {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public class Solution_PostOrder {
+    class Solution_PostOrder {
         public TreeNode lowestCommonAncestor_recursion(TreeNode root, TreeNode[] nodes) {
             Set<Integer> valSet = new HashSet<>();
             for (TreeNode node : nodes) {

@@ -35,7 +35,7 @@ public class _0560_Subarray_Sum_Equals_K {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Given three points in terms of sequence: A1, A2, A3, and sum[A2, A3] = k;
     // Then we have sum[A2, A3] = sum[A1, A3] - sum[A1, A2];
-    public class Solution {
+    class Solution {
 
         public int subArraySum(int[] nums, int k) {
             int count = 0;
@@ -55,7 +55,7 @@ public class _0560_Subarray_Sum_Equals_K {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public class Solution_BruteForce {
+    class Solution_BruteForce {
 
         public int subArraySum(int[] nums, int k) {
             int count = 0;

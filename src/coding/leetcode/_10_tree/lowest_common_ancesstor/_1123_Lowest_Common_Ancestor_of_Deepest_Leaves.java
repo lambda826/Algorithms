@@ -59,7 +59,7 @@ public class _1123_Lowest_Common_Ancestor_of_Deepest_Leaves {
     // 2. Update max depth value for every recursion;
     // 2.1. Compare left and right depth with max.
     // 2.2. Return max(left, right)
-    public class Solution_PostOrder {
+    class Solution_PostOrder {
 
         private TreeNode target;
         private int max = Integer.MIN_VALUE;

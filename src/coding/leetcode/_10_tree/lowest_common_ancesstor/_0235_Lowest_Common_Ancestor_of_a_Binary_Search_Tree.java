@@ -57,7 +57,7 @@ public class _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree {
     // 1. If current node is greater than both p and q, the LCA is on the left subtree;
     // 2. If current node is smaller than both p and q, the LCA is on the right subtree;
     // 3. Otherwise return current node.
-    public class Solution {
+    class Solution {
 
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (root.val > p.val && root.val > q.val) {
