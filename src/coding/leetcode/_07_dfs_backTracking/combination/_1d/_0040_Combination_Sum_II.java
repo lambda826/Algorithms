@@ -1,4 +1,4 @@
-package coding.leetcode._08_backtracking.combination._1d;
+package coding.leetcode._07_dfs_backTracking.combination._1d;
 
 import java.util.ArrayList;
 import java.util.Arrays;
