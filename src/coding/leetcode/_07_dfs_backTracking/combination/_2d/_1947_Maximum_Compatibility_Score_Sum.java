@@ -1,4 +1,4 @@
-package coding.leetcode._07_dfs_backTracking.combination._2d.memo;
+package coding.leetcode._07_dfs_backTracking.combination._2d;
 
 /*
 

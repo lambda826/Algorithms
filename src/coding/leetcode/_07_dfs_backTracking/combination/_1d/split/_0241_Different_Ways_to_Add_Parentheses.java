@@ -1,4 +1,4 @@
-package coding.leetcode._07_dfs_backTracking.combination._1d.split.memo;
+package coding.leetcode._07_dfs_backTracking.combination._1d.split;
 
 /*
 
