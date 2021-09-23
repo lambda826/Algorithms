@@ -1,4 +1,4 @@
-package coding.leetcode._07_dfs_backTracking.combination._1d;
+package coding.leetcode._07_dfs_backtracking.combination._1d;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -67,7 +67,7 @@ public class _0039_Combination_Sum {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_BackTracking {
+    class Solution_Backtracking {
 
         public List<List<Integer>> combinationSum(int[] candidates, int target) {
             List<List<Integer>> list = new ArrayList<>();
@@ -91,7 +91,7 @@ public class _0039_Combination_Sum {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_BackTracking2 {
+    class Solution_Backtracking2 {
 
         public List<List<Integer>> combinationSum(int[] candidates, int target) {
             List<List<Integer>> list = new ArrayList<>();

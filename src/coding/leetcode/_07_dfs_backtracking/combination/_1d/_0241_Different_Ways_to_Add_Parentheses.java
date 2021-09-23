@@ -1,4 +1,4 @@
-package coding.leetcode._07_dfs_backTracking.combination._1d;
+package coding.leetcode._07_dfs_backtracking.combination._1d;
 
 /*
 
@@ -41,7 +41,7 @@ public class _0241_Different_Ways_to_Add_Parentheses {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_BackTracking_Memo {
+    class Solution_Backtracking_Memo {
         public List<Integer> diffWaysToCompute(String expression) {
             List<String> bags = new ArrayList<>();
             StringBuilder sb = new StringBuilder();

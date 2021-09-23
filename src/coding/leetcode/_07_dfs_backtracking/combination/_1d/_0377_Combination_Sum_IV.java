@@ -1,4 +1,4 @@
-package coding.leetcode._07_dfs_backTracking.combination._1d;
+package coding.leetcode._07_dfs_backtracking.combination._1d;
 
 /*
 
@@ -50,7 +50,7 @@ public class _0377_Combination_Sum_IV {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_BackTracking_Memo {
+    class Solution_Backtracking_Memo {
 
         public int combinationSum4(int[] nums, int target) {
             int[] memo = new int[target + 1];
