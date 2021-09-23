@@ -48,26 +48,29 @@ public class _0040_Combination_Sum_II {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(candidates);
-        helper(candidates, target, 0, new LinkedList<>(), res);
-        return res;
-    }
+    class Solution {
 
-    private void helper(int[] candidates, int target, int start, LinkedList<Integer> curr, List<List<Integer>> res) {
-        if (target == 0) {
-            res.add(new ArrayList<>(curr));
-        } else if (target > 0 && start < candidates.length) {
-            for (int i = start; i < candidates.length; ++i) {
-                // Deduplicate:
-                // 1. We always iterate the first element;
-                // 2. For the second element, we skip if it is same as previous element;
-                //      2.1 The reason is that for the next recursion, the first element is same as the second element in previous recursion;
-                if (i == start || candidates[i] != candidates[i - 1]) {
-                    curr.addLast(candidates[i]);
-                    helper(candidates, target - candidates[i], i + 1, curr, res);
-                    curr.removeLast();
+        public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+            List<List<Integer>> list = new ArrayList<>();
+            Arrays.sort(candidates);
+            helper(candidates, 0, target, new LinkedList<>(), list);
+            return list;
+        }
+
+        private void helper(int[] candidates, int index, int target, LinkedList<Integer> curr, List<List<Integer>> list) {
+            if (target == 0) {
+                list.add(new ArrayList<>(curr));
+            } else if (target > 0) {
+                for (int i = index; i < candidates.length; ++i) {
+                    // Deduplicate (branches):
+                    // 1. We always iterate the first element;
+                    // 2. For the second element, we skip if it is same as previous element;
+                    //      2.1 The reason is that for the next recursion, the first element is same as the second element in previous recursion;
+                    if (i == index || candidates[i] != candidates[i - 1]) {
+                        curr.addLast(candidates[i]);
+                        helper(candidates, i + 1, target - candidates[i], curr, list);
+                        curr.removeLast();
+                    }
                 }
             }
         }
