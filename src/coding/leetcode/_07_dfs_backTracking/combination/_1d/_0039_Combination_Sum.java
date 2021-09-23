@@ -1,7 +1,6 @@
 package coding.leetcode._07_dfs_backTracking.combination._1d;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -68,20 +67,23 @@ public class _0039_Combination_Sum {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        helper(candidates, target, 0, res, new LinkedList<>());
-        return res;
-    }
+    class Solution_BackTracking {
 
-    private void helper(int[] candidates, int target, int start, List<List<Integer>> res, LinkedList<Integer> curr) {
-        if (target == 0) {
-            res.add(new ArrayList<>(curr));
-        } else if (target > 0) {
-            for (int i = start; i < candidates.length; ++i) {
-                curr.addLast(candidates[i]);
-                helper(candidates, target - candidates[i], i, res, curr); // Don't increase start index because the it allows duplicates
-                curr.removeLast();
+        public List<List<Integer>> combinationSum(int[] candidates, int target) {
+            List<List<Integer>> list = new ArrayList<>();
+            helper(candidates, 0, target, new LinkedList<>(), list);
+            return list;
+        }
+
+        private void helper(int[] candidates, int index, int target, LinkedList<Integer> curr, List<List<Integer>> list) {
+            if (target == 0) {
+                list.add(new ArrayList<>(curr));
+            } else if (target > 0) {
+                for (int i = index; i < candidates.length; ++i) {
+                    curr.addLast(candidates[i]);
+                    helper(candidates, i, target - candidates[i], curr, list);
+                    curr.removeLast();
+                }
             }
         }
     }
@@ -89,25 +91,26 @@ public class _0039_Combination_Sum {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        Arrays.parallelSort(candidates);
-        List<List<Integer>> list = new ArrayList<>();
-        helper2(0, candidates, new ArrayList<>(), list, target);
-        return list;
-    }
+    class Solution_BackTracking2 {
 
-    private void helper2(int i, int[] candidates, List<Integer> temp, List<List<Integer>> list, int target) {
-        if (target == 0) {
-            list.add(new ArrayList<>(temp));
-        } else if (i != candidates.length) {
-            if (target > 0) {
+        public List<List<Integer>> combinationSum(int[] candidates, int target) {
+            List<List<Integer>> list = new ArrayList<>();
+            helper(0, candidates, new LinkedList<>(), list, target);
+            return list;
+        }
+
+        private void helper(int i, int[] candidates, LinkedList<Integer> temp, List<List<Integer>> list, int target) {
+            if (target == 0) {
+                list.add(new ArrayList<>(temp));
+            } else if (target > 0 && i != candidates.length) {
                 // Choose candidates[i]
                 temp.add(candidates[i]);
-                helper2(i, candidates, temp, list, target - candidates[i]);
-                temp.remove(temp.size() - 1);
+                helper(i, candidates, temp, list, target - candidates[i]);
+                temp.removeLast();
                 // Skip candidates[i]
-                helper2(i + 1, candidates, temp, list, target);
+                helper(i + 1, candidates, temp, list, target);
             }
         }
     }
+
 }
