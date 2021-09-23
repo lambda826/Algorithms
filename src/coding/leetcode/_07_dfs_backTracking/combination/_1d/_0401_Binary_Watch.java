@@ -40,7 +40,7 @@ public class _0401_Binary_Watch {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Top-down: choose from hours and minutes, whose total number equals to the input
-    public List<String> readBinaryWatch_backTracking_2d(int turnedOn) {
+    public List<String> readBinaryWatch_BackTracking_2d(int turnedOn) {
         List<String> res = new ArrayList<>();
         for (int i = 0; i <= turnedOn; ++i) {
             int j = turnedOn - i;
@@ -74,7 +74,7 @@ public class _0401_Binary_Watch {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Top-down: view hours and minutes as a whole, and the total number to choose equals to the input
-    public List<String> readBinaryWatch_backTracking_1d(int turnedOn) {
+    public List<String> readBinaryWatch_BackTracking_1d(int turnedOn) {
         List<String> res = new ArrayList<>();
         dfs(0, turnedOn, 0, 0, res);
         return res;
