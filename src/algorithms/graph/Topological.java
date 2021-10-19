@@ -1,53 +1,76 @@
-/**
- *  @author Yunxiang He
- *  @date 10/26/2018
- */
-
 package algorithms.graph;
 
 import common.GraphNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 public class Topological {
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Input is directed edges
-    public List<Integer> topological(int[][] esges) {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Given a DAG
+    // DFS:
+    //      Iterate every node of the Graph;
+    //      For each node, if it's not visited, recursively DFS visit each neighbour;
+    //      After the visiting each neighbour, add current node to head of the order list.
+    public static List<GraphNode> topological_DFS(List<GraphNode> graph) {
+        LinkedList<GraphNode> order = new LinkedList<>();
+        Set<GraphNode> visited = new HashSet<>();
+        for (GraphNode graphNode : graph) {
+            DFS(graphNode, visited, order);
+        }
+        return order;
+    }
+
+    private static void DFS(GraphNode node, Set<GraphNode> visited, LinkedList<GraphNode> order) {
+        if (!visited.add(node)) {
+            for (GraphNode graphNode : node.neighbors) {
+                DFS(graphNode, visited, order);
+            }
+            order.add(node);
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Input is directed edge
+    public List<Integer> topological_BFS(int[][] edges) {
         List<Integer> ordering = new ArrayList<>();
-        // Build graph, inDegreeMap
+        // Build graph & inDegreeMap
         Map<Integer, List<Integer>> graph = new HashMap<>();
         Map<Integer, Integer> inDegreeMap = new HashMap<>();
-        for (int[] esge : esges) {
-            graph.putIfAbsent(esge[0], new ArrayList<>());
-            graph.get(esge[0]).add(esge[1]);
-            inDegreeMap.put(esge[1], inDegreeMap.getOrDefault(esge[1], 0) + 1);
+        for (int[] edge : edges) {
+            graph.putIfAbsent(edge[0], new ArrayList<>());
+            graph.get(edge[0]).add(edge[1]);
+            inDegreeMap.put(edge[1], inDegreeMap.getOrDefault(edge[1], 0) + 1);
         }
 
-        // Enqueue 0 indegree vertices
-        Queue<Integer> oIndegree = new LinkedList<>();
+        // Enqueue zero inDegree vertices
+        Queue<Integer> zeroInDegree = new LinkedList<>();
         for (int key : graph.keySet()) {
             if (!inDegreeMap.containsKey(key)) {
-                oIndegree.add(key);
+                zeroInDegree.add(key);
             }
         }
 
         // BFS
-        // Delete 0 indegree vertex from the queue, update `indegreeMap
-        while (!oIndegree.isEmpty()) {
-            int vertex = oIndegree.remove();
+        // Delete 0 inDegree vertex from the queue, update inDegreeMap
+        while (!zeroInDegree.isEmpty()) {
+            int vertex = zeroInDegree.remove();
             ordering.add(vertex);
             if (graph.get(vertex) != null) {
                 for (int neighbor : graph.get(vertex)) {
                     inDegreeMap.put(neighbor, inDegreeMap.get(neighbor) - 1);
                     if (inDegreeMap.get(neighbor) == 0) {
-                        oIndegree.add(neighbor);
+                        zeroInDegree.add(neighbor);
                     }
                 }
             }
@@ -56,10 +79,10 @@ public class Topological {
         return ordering;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Input is a graph
-    public static List<GraphNode> topologicalOrdering2(List<GraphNode> graph) {
+    public static List<GraphNode> topological_BFS2(List<GraphNode> graph) {
         List<GraphNode> ordering = new LinkedList<>();
 
         // Build inDegreeMap
@@ -71,22 +94,22 @@ public class Topological {
         }
 
         // Calculate 0-inDegreeMap
-        Queue<GraphNode> oIndegree = new LinkedList<>();
+        Queue<GraphNode> zeroInDegree = new LinkedList<>();
         for (GraphNode vertex : graph) {
             if (!inDegreeMap.containsKey(vertex)) {
-                oIndegree.add(vertex);
+                zeroInDegree.add(vertex);
             }
         }
 
         // BFS
-        while (!oIndegree.isEmpty()) {
-            GraphNode vertex = oIndegree.remove();
+        while (!zeroInDegree.isEmpty()) {
+            GraphNode vertex = zeroInDegree.remove();
             ordering.add(vertex);
             if (vertex.neighbors != null) {
                 for (GraphNode neighbor : vertex.neighbors) {
                     inDegreeMap.put(neighbor, inDegreeMap.get(neighbor) - 1);
                     if (inDegreeMap.get(neighbor) == 0) {
-                        oIndegree.add(neighbor);
+                        zeroInDegree.add(neighbor);
                     }
                 }
             }

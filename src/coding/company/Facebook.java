@@ -1,4 +1,8 @@
 package coding.company;
 
-public interface Facebook {
+public class Facebook {
+
+
+
+
 }

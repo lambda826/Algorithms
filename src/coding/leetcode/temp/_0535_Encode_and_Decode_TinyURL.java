@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date 01/02/2018
- */
-
 package coding.leetcode.temp;
 
 import java.util.Arrays;
@@ -12,25 +7,35 @@ import java.util.Random;
 
 /*
 
-TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl 
-and it returns a short URL such as http://tinyurl.com/4e9iAk.
+Note: This is a companion problem to the System Design problem: Design TinyURL.
+TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk. Design a class to encode a URL and decode a tiny URL.
 
-Design the encode and decode methods for the TinyURL service. 
-There is no restriction on how your encode/decode algorithm should work. 
-You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
+There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
+
+Implement the Solution class:
+    Solution() Initializes the object of the system.
+    String encode(String longUrl) Returns a tiny URL for the given longUrl.
+    String decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.
 
 
-Note: 
-    This is a companion problem to the System Design problem: Design TinyURL.
+Example 1:
+    Input:
+        url = "https://leetcode.com/problems/design-tinyurl"
+    Output:
+        "https://leetcode.com/problems/design-tinyurl"
+    Explanation:
+        Solution obj = new Solution();
+        string tiny = obj.encode(url); // returns the encoded tiny url.
+        string ans = obj.decode(tiny); // returns the original url after deconding it.
+
+
+Constraints:
+    1 <= url.length <= 10^4
+    url is guaranteed to be a valid URL.
 
 */
 
 public class _0535_Encode_and_Decode_TinyURL {
-
-    public static void main(String[] args) {
-        System.out.println(Integer.toOctalString(16));
-        System.out.println(Integer.toOctalString(15));
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,30 +57,30 @@ public class _0535_Encode_and_Decode_TinyURL {
                 long2short.put(longUrl, id);
                 short2long.put(id, longUrl);
             }
-            return _10To62(id);
+            return base10ToBase62(id);
         }
 
         public String decode(String shortUrl) {
-            return short2long.get(_62To10(shortUrl.substring(8)));
+            return short2long.get(base62ToBase10(shortUrl.substring(8))); // https://
         }
 
-        private String _10To62(long id) {
+        private String base10ToBase62(long id) {
             StringBuilder sb = new StringBuilder("https://");
             while (true) {
                 // notice for type conversion
                 sb.insert(8, radix[(int) (id % BASE)]);
-                id /= 62;
+                id /= BASE;
                 if (id == 0) {
                     break;
                 }
             }
-            while (sb.length() != 14) {
+            while (sb.length() != 14) { // 14 = 8 + 6
                 sb.insert(8, 0);
             }
             return sb.toString();
         }
 
-        private long _62To10(String chs) {
+        private long base62ToBase10(String chs) {
             int id = 0;
             for (int i = 0; i < 6; i++) {
                 // Math.pow notice for type conversion

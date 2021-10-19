@@ -8,7 +8,7 @@ package algorithms.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
+class Solution {
     public static void main(String args[]) throws Exception {
         System.out.print(combinationK(new int[] { 1, 8, 5, 3, 2 }, 2));
     }

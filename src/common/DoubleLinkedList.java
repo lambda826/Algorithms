@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date 11/22/2018
- */
-
 package common;
 
 public class DoubleLinkedList<K, V> {

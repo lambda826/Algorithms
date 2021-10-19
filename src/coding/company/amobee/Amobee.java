@@ -89,8 +89,8 @@ coding: merge two sorted array
 public class Amobee {
 
     All_Path_Sum All_Path_Sum = null;
-    coding.temp._0336_Palindrome_Pairs _0336_Palindrome_Pairs = null;
-    coding.temp._0031_Next_Permutation _0031_Next_Permutation = null;
-    coding.temp._0272_Closest_Binary_Search_Tree_Value_II _0272_Closest_Binary_Search_Tree_Value_II = null;
-    coding.temp._0741_Cherry_Pickup _0741_Cherry_Pickup = null;
+    coding.leetcode.temp._0336_Palindrome_Pairs _0336_Palindrome_Pairs = null;
+    coding.leetcode.temp._0031_Next_Permutation _0031_Next_Permutation = null;
+    coding.leetcode._10_tree.bst._0272_Closest_Binary_Search_Tree_Value_II _0272_Closest_Binary_Search_Tree_Value_II = null;
+    coding.leetcode.temp._0741_Cherry_Pickup _0741_Cherry_Pickup = null;
 }

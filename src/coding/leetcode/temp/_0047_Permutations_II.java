@@ -37,7 +37,7 @@ public class _0047_Permutations_II {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // The key point is how we deduplicate (swap approach):
     //      1. We need to maintain same elements adjacent before and after swap, in other words, we need to maintain the array in sorted order;
-    //      2. When we do backtracking, we view the array as two parts:
+    //      2. When we do BackTracking, we view the array as two parts:
     //          2.1 first part is the visited elements which is permuted;
     //          2.2 second part is the elements which are to be permuted in the next recursion which should be in sorted order for deduplication;
     //          2.3 when iterate on the elements, we need to keep previous status of the array in order to keep the second part in sorted order for deduplication;
@@ -78,7 +78,7 @@ public class _0047_Permutations_II {
                     // Note: we cannot revert it back to the original status otherwise there will be duplicates:
                     //      In this case, same elements will swap with the start index element, which results in duplicated brunches;
                     //      If we check (!numList.get(i - 1).equals(numList.get(i))) instead of (!numList.get(start).equals(numList.get(i))),
-                    //          it will cause another issue which is after some backtracking, the second part of the array might not be in sorted order;
+                    //          it will cause another issue which is after some BackTracking, the second part of the array might not be in sorted order;
                     //          this will introduce duplicate brunches.
                 }
             }

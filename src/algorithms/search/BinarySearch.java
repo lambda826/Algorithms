@@ -1,13 +1,24 @@
-/**
- *  @author Yunxiang He
- *  @date Feb 1, 2018 11:41:38 PM
- */
-
 package algorithms.search;
 
 import java.util.Arrays;
 
 public class BinarySearch {
+
+    public int binarySearch(int[] nums, int target) {
+        int lo = 0;
+        int hi = nums.length - 1;
+        int mid;
+        do {
+            mid = lo + (hi - lo) / 2;
+            if (nums[mid] > target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        } while (lo <= hi);
+        return mid;
+    }
+
 
     public int find_target(int[] nums, int target) {
         if (nums[nums.length - 1] == target) {

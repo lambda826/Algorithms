@@ -7,6 +7,6 @@ package coding.problems;
 
 public class Magic_String {
 
-    coding.temp._0761_Special_Binary_String _0761_Special_Binary_String = null;
+    coding.leetcode.temp._0761_Special_Binary_String _0761_Special_Binary_String = null;
 
 }

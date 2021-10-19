@@ -17,7 +17,7 @@ import coding.leetcode.temp._0107_Binary_Tree_Level_Order_Traversal_II;
 import coding.leetcode.temp._0110_Balanced_Binary_Tree;
 import coding.leetcode._10_tree.traversal.level_order._0111_Minimum_Depth_of_Binary_Tree;
 import coding.leetcode.temp._0112_Path_Sum;
-import coding.leetcode._06_bfs_dfs._0199_Binary_Tree_Right_Side_View;
+import coding.leetcode._08_bfs_dfs._0199_Binary_Tree_Right_Side_View;
 import coding.leetcode.temp._0323_Number_of_Connected_Components_in_an_Undirected_Graph;
 import coding.leetcode.temp._0429_N_ary_Tree_Level_Order_Traversal;
 import coding.leetcode.temp._0513_Find_Bottom_Left_Tree_Value;
@@ -29,7 +29,7 @@ public interface Search {
     // BFS
     _0994_Rotting_Oranges _0994_Rotting_Oranges = null;
 
-    // DFS | Backtracking
+    // DFS | BackTracking
     _0872_Leaf_Similar_Trees _0872_Leaf_Similar_Trees = null;
     _0100_Same_Tree _0100_Same_Tree = null;
     _0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null;
