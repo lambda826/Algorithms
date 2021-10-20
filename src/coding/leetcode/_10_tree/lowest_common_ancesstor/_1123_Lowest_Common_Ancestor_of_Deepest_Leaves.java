@@ -55,10 +55,10 @@ public class _1123_Lowest_Common_Ancestor_of_Deepest_Leaves {
     //      Finding the max depth of left subtree and right subtree if equals.
     //
     // Post order:
-    // 1. Use two global variables store Target node and max depth value;
-    // 2. Update max depth value for every recursion;
-    // 2.1. Compare left and right depth with max.
-    // 2.2. Return max(left, right)
+    //      1. Use two global variables store Target node and max depth value;
+    //      2. Update max depth value for every recursion;
+    //      2.1. Compare left and right depth with max.
+    //      2.2. Return max(left, right)
     class Solution_PostOrder {
 
         private TreeNode target;

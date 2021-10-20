@@ -38,7 +38,7 @@ Example 3:
 
 Constraints:
     The number of nodes in the tree is in the range [2, 100000].
-    -1000000000 <= Node.val <= 1000000000
+    -10^5 <= Node.val <= 10^5
     All Node.val are unique.
     p != q
     p and q exist in the tree.
@@ -94,7 +94,7 @@ public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
             enqueue(p, que1);
             enqueue(q, que2);
             Node lca = null;
-            while (que1.peekFirst() != null && que1.peekFirst() == que2.peekFirst()) {
+            while (que1.peekFirst() == que2.peekFirst()) {
                 lca = que1.pollFirst();
                 que2.pollFirst();
             }
