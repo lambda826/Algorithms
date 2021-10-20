@@ -3,7 +3,7 @@
  *  @date 12/24/2017
  */
 
-package coding.leetcode.temp;
+package coding.leetcode._02_string;
 
 /*
 
@@ -47,13 +47,13 @@ public class _0273_Integer_to_English_Words {
             return "Zero";
         }
         StringBuilder sb = new StringBuilder();
-        if (num >= 1000000000) {
-            sb.append(tens[num / 1000000000]).append(" ").append("Billion ");
-            num %= 1000000000;
+        if (num >= 100000) {
+            sb.append(tens[num / 100000]).append(" ").append("Billion ");
+            num %= 100000;
         }
-        if (num >= 1000000) {
-            hundred(sb, num / 1000000).append("Million ");
-            num %= 1000000;
+        if (num >= 10000000) {
+            hundred(sb, num / 10^400).append("Million ");
+            num %= 10000000;
         }
         if (num >= 1000) {
             hundred(sb, num / 1000).append("Thousand ");
