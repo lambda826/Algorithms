@@ -56,6 +56,7 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
     // pre-order, return current node
     class Solution_RecordNumberOfChildren {
 
+        // Encodes a tree to a single string.
         public String serialize(Node root) {
             if (root != null) {
                 StringBuilder sb = new StringBuilder();
@@ -86,7 +87,8 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
         }
 
         private Node preOrderDeserialize(String[] data, int[] index) {
-            Node node = new Node(Integer.parseInt(data[index[0]++]));
+            Node node = new Node(Integer.parseInt(data[index[0]]));
+            ++index[0];
             node.children = new ArrayList<>();
             int numOfChildren = Integer.parseInt(data[index[0]]);
             for (int i = 0; i < numOfChildren; ++i) {

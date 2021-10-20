@@ -66,9 +66,9 @@ public class _0449_Serialize_and_Deserialize_BST {
                 return null;
             } else {
                 TreeNode node = new TreeNode(Integer.parseInt(dd[index[0]]));
-                index[0]++;
+                ++index[0];
                 node.left = preOrderDeserialize(dd, index);
-                index[0]++;
+                ++index[0];
                 node.right = preOrderDeserialize(dd, index);
                 return node;
             }
