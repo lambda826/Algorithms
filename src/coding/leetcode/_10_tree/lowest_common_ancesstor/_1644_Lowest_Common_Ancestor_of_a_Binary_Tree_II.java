@@ -51,31 +51,30 @@ public class _1644_Lowest_Common_Ancestor_of_a_Binary_Tree_II {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Use an array to record the number of node found
     class Solution_PostOrder {
 
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-            int[] status = new int[1];
-            TreeNode lca = postOrder(root, p, q, status);
-            return status[0] == 2 ? lca : null;
+            int[] count = new int[1];
+            TreeNode lca = postOrder(root, p, q, count);
+            return count[0] == 2 ? lca : null;
         }
 
-        private TreeNode postOrder(TreeNode node, TreeNode p, TreeNode q, int[] status) {
+        private TreeNode postOrder(TreeNode node, TreeNode p, TreeNode q, int[] count) {
             if (node == null) {
                 return null;
             } else {
-                TreeNode left = postOrder(node.left, p, q, status);
-                TreeNode right = postOrder(node.right, p, q, status);
+                TreeNode left = postOrder(node.left, p, q, count);
+                TreeNode right = postOrder(node.right, p, q, count);
                 if (left != null && right != null) {
                     return node;
                 } else if (node.val == p.val || node.val == q.val) {
-                    status[0]++;
+                    ++count[0];
                     return node;
                 } else if (left != null) {
                     return left;
-                } else if (right != null) {
-                    return right;
                 } else {
-                    return null;
+                    return right;
                 }
             }
         }
