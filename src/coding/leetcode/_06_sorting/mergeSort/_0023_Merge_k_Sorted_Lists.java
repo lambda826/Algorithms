@@ -41,11 +41,11 @@ Example 3:
 
 Constraints:
     k == lists.length
-    0 <= k <= 10000
+    0 <= k <= 10^4
     0 <= lists[i].length <= 500
-    -10000 <= lists[i][j] <= 10000
+    -10^4 <= lists[i][j] <= 10^4
     lists[i] is sorted in ascending order.
-    The sum of lists[i].length won't exceed 10000.
+    The sum of lists[i].length won't exceed 10^4.
 
 */
 
@@ -54,8 +54,8 @@ public class _0023_Merge_k_Sorted_Lists {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Merge Sort:
-    // 1. Partition: until it cannot be further partition (single list)
-    // 2. Merge: merge two sorted list
+    //      1. Partition: until it cannot be further partition (single list)
+    //      2. Merge: merge two sorted list
     class Solution_MergeSort {
 
         public ListNode mergeKLists(ListNode[] lists) {
@@ -94,9 +94,9 @@ public class _0023_Merge_k_Sorted_Lists {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Heap (Priority Queue)
-    // 1. Enqueue every head of all the linked list into the min heap;
-    // 2. Poll the peek (min node) and append to current pointer;
-    // 2.1. Enqueue the next node of this node.
+    //      1. Enqueue every head of all the linked list into the min heap;
+    //      2. Poll the peek (min node) and append to current pointer;
+    //          2.1. Enqueue the next node of this node.
     //
     // Lesson learned:
     //      Comparator.comparingInt(ToIntFunction<? super T> keyExtractor)
