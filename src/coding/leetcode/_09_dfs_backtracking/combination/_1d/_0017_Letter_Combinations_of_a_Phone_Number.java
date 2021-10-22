@@ -1,8 +1,3 @@
-/**
- * @author: Yunxiang He
- * @date : 2018-06-27
- */
-
 package coding.leetcode._09_dfs_backtracking.combination._1d;
 
 import java.util.ArrayList;
