@@ -76,7 +76,7 @@
 //    coding.leetcode._04_linkedList._0138_Copy_List_with_Random_Pointer _0138_Copy_List_with_Random_Pointer = null; // O(1) space is very great
 //    coding.leetcode.temp._0160_Intersection_of_Two_Linked_Lists _0160_Intersection_of_Two_Linked_Lists = null;
 //    // Tree
-//    coding.leetcode.search.dfs._0543_Diameter_of_Binary_Tree _0543_Diameter_of_Binary_Tree = null;
+//    coding.leetcode.search.DFS._0543_Diameter_of_Binary_Tree _0543_Diameter_of_Binary_Tree = null;
 //    coding.leetcode._10_tree.traversal.ordered._0124_Binary_Tree_Maximum_Path_Sum _0124_Binary_Tree_Maximum_Path_Sum = null;
 //    coding.leetcode._10_tree.serialization._0297_Serialize_and_Deserialize_Binary_Tree _0297_Serialize_and_Deserialize_Binary_Tree = null;
 //    coding.leetcode.tree.bst._0449_Serialize_and_Deserialize_BST _0449_Serialize_and_Deserialize_BST = null; // -----
@@ -168,7 +168,7 @@
 //    coding.leetcode.temp._0103_Binary_Tree_Zigzag_Level_Order_Traversal _0103_Binary_Tree_Zigzag_Level_Order_Traversal = null;
 //    coding.leetcode.temp._0165_Compare_Version_Numbers _0165_Compare_Version_Numbers = null;
 //    coding.leetcode.temp._0412_Fizz_Buzz _0412_Fizz_Buzz = null;
-//    coding.leetcode._06_bfs_dfs._0199_Binary_Tree_Right_Side_View _0199_Binary_Tree_Right_Side_View = null;
+//    coding.leetcode._06_bfs_DFS._0199_Binary_Tree_Right_Side_View _0199_Binary_Tree_Right_Side_View = null;
 //    coding.leetcode.temp._0284_Peeking_Iterator _0284_Peeking_Iterator = null;
 //    coding.leetcode.temp._0100_Same_Tree _0100_Same_Tree = null;
 //    coding.leetcode.temp._0179_Largest_Number _0179_Largest_Number = null;

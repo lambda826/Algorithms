@@ -32,37 +32,37 @@ public class Kosaraju {
         // Build Topological order
         Deque<Character> topological = new ArrayDeque<>();
         for (char node : adjacentList.keySet()) {
-            dfs_Topological(topological, node);
+            DFS_Topological(topological, node);
         }
 
         // Build Strong Connected Components
         while (!topological.isEmpty()) {
             char node = topological.pollFirst();
             if (visited[node - 'a'] != 3) {
-                scc.add(dfs_StrongConnectedComponent(node, new HashSet<>()));
+                scc.add(DFS_StrongConnectedComponent(node, new HashSet<>()));
             }
         }
         System.out.println(scc);
     }
 
-    private void dfs_Topological(Deque<Character> topological, char node) {
+    private void DFS_Topological(Deque<Character> topological, char node) {
         if (visited[node - 'a'] == 0) {
             visited[node - 'a'] = 1;
             for (char neighbour : adjacentList.get(node)) {
-                dfs_Topological(topological, neighbour);
+                DFS_Topological(topological, neighbour);
             }
             topological.offerFirst(node); // Add to the top of the stack when finish visiting
             visited[node - 'a'] = 2;
         }
     }
 
-    private Set<Character> dfs_StrongConnectedComponent(char node, Set<Character> scc) {
+    private Set<Character> DFS_StrongConnectedComponent(char node, Set<Character> scc) {
         if (visited[node - 'a'] != 3) {
             visited[node - 'a'] = 3;
             scc.add(node);
             if (transposeAdjacentList.containsKey(node)) {
                 for (char nei : transposeAdjacentList.get(node)) {
-                    dfs_StrongConnectedComponent(nei, scc);
+                    DFS_StrongConnectedComponent(nei, scc);
                 }
             }
         }

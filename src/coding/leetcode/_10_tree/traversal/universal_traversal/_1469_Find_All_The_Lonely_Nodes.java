@@ -65,17 +65,17 @@ public class _1469_Find_All_The_Lonely_Nodes {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public List<Integer> getLonelyNodes_DFS(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        dfs(root, false, list);
+        DFS(root, false, list);
         return list;
     }
 
-    private void dfs(TreeNode node, boolean isLonely, List<Integer> list) {
+    private void DFS(TreeNode node, boolean isLonely, List<Integer> list) {
         if (node != null) {
             if (isLonely) {
                 list.add(node.val);
             }
-            dfs(node.left, node.right == null, list);
-            dfs(node.right, node.left == null, list);
+            DFS(node.left, node.right == null, list);
+            DFS(node.right, node.left == null, list);
         }
     }
 }

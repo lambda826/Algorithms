@@ -72,18 +72,18 @@ public class _0046_Permutations {
         for (int num : nums) {
             numList.add(num);
         }
-        dfs(0, numList, res);
+        DFS(0, numList, res);
         return res;
     }
 
     // Top down
-    private void dfs(int start, ArrayList<Integer> numList, List<List<Integer>> res) {
+    private void DFS(int start, ArrayList<Integer> numList, List<List<Integer>> res) {
         if (start == numList.size()) {
             res.add(new ArrayList<>(numList));
         } else {
             for (int i = start; i < numList.size(); ++i) {
                 Collections.swap(numList, start, i);
-                dfs(start + 1, new ArrayList<>(numList), res);
+                DFS(start + 1, new ArrayList<>(numList), res);
             }
         }
     }

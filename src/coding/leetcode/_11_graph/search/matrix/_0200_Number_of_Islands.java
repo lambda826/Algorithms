@@ -52,18 +52,18 @@ public class _0200_Number_of_Islands {
             for (int j = 0; j < grid[0].length; ++j) {
                 if (grid[i][j] == '1') {
                     ++num;
-                    dfs(grid, i, j, dir);
+                    DFS(grid, i, j, dir);
                 }
             }
         }
         return num;
     }
 
-    private void dfs(char[][] grid, int i, int j, int[] dir) {
+    private void DFS(char[][] grid, int i, int j, int[] dir) {
         if (i >= 0 && i < grid.length && j >= 0 && j < grid[0].length && grid[i][j] == '1') {
             grid[i][j] = '0';
             for (int k = 0; k < 4; ++k) {
-                dfs(grid, i + dir[k], j + dir[k + 1], dir);
+                DFS(grid, i + dir[k], j + dir[k + 1], dir);
             }
         }
     }

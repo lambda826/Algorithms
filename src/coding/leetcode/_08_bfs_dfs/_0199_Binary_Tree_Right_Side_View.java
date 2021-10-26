@@ -1,4 +1,4 @@
-package coding.leetcode._08_bfs_dfs;
+package coding.leetcode._08_bfs_DFS;
 
 import common.TreeNode;
 
@@ -72,17 +72,17 @@ public class _0199_Binary_Tree_Right_Side_View {
     // When the list.size() is less than height, it indicates the node is the rightmost one
     public List<Integer> rightSideView_DFS(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        dfs(root, list, 1);
+        DFS(root, list, 1);
         return list;
     }
 
-    private void dfs(TreeNode node, List<Integer> list, int height) {
+    private void DFS(TreeNode node, List<Integer> list, int height) {
         if (node != null) {
             if (list.size() < height) {
                 list.add(node.val);
             }
-            dfs(node.right, list, height + 1);
-            dfs(node.left, list, height + 1);
+            DFS(node.right, list, height + 1);
+            DFS(node.left, list, height + 1);
         }
     }
 

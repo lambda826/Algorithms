@@ -67,17 +67,17 @@ public class _1485_Clone_Binary_Tree_With_Random_Pointer {
     public Node copyRandomBinaryTree_DFS(Node root) {
         Map<Node, Node> random = new HashMap<>();
         Node clone = clone(root, random);
-        dfs(root, clone, random);
+        DFS(root, clone, random);
         return clone;
     }
 
-    private void dfs(Node node, Node clone, Map<Node, Node> random) {
+    private void DFS(Node node, Node clone, Map<Node, Node> random) {
         if (node != null) {
             clone.left = clone(node.left, random);
             clone.right = clone(node.right, random);
             clone.random = clone(node.random, random);
-            dfs(node.left, clone.left, random);
-            dfs(node.right, clone.right, random);
+            DFS(node.left, clone.left, random);
+            DFS(node.right, clone.right, random);
         }
     }
 

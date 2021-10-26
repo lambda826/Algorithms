@@ -66,17 +66,17 @@ public class _0638_Shopping_Offers {
         this.special = special;
 
         // Search
-        dfs(specialSize - 1, needs, 0);
+        DFS(specialSize - 1, needs, 0);
         return minPrice;
     }
 
-    private void dfs(int index, List<Integer> needs, int currentCost) {
+    private void DFS(int index, List<Integer> needs, int currentCost) {
         minPrice = Math.min(minPrice, computePrice(price, needs) + currentCost);
         for (int i = index; i >= 0; i--) {
             List<Integer> offer = special.get(i);
             List<Integer> newNeed = updateNeeds(needs, offer);
             if (newNeed != null) {
-                dfs(i, newNeed, currentCost + offer.get(itemNo));
+                DFS(i, newNeed, currentCost + offer.get(itemNo));
             }
         }
     }

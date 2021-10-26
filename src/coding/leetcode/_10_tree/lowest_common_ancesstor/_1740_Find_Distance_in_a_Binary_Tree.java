@@ -54,7 +54,7 @@ public class _1740_Find_Distance_in_a_Binary_Tree {
     public int findDistance(TreeNode root, int p, int q) {
         int[] dis = new int[1];
         if (root != null) {
-            dfs(lca(root, p, q), p, q, 0, dis);
+            DFS(lca(root, p, q), p, q, 0, dis);
         }
         return dis[0];
     }
@@ -75,13 +75,13 @@ public class _1740_Find_Distance_in_a_Binary_Tree {
         }
     }
 
-    private void dfs(TreeNode node, int p, int q, int depth, int[] dis) {
+    private void DFS(TreeNode node, int p, int q, int depth, int[] dis) {
         if (node != null) {
             if (node.val == p || node.val == q) {
                 dis[0] += depth;
             }
-            dfs(node.left, p, q, depth + 1, dis);
-            dfs(node.right, p, q, depth + 1, dis);
+            DFS(node.left, p, q, depth + 1, dis);
+            DFS(node.right, p, q, depth + 1, dis);
         }
     }
 

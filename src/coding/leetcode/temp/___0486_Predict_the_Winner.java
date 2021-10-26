@@ -102,14 +102,14 @@ public class ___0486_Predict_the_Winner {
         if ((n & 1) == 0) {
             return true;
         }
-        return dfs(nums, 0, n - 1) >= 0;
+        return DFS(nums, 0, n - 1) >= 0;
     }
 
-    private int dfs(int[] nums, int start, int end) {
+    private int DFS(int[] nums, int start, int end) {
         if (start == end) {
             return nums[start];
         } else {
-            return Math.max(nums[start] - dfs(nums, start + 1, end), nums[end] - dfs(nums, start, end - 1));
+            return Math.max(nums[start] - DFS(nums, start + 1, end), nums[end] - DFS(nums, start, end - 1));
         }
     }
 
