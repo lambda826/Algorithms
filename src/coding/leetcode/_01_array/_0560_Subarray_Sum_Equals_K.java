@@ -1,4 +1,4 @@
-package coding.leetcode._22_prefixSum;
+package coding.leetcode._01_array;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class _0560_Subarray_Sum_Equals_K {
     //      We have:
     //          (A1 + A2 + A3 + A4 + A5) - (A1 + A2) = 9 - 4 = 5; then we know A3 + A4 + A5 = 5;
     //          (A1 + A2 + A3 + A4 + A5) - (A1 + A2 + A3 + A4) = 9 - 4 = 5; then we know A5 = 5;
-    class Solution {
+    class Solution_PrefixSum {
 
         public int subArraySum(int[] nums, int k) {
             int count = 0;
