@@ -22,7 +22,7 @@ Input: [0,2,1,0]
 Output: 1
 
 Note:
-3 <= A.length <= 10000
+3 <= A.length <= 10^4
 0 <= A[i] <= 10^6
 A is a mountain, as defined above.
 

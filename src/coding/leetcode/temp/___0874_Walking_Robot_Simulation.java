@@ -36,8 +36,8 @@ Output: 65
 Explanation: robot will be stuck at (1, 4) before turning left and going to (1, 8)
 
 Note:
-0 <= commands.length <= 10000
-0 <= obstacles.length <= 10000
+0 <= commands.length <= 10^4
+0 <= obstacles.length <= 10^4
 -30000 <= obstacle[i][0] <= 30000
 -30000 <= obstacle[i][1] <= 30000
 The answer is guaranteed to be less than 2 ^ 31.

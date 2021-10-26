@@ -17,7 +17,7 @@ Output: "bacdfeg"
 
 Restrictions:
 The string consists of lower English letters only.
-Length of the given string and k will in the range [1, 10000]
+Length of the given string and k will in the range [1, 10^4]
 
 */
 

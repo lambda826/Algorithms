@@ -43,7 +43,7 @@ Notes:
 The length of cpdomains will not exceed 100. 
 The length of each domain name will not exceed 100.
 Each address will have either 1 or 2 "." characters.
-The input count in any count-paired domain will not exceed 10000.
+The input count in any count-paired domain will not exceed 10^4.
 The answer output can be returned in any order.
 
 */

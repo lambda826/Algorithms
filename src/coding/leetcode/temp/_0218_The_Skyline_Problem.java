@@ -31,7 +31,7 @@ For instance, the skyline in Figure B should be represented as:[ [2 10], [3 15],
 
 
 Notes:
-    The number of buildings in any input list is guaranteed to be in the range [0, 10000].
+    The number of buildings in any input list is guaranteed to be in the range [0, 10^4].
     The input list is already sorted in ascbuilding[1]ing order by the left x position Li.
     The output list must be sorted by the x position.
     There must be no consecutive horizontal lines of equal height in the output skyline. 

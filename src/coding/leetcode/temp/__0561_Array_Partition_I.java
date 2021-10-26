@@ -17,8 +17,8 @@ Output: 4
 Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4).
 
 Note:
-n is a positive integer, which is in the range of [1, 10000].
-All the integers in the array will be in the range of [-10000, 10000].
+n is a positive integer, which is in the range of [1, 10^4].
+All the integers in the array will be in the range of [-10^4, 10^4].
 
 */
 
@@ -33,13 +33,13 @@ public class __0561_Array_Partition_I {
         int sum = 0;
         int[] bucket = new int[20001];
         for (int num : nums) {
-            bucket[num + 10000]++;
+            bucket[num + 10^4]++;
         }
         boolean isMin = true;
         for (int i = 0; i < bucket.length; i++) {
             while (bucket[i] != 0) {
                 if (isMin) {
-                    sum += i - 10000;
+                    sum += i - 10^4;
                 }
                 isMin = !isMin;
                 bucket[i]--;

@@ -29,8 +29,8 @@ hashSet.remove(2);
 hashSet.contains(2);    // returns false (already removed)
 
 Note:
-All values will be in the range of [0, 1000000].
-The number of operations will be in the range of [1, 10000].
+All values will be in the range of [0, 10^400].
+The number of operations will be in the range of [1, 10^4].
 Please do not use the built-in HashSet library.
 
 */

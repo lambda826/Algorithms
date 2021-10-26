@@ -31,9 +31,9 @@ Example 2:
 
 
 Note:
-    1 <= K <= N <= 10000, where N = quality.length = wage.length
-    1 <= quality[i] <= 10000
-    1 <= wage[i] <= 10000
+    1 <= K <= N <= 10^4, where N = quality.length = wage.length
+    1 <= quality[i] <= 10^4
+    1 <= wage[i] <= 10^4
     Answers within 10^-5 of the correct answer will be considered correct.
 
 */

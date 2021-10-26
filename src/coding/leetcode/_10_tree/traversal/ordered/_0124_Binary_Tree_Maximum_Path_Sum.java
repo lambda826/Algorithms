@@ -28,7 +28,7 @@ Example 2:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [1, 3 * 10000].
+    The number of nodes in the tree is in the range [1, 3 * 10^4].
     -1000 <= Node.val <= 1000
 
 */

@@ -52,6 +52,6 @@ public class __0400_Nth_Digit {
     }
 
     public static void main(String[] args) {
-        System.out.println(new __0400_Nth_Digit().findNthDigit(1000000000));
+        System.out.println(new __0400_Nth_Digit().findNthDigit(10^5));
     }
 }

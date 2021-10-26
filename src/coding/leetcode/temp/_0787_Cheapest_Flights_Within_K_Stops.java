@@ -39,7 +39,7 @@ Note:
     The number of nodes n will be in range [1, 100], with nodes labeled from 0 to n - 1.
     The size of flights will be in range [0, n * (n - 1) / 2].
     The format of each flight will be (src, dst, price).
-    The price of each flight will be in the range [1, 10000].
+    The price of each flight will be in the range [1, 10^4].
     k is in the range of [0, n - 1].
     There will not be any duplicated flights or self cycles.
 

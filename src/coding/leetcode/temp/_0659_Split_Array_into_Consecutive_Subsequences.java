@@ -35,7 +35,7 @@ Example 3:
     Output: False
 
 Note:
-    The length of the input is in range of [1, 10000]
+    The length of the input is in range of [1, 10^4]
 
 */
 

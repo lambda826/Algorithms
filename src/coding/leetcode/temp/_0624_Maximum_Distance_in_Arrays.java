@@ -24,8 +24,8 @@ One way to reach the maximum distance 4 is to pick 1 in the first or third array
 
 Note:
 Each given array will have at least 1 number. There will be at least two non-empty arrays.
-The total number of the integers in all the m arrays will be in the range of [2, 10000].
-The integers in the m arrays will be in the range of [-10000, 10000].
+The total number of the integers in all the m arrays will be in the range of [2, 10^4].
+The integers in the m arrays will be in the range of [-10^4, 10^4].
 
 */
 

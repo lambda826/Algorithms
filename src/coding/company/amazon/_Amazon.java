@@ -62,7 +62,7 @@
 //    /**************** VO ****************/
 //    /**************** Onsite ************/
 //    // String
-//    coding.leetcode.temp._0273_Integer_to_English_Words _0273_Integer_to_English_Words = null;
+//    coding.leetcode._02_string._0273_Integer_to_English_Words _0273_Integer_to_English_Words = null;
 //    // Array
 //    coding.leetcode.temp._0628_Maximum_Product_of_Three_Numbers _0628_Maximum_Product_of_Three_Numbers = null;
 //    // Array | Sliding window
@@ -71,9 +71,9 @@
 //    coding.leetcode.temp._0252_Meeting_Rooms _0252_Meeting_Rooms = null;
 //    coding.leetcode.temp._0253_Meeting_Rooms_II _0253_Meeting_Rooms_II = null;
 //    // LinkedList
-//    coding.leetcode.temp._0146_LRU_Cache _0146_LRU_Cache = null; // head, cache<key, doubleLinkedList>, +get/+put/-moveToHead/-removeTail
+//    coding.leetcode._04_linkedList._0146_LRU_Cache _0146_LRU_Cache = null; // head, cache<key, doubleLinkedList>, +get/+put/-moveToHead/-removeTail
 //    coding.leetcode.temp._0460_LFU_Cache _0460_LFU_Cache = null; //// head, cache<key, doubleLinkedList>, freq<frequency, doubleLinkedList>, +get/+put/-update/-insert/-removeTail
-//    coding.leetcode.temp._0138_Copy_List_with_Random_Pointer _0138_Copy_List_with_Random_Pointer = null; // O(1) space is very great
+//    coding.leetcode._04_linkedList._0138_Copy_List_with_Random_Pointer _0138_Copy_List_with_Random_Pointer = null; // O(1) space is very great
 //    coding.leetcode.temp._0160_Intersection_of_Two_Linked_Lists _0160_Intersection_of_Two_Linked_Lists = null;
 //    // Tree
 //    coding.leetcode.search.dfs._0543_Diameter_of_Binary_Tree _0543_Diameter_of_Binary_Tree = null;
@@ -104,7 +104,7 @@
 //    coding.leetcode.temp._0152_Maximum_Product_Subarray _0152_Maximum_Product_Subarray = null;
 //    __0041_Maximum_Subarray __0041_Maximum_Subarray = null;
 //    // Stack
-//    coding.leetcode.temp._0042_Trapping_Rain_Water _0042_Trapping_Rain_Water = null;
+//    coding.leetcode._03_twoPointer._0042_Trapping_Rain_Water _0042_Trapping_Rain_Water = null;
 //    // Monotous Stack
 //    coding.leetcode.temp._0239_Sliding_Window_Maximum _0239_Sliding_Window_Maximum = null;
 //    coding.leetcode.temp._0496_Next_Greater_Element_I _0496_Next_Greater_Element_I = null;

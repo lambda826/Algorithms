@@ -23,7 +23,7 @@ Explanation: 2 does not exist in nums so return -1
 
 Note:
 You may assume that all elements in nums are unique.
-n will be in the range [1, 10000].
+n will be in the range [1, 10^4].
 The value of each element in nums will be in the range [-9999, 9999].
 
 */

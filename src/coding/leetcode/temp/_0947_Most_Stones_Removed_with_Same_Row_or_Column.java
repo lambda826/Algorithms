@@ -34,7 +34,7 @@ Example 3:
 
 Note:
     1 <= stones.length <= 1000
-    0 <= stones[i][j] < 10000
+    0 <= stones[i][j] < 10^4
 
 */
 

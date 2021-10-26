@@ -31,7 +31,7 @@ Example 1:
 
 
 Constraints:
-    -100000 <= num <= 100000
+    -10^40 <= num <= 10^40
     There will be at least one element in the data structure before calling findMedian.
     At most 5 * 104 calls will be made to addNum and findMedian.
 

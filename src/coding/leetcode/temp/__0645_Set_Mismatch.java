@@ -19,7 +19,7 @@ Input: nums = [1,2,2,4]
 Output: [2,3]
 
 Note:
-The given array size will in the range [2, 10000].
+The given array size will in the range [2, 10^4].
 The given array's numbers won't have any order.
 
 */

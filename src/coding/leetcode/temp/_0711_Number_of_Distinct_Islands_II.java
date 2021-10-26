@@ -13,7 +13,7 @@ Count the number of distinct islands. An island is considered to be the same as 
 
 Example 1:
 11000
-10000
+10^4
 00001
 00011
 Given the above grid map, return 1. 

@@ -45,7 +45,7 @@ Example 4:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [1, 10000].
+    The number of nodes in the tree is in the range [1, 10^4].
     -10^5 <= Node.val <= 10^5
     All Node.val are unique.
     All nodes[i] will exist in the tree.

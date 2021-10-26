@@ -17,7 +17,7 @@ Explanation: Integer 11 has binary representation 000000000000000000000000000010
 Example 2:
 Input: 128
 Output: 1
-Explanation: Integer 128 has binary representation 00000000000000000000000010000000
+Explanation: Integer 128 has binary representation 00000000000000000000000010^4000
 
 */
 

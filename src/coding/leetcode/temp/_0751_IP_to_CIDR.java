@@ -33,7 +33,7 @@ Addresses with common prefix of 29 bits are:
 11111111 00000000 00000000 00001111
 
 The address "255.0.0.16/32" specifies all addresses with a common prefix of 32 bits to the given address,
-ie. just 11111111 00000000 00000000 00010000.
+ie. just 11111111 00000000 00000000 00010^4.
 
 In total, the answer specifies the range of 10 ips starting with the address 255.0.0.7 .
 

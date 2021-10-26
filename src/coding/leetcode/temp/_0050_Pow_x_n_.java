@@ -14,7 +14,7 @@ Example 1:
     Output: 1024.00000
 
 Example 2:
-    Input: 2.10000, 3
+    Input: 2.10^4, 3
     Output: 9.26100
 
 Example 3:
@@ -51,11 +51,11 @@ public class _0050_Pow_x_n_ {
         System.out.println(min);
         System.out.println(Integer.toBinaryString(min));
         //  -2147483648
-        //  10000000000000000000000000000000
+        //  10^50000000000000000000000
         System.out.println(-min);
         System.out.println(Integer.toBinaryString(-min));
         //  -2147483648
-        //  10000000000000000000000000000000
+        //  10^50000000000000000000000
         System.out.println(-min - 1);
         System.out.println(Integer.toBinaryString(-min - 1));
         //   2147483647

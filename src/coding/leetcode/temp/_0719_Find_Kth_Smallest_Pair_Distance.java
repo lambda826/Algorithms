@@ -27,8 +27,8 @@ Example 1:
 
 
 Note:
-    2 <= len(nums) <= 10000.
-    0 <= nums[i] < 1000000.
+    2 <= len(nums) <= 10^4.
+    0 <= nums[i] < 10^400.
     1 <= k <= len(nums) * (len(nums) - 1) / 2.
 
  */

@@ -19,7 +19,7 @@ Example 1:
 Given the above grid map, return 1.
 Example 2:
 11011
-10000
+10^4
 00001
 11011
 Given the above grid map, return 3.

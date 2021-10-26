@@ -32,9 +32,9 @@ Example 3:
 
 
 Constraints:
-    2 <= nums.length <= 10000
-    -1000000000 <= nums[i] <= 1000000000
-    -1000000000 <= target <= 1000000000
+    2 <= nums.length <= 10^4
+    -10^5 <= nums[i] <= 10^5
+    -10^5 <= target <= 10^5
     Only one valid answer exists.
 
 

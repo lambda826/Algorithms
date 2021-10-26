@@ -29,7 +29,7 @@ Output: -1
 Explanation: 
 There is no index that satisfies the conditions in the problem statement.
 
-The length of nums will be in the range [0, 10000].
+The length of nums will be in the range [0, 10^4].
 Each element nums[i] will be an integer in the range [-1000, 1000].
 
 */

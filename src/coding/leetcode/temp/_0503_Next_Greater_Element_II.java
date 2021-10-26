@@ -25,7 +25,7 @@ Example 1:
 
 
 Note: 
-    The length of given array won't exceed 10000.
+    The length of given array won't exceed 10^4.
 
 */
 

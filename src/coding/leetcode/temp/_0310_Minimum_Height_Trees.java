@@ -52,7 +52,7 @@ Example 4:
 
 
 Constraints:
-    1 <= n <= 2 * 10000
+    1 <= n <= 2 * 10^4
     edges.length == n - 1
     0 <= ai, bi < n
     ai != bi

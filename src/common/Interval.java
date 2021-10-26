@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date Jan 11, 2018 5:03:10 PM
- */
-
 package common;
 
 public class Interval {

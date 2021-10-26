@@ -37,7 +37,7 @@ Your position goes from 0->1->3->7->7->6.
 
 Note:
 
-1 <= target <= 10000.
+1 <= target <= 10^4.
 
 */
 

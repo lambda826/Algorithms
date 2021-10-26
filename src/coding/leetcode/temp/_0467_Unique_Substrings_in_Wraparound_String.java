@@ -11,7 +11,7 @@ Consider the string s to be the infinite wraparound string of "abcdefghijklmnopq
 
 Now we have another string p. Your job is to find out how many unique non-empty substrings of p are present in s. In particular, your input is the string p and you need to output the number of different non-empty substrings of p in the string s.
 
-Note: p consists of only lowercase English letters and the size of p might be over 10000.
+Note: p consists of only lowercase English letters and the size of p might be over 10^4.
 
 Example 1:
 Input: "a"

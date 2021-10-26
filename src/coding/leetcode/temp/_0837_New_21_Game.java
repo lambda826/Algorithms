@@ -30,8 +30,8 @@ Input: N = 21, K = 17, W = 10
 Output: 0.73278
 Note:
 
-0 <= K <= N <= 10000
-1 <= W <= 10000
+0 <= K <= N <= 10^4
+1 <= W <= 10^4
 Answers will be accepted as correct if they are within 10^-5 of the correct answer.
 The judging time limit has been reduced for this question.
 

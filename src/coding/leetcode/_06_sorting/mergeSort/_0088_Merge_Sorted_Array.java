@@ -11,7 +11,6 @@ To accommodate this, nums1 has a length of m + n, where the first m elements den
 nums2 has a length of n.
 
 
-
 Example 1:
     Input:
         nums1 = [1,2,3,0,0,0], m = 3,

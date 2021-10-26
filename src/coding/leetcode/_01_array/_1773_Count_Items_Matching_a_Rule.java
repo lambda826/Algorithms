@@ -31,7 +31,7 @@ Example 2:
 
 
 Constraints:
-    1 <= items.length <= 10000
+    1 <= items.length <= 10^4
     1 <= typei.length, colori.length, namei.length, ruleValue.length <= 10
     ruleKey is equal to either "type", "color", or "name".
     All strings consist only of lowercase letters.

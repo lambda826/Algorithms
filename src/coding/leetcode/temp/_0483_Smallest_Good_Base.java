@@ -22,9 +22,9 @@ Output: "8"
 Explanation: 4681 base 8 is 11111.
 
 Example 3:
-Input: "1000000000000000000"
+Input: "10^5000000000"
 Output: "999999999999999999"
-Explanation: 1000000000000000000 base 999999999999999999 is 11.
+Explanation: 10^5000000000 base 999999999999999999 is 11.
 
 Note:
 The range of n is [3, 10^18].
@@ -134,18 +134,5 @@ public class _0483_Smallest_Good_Base {
         }
     }
 
-    public static void main(String[] args) {
-        _0483_Smallest_Good_Base test = new _0483_Smallest_Good_Base();
-        long a = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
-            test.smallestGoodBase("12312312312993123");
-        }
-        System.out.println(System.currentTimeMillis() - a);
-        System.out.println("------");
-        long a2 = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
-            test.smallestGoodBase2("12312312312993123");
-        }
-        System.out.println(System.currentTimeMillis() - a2);
-    }
+
 }

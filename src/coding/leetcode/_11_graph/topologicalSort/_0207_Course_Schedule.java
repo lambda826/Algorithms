@@ -36,7 +36,7 @@ Example 2:
 
 
 Constraints:
-    1 <= numCourses <= 100000
+    1 <= numCourses <= 10^40
     0 <= prerequisites.length <= 5000
     prerequisites[i].length == 2
     0 <= ai, bi < numCourses

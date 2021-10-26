@@ -36,9 +36,9 @@ Example 2:
         0 and 1 are connected, 3 and 4 are connected, so [0, 1] and [3, 4] are the two connected components.
 
 Note:
-    If N is the length of the linked list given by head, 1 <= N <= 10000.
+    If N is the length of the linked list given by head, 1 <= N <= 10^4.
     The value of each node in the linked list will be in the range [0, N - 1].
-    1 <= G.length <= 10000.
+    1 <= G.length <= 10^4.
     G is a subset of all values in the linked list.
 
 */
@@ -48,7 +48,7 @@ public class _0817_Linked_List_Components {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int numComponents(ListNode head, int[] G) {
-        boolean[] table = new boolean[10000];
+        boolean[] table = new boolean[10^4];
         for (int g : G) {
             table[g] = true;
         }

@@ -37,8 +37,8 @@ Example 3:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [0, 10000].
-    0 <= Node.val <= 10000
+    The number of nodes in the tree is in the range [0, 10^4].
+    0 <= Node.val <= 10^4
     The height of the n-ary tree is less than or equal to 1000
     Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.
 

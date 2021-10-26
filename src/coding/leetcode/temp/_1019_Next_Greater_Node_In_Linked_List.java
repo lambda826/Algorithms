@@ -33,7 +33,7 @@ Example 3:
 
 Note:
     1 <= node.val <= 10^9 for each node in the linked list.
-    The given list has length in the range [0, 10000].
+    The given list has length in the range [0, 10^4].
 
 */
 

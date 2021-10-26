@@ -30,7 +30,7 @@ Example:
 
 
 Note:
-    graph will have length at most 10000.
+    graph will have length at most 10^4.
     The number of edges in the graph will not exceed 32000.
     Each graph[i] will be a sorted list of different integers, chosen within the range [0, graph.length - 1].
 

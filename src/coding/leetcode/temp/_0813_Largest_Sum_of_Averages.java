@@ -26,7 +26,7 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 Note:
 
 1 <= A.length <= 100.
-1 <= A[i] <= 10000.
+1 <= A[i] <= 10^4.
 1 <= K <= A.length.
 Answers within 10^-6 of the correct answer will be accepted as correct.
 

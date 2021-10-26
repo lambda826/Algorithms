@@ -20,7 +20,7 @@ Example:
 
 
 Note:
-    N  will be in range [1, 10000].
+    N  will be in range [1, 10^4].
 
 */
 
