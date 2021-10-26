@@ -31,11 +31,6 @@ Constraints:
 
 public class _0042_Trapping_Rain_Water {
 
-    public static void main(String[] args) {
-        _0042_Trapping_Rain_Water test = new _0042_Trapping_Rain_Water();
-        test.trap2(new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 });
-    }
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Two Pointers:
@@ -44,6 +39,7 @@ public class _0042_Trapping_Rain_Water {
     //      because the smaller one determines how much water it can trap at most;
     // When the next point has a smaller value then the leftMax or rightMax, it means the water can be trapped.
     class Solution_TwoPointer {
+
         public int trap(int[] height) {
             int left = 0;
             int right = height.length - 1;
