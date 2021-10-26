@@ -48,7 +48,7 @@ public class _0498_Diagonal_Traverse {
                 res[k++] = mat[i][j];
                 // Next grid:
                 if (upLeft) {
-                    if (i > 0 && j + 1 < col) {
+                    if (i - 1 >= 0 && j + 1 < col) {
                         --i;
                         ++j;
                     } else {
@@ -60,7 +60,7 @@ public class _0498_Diagonal_Traverse {
                         }
                     }
                 } else {
-                    if (i + 1 < row && j > 0) {
+                    if (i + 1 < row && j - 1 >= 0) {
                         ++i;
                         --j;
                     } else {
