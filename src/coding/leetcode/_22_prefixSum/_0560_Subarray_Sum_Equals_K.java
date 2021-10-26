@@ -1,4 +1,4 @@
-package coding.leetcode._01_array;
+package coding.leetcode._22_prefixSum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,9 +23,9 @@ Example 2:
 
 
 Constraints:
-    1 <= nums.length <= 2 * 10000
+    1 <= nums.length <= 2 * 10^4
     -1000 <= nums[i] <= 1000
-    -10000000 <= k <= 10000000
+    -10^7 <= k <= 10^7
 
 */
 
@@ -33,13 +33,24 @@ public class _0560_Subarray_Sum_Equals_K {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Given three points in terms of sequence: A1, A2, A3, and sum[A2, A3] = k;
-    // Then we have sum[A2, A3] = sum[A1, A3] - sum[A1, A2];
+    // 1. Iterate the array and sum up the numbers;
+    // 2. Use a map to record the <sum, count>
+    // 3. Use current sum to subtract K, we can get the count of previous sub-arrays
+    //
+    // For example:
+    //      K = 5;
+    //      A1 + A2 = 4;
+    //      A1 + A2 + A3 + A4 = 4;
+    //      A1 + A2 + A3 + A4 + A5 = 9;
+    //      We have:
+    //          (A1 + A2 + A3 + A4 + A5) - (A1 + A2) = 9 - 4 = 5; then we know A3 + A4 + A5 = 5;
+    //          (A1 + A2 + A3 + A4 + A5) - (A1 + A2 + A3 + A4) = 9 - 4 = 5; then we know A5 = 5;
     class Solution {
 
         public int subArraySum(int[] nums, int k) {
             int count = 0;
             int sum = 0;
+            // <Sum, count>
             Map<Integer, Integer> map = new HashMap<>();
             map.put(0, 1);
             for (int i = 0; i < nums.length; ++i) {
