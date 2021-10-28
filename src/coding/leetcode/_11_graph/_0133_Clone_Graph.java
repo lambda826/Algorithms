@@ -1,10 +1,11 @@
-package coding.leetcode;
+package coding.leetcode._11_graph;
 
 import common.GraphNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
@@ -46,51 +47,49 @@ Note:
 
 public class _0133_Clone_Graph {
 
-    public static _0133_Clone_Graph instance = null;
+    class Node {
 
-    _0133_Clone_Graph() {
-        instance = new _0133_Clone_Graph();
-    }
+        public int val;
+        public List<Node> neighbors;
 
-    public static void main(String[] args) {
-        _0133_Clone_Graph test = new _0133_Clone_Graph();
-        GraphNode node0 = new GraphNode(0);
-        GraphNode node1 = new GraphNode(1);
-        GraphNode node2 = new GraphNode(2);
-        GraphNode node3 = new GraphNode(3);
-        GraphNode node4 = new GraphNode(4);
-        GraphNode node5 = new GraphNode(5);
-        node0.neighbors.add(node1);
-        node0.neighbors.add(node5);
-        node1.neighbors.add(node2);
-        node1.neighbors.add(node5);
-        node2.neighbors.add(node3);
-        node3.neighbors.add(node4);
-        node3.neighbors.add(node4);
-        node4.neighbors.add(node5);
-        node4.neighbors.add(node5);
-
-        test.cloneGraph_BFS(node0);
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // DFS + memo
-    Map<GraphNode, GraphNode> map = new HashMap<>();
-
-    public GraphNode cloneGraph(GraphNode node) {
-        return DFS(node);
-    }
-
-    private GraphNode DFS(GraphNode node) {
-        if (!map.containsKey(node)) {
-            GraphNode nNode = new GraphNode(node.val, new ArrayList<>());
-            map.put(node, nNode);
-            for (GraphNode nei : node.neighbors) {
-                nNode.neighbors.add(DFS(nei));
-            }
+        public Node() {
+            val = 0;
+            neighbors = new ArrayList<>();
         }
-        return map.get(node);
+
+        public Node(int _val) {
+            val = _val;
+            neighbors = new ArrayList<>();
+        }
+
+        public Node(int _val, ArrayList<Node> _neighbors) {
+            val = _val;
+            neighbors = _neighbors;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_DFS {
+
+        public Node cloneGraph(Node node) {
+            return DFS(node, new HashMap<>());
+        }
+
+        private Node DFS(Node node, Map<Node, Node> visited) {
+            if (node == null) {
+                return null;
+            }
+            if (!visited.containsKey(node)) {
+                Node clone = new Node(node.val);
+                visited.put(node, clone);
+                for (Node nei : node.neighbors) {
+                    clone.neighbors.add(DFS(nei, visited));
+                }
+            }
+            return visited.get(node);
+        }
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
