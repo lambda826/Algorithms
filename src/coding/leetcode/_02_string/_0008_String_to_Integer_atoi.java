@@ -98,6 +98,8 @@ Constraints:
 
 public class _0008_String_to_Integer_atoi {
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
         public int myAtoi(String s) {
             if (s == null || s == "" || s.length() == 0) {
@@ -126,8 +128,8 @@ public class _0008_String_to_Integer_atoi {
                 }
                 // 4. Handle overflow.
                 // Note we only need to check against Integer.MAX_VALUE;
-                //      If (10 * total + digit) == 2147483647, we don't enter if block
-                //      If (10 * total + digit) == 2147483648, we enter if block, and return either Integer.MAX_VALUE or Integer.MIN_VALUE, which covers both cases
+                //      If (10 * total + digit) == 2147483647, we don't enter if block;
+                //      If (10 * total + digit) == 2147483648, we enter if block, and return either Integer.MAX_VALUE or Integer.MIN_VALUE, which covers both cases.
                 if (total > (Integer.MAX_VALUE - digit) / 10 || 10 * total > Integer.MAX_VALUE - digit) {
                     return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
                 }
@@ -135,11 +137,9 @@ public class _0008_String_to_Integer_atoi {
                 ++index;
             }
 
+            // 5. sign multiply total is the result.
             return sign * total;
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(Integer.MIN_VALUE);
-    }
 }
