@@ -50,7 +50,6 @@ public class _0090_Subsets_II {
                     current.add(nums[i]);
                     helper(nums, i + 1, current, res);
                     current.removeLast();
-                    ;
                 }
             }
         }
