@@ -48,6 +48,9 @@ public class _0040_Combination_Sum_II {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Duplication methodology:
+    //      Based on prefix and current number:
+    //          For the same prefix, if the current evaluated number is equal to previous one, then it will produce a duplicate;
     class Solution_Backtracking {
 
         public List<List<Integer>> combinationSum2(int[] candidates, int target) {

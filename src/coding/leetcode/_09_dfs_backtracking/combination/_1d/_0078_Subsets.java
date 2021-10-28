@@ -34,6 +34,25 @@ public class _0078_Subsets {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_Prefix {
+        public List<List<Integer>> subsets(int[] nums) {
+            List<List<Integer>> res = new ArrayList<>();
+            helper(nums, 0, new LinkedList<>(), res);
+            return res;
+        }
+
+        private void helper(int[] nums, int index, LinkedList<Integer> current, List<List<Integer>> res) {
+            res.add(new LinkedList<>(current));
+            for (int i = index; i < nums.length; ++i) {
+                current.add(nums[i]);
+                helper(nums, i + 1, current, res);
+                current.removeLast();
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
         public List<List<Integer>> subsets(int[] nums) {
             List<List<Integer>> res = new ArrayList<>();
