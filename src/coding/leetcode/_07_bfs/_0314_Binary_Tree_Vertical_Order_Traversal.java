@@ -1,4 +1,4 @@
-package coding.leetcode;
+package coding.leetcode._07_bfs;
 
 /*
 
