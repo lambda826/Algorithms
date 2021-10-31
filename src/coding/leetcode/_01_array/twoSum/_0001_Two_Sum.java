@@ -36,7 +36,7 @@ Constraints:
     Only one valid answer exists.
 
 
-Follow-up: Can you come up with an algorithm that is less than O(n ^ 2) time complexity?
+Follow-up: Can you come up with an algorithm that is less than O(n^2) time complexity?
 
 */
 
@@ -44,15 +44,18 @@ public class _0001_Two_Sum {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i) {
-            if (map.containsKey(nums[i])) {
-                return new int[] { i, map.get(nums[i]) };
-            }
-            map.put(target - nums[i], i);
-        }
-        return null;
-    }
+    class Solution_HashMap {
 
+        public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; ++i) {
+                if (map.containsKey(nums[i])) {
+                    return new int[] { i, map.get(nums[i]) };
+                }
+                map.put(target - nums[i], i);
+            }
+            return null;
+        }
+
+    }
 }
