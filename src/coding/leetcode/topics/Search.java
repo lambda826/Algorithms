@@ -4,7 +4,7 @@ import coding.leetcode.temp._0100_Same_Tree;
 import coding.leetcode.temp._0257_Binary_Tree_Paths;
 import coding.leetcode._10_tree.traversal.level_order._0339_Nested_List_Weight_Sum;
 import coding.leetcode._10_tree.traversal.level_order._0559_Maximum_Depth_of_N_ary_Tree;
-import coding.leetcode._10_tree.traversal.universal_traversal._0690_Employee_Importance;
+import coding.leetcode._08_bfs_dfs._0690_Employee_Importance;
 import coding.leetcode.temp._0733_Flood_Fill;
 import coding.leetcode.temp._0872_Leaf_Similar_Trees;
 import coding.leetcode._10_tree.traversal.level_order._0993_Cousins_in_Binary_Tree;

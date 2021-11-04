@@ -1,6 +1,6 @@
 package coding.leetcode._11_graph;
 
-import coding.leetcode._11_graph.search.matrix._0200_Number_of_Islands;
+import coding.leetcode._08_bfs_dfs._0200_Number_of_Islands;
 import coding.leetcode._11_graph.search.matrix._0286_Walls_and_Gates;
 import coding.leetcode._11_graph.search.string._1236_Web_Crawler;
 

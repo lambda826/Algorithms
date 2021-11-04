@@ -21,7 +21,7 @@ import coding.leetcode._10_tree.traversal.level_order._0993_Cousins_in_Binary_Tr
 import coding.leetcode._10_tree.traversal.level_order._1161_Maximum_Level_Sum_of_a_Binary_Tree;
 import coding.leetcode._10_tree.traversal.level_order._1602_Find_Nearest_Right_Node_in_Binary_Tree;
 import coding.leetcode._10_tree.traversal.ordered._0865_Smallest_Subtree_with_all_the_Deepest_Nodes;
-import coding.leetcode._10_tree.traversal.universal_traversal._0690_Employee_Importance;
+import coding.leetcode._08_bfs_dfs._0690_Employee_Importance;
 import coding.leetcode._10_tree.traversal.universal_traversal._1379_Find_a_Corresponding_Node_of_a_Binary_Tree_in_a_Clone_of_That_Tree;
 import coding.leetcode._10_tree.traversal.universal_traversal._1469_Find_All_The_Lonely_Nodes;
 import coding.leetcode._10_tree.traversal.universal_traversal._1490_Clone_N_ary_Tree;
