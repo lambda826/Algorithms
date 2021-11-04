@@ -1,4 +1,4 @@
-package coding.leetcode._12_dynamicProgramming.twoDimension;
+package coding.leetcode._12_dynamicProgramming.twoDimension.optimized;
 
 /*
 
@@ -60,6 +60,32 @@ public class _1277_Count_Square_Submatrices_with_All_Ones {
                         dp[i + 1][j + 1] = 1 + Math.min(dp[i][j], Math.min(dp[i + 1][j], dp[i][j + 1]));
                     }
                     count += dp[i + 1][j + 1];
+                }
+            }
+            return count;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_DP_Optimized {
+
+        public int countSquares(int[][] matrix) {
+            int m = matrix.length;
+            int n = matrix[0].length;
+            int[] dp = new int[n + 1];
+            int count = 0;
+            for (int i = 0; i < m; ++i) {
+                int pre = 0;
+                for (int j = 0; j < n; ++j) {
+                    int temp = dp[j + 1];
+                    if (matrix[i][j] == 1) {
+                        dp[j + 1] = 1 + Math.min(pre, Math.min(dp[j], dp[j + 1]));
+                    } else {
+                        dp[j + 1] = 0;
+                    }
+                    pre = temp;
+                    count += dp[j + 1];
                 }
             }
             return count;
