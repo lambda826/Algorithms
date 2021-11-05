@@ -66,7 +66,7 @@ public class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
             }
 
             Deque<int[]> deque = new ArrayDeque<>();
-            boolean visited[][][] = new boolean[row][col][k + 1];
+            boolean[][][] visited = new boolean[row][col][k + 1];
             visited[0][0][k] = true;
             deque.offer(new int[] { 0, 0, k });
             int step = 0;
