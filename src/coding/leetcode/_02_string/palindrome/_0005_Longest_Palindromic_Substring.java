@@ -40,30 +40,34 @@ public class _0005_Longest_Palindromic_Substring {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Find the ceterLeft, and centerRight
+    // Expand Around Center approach
+    //
+    // Time complexity : O(n^2)
+    // Space complexity : O(1)
     class Solution {
+
         public String longestPalindrome(String s) {
             int max = 0;
             int start = 0;
             int end = 0;
-            int p1 = 0;
-            while (p1 < s.length()) {
-                int p2 = p1;
-                while (p2 + 1 < s.length() && s.charAt(p2 + 1) == s.charAt(p1)) {
-                    ++p2;
+            int centerLeft = 0;
+            while (centerLeft < s.length()) {
+                int centerRight = centerLeft;
+                while (centerRight + 1 < s.length() && s.charAt(centerRight + 1) == s.charAt(centerLeft)) {
+                    ++centerRight;
                 }
-                int tempP1 = p1;
-                int tempP2 = p2;
-                while (tempP1 - 1 >= 0 && tempP2 + 1 < s.length() && s.charAt(tempP1 - 1) == s.charAt(tempP2 + 1)) {
-                    --tempP1;
-                    ++tempP2;
+                int expandToLeft = centerLeft;
+                int expandToRight = centerRight;
+                while (expandToLeft - 1 >= 0 && expandToRight + 1 < s.length() && s.charAt(expandToLeft - 1) == s.charAt(expandToRight + 1)) {
+                    --expandToLeft;
+                    ++expandToRight;
                 }
-                if (tempP2 + 1 - tempP1 > max) {
-                    max = tempP2 + 1 - tempP1;
-                    start = tempP1;
-                    end = tempP2 + 1;
+                if (expandToRight + 1 - expandToLeft > max) {
+                    max = expandToRight + 1 - expandToLeft;
+                    start = expandToLeft;
+                    end = expandToRight + 1;
                 }
-                p1 = p2 + 1;
+                centerLeft = centerRight + 1;
             }
             return s.substring(start, end);
         }
