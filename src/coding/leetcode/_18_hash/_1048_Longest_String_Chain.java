@@ -74,7 +74,7 @@ public class _1048_Longest_String_Chain {
                     for (String word2 : list[len]) {
                         for (String word1 : list[len - 1]) {
                             if (isPredecessor(word1, word2)) {
-                                memo.put(word2, Math.max(memo.get(word2), (1 + memo.get(word1))));
+                                memo.put(word2, Math.max(memo.get(word2), (memo.get(word1) + 1)));
                             }
                             if (memo.get(word2) == word2.length()) {
                                 break;
