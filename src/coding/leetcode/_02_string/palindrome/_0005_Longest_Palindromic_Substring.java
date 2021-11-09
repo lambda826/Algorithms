@@ -72,4 +72,36 @@ public class _0005_Longest_Palindromic_Substring {
             return s.substring(start, end);
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_DP {
+        public String longestPalindrome(String s) {
+            int len = s.length();
+            boolean[][] dp = new boolean[len][len];
+            int start = 0;
+            int end = 0;
+            int max = 0;
+            for (int l = 0; l < len; ++l) {
+                for (int i = 0, j = i + l; j < len; ++i, ++j) {
+                    if (i == j) {
+                        dp[i][j] = true;
+                    } else {
+                        boolean isSame = s.charAt(i) == s.charAt(j);
+                        if (i + 1 == j) {
+                            dp[i][j] = isSame;
+                        } else {
+                            dp[i][j] = isSame && dp[i + 1][j - 1];
+                        }
+                    }
+                    if (dp[i][j] && j - i > max) {
+                        max = j - i;
+                        start = i;
+                        end = j;
+                    }
+                }
+            }
+            return s.substring(start, end + 1);
+        }
+    }
 }
