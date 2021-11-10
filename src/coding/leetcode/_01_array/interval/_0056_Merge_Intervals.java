@@ -39,6 +39,30 @@ public class _0056_Merge_Intervals {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_Greedy {
+        public int[][] merge(int[][] intervals) {
+            Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+            List<int[]> res = new ArrayList<>();
+
+            int start = intervals[0][0];
+            int maxEnd = intervals[0][1];
+            for (int[] interval : intervals) {
+                // Can not merge if maxEnd is on the left of the start of current interval
+                if (maxEnd < interval[0]) {
+                    res.add(new int[] { start, maxEnd });
+                    start = interval[0];
+                }
+                // Merge
+                maxEnd = Math.max(maxEnd, interval[1]);
+            }
+
+            res.add(new int[] { start, maxEnd });
+            return res.toArray(new int[res.size()][2]);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
         public int[][] merge(int[][] intervals) {
             int len = intervals.length;
@@ -65,25 +89,4 @@ public class _0056_Merge_Intervals {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution2 {
-        public int[][] merge(int[][] intervals) {
-            Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
-            List<int[]> res = new ArrayList<>();
-
-            int start = intervals[0][0];
-            int end = intervals[0][1];
-            for (int[] interval : intervals) {
-                if (end < interval[0]) {
-                    res.add(new int[] { start, end });
-                    start = interval[0];
-                }
-                end = Math.max(end, interval[1]);
-            }
-
-            res.add(new int[] { start, end });
-            return res.toArray(new int[res.size()][2]);
-        }
-    }
 }
