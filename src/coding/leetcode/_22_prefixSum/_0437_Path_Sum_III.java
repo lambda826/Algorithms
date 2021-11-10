@@ -55,6 +55,7 @@ public class _0437_Path_Sum_III {
                     ++count[0];
                 }
                 count[0] += map.getOrDefault(currentSum - targetSum, 0);
+                // Backtracking:
                 map.put(currentSum, map.getOrDefault(currentSum, 0) + 1);
                 preOrder(node.left, currentSum, targetSum, map, count);
                 preOrder(node.right, currentSum, targetSum, map, count);
