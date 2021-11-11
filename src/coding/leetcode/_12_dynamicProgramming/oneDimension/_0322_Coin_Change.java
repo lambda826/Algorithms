@@ -1,4 +1,4 @@
-package coding.leetcode._09_dfs_backtracking.combination._1d;
+package coding.leetcode._12_dynamicProgramming.oneDimension;
 
 import java.util.Arrays;
 
@@ -59,14 +59,33 @@ public class _0322_Coin_Change {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_DP {
+
+        public int coinChange(int[] coins, int amount) {
+            int[] dp = new int[amount + 1];
+            Arrays.fill(dp, Integer.MAX_VALUE);
+            dp[0] = 0;
+            for (int i = 1; i <= amount; ++i) {
+                for (int coin : coins) {
+                    if (coin <= i && dp[i - coin] != Integer.MAX_VALUE) {
+                        dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                    }
+                }
+            }
+            return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution_Backtracking {
 
         public int coinChange(int[] coins, int amount) {
-            int[] memo = new int[amount + 1];
-            Arrays.fill(memo, Integer.MAX_VALUE);
             if (amount < 1) {
                 return 0;
             }
+            int[] memo = new int[amount + 1];
+            Arrays.fill(memo, Integer.MAX_VALUE);
             return helper(coins, amount, memo);
         }
 
@@ -87,25 +106,6 @@ public class _0322_Coin_Change {
                 memo[remain] = (memo[remain] == Integer.MAX_VALUE ? -1 : memo[remain]);
                 return memo[remain];
             }
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_DP {
-
-        public int coinChange(int[] coins, int amount) {
-            int[] dp = new int[amount + 1];
-            Arrays.fill(dp, amount + 1);
-            dp[0] = 0;
-            for (int currAmount = 1; currAmount <= amount; ++currAmount) {
-                for (int coin : coins) {
-                    if (coin <= currAmount) {
-                        dp[currAmount] = Math.min(dp[currAmount], dp[currAmount - coin] + 1);
-                    }
-                }
-            }
-            return dp[amount] == amount + 1 ? -1 : dp[amount];
         }
     }
 
