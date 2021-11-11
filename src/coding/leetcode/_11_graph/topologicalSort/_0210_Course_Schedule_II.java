@@ -58,6 +58,7 @@ Constraints:
 
 public class _0210_Course_Schedule_II {
 
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Topological sorting - DFS Approach
@@ -67,49 +68,54 @@ public class _0210_Course_Schedule_II {
     //          2.1 Recursively visit each neighbour (for loop) of the current node;
     //          2.2 Update the visit status of the current node to be 2 (finished visit);
     //          2.3 Update order list;
-    public int[] findOrder(int numCourses, int[][] prerequisites) {
-        List<Integer>[] adjacentList = buildGraph(numCourses, prerequisites);
-        int[] visited = new int[numCourses];
-        int[] order = new int[numCourses];
-        int[] index = { order.length - 1 };
-        for (int i = 0; i < numCourses; ++i) {
-            if (visited[i] == 0) {
-                if (containsCycle(adjacentList, i, visited, order, index)) {
-                    return new int[0];
-                }
-            }
-        }
-        return order;
-    }
-
-    private boolean containsCycle(List<Integer>[] adjacentList, int current, int[] visited, int[] order, int[] index) {
-        if (visited[current] == 0) {
-            visited[current] = 1; // Current node is in frontier
-            if (adjacentList[current] != null) {
-                for (int next : adjacentList[current]) {
-                    // If the next node is already in the frontier
-                    if (visited[next] == 1 || containsCycle(adjacentList, next, visited, order, index)) {
-                        return true;
+    class Solution_DFS {
+        public int[] findOrder(int numCourses, int[][] prerequisites) {
+            List<Integer>[] adjacentList = buildGraph(numCourses, prerequisites);
+            int[] visited = new int[numCourses];
+            int[] res = new int[numCourses];
+            // We save the index in the first element of the res;
+            // This is possible because we add the course into the res array from the tail to the head;
+            // So res[0] will be overridden at last.
+            res[0] = res.length - 1;
+            for (int i = 0; i < numCourses; ++i) {
+                if (visited[i] == 0) {
+                    if (containsCycle(adjacentList, i, visited, res)) {
+                        return new int[0];
                     }
                 }
             }
-            visited[current] = 2; // Current node is visited
-            order[index[0]--] = current; // Add current node into the order list after completing visiting the current node
+            return res;
         }
-        return false;
-    }
 
-    private List<Integer>[] buildGraph(int numCourses, int[][] prerequisites) {
-        // Build graph as Adjacent List representation given edges
-        List<Integer>[] adjacentList = new List[numCourses];
-        for (int[] prerequisite : prerequisites) {
-            // Initialize an ArrayList if it's first time visit the node
-            if (adjacentList[prerequisite[1]] == null) {
-                adjacentList[prerequisite[1]] = new ArrayList<>();
+        private boolean containsCycle(List<Integer>[] adjacentList, int current, int[] visited, int[] order) {
+            if (visited[current] == 0) {
+                visited[current] = 1; // Current node is in frontier
+                if (adjacentList[current] != null) {
+                    for (int next : adjacentList[current]) {
+                        // If the next node is already in the frontier
+                        if (visited[next] == 1 || containsCycle(adjacentList, next, visited, order)) {
+                            return true;
+                        }
+                    }
+                }
+                visited[current] = 2; // Current node is visited
+                order[order[0]--] = current; // Add current node into the order list after completing visiting the current node
             }
-            adjacentList[prerequisite[1]].add(prerequisite[0]); // Add the neighbour into neighbour list
+            return false;
         }
-        return adjacentList;
+
+        private List<Integer>[] buildGraph(int numCourses, int[][] prerequisites) {
+            // Build graph as Adjacent List representation given edges
+            List<Integer>[] adjacentList = new List[numCourses];
+            for (int[] prerequisite : prerequisites) {
+                // Initialize an ArrayList if it's first time visit the node
+                if (adjacentList[prerequisite[1]] == null) {
+                    adjacentList[prerequisite[1]] = new ArrayList<>();
+                }
+                adjacentList[prerequisite[1]].add(prerequisite[0]); // Add the neighbour into neighbour list
+            }
+            return adjacentList;
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -122,43 +128,45 @@ public class _0210_Course_Schedule_II {
     //          2.2 Update In-Degrees of each neighbour of current visiting node;
     //          2.3 Enqueue the neighbour if the updated In-Degree becomes zero;
     //      3. Check the size of the order list;
-    public int[] findOrder_Topological(int numCourses, int[][] prerequisites) {
-        // Build Graph using Adjacent List with given edges
-        List<Integer>[] adjacentList = new List[numCourses];
-        int[] inDegrees = new int[numCourses];
-        for (int[] prerequisite : prerequisites) {
-            if (adjacentList[prerequisite[1]] == null) {
-                adjacentList[prerequisite[1]] = new ArrayList<>();
-            }
-            adjacentList[prerequisite[1]].add(prerequisite[0]);
-            inDegrees[prerequisite[0]]++; // Build inDegree array
-        }
+    class Solution_BFS {
+        public int[] findOrder_Topological(int numCourses, int[][] prerequisites) {
 
-        // Enqueue nodes with zero inDegree
-        Queue<Integer> zeroInDegreeQueue = new ArrayDeque<>();
-        for (int i = 0; i < inDegrees.length; ++i) {
-            if (inDegrees[i] == 0) {
-                zeroInDegreeQueue.offer(i);
+            // Build Graph using Adjacent List with given edges
+            List<Integer>[] adjacentList = new List[numCourses];
+            int[] inDegrees = new int[numCourses];
+            for (int[] prerequisite : prerequisites) {
+                if (adjacentList[prerequisite[1]] == null) {
+                    adjacentList[prerequisite[1]] = new ArrayList<>();
+                }
+                adjacentList[prerequisite[1]].add(prerequisite[0]);
+                inDegrees[prerequisite[0]]++; // Build inDegree array
             }
-        }
 
-        // BFS
-        int index = 0;
-        int[] order = new int[numCourses];
-        while (!zeroInDegreeQueue.isEmpty()) {
-            int curr = zeroInDegreeQueue.poll();
-            order[index++] = curr;
-            if (adjacentList[curr] != null) {
-                for (int next : adjacentList[curr]) {
-                    // -1 inDegree for each neighbour of current node
-                    // Enqueue if inDegree of the neighbour is zero
-                    if (--inDegrees[next] == 0) {
-                        zeroInDegreeQueue.offer(next);
+            // Enqueue nodes with zero inDegree
+            Queue<Integer> zeroInDegreeQueue = new ArrayDeque<>();
+            for (int i = 0; i < inDegrees.length; ++i) {
+                if (inDegrees[i] == 0) {
+                    zeroInDegreeQueue.offer(i);
+                }
+            }
+
+            // BFS
+            int index = 0;
+            int[] order = new int[numCourses];
+            while (!zeroInDegreeQueue.isEmpty()) {
+                int curr = zeroInDegreeQueue.poll();
+                order[index++] = curr;
+                if (adjacentList[curr] != null) {
+                    for (int next : adjacentList[curr]) {
+                        // -1 inDegree for each neighbour of current node
+                        // Enqueue if inDegree of the neighbour is zero
+                        if (--inDegrees[next] == 0) {
+                            zeroInDegreeQueue.offer(next);
+                        }
                     }
                 }
             }
+            return index == order.length ? order : new int[0];
         }
-        return index == order.length ? order : new int[0];
     }
-
 }
