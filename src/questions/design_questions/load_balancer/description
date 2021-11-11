@@ -1,0 +1,1 @@
+设计一个load balancer. 比如有N台服务器，每一次访问一次网站，会有某一个服务器来处理request，然后如何均衡地使用这些服务器，好让每一台被使用的频率基本相同， 我的方法是priorityqueue, 设计一个类，然后依次放进去priority queue，每次pop出使用频率最低的那一台的ID

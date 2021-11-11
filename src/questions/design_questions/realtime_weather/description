@@ -1,0 +1,8 @@
+系统设计 设计实时根据 gps 给当前 weather
+
+天气预报就是有很多人发送 request,request 他们当前 location 的天气。问你怎么设计这个系
+统。。。
+当中问了一下 LRU,反正就是你自由发挥吧。比如 request 多了怎么办，怎么按照 location 来
+设计 hash 函数和 scale
+
+还有 hottest location 怎么 cache 之类
