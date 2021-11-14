@@ -66,15 +66,16 @@ public class _1293_Shortest_Path_in_a_Grid_with_Obstacles_Elimination {
             }
 
             Deque<int[]> deque = new ArrayDeque<>();
+            // State triple: { row, col, remaining k }
+            int step = 0;
             boolean[][][] visited = new boolean[row][col][k + 1];
             visited[0][0][k] = true;
             deque.offer(new int[] { 0, 0, k });
-            int step = 0;
             while (!deque.isEmpty()) {
                 int size = deque.size();
                 while (size-- > 0) {
                     int[] state = deque.poll();
-                    if (state[0] == row - 1 && state[1] == col - 1) {
+                    if (state[0] == row - 1 && state[1] == col - 1) { // Final state
                         return step;
                     }
                     for (int d = 0; d < 4; ++d) {
