@@ -5,14 +5,15 @@ public class UnionFind_Array {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private int[] root;
-    private int[] size;
+    private int[] weight;
 
     public UnionFind_Array(int N) {
+        // Initialization
         root = new int[N];
-        size = new int[N];
-        for (int i = 0; i < N; i++) {
+        weight = new int[N];
+        for (int i = 0; i < N; ++i) {
             root[i] = i;
-            size[i] = 1;
+            weight[i] = 1;
         }
     }
 
@@ -20,6 +21,7 @@ public class UnionFind_Array {
         if (root[index] == index) {
             return index;
         }
+        // Path compression
         return root[index] = find(root[index]);
     }
 
@@ -27,13 +29,13 @@ public class UnionFind_Array {
         int root1 = find(index1);
         int root2 = find(index2);
         if (root1 != root2) {
-            // Smaller root point to larger
-            if (size[root1] < size[root2]) {
+            // Smaller root point to larger one
+            if (weight[root1] < weight[root2]) {
                 root[root1] = root2;
-                size[root2] += size[root1];
+                weight[root2] += weight[root1];
             } else {
                 root[root2] = root1;
-                size[root1] += size[root2];
+                weight[root1] += weight[root2];
             }
         }
     }
