@@ -7,20 +7,21 @@ public class UnionFind_Map {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Map<String, String> rootMap = new HashMap<>();
-    private Map<String, Integer> sizeMap = new HashMap<>();
+    private Map<String, String> root
+            = new HashMap<>();
+    private Map<String, Integer> weight = new HashMap<>();
 
     public String find(String index) {
-        if (rootMap.get(index) == null) {
-            rootMap.put(index, index);
-            sizeMap.put(index, 1);
+        // Initialization
+        if (root.get(index) == null) {
+            root.put(index, index);
+            weight.put(index, 1);
         }
-        if (rootMap.get(index).equals(index)) {
+        if (root.get(index).equals(index)) {
             return index;
         }
-        String temp = find(rootMap.get(index));
-        rootMap.put(index, temp);
-        return temp;
+        // Path compression
+        return root.compute(index, (k, v)-> find(root.get(index)));
     }
 
     public void union_map(String index1, String index2) {
@@ -28,12 +29,12 @@ public class UnionFind_Map {
         String root2 = find(index2);
         if (!root1.equals(root2)) {
             // Smaller root point to larger
-            if (sizeMap.get(root1) < sizeMap.get(root2)) {
-                sizeMap.put(root2, sizeMap.get(root1) + sizeMap.get(root2));
-                rootMap.put(root1, root2);
+            if (weight.get(root1) < weight.get(root2)) {
+                weight.put(root2, weight.get(root1) + weight.get(root2));
+                root.put(root1, root2);
             } else {
-                sizeMap.put(root1, sizeMap.get(root1) + sizeMap.get(root2));
-                rootMap.put(root2, root1);
+                weight.put(root1, weight.get(root1) + weight.get(root2));
+                root.put(root2, root1);
             }
         }
     }
