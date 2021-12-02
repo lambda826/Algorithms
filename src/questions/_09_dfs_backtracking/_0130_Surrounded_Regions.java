@@ -45,15 +45,15 @@ public class _0130_Surrounded_Regions {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution_DFS {
 
-        private int[] dir = { -1, 0, 1, 0, -1 };
+        private final int[] dir = { -1, 0, 1, 0, -1 };
         private LinkedList<Integer> temp = new LinkedList<>(); // Mark current search;
 
         public void solve(char[][] board) {
             boolean[][] visited = new boolean[board.length][board[0].length];
             for (int x = 0; x < board.length; ++x) {
                 for (int y = 0; y < board[0].length; ++y) {
-                    boolean isEscaped = isEscaped_DFS(board, visited, x, y);
-                    if (isEscaped) {
+                    boolean isFree = isFree(board, visited, x, y);
+                    if (isFree) {
                         temp.clear();
                     } else {
                         while (temp.size() != 0) {
@@ -65,7 +65,7 @@ public class _0130_Surrounded_Regions {
             }
         }
 
-        private boolean isEscaped_DFS(char[][] board, boolean[][] visited, int x, int y) {
+        private boolean isFree(char[][] board, boolean[][] visited, int x, int y) {
             if (x >= 0 && x < board.length && y >= 0 && y < board[0].length) {
                 if (visited[x][y] || board[x][y] == 'X') {
                     return false;
@@ -76,7 +76,7 @@ public class _0130_Surrounded_Regions {
                     for (int i = 0; i < 4; ++i) {
                         int xx = x + dir[i];
                         int yy = y + dir[i + 1];
-                        free = isEscaped_DFS(board, visited, xx, yy) || free;
+                        free = isFree(board, visited, xx, yy) || free;
                     }
                     return free;
                 }
