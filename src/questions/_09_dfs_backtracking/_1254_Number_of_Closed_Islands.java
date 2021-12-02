@@ -77,7 +77,7 @@ public class _1254_Number_of_Closed_Islands {
                 for (int i = 0; i < 4; ++i) {
                     int xx = x + dir[i];
                     int yy = y + dir[i + 1];
-                    isClosed = isClosed(grid, xx, yy) && isClosed;
+                    isClosed = isClosed(grid, xx, yy) && isClosed; // Ensure we can go through the whole branch
                 }
                 return isClosed;
             } else {
