@@ -547,7 +547,6 @@
 921_Minimum_Add_to_Make_Parentheses_Valid
 1613_Find_the_Missing_IDs
 1261_Find_Elements_in_a_Contaminated_Binary_Tree
-1836_Remove_Duplicates_From_an_Unsorted_Linked_List
 1355_Activity_Participants
 1395_Count_Number_of_Teams
 890_Find_and_Replace_Pattern
@@ -1027,7 +1026,7 @@
 222_Count_Complete_Tree_Nodes
 116_Populating_Next_Right_Pointers_in_Each_Node
 971_Flip_Binary_Tree_To_Match_Preorder_Traversal
-1631_Path_With_Minimum_Effort
+
 351_Android_Unlock_Patterns
 200_Number_of_Islands
 452_Minimum_Number_of_Arrows_to_Burst_Balloons
@@ -1796,7 +1795,7 @@
 127_Word_Ladder
 1632_Rank_Transform_of_a_Matrix
 1483_Kth_Ancestor_of_a_Tree_Node
-803_Bricks_Falling_When_Hit
+
 233_Number_of_Digit_One
 1354_Construct_Target_Array_With_Multiple_Sums
 629_K_Inverse_Pairs_Array
