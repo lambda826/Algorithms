@@ -72,7 +72,6 @@ Constraints:
     intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
 
 */
-
 public class _0160_Intersection_of_Two_Linked_Lists {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
