@@ -14,7 +14,8 @@ The inputs to the judge are given as follows (your program is not given these in
     listB - The second linked list.
     skipA - The number of nodes to skip ahead in listA (starting from the head) to get to the intersected node.
     skipB - The number of nodes to skip ahead in listB (starting from the head) to get to the intersected node.
-    The judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program. If you correctly return the intersected node, then your solution will be accepted.
+    The judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program.
+    If you correctly return the intersected node, then your solution will be accepted.
 
 
 Example 1:

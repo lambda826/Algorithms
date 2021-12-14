@@ -33,12 +33,12 @@ public class _0082_Remove_Duplicates_from_Sorted_List_II {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Check if there is a duplicate nodes.
     //      If yes, store this value into the temporal duplication variable (dup).
-    //      Disconnect the link if the next node has a same value with duplication variable.
+    //      Remove the next node if it has the same value as duplication variable.
     class Solution {
         public ListNode deleteDuplicates(ListNode head) {
-            ListNode temp = new ListNode();
-            temp.next = head;
-            ListNode curr = temp;
+            ListNode tempHead = new ListNode();
+            tempHead.next = head;
+            ListNode curr = tempHead;
             int dup = Integer.MAX_VALUE;
             while (curr.next != null) {
                 if (curr.next.next != null && curr.next.val == curr.next.next.val) {
@@ -50,7 +50,7 @@ public class _0082_Remove_Duplicates_from_Sorted_List_II {
                     curr = curr.next;
                 }
             }
-            return temp.next;
+            return tempHead.next;
         }
     }
 }
