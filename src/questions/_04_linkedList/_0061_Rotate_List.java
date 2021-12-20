@@ -33,31 +33,29 @@ public class _0061_Rotate_List {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
         public ListNode rotateRight(ListNode head, int k) {
-            ListNode temp = head;
-            int len = 0;
-            while (temp != null) {
-                temp = temp.next;
+            if (head == null || k == 0) {
+                return head;
+            }
+            // 1. Find length and attach tail to head
+            ListNode oldTail = head;
+            int len = 1;
+            while (oldTail.next != null) {
+                oldTail = oldTail.next;
                 ++len;
             }
-            if (len == 0 || (k %= len) == 0) {
-                return head;
-            } else {
-                ListNode res = new ListNode(0);
-                ListNode temp2 = res;
-                res.next = head;
-                k = len - k;
-                while (k-- > 0) {
-                    temp2 = temp2.next;
-                }
-                res.next = temp2.next;
-                temp2.next = null;
-                temp2 = res;
-                while (temp2.next != null) {
-                    temp2 = temp2.next;
-                }
-                temp2.next = head;
-                return res.next;
+            oldTail.next = head;
+            // 2. Locate newTail: (len - k - 1)th node
+            k = len - k % len - 1;
+            ListNode newTail = head;
+            while (k-- > 0) {
+                newTail = newTail.next;
             }
+            // 3. Locate newHead: (len - k)th node.
+            ListNode newHead = newTail.next;
+            // 4. Detach
+            newTail.next = null;
+            return newHead;
+
         }
     }
 }
