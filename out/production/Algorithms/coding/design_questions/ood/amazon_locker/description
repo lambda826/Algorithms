@@ -1,9 +1,0 @@
-设计：
-Code: design Amazon locker.
-楼主你好 我想问一下 对这道设计题，我的想法是 有个Enum Size{small, medium, large}代表货物和locker 的尺寸 
-有个 货物类 Item {Size, Gid} 其中gid代表货物id  locker {Gid, size, address} //其中Gid 代表是否存在货物 size用来表示大小是否match 
-然后有个 管理类  
-lockerManager {List< lockers> lockers, public boolean findLocker (Gid);  
-public locker putItem(Gid); public locker pickItem(GID)} lockers 拿来存当前柜台里的locker信息， 
-findLocker(GID)通过货物码找到对应locker , putItem 寻找空的locker把货物放入 pickItem 找到locker 把里面的gid设置成null 表示提取货物 但是这些操作都是o(N)的时间 
-请问楼主这种设计大体上符合要求吗 还是需要优化成o(1)比如用hashmap或者还有考虑 locker的距离这种的 谢谢
