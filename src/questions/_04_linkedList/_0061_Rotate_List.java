@@ -36,23 +36,24 @@ public class _0061_Rotate_List {
             if (head == null || k == 0) {
                 return head;
             }
-            // 1. Find length and attach tail to head
+            // 1. Compute the length of the linked list.
             ListNode oldTail = head;
             int len = 1;
             while (oldTail.next != null) {
                 oldTail = oldTail.next;
                 ++len;
             }
+            // 2. Attach tail to head.
             oldTail.next = head;
-            // 2. Locate newTail: (len - k - 1)th node
+            // 3. Find newTail: (len - k - 1)th node
             k = len - k % len - 1;
             ListNode newTail = head;
             while (k-- > 0) {
                 newTail = newTail.next;
             }
-            // 3. Locate newHead: (len - k)th node.
+            // 4. Find newHead: (len - k)th node.
             ListNode newHead = newTail.next;
-            // 4. Detach
+            // 5. Detach
             newTail.next = null;
             return newHead;
 

@@ -36,21 +36,21 @@ public class _0082_Remove_Duplicates_from_Sorted_List_II {
     //      Remove the next node if it has the same value as duplication variable.
     class Solution {
         public ListNode deleteDuplicates(ListNode head) {
-            ListNode tempHead = new ListNode();
-            tempHead.next = head;
-            ListNode curr = tempHead;
+            ListNode res = new ListNode();
+            res.next = head;
+            ListNode tempCurr = res;
             int dup = Integer.MAX_VALUE;
-            while (curr.next != null) {
-                if (curr.next.next != null && curr.next.val == curr.next.next.val) {
-                    dup = curr.next.val;
+            while (tempCurr.next != null) {
+                if (tempCurr.next.next != null && tempCurr.next.val == tempCurr.next.next.val) {
+                    dup = tempCurr.next.val;
                 }
-                if (curr.next.val == dup) {
-                    curr.next = curr.next.next;
+                if (tempCurr.next.val == dup) {
+                    tempCurr.next = tempCurr.next.next;
                 } else {
-                    curr = curr.next;
+                    tempCurr = tempCurr.next;
                 }
             }
-            return tempHead.next;
+            return res.next;
         }
     }
 }

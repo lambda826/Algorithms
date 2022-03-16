@@ -47,8 +47,7 @@ public class _0002_Add_Two_Numbers {
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode head = new ListNode(0);
-            ListNode curr = head;
-            head.next = curr;
+            ListNode tempCurr = head;
             int sum = 0;
             while (l1 != null || l2 != null || sum != 0) {
                 if (l1 != null) {
@@ -59,9 +58,9 @@ public class _0002_Add_Two_Numbers {
                     sum += l2.val;
                     l2 = l2.next;
                 }
-                curr.next = new ListNode(sum % 10);
-                curr = curr.next;
+                tempCurr.next = new ListNode(sum % 10);
                 sum /= 10;
+                tempCurr = tempCurr.next;
             }
             return head.next;
         }

@@ -48,6 +48,9 @@ public class _0024_Swap_Nodes_in_Pairs {
             return res.next;
         }
 
+        /**
+         * Swap the position of n1 and n2 after n.
+         */
         private void swap(ListNode n, ListNode n1, ListNode n2) {
             ListNode next = n2.next;
             n.next = n2;
