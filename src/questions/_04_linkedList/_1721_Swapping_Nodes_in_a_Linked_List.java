@@ -39,8 +39,7 @@ public class _1721_Swapping_Nodes_in_a_Linked_List {
             ListNode temp = new ListNode(0, head);
             ListNode fast = temp;
             ListNode slow = temp;
-            int kk = k - 1;
-            while (kk-- > 0) {
+            while (--k > 0) {
                 fast = fast.next;
             }
             ListNode node = fast;
