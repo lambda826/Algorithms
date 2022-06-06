@@ -4,9 +4,9 @@ public class DoubleLinkedList<K, V> {
 
     public K key;
     public V val;
+    public int freq;
     public DoubleLinkedList<K, V> pre;
     public DoubleLinkedList<K, V> next;
-    public int freq;
 
     public DoubleLinkedList() {
     }
