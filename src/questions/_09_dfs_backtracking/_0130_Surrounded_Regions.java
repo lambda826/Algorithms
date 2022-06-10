@@ -99,16 +99,16 @@ public class _0130_Surrounded_Regions {
             for (int x = 0; x < board.length; ++x) {
                 int y1 = 0; // Left
                 int y2 = board[0].length - 1; // Right
-                dfs(board, x, y1);
-                dfs(board, x, y2);
+                DFS(board, x, y1);
+                DFS(board, x, y2);
             }
 
             // Top and bottom boarder
             for (int y = 0; y < board[0].length; ++y) {
                 int x1 = 0; // Top
                 int x2 = board.length - 1; // Bottom
-                dfs(board, x1, y);
-                dfs(board, x2, y);
+                DFS(board, x1, y);
+                DFS(board, x2, y);
             }
 
             for (int x = 0; x < board.length; ++x) {
@@ -122,13 +122,13 @@ public class _0130_Surrounded_Regions {
             }
         }
 
-        private void dfs(char[][] board, int x, int y) {
+        private void DFS(char[][] board, int x, int y) {
             if (x >= 0 && x < board.length && y >= 0 && y < board[0].length && board[x][y] == 'O') {
                 board[x][y] = '#'; // Mark escaped grid
                 for (int i = 0; i < 4; ++i) {
                     int xx = x + dir[i];
                     int yy = y + dir[i + 1];
-                    dfs(board, xx, yy);
+                    DFS(board, xx, yy);
                 }
             }
         }

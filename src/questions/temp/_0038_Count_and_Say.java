@@ -61,11 +61,11 @@ public class _0038_Count_and_Say {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public String countAndSay_Recursive(int n) {
+    public String countAndSay_Recursion(int n) {
         if (n <= 1) {
             return "1";
         }
-        String str = countAndSay_Recursive(n - 1);
+        String str = countAndSay_Recursion(n - 1);
         StringBuilder say = new StringBuilder();
         int p = 0;
         int count = 0;

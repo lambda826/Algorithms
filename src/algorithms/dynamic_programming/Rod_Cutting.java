@@ -14,18 +14,18 @@ public class Rod_Cutting {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int cutRod_Recursive(int n, int[] prize, int[] r) {
+    public int cutRod_Recursion(int n, int[] prize, int[] r) {
         Arrays.fill(r, Integer.MIN_VALUE);
-        return cutRod_Recursive_Aux(n, prize, r);
+        return cutRod_Recursion_Aux(n, prize, r);
     }
 
-    private int cutRod_Recursive_Aux(int n, int[] prize, int[] r) {
+    private int cutRod_Recursion_Aux(int n, int[] prize, int[] r) {
         int max = 0;
         if (r[n] >= 0) {
             return r[n];
         } else {
             for (int i = 1; i <= n; i++) {
-                max = Math.max(max, prize[i] + cutRod_Recursive_Aux(n - i, prize, r));
+                max = Math.max(max, prize[i] + cutRod_Recursion_Aux(n - i, prize, r));
             }
             return r[n] = max;
         }
@@ -49,7 +49,7 @@ public class Rod_Cutting {
         int n = 6;
         int[] r = new int[n + 1];
         System.out.println(new Rod_Cutting().cutRod(n, prize, r));
-        System.out.println(new Rod_Cutting().cutRod_Recursive(n, prize, r));
+        System.out.println(new Rod_Cutting().cutRod_Recursion(n, prize, r));
     }
 
 }

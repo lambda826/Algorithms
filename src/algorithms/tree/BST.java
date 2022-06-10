@@ -30,13 +30,13 @@ public class BST {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static TreeNode search_recursive(TreeNode node, int val) {
+    public static TreeNode search_Recursion(TreeNode node, int val) {
         if (node == null || node.val == val) {
             return node;
         } else if (node.val < val) {
-            return search_recursive(node.left, val);
+            return search_Recursion(node.left, val);
         } else {
-            return search_recursive(node.right, val);
+            return search_Recursion(node.right, val);
         }
     }
 

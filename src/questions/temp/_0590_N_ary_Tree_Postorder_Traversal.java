@@ -28,10 +28,10 @@ public class _0590_N_ary_Tree_Postorder_Traversal {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<Integer> postorder_Recursive(TreeNode root) {
+    public List<Integer> postorder_Recursion(TreeNode root) {
         if (root != null) {
             for (TreeNode node : root.children) {
-                postorder_Recursive(node);
+                postorder_Recursion(node);
             }
             list.add(root.val);
         }

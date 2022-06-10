@@ -78,7 +78,7 @@
 //            }
 //            BST.put(root, num);
 //        }
-//        TreeNode lca = new _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree().lowestCommonAncestor_recursive(root, new TreeNode(n1), new TreeNode(n2));
+//        TreeNode lca = new _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree().lowestCommonAncestor_Recursion(root, new TreeNode(n1), new TreeNode(n2));
 //        return n == 4 ? disFromRoot(lca, n1) + disFromRoot(lca, n2) : -1;
 //    }
 //
