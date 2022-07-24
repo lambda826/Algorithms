@@ -1,8 +1,3 @@
-/**
- *  @author Yunxiang He
- *  @date 03/30/2019
- */
-
 package questions.temp;
 
 import java.util.ArrayList;
