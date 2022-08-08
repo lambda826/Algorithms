@@ -3,15 +3,12 @@ package algorithms.union_find;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UnionFind_Map {
+public class UnionFindMap {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Map<String, String> root
-            = new HashMap<>();
+    private Map<String, String> root = new HashMap<>();
     private Map<String, Integer> weight = new HashMap<>();
 
-    public String find(String index) {
+    public String findRoot(String index) {
         // Initialization
         if (root.get(index) == null) {
             root.put(index, index);
@@ -20,13 +17,13 @@ public class UnionFind_Map {
         if (root.get(index).equals(index)) {
             return index;
         }
-        // Path compression
-        return root.compute(index, (k, v)-> find(root.get(index)));
+        // Path compression: all the nodes on the path will point to the root.
+        return root.compute(index, (k, v)-> findRoot(root.get(index)));
     }
 
-    public void union_map(String index1, String index2) {
-        String root1 = find(index1);
-        String root2 = find(index2);
+    public void connect(String index1, String index2) {
+        String root1 = findRoot(index1);
+        String root2 = findRoot(index2);
         if (!root1.equals(root2)) {
             // Smaller root point to larger
             if (weight.get(root1) < weight.get(root2)) {

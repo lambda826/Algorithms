@@ -1,13 +1,15 @@
 package algorithms.union_find;
 
-public class UnionFind_Array {
+public class UnionFindArray {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private int[] root;
     private int[] weight;
 
-    public UnionFind_Array(int N) {
+    public UnionFindArray(int[] root) {
+        this.root = root;
+    }
+
+    public UnionFindArray(int N) {
         // Initialization
         root = new int[N];
         weight = new int[N];
@@ -17,17 +19,17 @@ public class UnionFind_Array {
         }
     }
 
-    public int find(int index) {
+    public int findRoot(int index) {
         if (root[index] == index) {
             return index;
         }
-        // Path compression
-        return root[index] = find(root[index]);
+        // Path compression: all the nodes on the path will point to the root.
+        return root[index] = findRoot(root[index]);
     }
 
-    public void union(int index1, int index2) {
-        int root1 = find(index1);
-        int root2 = find(index2);
+    public void connect(int index1, int index2) {
+        int root1 = findRoot(index1);
+        int root2 = findRoot(index2);
         if (root1 != root2) {
             // Smaller root point to larger one
             if (weight[root1] < weight[root2]) {
