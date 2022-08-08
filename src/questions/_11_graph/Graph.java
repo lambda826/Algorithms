@@ -1,6 +1,6 @@
 package questions._11_graph;
 
-import questions._08_bfs_dfs._0200_Number_of_Islands;
+import questions._08_bfs_DFS._0200_Number_of_Islands;
 import questions._11_graph.search.matrix._0286_Walls_and_Gates;
 import questions._11_graph.search.string._1236_Web_Crawler;
 

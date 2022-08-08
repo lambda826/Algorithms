@@ -1,4 +1,4 @@
-package questions._09_dfs_backtracking.combination._1d;
+package questions._09_DFS_backtracking.combination._1d;
 
 import java.util.ArrayList;
 import java.util.List;

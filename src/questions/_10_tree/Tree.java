@@ -1,7 +1,6 @@
 package questions._10_tree;
 
-import questions.temp._0617_Merge_Two_Binary_Trees;
-import questions.temp._0897_Increasing_Order_Search_Tree;
+import questions._08_bfs_DFS._0690_Employee_Importance;
 import questions._10_tree.bst._0285_Inorder_Successor_in_BST;
 import questions._10_tree.bst._0510_Inorder_Successor_in_BST_II;
 import questions._10_tree.bst._0938_Range_Sum_of_BST;
@@ -21,10 +20,11 @@ import questions._10_tree.traversal.level_order._0993_Cousins_in_Binary_Tree;
 import questions._10_tree.traversal.level_order._1161_Maximum_Level_Sum_of_a_Binary_Tree;
 import questions._10_tree.traversal.level_order._1602_Find_Nearest_Right_Node_in_Binary_Tree;
 import questions._10_tree.traversal.ordered._0865_Smallest_Subtree_with_all_the_Deepest_Nodes;
-import questions._08_bfs_dfs._0690_Employee_Importance;
 import questions._10_tree.traversal.universal_traversal._1379_Find_a_Corresponding_Node_of_a_Binary_Tree_in_a_Clone_of_That_Tree;
 import questions._10_tree.traversal.universal_traversal._1469_Find_All_The_Lonely_Nodes;
 import questions._10_tree.traversal.universal_traversal._1490_Clone_N_ary_Tree;
+import questions.temp._0617_Merge_Two_Binary_Trees;
+import questions.temp._0897_Increasing_Order_Search_Tree;
 
 public class Tree {
 

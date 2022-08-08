@@ -1,4 +1,4 @@
-package questions._09_dfs_backtracking;
+package questions._09_DFS_backtracking;
 
 import java.util.LinkedList;
 
@@ -46,7 +46,7 @@ public class _0130_Surrounded_Regions {
     class Solution_DFS {
 
         private final int[] dir = { -1, 0, 1, 0, -1 };
-        private LinkedList<Integer> temp = new LinkedList<>(); // Mark current search;
+        private final LinkedList<Integer> temp = new LinkedList<>(); // Mark current search;
 
         public void solve(char[][] board) {
             boolean[][] visited = new boolean[board.length][board[0].length];
@@ -92,7 +92,7 @@ public class _0130_Surrounded_Regions {
     //      We only need to start the search from the boarder, all the connected positions are escaped.
     class Solution_DFS_Optimized {
 
-        private int[] dir = { -1, 0, 1, 0, -1 };
+        private final int[] dir = { -1, 0, 1, 0, -1 };
 
         public void solve(char[][] board) {
             // Left and right boarder

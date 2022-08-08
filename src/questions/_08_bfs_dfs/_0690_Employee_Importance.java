@@ -1,4 +1,4 @@
-package questions._08_bfs_dfs;
+package questions._08_bfs_DFS;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
