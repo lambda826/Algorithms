@@ -2,7 +2,7 @@ package algorithms.union_find;
 
 public class UnionFindArray {
 
-    private int[] root;
+    private final int[] root;
     private int[] weight;
 
     public UnionFindArray(int[] root) {
