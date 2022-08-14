@@ -73,62 +73,68 @@ public class _0399_Evaluate_Division {
     class Solution_UF {
 
         public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-
-            Map<String, String> path = new HashMap<>();
-            Map<String, Double> ratioToRoot = new HashMap<>();
-            Map<String, Integer> height = new HashMap<>();
-
-            double[] answer = new double[queries.size()];
-            Arrays.fill(answer, -1.0);
-
+            Map<String, Node> map = new HashMap<>();
             for (int i = 0; i < equations.size(); ++i) {
                 String m = equations.get(i).get(0);
                 String n = equations.get(i).get(1);
-                String mm = find(m, path, ratioToRoot);
-                String nn = find(n, path, ratioToRoot);
-                // union
-                if (!mm.equals(nn)) {
-                    int mmh = height.getOrDefault(mm, 0);
-                    int nnh = height.getOrDefault(nn, 0);
-                    if (mmh < nnh) {
-                        path.put(mm, nn);
-                        ratioToRoot.put(mm, values[i] * ratioToRoot.get(n) / ratioToRoot.get(m));
+                if (!map.containsKey(m)) {
+                    map.put(m, new Node());
+                }
+                if (!map.containsKey(n)) {
+                    map.put(n, new Node());
+                }
+                Node mm = find(map.get(m));
+                Node nn = find(map.get(n));
+                if (mm != nn) {
+                    if (mm.height < nn.height) {
+                        mm.parent = nn;
+                        mm.ratio = values[i] * map.get(n).ratio / map.get(m).ratio;
                     } else {
-                        path.put(nn, mm);
-                        ratioToRoot.put(nn, ratioToRoot.get(m) / (values[i] * ratioToRoot.get(n)));
-                        if (mmh == nnh) {
-                            height.put(mm, mmh + 1);
+                        nn.parent = mm;
+                        nn.ratio = map.get(m).ratio / (values[i] * map.get(n).ratio);
+                        if (mm.height == nn.height) {
+                            ++mm.height;
                         }
                     }
                 }
             }
 
+            double[] answer = new double[queries.size()];
+            Arrays.fill(answer, -1.0);
             for (int i = 0; i < queries.size(); ++i) {
                 String m = queries.get(i).get(0);
                 String n = queries.get(i).get(1);
-                if (path.containsKey(m) && path.containsKey(n)) {
-                    String mm = find(m, path, ratioToRoot);
-                    String nn = find(n, path, ratioToRoot);
-                    if (mm.equals(nn)) {
-                        answer[i] = ratioToRoot.get(m) / ratioToRoot.get(n);
+                if (map.containsKey(m) && map.containsKey(n)) {
+                    Node mm = find(map.get(m));
+                    Node nn = find(map.get(n));
+                    if (mm == nn) {
+                        answer[i] = map.get(m).ratio / map.get(n).ratio;
                     }
                 }
             }
             return answer;
         }
 
-        private String find(String num, Map<String, String> path, Map<String, Double> ratioToRoot) {
-            if (!path.containsKey(num)) {
-                path.put(num, num);
-                ratioToRoot.put(num, 1.0);
+        private Node find(Node node) {
+            if (node == node.parent) {
+                return node;
             }
-            if (path.get(num).equals(num)) {
-                return num;
+            Node res = find(node.parent);
+            node.ratio *= node.parent.ratio;
+            node.parent = res;
+            return res;
+        }
+
+        private class Node {
+
+            private Node parent;
+            private int height;
+            private double ratio;
+
+            Node() {
+                parent = this;
+                ratio = 1.0;
             }
-            String root = find(path.get(num), path, ratioToRoot);
-            ratioToRoot.put(num, ratioToRoot.get(num) * ratioToRoot.get(path.get(num)));
-            path.put(num, root);
-            return root;
         }
     }
 
