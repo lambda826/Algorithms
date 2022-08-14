@@ -5,33 +5,34 @@ import java.util.Map;
 
 public class UnionFindMap {
 
-    private Map<String, String> root = new HashMap<>();
-    private Map<String, Integer> weight = new HashMap<>();
+    private final Map<String, String> parent = new HashMap<>();
+    private final Map<String, Integer> height = new HashMap<>();
 
-    public String findRoot(String index) {
+    public String findRoot(String i) {
         // Initialization
-        if (root.get(index) == null) {
-            root.put(index, index);
-            weight.put(index, 1);
+        if (parent.get(i) == null) {
+            parent.put(i, i);
+            height.put(i, 1);
         }
-        if (root.get(index).equals(index)) {
-            return index;
+        if (parent.get(i).equals(i)) {
+            return i;
         }
         // Path compression: all the nodes on the path will point to the root.
-        return root.compute(index, (k, v)-> findRoot(root.get(index)));
+        return parent.compute(i, (k, v) -> findRoot(parent.get(i)));
     }
 
-    public void connect(String index1, String index2) {
-        String root1 = findRoot(index1);
-        String root2 = findRoot(index2);
-        if (!root1.equals(root2)) {
+    public void connect(String m, String n) {
+        String mm = findRoot(m);
+        String nn = findRoot(n);
+        if (!mm.equals(nn)) {
             // Smaller root point to larger
-            if (weight.get(root1) < weight.get(root2)) {
-                weight.put(root2, weight.get(root1) + weight.get(root2));
-                root.put(root1, root2);
+            if (height.get(mm) < height.get(nn)) {
+                parent.put(mm, nn);
             } else {
-                weight.put(root1, weight.get(root1) + weight.get(root2));
-                root.put(root2, root1);
+                parent.put(nn, mm);
+                if (height.get(mm) == height.get(nn)) {
+                    height.put(mm, height.get(mm) + 1);
+                }
             }
         }
     }
