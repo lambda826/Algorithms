@@ -91,6 +91,7 @@ public class _0827_Making_A_Large_Island {
                             int ii = i + dir[k];
                             int jj = j + dir[k + 1];
                             if (ii >= 0 && ii < n && jj >= 0 && jj < n && grid[ii][jj] == 1) {
+                                // We should calculate kk after ii and jj pass the check.
                                 int kk = find(ii * n + jj, parent);
                                 if (visited.add(kk)) {
                                     temp += weight[kk];
@@ -101,6 +102,7 @@ public class _0827_Making_A_Large_Island {
                     }
                 }
             }
+            // This is for the edge case that all cells are 1.
             return Math.max(max, weight[find(0, parent)]);
         }
 
