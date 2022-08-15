@@ -1,12 +1,6 @@
-/**
- *  @author: Yunxiang He
- *  @date  : 2018-08-04 03:33
- */
-
-package questions.temp;
+package questions._20_unionFind;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 /*
 
@@ -44,53 +39,76 @@ The length of accounts[i][j] will be in the range [1, 30].
 
  */
 
-public class ___0721_Accounts_Merge {
+public class _0721_Accounts_Merge {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<List<String>> accountsMerge_UF(List<List<String>> accounts) {
-        List<List<String>> res = new ArrayList<>();
-        Map<String, String> roots = new HashMap<>();
-        for (List<String> account : accounts) {
-            String root1 = find(roots, account.get(1));
-            for (int i = 2; i < account.size(); i++) {
-                String root2 = find(roots, account.get(i));
-                if (!root1.equals(root2)) {
-                    roots.put(root2, root1);
+    class Solution_UF {
+
+        public List<List<String>> accountsMerge(List<List<String>> accounts) {
+            // Union each account
+            Map<String, String> parent = new HashMap<>();
+            Map<String, Integer> height = new HashMap<>();
+            for (List<String> account : accounts) {
+                String email = find(account.get(1), parent);
+                for (int i = 2; i < account.size(); ++i) {
+                    String m = find(email, parent);
+                    String n = find(account.get(i), parent);
+                    if (!m.equals(n)) {
+                        int mh = height.getOrDefault(m, 0);
+                        int nh = height.getOrDefault(n, 0);
+                        if (mh < nh) {
+                            parent.put(m, n);
+                        } else {
+                            parent.put(n, m);
+                            if (mh == nh) {
+                                height.put(m, mh + 1);
+                            }
+                        }
+                    }
                 }
             }
-        }
 
-        Map<String, List<String>> visited = new HashMap<>();
-        for (String key : roots.keySet()) {
-            String root = find(roots, key);
-            List<String> list = visited.getOrDefault(root, new ArrayList<>());
-            list.add(key);
-            visited.put(root, list);
-        }
-
-        for (String key : visited.keySet()) {
-            for (List<String> list : accounts) {
-                if (list.contains(key)) {
-                    Collections.sort(visited.get(key));
-                    visited.get(key).add(0, list.get(0));
-                    break;
+            Map<String, Node> map = new HashMap<>();
+            for (List<String> account : accounts) {
+                String tag = account.get(0);
+                for (int i = 1; i < account.size(); ++i) {
+                    String email = find(account.get(i), parent);
+                    if (!map.containsKey(email)) {
+                        map.put(email, new Node(tag));
+                    }
+                    map.get(email).emails.add(account.get(i));
                 }
             }
-        }
-        res.addAll(visited.values());
-        return res;
-    }
 
-    private String find(Map<String, String> roots, String key) {
-        if (roots.get(key) == null) {
-            roots.put(key, key);
-            return key;
+            List<List<String>> res = new ArrayList<>();
+            for (Node node : map.values()) {
+                List<String> temp = new ArrayList<>();
+                temp.add(node.tag);
+                temp.addAll(node.emails);
+                res.add(temp);
+            }
+            return res;
         }
-        if (roots.get(key).equals(key)) {
-            return key;
+
+        private String find(String i, Map<String, String> parent) {
+            if (!parent.containsKey(i)) {
+                parent.put(i, i);
+            }
+            if (i.equals(parent.get(i))) {
+                return i;
+            }
+            String p = find(parent.get(i), parent);
+            parent.put(i, p);
+            return p;
         }
-        return find(roots, roots.get(key));
+
+        private class Node {
+            private final String tag;
+            private final TreeSet emails = new TreeSet();
+
+            private Node(String tag) {
+                this.tag = tag;
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,23 +154,6 @@ public class ___0721_Accounts_Merge {
             }
         }
         return graph;
-    }
-
-    public static void main(String[] args) {
-        List<String> l1 = new ArrayList<>(Arrays.asList(new String[] { "John", "0", "4", "3" }));
-        List<String> l2 = new ArrayList<>(Arrays.asList(new String[] { "John", "5", "5", "0" }));
-        List<String> l3 = new ArrayList<>(Arrays.asList(new String[] { "John", "1", "4", "0" }));
-        List<String> l4 = new ArrayList<>(Arrays.asList(new String[] { "John", "0", "1", "3" }));
-        List<String> l5 = new ArrayList<>(Arrays.asList(new String[] { "John", "4", "1", "3" }));
-        //        List<String> l4 = new ArrayList<>(Arrays.asList(new String[] { "John", "3", "4",  }));
-        //        List<String> l1 = new ArrayList<>(Arrays.asList(new String[] { "John", "0", "1", }));
-        //        List<String> l3 = new ArrayList<>(Arrays.asList(new String[] { "John", "2", "3",  }));
-        //        List<String> l5 = new ArrayList<>(Arrays.asList(new String[] { "John", "4", "4",  }));
-        //        List<String> l2 = new ArrayList<>(Arrays.asList(new String[] { "John", "1", "2",  }));
-        List<List<String>> accounts = new ArrayList<>();
-        Collections.addAll(accounts, l1, l2, l3, l4, l5);
-        System.out.println(new ___0721_Accounts_Merge().accountsMerge_DFS(accounts));
-        //        System.out.println(new _0721_Accounts_Merge().accountsMerge2(accounts));
     }
 
 }
