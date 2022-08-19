@@ -29,14 +29,14 @@ public interface Search {
     // BFS
     _0994_Rotting_Oranges _0994_Rotting_Oranges = null;
 
-    // DFS | BackTracking
+    // dfs | BackTracking
     _0872_Leaf_Similar_Trees _0872_Leaf_Similar_Trees = null;
     _0100_Same_Tree _0100_Same_Tree = null;
     _0257_Binary_Tree_Paths _0257_Binary_Tree_Paths = null;
     _0110_Balanced_Binary_Tree _0110_Balanced_Binary_Tree = null;
     _0112_Path_Sum _0112_Path_Sum = null;
 
-    // BFS & DFS
+    // BFS & dfs
     _0559_Maximum_Depth_of_N_ary_Tree _0559_Maximum_Depth_of_N_ary_Tree = null;
     _0690_Employee_Importance _0690_Employee_Importance = null;
     _0993_Cousins_in_Binary_Tree _0993_Cousins_in_Binary_Tree = null;
@@ -48,7 +48,7 @@ public interface Search {
     _0104_Maximum_Depth_of_Binary_Tree _0104_Maximum_Depth_of_Binary_Tree = null;
     _0733_Flood_Fill _0733_Flood_Fill = null;
 
-    // DFS + DP
+    // dfs + DP
 
     // TODO
     _0429_N_ary_Tree_Level_Order_Traversal _0429_N_ary_Tree_Level_Order_Traversal = null;

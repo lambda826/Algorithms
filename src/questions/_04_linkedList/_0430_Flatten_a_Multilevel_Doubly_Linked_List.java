@@ -74,11 +74,11 @@ public class _0430_Flatten_a_Multilevel_Doubly_Linked_List {
     class Solution_DFS {
 
         public Node flatten(Node head) {
-            DFS(head);
+            dfs(head);
             return head;
         }
 
-        private Node DFS(Node node) {
+        private Node dfs(Node node) {
             if (node != null) {
                 Node next = node.next;
                 Node child = node.child;
@@ -86,14 +86,14 @@ public class _0430_Flatten_a_Multilevel_Doubly_Linked_List {
                     node.next = child;
                     node.child = null;
                     child.prev = node;
-                    node = DFS(child);
+                    node = dfs(child);
                     node.next = next;
                     if (next != null) {
                         next.prev = node;
                     }
                 }
                 if (next != null) {
-                    node = DFS(next);
+                    node = dfs(next);
                 }
             }
             return node;

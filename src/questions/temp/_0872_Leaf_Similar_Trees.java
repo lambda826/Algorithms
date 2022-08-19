@@ -33,23 +33,23 @@ public class _0872_Leaf_Similar_Trees {
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
         if (root1 != null) {
-            DFS(root1, l1);
+            dfs(root1, l1);
         }
         if (root2 != null) {
-            DFS(root2, l2);
+            dfs(root2, l2);
         }
         return l1.equals(l2);
     }
 
-    private void DFS(TreeNode root, List<Integer> l) {
+    private void dfs(TreeNode root, List<Integer> l) {
         if (root.left == null && root.right == null) {
             l.add(root.val);
         } else {
             if (root.left != null) {
-                DFS(root.left, l);
+                dfs(root.left, l);
             }
             if (root.right != null) {
-                DFS(root.right, l);
+                dfs(root.right, l);
             }
         }
     }

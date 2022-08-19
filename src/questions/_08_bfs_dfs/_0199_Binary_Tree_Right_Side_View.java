@@ -66,23 +66,23 @@ public class _0199_Binary_Tree_Right_Side_View {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // DFS
+    // dfs
     // First add right subtree and then left subtree
     // The first node to add for each level is the rightmost node
     // When the list.size() is less than height, it indicates the node is the rightmost one
     public List<Integer> rightSideView_DFS(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        DFS(root, list, 1);
+        dfs(root, list, 1);
         return list;
     }
 
-    private void DFS(TreeNode node, List<Integer> list, int height) {
+    private void dfs(TreeNode node, List<Integer> list, int height) {
         if (node != null) {
             if (list.size() < height) {
                 list.add(node.val);
             }
-            DFS(node.right, list, height + 1);
-            DFS(node.left, list, height + 1);
+            dfs(node.right, list, height + 1);
+            dfs(node.left, list, height + 1);
         }
     }
 

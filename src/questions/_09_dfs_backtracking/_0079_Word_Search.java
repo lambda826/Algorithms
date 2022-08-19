@@ -55,7 +55,7 @@ public class _0079_Word_Search {
         public boolean exist(char[][] board, String word) {
             for (int i = 0; i < board.length; ++i) {
                 for (int j = 0; j < board[0].length; ++j) {
-                    if (DFS(board, word, 0, i, j)) {
+                    if (dfs(board, word, 0, i, j)) {
                         return true;
                     }
                 }
@@ -63,7 +63,7 @@ public class _0079_Word_Search {
             return false;
         }
 
-        private boolean DFS(char[][] board, String word, int index, int i, int j) {
+        private boolean dfs(char[][] board, String word, int index, int i, int j) {
             if (index == word.length()) {
                 return true;
             } else {
@@ -72,7 +72,7 @@ public class _0079_Word_Search {
                     char ch = board[i][j];
                     board[i][j] = '#';
                     for (int k = 0; k < 4; ++k) {
-                        if (DFS(board, word, index + 1, i + dir[k], j + dir[k + 1])) {
+                        if (dfs(board, word, index + 1, i + dir[k], j + dir[k + 1])) {
                             return true;
                         }
                     }

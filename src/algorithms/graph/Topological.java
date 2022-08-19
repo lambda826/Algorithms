@@ -16,23 +16,23 @@ public class Topological {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Given a DAG
-    // DFS:
+    // dfs:
     //      Iterate every node of the Graph;
-    //      For each node, if it's not visited, recursively DFS visit each neighbour;
+    //      For each node, if it's not visited, recursively dfs visit each neighbour;
     //      After the visiting each neighbour, add current node to head of the order list.
     public static List<GraphNode> topological_DFS(List<GraphNode> graph) {
         LinkedList<GraphNode> order = new LinkedList<>();
         Set<GraphNode> visited = new HashSet<>();
         for (GraphNode graphNode : graph) {
-            DFS(graphNode, visited, order);
+            dfs(graphNode, visited, order);
         }
         return order;
     }
 
-    private static void DFS(GraphNode node, Set<GraphNode> visited, LinkedList<GraphNode> order) {
+    private static void dfs(GraphNode node, Set<GraphNode> visited, LinkedList<GraphNode> order) {
         if (!visited.add(node)) {
             for (GraphNode graphNode : node.neighbors) {
-                DFS(graphNode, visited, order);
+                dfs(graphNode, visited, order);
             }
             order.add(node);
         }

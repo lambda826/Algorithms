@@ -63,19 +63,19 @@ public class _0515_Find_Largest_Value_in_Each_Tree_Row {
     public List<Integer> largestValues_DFS(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root != null) {
-            DFS(root, list, 0);
+            dfs(root, list, 0);
         }
         return list;
     }
 
-    private void DFS(TreeNode node, List<Integer> list, int depth) {
+    private void dfs(TreeNode node, List<Integer> list, int depth) {
         if (node != null) {
             if (depth == list.size()) {
                 list.add(node.val);
             }
             list.set(depth, Math.max(list.get(depth), node.val));
-            DFS(node.left, list, depth + 1);
-            DFS(node.right, list, depth + 1);
+            dfs(node.left, list, depth + 1);
+            dfs(node.right, list, depth + 1);
         }
     }
 }

@@ -10,9 +10,15 @@ public class Trie<Value> {
     // Basic
     private static final int R = 26;
 
-    private static class Node {
-        private Node[] next = new Node[R];
-        private Object val;
+    // Get the node of prefix string
+    // dfs or BFS to collect_DFS
+    public Iterable<String> keysWithPrefix(String prefix) {
+        List<String> list = new ArrayList<>();
+        Node node = get(prefix);
+        if (node != null) {
+            prefix_Collect_DFS(node, new StringBuilder(prefix), list);
+        }
+        return list;
     }
 
     private Node root = new Node();
@@ -70,14 +76,11 @@ public class Trie<Value> {
         return null;
     }
 
-    // Get the node of prefix string
-    // DFS or BFS to collect_DFS
-    public Iterable<String> keysWithPrefix(String prefix) {
+    // All the keys in the symbol table that match that string
+    // In the sense that a period (.) in the argument string matches any character
+    public Iterable<String> keysThatMatch(String pattern) {
         List<String> list = new ArrayList<>();
-        Node node = get(prefix);
-        if (node != null) {
-            prefix_Collect_DFS(node, new StringBuilder(prefix), list);
-        }
+        keysThatMatch_Collect_DFS(root, new StringBuilder(), pattern, list);
         return list;
     }
 
@@ -94,12 +97,9 @@ public class Trie<Value> {
         }
     }
 
-    // All the keys in the symbol table that match that string
-    // In the sense that a period (.) in the argument string matches any character
-    public Iterable<String> keysThatMatch(String pattern) {
-        List<String> list = new ArrayList<>();
-        keysThatMatch_Collect_DFS(root, new StringBuilder(""), pattern, list);
-        return list;
+    private static class Node {
+        private final Node[] next = new Node[R];
+        private Object val;
     }
 
     private void keysThatMatch_Collect_DFS(Node node, StringBuilder prefix, String pattern, List<String> list) {

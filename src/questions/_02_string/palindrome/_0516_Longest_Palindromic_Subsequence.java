@@ -36,10 +36,10 @@ public class _0516_Longest_Palindromic_Subsequence {
     class Solution_DFS_Memo {
 
         public int longestPalindromeSubseq(String s) {
-            return s.length() - DFS(s, 0, s.length() - 1, new int[s.length()][s.length()]);
+            return s.length() - dfs(s, 0, s.length() - 1, new int[s.length()][s.length()]);
         }
 
-        private int DFS(String s, int p1, int p2, int[][] memo) {
+        private int dfs(String s, int p1, int p2, int[][] memo) {
             if (p1 >= p2) {
                 return 0;
             }
@@ -47,9 +47,9 @@ public class _0516_Longest_Palindromic_Subsequence {
                 return memo[p1][p2];
             }
             if (s.charAt(p1) == s.charAt(p2)) {
-                memo[p1][p2] = DFS(s, p1 + 1, p2 - 1, memo);
+                memo[p1][p2] = dfs(s, p1 + 1, p2 - 1, memo);
             } else {
-                memo[p1][p2] = 1 + Math.min(DFS(s, p1 + 1, p2, memo), DFS(s, p1, p2 - 1, memo));
+                memo[p1][p2] = 1 + Math.min(dfs(s, p1 + 1, p2, memo), dfs(s, p1, p2 - 1, memo));
             }
             return memo[p1][p2];
         }

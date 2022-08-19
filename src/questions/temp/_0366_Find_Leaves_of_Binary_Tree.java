@@ -51,12 +51,12 @@ public class _0366_Find_Leaves_of_Binary_Tree {
 
     public List<List<Integer>> findLeaves(TreeNode root) {
         if (root != null) {
-            DFS(root);
+            dfs(root);
         }
         return list;
     }
 
-    private int DFS(TreeNode node) {
+    private int dfs(TreeNode node) {
         if (node.left == null && node.right == null) {
             if (list.size() == 0) {
                 list.add(new ArrayList<Integer>());
@@ -67,10 +67,10 @@ public class _0366_Find_Leaves_of_Binary_Tree {
         int left = 0;
         int right = 0;
         if (node.left != null) {
-            left = DFS(node.left) + 1;
+            left = dfs(node.left) + 1;
         }
         if (node.right != null) {
-            right = DFS(node.right) + 1;
+            right = dfs(node.right) + 1;
         }
         int max = Math.max(left, right);
         while (list.size() <= max) {

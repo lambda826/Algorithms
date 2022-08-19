@@ -74,11 +74,11 @@ public class _0529_Minesweeper {
             board[click[0]][click[1]] = 'X';
             return board;
         }
-        DFS(board, click[0], click[1]);
+        dfs(board, click[0], click[1]);
         return board;
     }
 
-    private void DFS(char[][] board, int x, int y) {
+    private void dfs(char[][] board, int x, int y) {
         if (board[x][y] == 'E') {
             int count = 0;
             for (int[] direction : directions) {
@@ -97,7 +97,7 @@ public class _0529_Minesweeper {
                     int _x = x + direction[0];
                     int _y = y + direction[1];
                     if (_x >= 0 && _x < board.length && _y >= 0 && _y < board[0].length) {
-                        DFS(board, _x, _y);
+                        dfs(board, _x, _y);
                     }
                 }
             } else {

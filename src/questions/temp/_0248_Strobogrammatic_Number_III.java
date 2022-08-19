@@ -49,12 +49,12 @@ public class _0248_Strobogrammatic_Number_III {
         for (int n = low.length(); n <= high.length(); n++) {
             chs = new char[n];
             if ((n & 1) == 0) {
-                DFS(n / 2 - 1, n / 2);
+                dfs(n / 2 - 1, n / 2);
             } else {
                 for (char c : map.keySet()) {
                     if (c != '6' && c != '9') {
                         chs[n / 2] = c;
-                        DFS(n / 2 - 1, n / 2 + 1);
+                        dfs(n / 2 - 1, n / 2 + 1);
                     }
                 }
             }
@@ -62,7 +62,7 @@ public class _0248_Strobogrammatic_Number_III {
         return count;
     }
 
-    private void DFS(int left, int right) {
+    private void dfs(int left, int right) {
         if (left < 0) {
             String n = new String(chs);
             if (n.length() == low.length() && n.length() == high.length()) {
@@ -82,7 +82,7 @@ public class _0248_Strobogrammatic_Number_III {
                 if (0 != left || '0' != c) {
                     chs[left] = c;
                     chs[right] = map.get(c);
-                    DFS(left - 1, right + 1);
+                    dfs(left - 1, right + 1);
                 }
             }
         }

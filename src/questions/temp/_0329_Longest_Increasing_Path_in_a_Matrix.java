@@ -101,7 +101,7 @@ public class _0329_Longest_Increasing_Path_in_a_Matrix {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // DFS + Memo
+    // dfs + Memo
     int max = 0;
     int[] dirX = { 0, 1, 0, -1 };
     int[] dirY = { -1, 0, 1, 0 };
@@ -121,13 +121,13 @@ public class _0329_Longest_Increasing_Path_in_a_Matrix {
 
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < col; ++j) {
-                max = Math.max(max, DFS(i, j));
+                max = Math.max(max, dfs(i, j));
             }
         }
         return max;
     }
 
-    private int DFS(int r, int c) {
+    private int dfs(int r, int c) {
         if (memo[r][c] > 0) {
             return memo[r][c];
         }
@@ -135,7 +135,7 @@ public class _0329_Longest_Increasing_Path_in_a_Matrix {
             int _r = r + dirY[i];
             int _c = c + dirX[i];
             if (_c >= 0 && _c < col && _r >= 0 && _r < row && matrix[r][c] < matrix[_r][_c]) {
-                memo[r][c] = Math.max(memo[r][c], DFS(_r, _c) + 1);
+                memo[r][c] = Math.max(memo[r][c], dfs(_r, _c) + 1);
             } else {
                 memo[r][c] = Math.max(memo[r][c], 1);
             }

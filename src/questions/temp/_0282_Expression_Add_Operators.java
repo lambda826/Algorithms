@@ -77,11 +77,11 @@ public class _0282_Expression_Add_Operators {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public List<String> addOperators(String num, int target) {
         List<String> list = new ArrayList<>();
-        DFS(num, target, 0, 0, new StringBuilder(), list);
+        dfs(num, target, 0, 0, new StringBuilder(), list);
         return list;
     }
 
-    private void DFS(String num, int target, int index, int currNum, StringBuilder sb, List<String> list) {
+    private void dfs(String num, int target, int index, int currNum, StringBuilder sb, List<String> list) {
         if (index == num.length()) {
             if (target == currNum) {
                 sb.deleteCharAt(0);
@@ -90,15 +90,15 @@ public class _0282_Expression_Add_Operators {
         } else {
             int n = Character.getNumericValue(num.charAt(index));
             sb.append("+").append(n);
-            DFS(num, target, index + 1, currNum + n, sb, list);
+            dfs(num, target, index + 1, currNum + n, sb, list);
             sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
 
             sb.append("*").append(n);
-            DFS(num, target, index + 1, currNum * n, sb, list);
+            dfs(num, target, index + 1, currNum * n, sb, list);
             sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
 
             sb.append("-").append(n);
-            DFS(num, target, index + 1, currNum - n, sb, list);
+            dfs(num, target, index + 1, currNum - n, sb, list);
             sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
 
         }

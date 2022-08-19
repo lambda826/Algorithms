@@ -60,21 +60,21 @@ public class _0991_Broken_Calculator {
         } else if (Y < X) {
             return X - Y;
         } else {
-            DFS(0, X, Y, 0);
+            dfs(0, X, Y, 0);
             return min;
         }
     }
 
-    private int DFS(int pre, int curr, int target, int step) {
+    private int dfs(int pre, int curr, int target, int step) {
         if (curr == target) {
             return step;
         } else if (curr > target) {
             return step + curr - target;
         } else {
-            int n1 = DFS(curr, curr * 2, target, step + 1);
+            int n1 = dfs(curr, curr * 2, target, step + 1);
             min = Math.min(min, n1);
             for (int i = curr - 1, j = 1; i > pre; --i, j++) {
-                int n2 = DFS(curr, curr - j, target, step + j);
+                int n2 = dfs(curr, curr - j, target, step + j);
                 min = Math.min(min, n2);
             }
             return min;

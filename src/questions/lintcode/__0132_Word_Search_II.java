@@ -59,13 +59,13 @@ public class __0132_Word_Search_II {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < board.length; ++i) {
             for (int j = 0; j < board[0].length; ++j) {
-                DFS(board, i, j, root, new StringBuilder(), list);
+                dfs(board, i, j, root, new StringBuilder(), list);
             }
         }
         return list;
     }
 
-    private void DFS(char[][] board, int i, int j, Node temp, StringBuilder tempWord, List<String> list) {
+    private void dfs(char[][] board, int i, int j, Node temp, StringBuilder tempWord, List<String> list) {
         if (i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] != '#') {
             char ch = board[i][j];
             board[i][j] = '#';
@@ -77,10 +77,10 @@ public class __0132_Word_Search_II {
                     list.add(tempWord.toString());
                     node.hasWord = false;
                 }
-                DFS(board, i + 1, j, node, tempWord, list);
-                DFS(board, i, j + 1, node, tempWord, list);
-                DFS(board, i - 1, j, node, tempWord, list);
-                DFS(board, i, j - 1, node, tempWord, list);
+                dfs(board, i + 1, j, node, tempWord, list);
+                dfs(board, i, j + 1, node, tempWord, list);
+                dfs(board, i - 1, j, node, tempWord, list);
+                dfs(board, i, j - 1, node, tempWord, list);
             }
             board[i][j] = ch;
             tempWord.deleteCharAt(tempWord.length() - 1);
@@ -90,7 +90,6 @@ public class __0132_Word_Search_II {
     class Node {
         Node[] next = new Node[26];
         boolean hasWord = false;
-        ;
     }
 
     Node root = new Node();

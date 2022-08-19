@@ -40,6 +40,8 @@ public class _0472_Concatenated_Words {
         System.out.println(test.findAllConcatenatedWordsInADict(words));
     }
 
+    private final Node root = new Node();
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // trie
@@ -47,14 +49,14 @@ public class _0472_Concatenated_Words {
         buildTrie(words);
         List<String> res = new ArrayList<>();
         for (String word : words) {
-            if (DFS(word.toCharArray(), 0, 0)) {
+            if (dfs(word.toCharArray(), 0, 0)) {
                 res.add(word);
             }
         }
         return res;
     }
 
-    private boolean DFS(char[] chs, int from, int count) {
+    private boolean dfs(char[] chs, int from, int count) {
         if (from == chs.length && count > 1) {
             return true;
         }
@@ -64,15 +66,13 @@ public class _0472_Concatenated_Words {
             temp = temp.next[chs[i] - 'a'];
             if (temp == null) {
                 return false;
-            } else if (temp.hasWord && DFS(chs, i + 1, count + 1)) {
+            } else if (temp.hasWord && dfs(chs, i + 1, count + 1)) {
                 return true;
             }
             i++;
         }
         return false;
     }
-
-    private Node root = new Node();
 
     private class Node {
         Node[] next = new Node[26];

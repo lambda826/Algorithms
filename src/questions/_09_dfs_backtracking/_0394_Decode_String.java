@@ -53,7 +53,7 @@ public class _0394_Decode_String {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // DFS approach:
+    // dfs approach:
     //      We need to globally record current index of the string;
     //      A number may follow a string;
     //      '[' always follows a number;
@@ -61,10 +61,10 @@ public class _0394_Decode_String {
     //      When we encounter a ']', we should go back to previous recursion.
     class Solution_DFS {
         public String decodeString(String s) {
-            return DFS(s.toCharArray(), new int[] { 0 });
+            return dfs(s.toCharArray(), new int[] { 0 });
         }
 
-        private String DFS(char[] chs, int[] index) {
+        private String dfs(char[] chs, int[] index) {
             StringBuilder sb = new StringBuilder();
             int times = 0;
             while (index[0] < chs.length) {
@@ -77,7 +77,7 @@ public class _0394_Decode_String {
                     ++index[0];
                 } else if (ch == '[') {
                     ++index[0];
-                    String str = DFS(chs, index);
+                    String str = dfs(chs, index);
                     while (times > 0) {
                         --times;
                         sb.append(str);

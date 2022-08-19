@@ -57,7 +57,7 @@ public class _0694_Number_of_Distinct_Islands {
                 for (int j = 0; j < grid[0].length; ++j) {
                     if (grid[i][j] == 1) {
                         StringBuilder path = new StringBuilder("#");
-                        DFS(grid, path, i, j);
+                        dfs(grid, path, i, j);
                         set.add(path.toString());
                     }
                 }
@@ -65,14 +65,14 @@ public class _0694_Number_of_Distinct_Islands {
             return set.size();
         }
 
-        private void DFS(int[][] grid, StringBuilder path, int i, int j) {
+        private void dfs(int[][] grid, StringBuilder path, int i, int j) {
             grid[i][j] = -1;
             for (int k = 0; k < 4; ++k) {
                 int ii = i + dir[k];
                 int jj = j + dir[k + 1];
                 if (ii >= 0 && ii < grid.length && jj >= 0 && jj < grid[0].length && grid[ii][jj] == 1) {
                     path.append(mark[k]);
-                    DFS(grid, path, ii, jj);
+                    dfs(grid, path, ii, jj);
                 }
             }
             path.append("#");
@@ -97,7 +97,7 @@ public class _0694_Number_of_Distinct_Islands {
                     if (grid[i][j] == 1) {
                         List<Integer> path = new ArrayList<>();
                         int[] minCord = { Integer.MAX_VALUE, Integer.MAX_VALUE };
-                        DFS(grid, path, i, j, minCord);
+                        dfs(grid, path, i, j, minCord);
                         int[] _path = new int[path.size()];
                         for (int k = 0; k < _path.length; ++k) {
                             _path[k] = (path.get(k) / col - minCord[0]) * col + (path.get(k) % col - minCord[1]);
@@ -109,16 +109,16 @@ public class _0694_Number_of_Distinct_Islands {
             return set.size();
         }
 
-        private void DFS(int[][] grid, List<Integer> path, int m, int n, int[] minCord) {
+        private void dfs(int[][] grid, List<Integer> path, int m, int n, int[] minCord) {
             if (m >= 0 && m < grid.length && n >= 0 && n < grid[0].length && grid[m][n] == 1) {
                 grid[m][n] = 0;
                 path.add(m * grid[0].length + n);
                 minCord[0] = Math.min(minCord[0], m);
                 minCord[1] = Math.min(minCord[1], n);
-                DFS(grid, path, m + 1, n, minCord);
-                DFS(grid, path, m - 1, n, minCord);
-                DFS(grid, path, m, n + 1, minCord);
-                DFS(grid, path, m, n - 1, minCord);
+                dfs(grid, path, m + 1, n, minCord);
+                dfs(grid, path, m - 1, n, minCord);
+                dfs(grid, path, m, n + 1, minCord);
+                dfs(grid, path, m, n - 1, minCord);
             }
         }
     }

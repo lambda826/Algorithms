@@ -96,7 +96,7 @@ public class _0261_Graph_Valid_Tree {
         }
         // 0: not visited, 1: being visited, 2: visited
         int[] visited = new int[n];
-        if (!DFS(graph, visited, 0)) {
+        if (!dfs(graph, visited, 0)) {
             return false;
         }
         for (int v : visited) {
@@ -107,13 +107,13 @@ public class _0261_Graph_Valid_Tree {
         return true;
     }
 
-    private boolean DFS(List<Integer>[] graph, int[] visited, int curr) {
+    private boolean dfs(List<Integer>[] graph, int[] visited, int curr) {
         if (visited[curr] == 2) {
             return false;
         } else if (visited[curr] == 0) {
             visited[curr] = 1;
             for (int nei : graph[curr]) {
-                if (!DFS(graph, visited, nei)) {
+                if (!dfs(graph, visited, nei)) {
                     return false;
                 }
             }

@@ -101,19 +101,19 @@ public class _0547_Number_of_Provinces {
         int count = 0;
         for (int i = 0; i < n; ++i) {
             if (M[i][i] != -1) {
-                DFS(M, i);
+                dfs(M, i);
                 ++count;
             }
         }
         return count;
     }
 
-    private void DFS(int[][] M, int i) {
+    private void dfs(int[][] M, int i) {
         if (M[i][i] != -1) {
             M[i][i] = -1;
             for (int j = 0; j < M.length; ++j) {
                 if (M[i][j] == 1) {
-                    DFS(M, j);
+                    dfs(M, j);
                 }
             }
         }

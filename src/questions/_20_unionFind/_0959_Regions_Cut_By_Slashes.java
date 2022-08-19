@@ -182,7 +182,7 @@ public class _0959_Regions_Cut_By_Slashes {
     // 1. Represent the grids as a graph (adjacent list)
     //    1) Count the vertices (n + 1) * (n + 1)
     //    2) Connect the edges
-    // 2. DFS to find the circles
+    // 2. dfs to find the circles
     //    1) Visited statues
     //       1> If not visited (visited[i] == 0): to visit
     //       2> If visiting (visited[i] == 1), skip
@@ -217,17 +217,17 @@ public class _0959_Regions_Cut_By_Slashes {
         int[] visited = new int[nn];
         for (int i = 0; i < nn; i++) {
             if (visited[i] == 0) {
-                DFS(graph, visited, i);
+                dfs(graph, visited, i);
             }
         }
         return count;
     }
 
-    private void DFS(List<Integer>[] graph, int[] visited, int i) {
+    private void dfs(List<Integer>[] graph, int[] visited, int i) {
         if (visited[i] == 0) {
             visited[i] = 1;
             for (int next : graph[i]) {
-                DFS(graph, visited, next);
+                dfs(graph, visited, next);
             }
             visited[i] = 2;
         } else if (visited[i] == 2) {
@@ -246,7 +246,7 @@ public class _0959_Regions_Cut_By_Slashes {
     // 1. Divide each original grid into 3 * 3 grids
     //    1) Use diagonal grids to represent the slashes
     //    2) The diagonal divide the new 3 * 3 grids into 2 connected components
-    // 2. DFS to find the connected components
+    // 2. dfs to find the connected components
     public int regionsBySlashes_DFS_Up3Scales(String[] grid) {
         int[][] scaled = new int[grid.length * 3][grid.length * 3];
         int ans = 0;
@@ -270,11 +270,11 @@ public class _0959_Regions_Cut_By_Slashes {
                 }
             }
         }
-        // DFS to find all connected components
+        // dfs to find all connected components
         for (int i = 0; i < scaled.length; i++) {
             for (int j = 0; j < scaled[i].length; j++) {
                 if (scaled[i][j] == 0) {
-                    DFS(scaled, i, j);
+                    dfs(scaled, i, j);
                     ans++;
                 }
             }
@@ -282,13 +282,13 @@ public class _0959_Regions_Cut_By_Slashes {
         return ans;
     }
 
-    private void DFS(int[][] grid, int i, int j) {
+    private void dfs(int[][] grid, int i, int j) {
         if (i >= 0 && j >= 0 && i < grid.length && j < grid.length && grid[i][j] == 0) {
             grid[i][j] = 1;
-            DFS(grid, i + 1, j);
-            DFS(grid, i - 1, j);
-            DFS(grid, i, j + 1);
-            DFS(grid, i, j - 1);
+            dfs(grid, i + 1, j);
+            dfs(grid, i - 1, j);
+            dfs(grid, i, j + 1);
+            dfs(grid, i, j - 1);
         }
     }
 

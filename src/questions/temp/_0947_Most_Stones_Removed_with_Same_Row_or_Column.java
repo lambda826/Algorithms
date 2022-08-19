@@ -111,20 +111,20 @@ public class _0947_Most_Stones_Removed_with_Same_Row_or_Column {
         for (int i = 0; i < n; ++i) {
             if (!visited[i]) {
                 visited[i] = true;
-                DFS(graph, visited, i);
+                dfs(graph, visited, i);
             }
         }
         return sum;
     }
 
-    private void DFS(Map<Integer, List<Integer>> graph, boolean[] visited, int i) {
+    private void dfs(Map<Integer, List<Integer>> graph, boolean[] visited, int i) {
         // if node i has neighbors, then add up to sum
         if (graph.get(i) != null) {
             for (int nei : graph.get(i)) {
                 if (!visited[nei]) {
                     ++sum;
                     visited[nei] = true;
-                    DFS(graph, visited, nei);
+                    dfs(graph, visited, nei);
                 }
 
             }

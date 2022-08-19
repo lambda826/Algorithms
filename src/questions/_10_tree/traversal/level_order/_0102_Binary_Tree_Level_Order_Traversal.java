@@ -67,24 +67,24 @@ public class _0102_Binary_Tree_Level_Order_Traversal {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // DFS
+    // dfs
     public List<List<Integer>> levelOrder_DFS(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root != null) {
-            DFS(root, res, 0);
+            dfs(root, res, 0);
         }
         return res;
     }
 
-    private void DFS(TreeNode node, List<List<Integer>> res, int depth) {
+    private void dfs(TreeNode node, List<List<Integer>> res, int depth) {
         if (node != null) {
             if (res.size() == depth) {
                 res.add(new ArrayList<>());
             }
             List<Integer> list = res.get(depth);
             list.add(node.val);
-            DFS(node.left, res, depth + 1);
-            DFS(node.right, res, depth + 1);
+            dfs(node.left, res, depth + 1);
+            dfs(node.right, res, depth + 1);
         }
     }
 

@@ -56,17 +56,17 @@ public class _0417_Pacific_Atlantic_Water_Flow {
         col = matrix[0].length;
         visited = new int[row][col];
         for (int i = 0; i < row; i++) {
-            DFS(i, col - 1, 1);
+            dfs(i, col - 1, 1);
         }
         for (int i = 0; i < col; i++) {
-            DFS(row - 1, i, 1);
+            dfs(row - 1, i, 1);
         }
 
         for (int i = 0; i < col; i++) {
-            DFS(0, i, 2);
+            dfs(0, i, 2);
         }
         for (int i = 0; i < row; i++) {
-            DFS(i, 0, 2);
+            dfs(i, 0, 2);
         }
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -78,14 +78,14 @@ public class _0417_Pacific_Atlantic_Water_Flow {
         return res;
     }
 
-    private void DFS(int i, int j, int flag) {
+    private void dfs(int i, int j, int flag) {
         if ((visited[i][j] & flag) == 0) {
             visited[i][j] += flag;
             for (int k = 0; k < 4; k++) {
                 int _i = i + dirs[k];
                 int _j = j + dirs[k + 1];
                 if (_i >= 0 && _i < row && _j >= 0 && _j < col && matrix[_i][_j] >= matrix[i][j]) {
-                    DFS(_i, _j, flag);
+                    dfs(_i, _j, flag);
                 }
             }
         }

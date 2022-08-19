@@ -45,17 +45,17 @@ public class _0797_All_Paths_From_Source_to_Target {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> tempPath = new ArrayList<>();
         tempPath.add(0);
-        DFS(graph, res, tempPath, 0, graph.length - 1);
+        dfs(graph, res, tempPath, 0, graph.length - 1);
         return res;
     }
 
-    private void DFS(int[][] graph, List<List<Integer>> res, List<Integer> temp, int node, int target) {
+    private void dfs(int[][] graph, List<List<Integer>> res, List<Integer> temp, int node, int target) {
         if (node == target) {
             res.add(new ArrayList<>(temp));
         } else {
             for (int nei : graph[node]) {
                 temp.add(nei);
-                DFS(graph, res, temp, nei, target);
+                dfs(graph, res, temp, nei, target);
                 temp.remove(temp.size() - 1);
             }
         }

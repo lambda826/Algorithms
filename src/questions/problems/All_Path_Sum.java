@@ -48,22 +48,22 @@ public class All_Path_Sum {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int findPathSum(TreeNode root) {
         if (root != null) {
-            return DFS(root, 0);
+            return dfs(root, 0);
         }
         return 0;
     }
 
-    private int DFS(TreeNode node, int curr) {
+    private int dfs(TreeNode node, int curr) {
         int sum = 0;
         int temp = curr + node.val;
         if (node.left == null && node.right == null) {
             return temp;
         }
         if (node.left != null) {
-            sum += DFS(node.left, temp * 10);
+            sum += dfs(node.left, temp * 10);
         }
         if (node.right != null) {
-            sum += DFS(node.right, temp * 10);
+            sum += dfs(node.right, temp * 10);
         }
         return sum;
     }

@@ -74,18 +74,18 @@ public class _0513_Find_Bottom_Left_Tree_Value {
     private int d = -1;
 
     public int findBottomLeftValue_DFS_Recursion(TreeNode root) {
-        DFS(root, 0);
+        dfs(root, 0);
         return leftMost;
     }
 
-    private void DFS(TreeNode node, int depth) {
+    private void dfs(TreeNode node, int depth) {
         if (node != null) {
             if (depth > d) {
                 leftMost = node.val;
                 d = depth;
             }
-            DFS(node.left, depth + 1);
-            DFS(node.right, depth + 1);
+            dfs(node.left, depth + 1);
+            dfs(node.right, depth + 1);
         }
     }
 }

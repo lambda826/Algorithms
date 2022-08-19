@@ -32,16 +32,16 @@ public class _0294_Flip_Game_II {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Map<String, Boolean> map = new HashMap<>();
+    private final Map<String, Boolean> map = new HashMap<>();
 
     public boolean canWin_DFS_DP(String s) {
         if (s.length() < 2) {
             return false;
         }
-        return DFS(s.toCharArray());
+        return dfs(s.toCharArray());
     }
 
-    private boolean DFS(char[] chs) {
+    private boolean dfs(char[] chs) {
         String ss = String.valueOf(chs);
         if (map.containsKey(ss)) {
             return map.get(ss);
@@ -52,7 +52,7 @@ public class _0294_Flip_Game_II {
                 chs[i] = '-';
                 chs[i - 1] = '-';
                 // If any sub state will lead to lose
-                if (!DFS(chs)) {
+                if (!dfs(chs)) {
                     canWin = true;
                 }
                 chs[i] = '+';

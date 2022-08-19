@@ -85,7 +85,7 @@ public class ___0486_Predict_the_Winner {
         if ((n & 1) == 0) {
             return true;
         }
-        int dp[] = Arrays.copyOf(nums, n);
+        int[] dp = Arrays.copyOf(nums, n);
         for (int len = 1; len < n; len++) {
             for (int start = 0; start + len < n; start++) {
                 int end = start + len;
@@ -102,21 +102,21 @@ public class ___0486_Predict_the_Winner {
         if ((n & 1) == 0) {
             return true;
         }
-        return DFS(nums, 0, n - 1) >= 0;
+        return dfs(nums, 0, n - 1) >= 0;
     }
 
-    private int DFS(int[] nums, int start, int end) {
+    private int dfs(int[] nums, int start, int end) {
         if (start == end) {
             return nums[start];
         } else {
-            return Math.max(nums[start] - DFS(nums, start + 1, end), nums[end] - DFS(nums, start, end - 1));
+            return Math.max(nums[start] - dfs(nums, start + 1, end), nums[end] - dfs(nums, start, end - 1));
         }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean PredictTheWinner_MiniMax(int[] nums) {
-        return max(nums, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, nums.length - 1, 0) < 0 ? false : true;
+        return max(nums, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, nums.length - 1, 0) >= 0;
     }
 
     private int max(int[] nums, int alfa, int beta, int left, int right, int utility) {

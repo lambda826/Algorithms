@@ -45,6 +45,23 @@ public class _0336_Palindrome_Pairs {
         return isPalindrome;
     }
 
+    private final Node root = new Node();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Build trie with the reversed word
+    public List<List<Integer>> palindromePairs2(String[] words) {
+        List<List<Integer>> res = new ArrayList<>();
+        // Build the trie
+        for (int i = 0; i < words.length; ++i) {
+            put(new StringBuilder(words[i]).reverse().toString(), i);
+        }
+        for (int i = 0; i < words.length; ++i) {
+            get(words[i], i, res);
+        }
+        return res;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Map to store the reversed words
@@ -64,12 +81,12 @@ public class _0336_Palindrome_Pairs {
                     String right = words[i].substring(j);
                     if (isPalindrome(left, 0, left.length() - 1)) {
                         if (map.containsKey(right) && map.get(right) != i) {
-                            res.add(Arrays.asList(new Integer[] { map.get(right), i }));
+                            res.add(Arrays.asList(map.get(right), i));
                         }
                     }
                     if (isPalindrome(right, 0, right.length() - 1)) {
                         if (map.containsKey(left) && map.get(left) != i && right.length() != 0) {
-                            res.add(Arrays.asList(new Integer[] { i, map.get(left) }));
+                            res.add(Arrays.asList(i, map.get(left)));
                         }
                     }
                 }
@@ -77,23 +94,6 @@ public class _0336_Palindrome_Pairs {
         }
         return res;
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Build trie with the reversed word
-    public List<List<Integer>> palindromePairs2(String[] words) {
-        List<List<Integer>> res = new ArrayList<>();
-        // Build the trie
-        for (int i = 0; i < words.length; ++i) {
-            put(new StringBuilder(words[i]).reverse().toString(), i);
-        }
-        for (int i = 0; i < words.length; ++i) {
-            get(words[i], i, res);
-        }
-        return res;
-    }
-
-    private Node root = new Node();
 
     private class Node {
         Node[] next = new Node[26];
@@ -104,7 +104,7 @@ public class _0336_Palindrome_Pairs {
         Node temp = root;
         // If the root is empty string ""
         if (temp.val >= 0 && temp.val != index && isPalindrome(str, 0, str.length() - 1)) {
-            res.add(Arrays.asList(new Integer[] { index, temp.val }));
+            res.add(Arrays.asList(index, temp.val));
         }
         for (int i = 0; i < str.length(); ++i) {
             temp = temp.next[str.charAt(i) - 'a'];
@@ -112,22 +112,22 @@ public class _0336_Palindrome_Pairs {
                 break;
             }
             if (temp.val >= 0 && temp.val != index && isPalindrome(str, i + 1, str.length() - 1)) {
-                res.add(Arrays.asList(new Integer[] { index, temp.val }));
+                res.add(Arrays.asList(index, temp.val));
             }
         }
         if (temp != null) {
-            DFS(temp, new StringBuilder(), index, res);
+            dfs(temp, new StringBuilder(), index, res);
         }
     }
 
-    private void DFS(Node node, StringBuilder path, int index, List<List<Integer>> res) {
+    private void dfs(Node node, StringBuilder path, int index, List<List<Integer>> res) {
         if (node.val != -1 && node.val != index && path.length() > 0 && isPalindrome(path.toString(), 0, path.length() - 1)) {
-            res.add(Arrays.asList(new Integer[] { index, node.val }));
+            res.add(Arrays.asList(index, node.val));
         }
         for (char ch = 'a'; ch <= 'z'; ++ch) {
             if (node.next[ch - 'a'] != null) {
                 path.append(ch);
-                DFS(node.next[ch - 'a'], path, index, res);
+                dfs(node.next[ch - 'a'], path, index, res);
                 path.deleteCharAt(path.length() - 1);
             }
         }

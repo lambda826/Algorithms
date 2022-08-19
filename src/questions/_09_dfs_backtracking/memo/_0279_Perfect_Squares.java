@@ -68,16 +68,16 @@ public class _0279_Perfect_Squares {
                 memo[i * i] = 1;
             }
             memo[0] = 0;
-            DFS(memo, n);
+            dfs(memo, n);
             return memo[n];
         }
 
-        public int DFS(int[] memo, int n) {
+        public int dfs(int[] memo, int n) {
             if (memo[n] != Integer.MAX_VALUE) {
                 return memo[n];
             } else {
                 for (int i = 1; i * i <= n; ++i) {
-                    memo[n] = Math.min(memo[n], 1 + DFS(memo, n - i * i));
+                    memo[n] = Math.min(memo[n], 1 + dfs(memo, n - i * i));
                 }
             }
             return memo[n];

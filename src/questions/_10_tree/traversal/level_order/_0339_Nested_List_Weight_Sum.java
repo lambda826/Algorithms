@@ -51,13 +51,13 @@ public class _0339_Nested_List_Weight_Sum {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int depthSum_DFS(List<NestedInteger> nestedList) {
-        return DFS(nestedList, 1);
+        return dfs(nestedList, 1);
     }
 
-    private int DFS(List<NestedInteger> nestedList, int depth) {
+    private int dfs(List<NestedInteger> nestedList, int depth) {
         int sum = 0;
         for (NestedInteger n : nestedList) {
-            sum += n.isInteger() ? n.getInteger() * depth : DFS(n.getList(), depth + 1);
+            sum += n.isInteger() ? n.getInteger() * depth : dfs(n.getList(), depth + 1);
         }
         return sum;
     }

@@ -26,16 +26,16 @@ public class __1479_Can_Reach_The_Endpoint {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean reachEndpoint(int[][] map) {
-        return DFS(map, 0, 0);
+        return dfs(map, 0, 0);
     }
 
-    private boolean DFS(int[][] map, int x, int y) {
+    private boolean dfs(int[][] map, int x, int y) {
         if (x >= 0 && y >= 0 && x < map.length && y < map[0].length && map[x][y] != 0) {
             if (map[x][y] == 9) {
                 return true;
             } else {
                 map[x][y] = 0;
-                return DFS(map, x + 1, y) || DFS(map, x, y + 1) || DFS(map, x - 1, y) || DFS(map, x, y - 1);
+                return dfs(map, x + 1, y) || dfs(map, x, y + 1) || dfs(map, x - 1, y) || dfs(map, x, y - 1);
             }
         } else {
             return false;

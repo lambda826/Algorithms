@@ -102,14 +102,14 @@ public class _0222_Count_Complete_Tree_Nodes {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // O(n)
     public int countNodes3(TreeNode root) {
-        return DFS(root);
+        return dfs(root);
     }
 
-    private int DFS(TreeNode node) {
+    private int dfs(TreeNode node) {
         if (node == null) {
             return 0;
         } else {
-            return 1 + DFS(node.left) + DFS(node.right);
+            return 1 + dfs(node.left) + dfs(node.right);
         }
     }
 }

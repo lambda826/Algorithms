@@ -48,7 +48,7 @@ public class _0207_Course_Schedule {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Topological sorting - DFS Approach: find a cycle in a graph.
+    // Topological sorting - dfs Approach: find a cycle in a graph.
     //      0. Build Graph using Adjacent List representation;
     //      1. For each node, visit if it is not visited;
     //      2. Update the visit status of the current node to be 1 (in the frontier);

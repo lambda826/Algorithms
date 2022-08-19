@@ -60,11 +60,11 @@ public class _0842_Split_Array_into_Fibonacci_Sequence {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public List<Integer> splitIntoFibonacci(String S) {
         List<Integer> list = new ArrayList<>();
-        DFS(list, S, 0);
+        dfs(list, S, 0);
         return list;
     }
 
-    private boolean DFS(List<Integer> list, String s, int index) {
+    private boolean dfs(List<Integer> list, String s, int index) {
         if (index == s.length() && list.size() > 2) {
             return true;
         }
@@ -85,7 +85,7 @@ public class _0842_Split_Array_into_Fibonacci_Sequence {
             }
             if (list.size() < 2 || num == list.get(list.size() - 2) + list.get(list.size() - 1)) {
                 list.add((int) num);
-                if (DFS(list, s, i + 1)) {
+                if (dfs(list, s, i + 1)) {
                     return true;
                 }
                 list.remove(list.size() - 1);

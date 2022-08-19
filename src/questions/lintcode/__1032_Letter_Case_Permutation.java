@@ -40,20 +40,20 @@ public class __1032_Letter_Case_Permutation {
         if ("".equals(S)) {
             permutation.add("");
         } else if (S != null) {
-            DFS(S.toCharArray(), 0, permutation);
+            dfs(S.toCharArray(), 0, permutation);
         }
         return permutation;
     }
 
-    private void DFS(char[] s, int index, List<String> permutation) {
+    private void dfs(char[] s, int index, List<String> permutation) {
         if (index < s.length) {
             if (Character.isLetter(s[index])) {
                 s[index] = Character.toLowerCase(s[index]);
-                DFS(s, index + 1, permutation);
+                dfs(s, index + 1, permutation);
                 s[index] = Character.toUpperCase(s[index]);
-                DFS(s, index + 1, permutation);
+                dfs(s, index + 1, permutation);
             } else {
-                DFS(s, index + 1, permutation);
+                dfs(s, index + 1, permutation);
             }
         } else {
             permutation.add(String.valueOf(s));

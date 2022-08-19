@@ -16,16 +16,16 @@ public class _1239_Maximum_Length_of_a_Concatenated_String_with_Unique_Character
                 converted.add(new int[] { res, str.length() });
             }
         }
-        return DFS(converted, 0, 0, 0);
+        return dfs(converted, 0, 0, 0);
     }
 
-    private int DFS(List<int[]> converted, int index, int currentCombination, int count) {
+    private int dfs(List<int[]> converted, int index, int currentCombination, int count) {
         int temp = count;
         if (index < converted.size()) {
             // index: forward search only for combinations
             for (int i = index; i < converted.size(); ++i) {
                 if ((converted.get(i)[0] & currentCombination) == 0) {
-                    temp = Math.max(temp, DFS(converted, i + 1, currentCombination | converted.get(i)[0], count + converted.get(i)[1]));
+                    temp = Math.max(temp, dfs(converted, i + 1, currentCombination | converted.get(i)[0], count + converted.get(i)[1]));
                 }
             }
         }

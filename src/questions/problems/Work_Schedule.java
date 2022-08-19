@@ -23,11 +23,11 @@ public class Work_Schedule {
         if (workHours < 0) {
             return null;
         }
-        DFS(workHours, dayHours, pattern.toCharArray(), 0, res, questions);
+        dfs(workHours, dayHours, pattern.toCharArray(), 0, res, questions);
         return res;
     }
 
-    private static void DFS(int workHours, int dayHours, char[] pattern, int charAt, List<String> res, int questions) {
+    private static void dfs(int workHours, int dayHours, char[] pattern, int charAt, List<String> res, int questions) {
         if (charAt == 7) {
             if (workHours == 0) {
                 res.add(String.valueOf(pattern));
@@ -37,10 +37,10 @@ public class Work_Schedule {
                 for (int i = 0; i <= dayHours; i++) {
                     char[] newPattern = Arrays.copyOf(pattern, pattern.length);
                     newPattern[charAt] = (char) (i + '0');
-                    DFS(workHours - i, dayHours, newPattern, charAt + 1, res, questions - 1);
+                    dfs(workHours - i, dayHours, newPattern, charAt + 1, res, questions - 1);
                 }
             } else {
-                DFS(workHours, dayHours, pattern, charAt + 1, res, questions);
+                dfs(workHours, dayHours, pattern, charAt + 1, res, questions);
             }
         }
     }

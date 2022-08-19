@@ -58,7 +58,7 @@ public class FindCircle {
         boolean hashCircle = false;
         for (int i = 0; i < graph.length; ++i) {
             if (visited[i] == 0) {
-                if (DFS(graph, visited, i)) {
+                if (dfs(graph, visited, i)) {
                     hashCircle = true;
                     break;
                 }
@@ -67,13 +67,13 @@ public class FindCircle {
         return hashCircle;
     }
 
-    private static boolean DFS(List<Integer>[] graph, int[] visited, int vertex) {
+    private static boolean dfs(List<Integer>[] graph, int[] visited, int vertex) {
         if (visited[vertex] == 2) {
             return true;
         } else if (visited[vertex] == 0) {
             visited[vertex] = 1;
             for (int nei : graph[vertex]) {
-                if (DFS(graph, visited, nei)) {
+                if (dfs(graph, visited, nei)) {
                     return true;
                 }
             }
@@ -89,20 +89,20 @@ public class FindCircle {
         int[] visited = new int[graph.length];
         for (int i = 0; i < graph.length; ++i) {
             if (visited[i] == 0) {
-                DFS(graph, visited, circleList, new ArrayList<>(), i);
+                dfs(graph, visited, circleList, new ArrayList<>(), i);
             }
         }
         return circleList;
     }
 
-    private static void DFS(List<Integer>[] graph, int[] visited, List<List<Integer>> circleList, List<Integer> circle, int vertex) {
+    private static void dfs(List<Integer>[] graph, int[] visited, List<List<Integer>> circleList, List<Integer> circle, int vertex) {
         if (visited[vertex] == 2) {
             circleList.add(circle);
         } else if (visited[vertex] == 0) {
             visited[vertex] = 1;
             circle.add(vertex);
             for (int nei : graph[vertex]) {
-                DFS(graph, visited, nei);
+                dfs(graph, visited, nei);
             }
             circle.remove(circle.size() - 1);
             visited[vertex] = 2;

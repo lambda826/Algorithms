@@ -20,16 +20,16 @@ public class Subtree_with_Maximum_Average {
     public TreeNode findSubtree2(TreeNode root) {
         maxT = root;
         if (root != null) {
-            DFS(root);
+            dfs(root);
         }
         return maxT;
     }
 
-    private ReturnVal DFS(TreeNode node) {
+    private ReturnVal dfs(TreeNode node) {
         ReturnVal curr = new ReturnVal(node.val, 1);
         if (node.children != null && node.children.size() != 0) {
             for (TreeNode t : node.children) {
-                ReturnVal rv = DFS(t);
+                ReturnVal rv = dfs(t);
                 curr.count += rv.count;
                 curr.sum += rv.sum;
             }

@@ -51,14 +51,14 @@ public class _0332_Reconstruct_Itinerary {
             map.get(ticket[0]).add(ticket[1]);
         }
         LinkedList<String> list = new LinkedList<>();
-        DFS(map, "JFK", list);
+        dfs(map, "JFK", list);
         return list;
     }
 
-    private void DFS(Map<String, PriorityQueue<String>> map, String from, LinkedList<String> path) {
+    private void dfs(Map<String, PriorityQueue<String>> map, String from, LinkedList<String> path) {
         PriorityQueue<String> to = map.get(from);
         while (to != null && !to.isEmpty()) {
-            DFS(map, to.poll(), path);
+            dfs(map, to.poll(), path);
         }
         path.addFirst(from);
     }

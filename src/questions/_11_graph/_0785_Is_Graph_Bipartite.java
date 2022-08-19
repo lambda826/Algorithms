@@ -100,20 +100,20 @@ public class _0785_Is_Graph_Bipartite {
         public boolean isBipartite(int[][] graph) {
             int[] color = new int[graph.length];
             for (int i = 0; i < graph.length; ++i) {
-                if (color[i] == 0 && !DFS(graph, color, i, 1)) {
+                if (color[i] == 0 && !dfs(graph, color, i, 1)) {
                     return false;
                 }
             }
             return true;
         }
 
-        private boolean DFS(int[][] graph, int[] color, int n, int c) {
+        private boolean dfs(int[][] graph, int[] color, int n, int c) {
             color[n] = c;
             for (int nei : graph[n]) {
                 if (color[n] == color[nei]) {
                     return false;
                 }
-                if (color[nei] == 0 && !DFS(graph, color, nei, -color[n])) {
+                if (color[nei] == 0 && !dfs(graph, color, nei, -color[n])) {
                     return false;
                 }
             }

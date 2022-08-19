@@ -71,8 +71,8 @@ public class _0425_Word_Squares {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private List<List<String>> res = new ArrayList<>();
-    private Node root = new Node();
+    private final List<List<String>> res = new ArrayList<>();
+    private final Node root = new Node();
     private int len = 0;
 
     private class Node {
@@ -99,12 +99,12 @@ public class _0425_Word_Squares {
         for (String word : words) {
             String[] res = new String[len];
             res[0] = word;
-            DFS(res, 1);
+            dfs(res, 1);
         }
         return res;
     }
 
-    private void DFS(String[] curr, int row) {
+    private void dfs(String[] curr, int row) {
         if (curr[len - 1] != null) {
             res.add(new ArrayList<>(Arrays.asList(curr)));
         } else {
@@ -121,7 +121,7 @@ public class _0425_Word_Squares {
             }
             for (String word : temp.words) {
                 curr[row] = word;
-                DFS(curr, row + 1);
+                dfs(curr, row + 1);
                 curr[row] = null;
             }
         }

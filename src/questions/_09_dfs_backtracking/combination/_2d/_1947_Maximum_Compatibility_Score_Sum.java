@@ -72,12 +72,12 @@ public class _1947_Maximum_Compatibility_Score_Sum {
         int[] memo = new int[1 << mentors.length];
         // Initialized to be -1 because the score of student * mentor can be zero
         Arrays.fill(memo, -1);
-        return DFS(students, mentors, 0, memo, 0);
+        return dfs(students, mentors, 0, memo, 0);
     }
 
-    // student indicates the depth of the DFS tree
-    // mentor indicates the branch factor of the DFS tree
-    private int DFS(int[][] students, int[][] mentors, int studentIndex, int[] memo, int visitedMentorMask) {
+    // student indicates the depth of the dfs tree
+    // mentor indicates the branch factor of the dfs tree
+    private int dfs(int[][] students, int[][] mentors, int studentIndex, int[] memo, int visitedMentorMask) {
         if (studentIndex == students.length) {
             return 0;
         }
@@ -91,7 +91,7 @@ public class _1947_Maximum_Compatibility_Score_Sum {
             if ((visitedMentorMask & (1 << mentorIndex)) == 0) {
                 memo[visitedMentorMask] = Math.max(memo[visitedMentorMask],
                                                    score(students[studentIndex], mentors[mentorIndex])
-                                                   + DFS(students, mentors, studentIndex + 1, memo, (visitedMentorMask | (1 << mentorIndex))));
+                                                   + dfs(students, mentors, studentIndex + 1, memo, (visitedMentorMask | (1 << mentorIndex))));
             }
         }
         return memo[visitedMentorMask];

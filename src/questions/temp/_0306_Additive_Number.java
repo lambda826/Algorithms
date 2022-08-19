@@ -40,10 +40,10 @@ public class _0306_Additive_Number {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean isAdditiveNumber(String num) {
-        return DFS(-1, -1, num, 0, 0);
+        return dfs(-1, -1, num, 0, 0);
     }
 
-    private boolean DFS(long first, long second, String s, int index, int level) {
+    private boolean dfs(long first, long second, String s, int index, int level) {
         if (index == s.length() && first != -1 && second != -1 && level > 2) {
             return true;
         }
@@ -70,7 +70,7 @@ public class _0306_Additive_Number {
                     _first = _second;
                     _second = num;
                 }
-                if (DFS(_first, _second, s, i + 1, level + 1)) {
+                if (dfs(_first, _second, s, i + 1, level + 1)) {
                     return true;
                 }
             }

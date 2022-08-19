@@ -43,7 +43,7 @@ public class _0211_Add_and_Search_Word_Data_structure_design {
         boolean hasWord = false;
     }
 
-    private Node root = new Node();
+    private final Node root = new Node();
 
     public void addWord(String word) {
         Node temp = root;
@@ -63,11 +63,11 @@ public class _0211_Add_and_Search_Word_Data_structure_design {
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public boolean search(String word) {
         isFound = false;
-        DFS(root, 0, word);
+        dfs(root, 0, word);
         return isFound;
     }
 
-    private void DFS(Node node, int len, String word) {
+    private void dfs(Node node, int len, String word) {
         if (!isFound) {
             if (node != null) {
                 if (len == word.length() && node.hasWord) {
@@ -76,10 +76,10 @@ public class _0211_Add_and_Search_Word_Data_structure_design {
                     char ch = word.charAt(len);
                     if (ch == '.') {
                         for (ch = 'a'; ch <= 'z'; ch++) {
-                            DFS(node.next[ch - 'a'], len + 1, word);
+                            dfs(node.next[ch - 'a'], len + 1, word);
                         }
                     } else {
-                        DFS(node.next[ch - 'a'], len + 1, word);
+                        dfs(node.next[ch - 'a'], len + 1, word);
                     }
                 }
             }

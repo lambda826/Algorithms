@@ -47,8 +47,8 @@ public class _0401_Binary_Watch {
             if (i <= 4 && j <= 6) {
                 List<Integer> hourBag = new ArrayList<>();
                 List<Integer> minBag = new ArrayList<>();
-                DFS(12, 4, i, 0, 0, hourBag);
-                DFS(60, 6, j, 0, 0, minBag);
+                dfs(12, 4, i, 0, 0, hourBag);
+                dfs(60, 6, j, 0, 0, minBag);
                 for (int hour : hourBag) {
                     for (int min : minBag) {
                         res.add(hour + ":" + (min < 10 ? "0" + min : min));
@@ -59,13 +59,13 @@ public class _0401_Binary_Watch {
         return res;
     }
 
-    private void DFS(int cap, int end, int count, int start, int visited, List<Integer> bag) {
+    private void dfs(int cap, int end, int count, int start, int visited, List<Integer> bag) {
         if (visited < cap) {
             if (count == 0) {
                 bag.add(visited);
             } else {
                 for (int i = start; i + count <= end; ++i) {
-                    DFS(cap, end, count - 1, i + 1, visited | (1 << i), bag);
+                    dfs(cap, end, count - 1, i + 1, visited | (1 << i), bag);
                 }
             }
         }
@@ -76,11 +76,11 @@ public class _0401_Binary_Watch {
     // Top-down: view hours and minutes as a whole, and the total number to choose equals to the input
     public List<String> readBinaryWatch_BackTracking_1d(int turnedOn) {
         List<String> res = new ArrayList<>();
-        DFS(0, turnedOn, 0, 0, res);
+        dfs(0, turnedOn, 0, 0, res);
         return res;
     }
 
-    private void DFS(int start, int count, int hour, int min, List<String> res) {
+    private void dfs(int start, int count, int hour, int min, List<String> res) {
         if (count == 0) {
             res.add(hour + (min < 10 ? ":0" + min : ":" + min));
         } else {
@@ -88,12 +88,12 @@ public class _0401_Binary_Watch {
                 if (i < 4) {
                     int _hour = hour | 1 << i;
                     if (_hour < 12) {
-                        DFS(i + 1, count - 1, _hour, min, res);
+                        dfs(i + 1, count - 1, _hour, min, res);
                     }
                 } else {
                     int _min = min | 1 << (i - 4);
                     if (_min < 60) {
-                        DFS(i + 1, count - 1, hour, _min, res);
+                        dfs(i + 1, count - 1, hour, _min, res);
                     }
                 }
             }

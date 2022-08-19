@@ -82,17 +82,13 @@ public class _0993_Cousins_in_Binary_Tree {
     TreeNode py = null;
 
     public boolean isCousins_DFS(TreeNode root, int x, int y) {
-        DFS(null, root, x, y, 0);
+        dfs(null, root, x, y, 0);
         if (px == py) {
             return false;
-        } else if (dx.equals(dy)) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return dx.equals(dy);
     }
 
-    private void DFS(TreeNode pre, TreeNode curr, int x, int y, int d) {
+    private void dfs(TreeNode pre, TreeNode curr, int x, int y, int d) {
         if (curr != null) {
             if (curr.val == x) {
                 px = pre;
@@ -102,8 +98,8 @@ public class _0993_Cousins_in_Binary_Tree {
                 py = pre;
                 dy = d;
             }
-            DFS(curr, curr.left, x, y, d + 1);
-            DFS(curr, curr.right, x, y, d + 1);
+            dfs(curr, curr.left, x, y, d + 1);
+            dfs(curr, curr.right, x, y, d + 1);
         }
     }
 }

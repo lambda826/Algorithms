@@ -54,11 +54,11 @@ public class _0863_All_Nodes_Distance_K_in_Binary_Tree {
             boolean[] targetFound = {false};
             postOrder(root, target, targetFound, roots);
 
-            // DFS based on the roots
+            // dfs based on the roots
             List<Integer> res = new ArrayList<>();
             Set<TreeNode> visited = new HashSet<>();
             for (int i = 0; i < roots.size(); ++i) {
-                DFS(roots.get(i), k - i, visited, res);
+                dfs(roots.get(i), k - i, visited, res);
             }
             return res;
         }
@@ -80,16 +80,16 @@ public class _0863_All_Nodes_Distance_K_in_Binary_Tree {
             }
         }
 
-        private void DFS(TreeNode node, int k, Set<TreeNode> visited, List<Integer> res) {
+        private void dfs(TreeNode node, int k, Set<TreeNode> visited, List<Integer> res) {
             if (visited.add(node)) {
                 if (k == 0) {
                     res.add(node.val);
                 } else if (k > 0) {
                     if (node.left != null) {
-                        DFS(node.left, k - 1, visited, res);
+                        dfs(node.left, k - 1, visited, res);
                     }
                     if (node.right != null) {
-                        DFS(node.right, k - 1, visited, res);
+                        dfs(node.right, k - 1, visited, res);
                     }
                 }
             }

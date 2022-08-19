@@ -74,12 +74,12 @@ public class _0980_Unique_Paths_III {
             }
         }
         if (startR != -1 && endR != -1) {
-            DFS(startR, startC, grid);
+            dfs(startR, startC, grid);
         }
         return count;
     }
 
-    private void DFS(int r, int c, int[][] grid) {
+    private void dfs(int r, int c, int[][] grid) {
         if (r >= 0 && r < grid.length && c >= 0 && c < grid[0].length) {
             if (grid[r][c] == 2) {
                 if (goalTest(grid)) {
@@ -87,10 +87,10 @@ public class _0980_Unique_Paths_III {
                 }
             } else if (grid[r][c] == 0) {
                 grid[r][c]++;
-                DFS(r, c + 1, grid);
-                DFS(r + 1, c, grid);
-                DFS(r, c - 1, grid);
-                DFS(r - 1, c, grid);
+                dfs(r, c + 1, grid);
+                dfs(r + 1, c, grid);
+                dfs(r, c - 1, grid);
+                dfs(r - 1, c, grid);
                 grid[r][c]--;
             }
         }

@@ -104,10 +104,10 @@ public class _0133_Clone_Graph {
     class Solution_DFS {
 
         public Node cloneGraph(Node node) {
-            return DFS(node, new HashMap<>());
+            return dfs(node, new HashMap<>());
         }
 
-        private Node DFS(Node node, Map<Node, Node> visited) {
+        private Node dfs(Node node, Map<Node, Node> visited) {
             if (node == null) {
                 return null;
             }
@@ -115,7 +115,7 @@ public class _0133_Clone_Graph {
                 Node clone = new Node(node.val);
                 visited.put(node, clone);
                 for (Node nei : node.neighbors) {
-                    clone.neighbors.add(DFS(nei, visited));
+                    clone.neighbors.add(dfs(nei, visited));
                 }
             }
             return visited.get(node);

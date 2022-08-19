@@ -147,7 +147,7 @@ public class _0721_Accounts_Merge {
                 Set<String> set = new HashSet<>();
                 set.add(key);
                 for (String nei : graph.get(key)) {
-                    DFS(graph, nei, visited, set);
+                    dfs(graph, nei, visited, set);
                 }
                 List<String> l = new ArrayList<>(set);
                 Collections.sort(l);
@@ -158,11 +158,11 @@ public class _0721_Accounts_Merge {
         return res;
     }
 
-    private void DFS(Map<String, Set<String>> graph, String key, Set<String> visited, Set<String> set) {
+    private void dfs(Map<String, Set<String>> graph, String key, Set<String> visited, Set<String> set) {
         if (visited.add(key) && graph.containsKey(key)) {
             set.add(key);
             for (String nei : graph.get(key)) {
-                DFS(graph, nei, visited, set);
+                dfs(graph, nei, visited, set);
             }
         }
     }

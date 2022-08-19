@@ -67,7 +67,7 @@ public class Factorization {
         } else if (m[0] != 1 && m[1] == 1) {
             res.add(m[0]);
         }
-        // DFS:
+        // dfs:
         if (m[0] != 1 && m[1] != 1) {
             fermat_DFS(m[0], res);
             fermat_DFS(m[1], res);

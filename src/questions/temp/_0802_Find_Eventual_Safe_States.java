@@ -47,14 +47,14 @@ public class _0802_Find_Eventual_Safe_States {
         // 0: not visited, 1: hasCircle, 2: noCircle
         int[] visited = new int[graph.length];
         for (int i = 0; i < graph.length; ++i) {
-            if (!DFS(graph, visited, i)) {
+            if (!dfs(graph, visited, i)) {
                 res.add(i);
             }
         }
         return res;
     }
 
-    private boolean DFS(int[][] graph, int[] visited, int node) {
+    private boolean dfs(int[][] graph, int[] visited, int node) {
         // if visited[node] == 1, circle, return true;
         // if visited[node] == 2, noCircle, return false;
         if (visited[node] != 0) {
@@ -62,7 +62,7 @@ public class _0802_Find_Eventual_Safe_States {
         } else {
             visited[node] = 1;
             for (int nei : graph[node]) {
-                if (DFS(graph, visited, nei)) {
+                if (dfs(graph, visited, nei)) {
                     return true;
                 }
             }

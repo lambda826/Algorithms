@@ -39,19 +39,19 @@ public class _0247_Strobogrammatic_Number_II {
         map.put('8', '8');
         map.put('9', '6');
         if ((n & 1) == 0) {
-            DFS(n / 2 - 1, n / 2);
+            dfs(n / 2 - 1, n / 2);
         } else {
             for (char c : map.keySet()) {
                 if (c != '6' && c != '9') {
                     chs[n / 2] = c;
-                    DFS(n / 2 - 1, n / 2 + 1);
+                    dfs(n / 2 - 1, n / 2 + 1);
                 }
             }
         }
         return res;
     }
 
-    private void DFS(int left, int right) {
+    private void dfs(int left, int right) {
         if (left < 0) {
             res.add(new String(chs));
         } else {
@@ -59,7 +59,7 @@ public class _0247_Strobogrammatic_Number_II {
                 if (0 != left || '0' != c) {
                     chs[left] = c;
                     chs[right] = map.get(c);
-                    DFS(left - 1, right + 1);
+                    dfs(left - 1, right + 1);
                 }
             }
         }

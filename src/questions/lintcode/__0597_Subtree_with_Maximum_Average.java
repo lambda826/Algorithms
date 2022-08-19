@@ -50,17 +50,17 @@ public class __0597_Subtree_with_Maximum_Average {
     public TreeNode findSubtree2(TreeNode root) {
         maxT = root;
         if (root != null) {
-            DFS(root);
+            dfs(root);
         }
         return maxT;
     }
 
-    private ReturnVal DFS(TreeNode node) {
+    private ReturnVal dfs(TreeNode node) {
         if (node == null) {
             return new ReturnVal(0, 0);
         } else {
-            ReturnVal left = DFS(node.left);
-            ReturnVal right = DFS(node.right);
+            ReturnVal left = dfs(node.left);
+            ReturnVal right = dfs(node.right);
             ReturnVal cur = new ReturnVal(node.val + left.sum + right.sum, 1 + left.count + right.count);
             if (max == null || (cur.sum * max.count > cur.count * max.sum)) {
                 max = cur;

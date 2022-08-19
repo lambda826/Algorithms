@@ -151,19 +151,19 @@ public class _0399_Evaluate_Division {
             } else if (queries[i][0] == queries[i][1]) {
                 res[i] = 1.0;
             } else {
-                res[i] = DFS(queries[i][0], queries[i][1], new HashSet<>(), 1.0);
+                res[i] = dfs(queries[i][0], queries[i][1], new HashSet<>(), 1.0);
             }
         }
         return res;
     }
 
-    private double DFS(String from, String to, Set<String> visited, double curr) {
+    private double dfs(String from, String to, Set<String> visited, double curr) {
         if (from.equals(to)) {
             return curr;
         } else if (!visited.contains(from)) {
             visited.add(from);
             for (Map.Entry<String, Double> next : graph.get(from).entrySet()) {
-                double temp = DFS(next.getKey(), to, visited, curr * next.getValue());
+                double temp = dfs(next.getKey(), to, visited, curr * next.getValue());
                 if (temp != -1.0) {
                     return temp;
                 }

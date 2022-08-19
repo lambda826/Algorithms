@@ -130,15 +130,15 @@ public class _1236_Web_Crawler {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public List<String> crawl_DFS(String startUrl, HtmlParser htmlParser) {
         List<String> result = new ArrayList<>();
-        DFS(result, new HashSet<>(), getDomain(startUrl), htmlParser, startUrl);
+        dfs(result, new HashSet<>(), getDomain(startUrl), htmlParser, startUrl);
         return result;
     }
 
-    private void DFS(List<String> result, Set<String> visited, String domain, HtmlParser htmlParser, String url) {
+    private void dfs(List<String> result, Set<String> visited, String domain, HtmlParser htmlParser, String url) {
         if (visited.add(url) && domain.equals(getDomain(url))) {
             result.add(url);
             for (String nei : htmlParser.getUrls(url)) {
-                DFS(result, visited, domain, htmlParser, nei);
+                dfs(result, visited, domain, htmlParser, nei);
             }
         }
     }

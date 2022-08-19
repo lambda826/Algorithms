@@ -51,19 +51,19 @@ public class _0429_N_ary_Tree_Level_Order_Traversal {
     public List<List<Integer>> levelOrder_DFS(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root != null) {
-            DFS(root, res, 0);
+            dfs(root, res, 0);
         }
         return res;
     }
 
-    private void DFS(TreeNode node, List<List<Integer>> res, int depth) {
+    private void dfs(TreeNode node, List<List<Integer>> res, int depth) {
         if (res.size() == depth) {
             res.add(new ArrayList<>());
         }
         List<Integer> list = res.get(depth);
         list.add(node.val);
         for (TreeNode child : node.children) {
-            DFS(child, res, depth + 1);
+            dfs(child, res, depth + 1);
         }
     }
 

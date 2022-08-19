@@ -73,19 +73,19 @@ public class _0323_Number_of_Connected_Components_in_an_Undirected_Graph {
         boolean[] visited = new boolean[n];
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
-                DFS(graph, visited, i);
+                dfs(graph, visited, i);
                 count++;
             }
         }
         return count;
     }
 
-    private void DFS(List<Integer>[] graph, boolean[] visited, int i) {
+    private void dfs(List<Integer>[] graph, boolean[] visited, int i) {
         visited[i] = true;
         if (graph[i] != null) {
             for (int nei : graph[i]) {
                 if (!visited[nei]) {
-                    DFS(graph, visited, nei);
+                    dfs(graph, visited, nei);
                 }
             }
         }

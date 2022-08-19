@@ -48,16 +48,16 @@ public class _0733_Flood_Fill {
         int oldColor = image[sr][sc];
         if (oldColor != newColor) {
             int[][] dd = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
-            DFS(image, sr, sc, oldColor, newColor, dd);
+            dfs(image, sr, sc, oldColor, newColor, dd);
         }
         return image;
     }
 
-    private void DFS(int[][] image, int r, int c, int oldColor, int newColor, int[][] dd) {
+    private void dfs(int[][] image, int r, int c, int oldColor, int newColor, int[][] dd) {
         if (r >= 0 && r < image.length && c >= 0 && c < image[0].length && image[r][c] == oldColor) {
             image[r][c] = newColor;
             for (int[] d : dd) {
-                DFS(image, r + d[0], c + d[1], oldColor, newColor, dd);
+                dfs(image, r + d[0], c + d[1], oldColor, newColor, dd);
             }
         }
     }

@@ -107,11 +107,11 @@ public class _0676_Implement_Magic_Dictionary {
 
         public boolean search(String word) {
             isFound = false;
-            DFS(root, word, 0, false);
+            dfs(root, word, 0, false);
             return isFound;
         }
 
-        private void DFS(Node node, String word, int d, boolean flag) {
+        private void dfs(Node node, String word, int d, boolean flag) {
             if (!isFound) {
                 if (flag && d == word.length() && node.hasWord) {
                     isFound = true;
@@ -120,9 +120,9 @@ public class _0676_Implement_Magic_Dictionary {
                     for (char i = 'a'; i <= 'z'; i++) {
                         if (node.next[i - 'a'] != null) {
                             if (i != ch && !flag) {
-                                DFS(node.next[i - 'a'], word, d + 1, true);
+                                dfs(node.next[i - 'a'], word, d + 1, true);
                             } else if (node.next[ch - 'a'] != null) {
-                                DFS(node.next[ch - 'a'], word, d + 1, flag);
+                                dfs(node.next[ch - 'a'], word, d + 1, flag);
                             }
                         }
                     }
@@ -135,7 +135,7 @@ public class _0676_Implement_Magic_Dictionary {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class MagicDictionary_Hashing {
 
-        private Set<String> set = new HashSet<>();
+        private final Set<String> set = new HashSet<>();
 
         public void buildDict(String[] dict) {
             for (String word : dict) {

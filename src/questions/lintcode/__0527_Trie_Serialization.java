@@ -58,7 +58,7 @@ public class __0527_Trie_Serialization {
         return sb.toString();
     }
 
-    // DFS
+    // dfs
     private void serialize(TrieNode node, StringBuilder sb) {
         sb.append('[');
         for (char ch = 'a'; ch <= 'z'; ++ch) {

@@ -56,7 +56,7 @@ public class _0711_Number_of_Distinct_Islands_II {
                 for (int n = 0; n < col; ++n) {
                     if (grid[m][n] == 1) {
                         List<Integer> path = new ArrayList();
-                        DFS(grid, path, m, n);
+                        dfs(grid, path, m, n);
                         if (visited.add(getMaxPath(path, col))) {
                             ++count;
                         }
@@ -66,7 +66,7 @@ public class _0711_Number_of_Distinct_Islands_II {
             return count;
         }
 
-        private void DFS(int[][] grid, List<Integer> path, int m, int n) {
+        private void dfs(int[][] grid, List<Integer> path, int m, int n) {
             if (m >= 0 && m < grid.length && n >= 0 && n < grid[0].length && grid[m][n] == 1) {
                 grid[m][n] = 0;
                 // We shouldn't deduct the distance from the first "1" of this connected component to the origin.
@@ -75,10 +75,10 @@ public class _0711_Number_of_Distinct_Islands_II {
                 //      |0 1 0 0| is same as |1 0 0 1| after adjusting the coordinates by minus the distance from the first 1 to the origin.
                 //      |1 0 0 0|            |0 0 0 0|
                 path.add(m * grid[0].length + n);
-                DFS(grid, path, m + 1, n);
-                DFS(grid, path, m - 1, n);
-                DFS(grid, path, m, n + 1);
-                DFS(grid, path, m, n - 1);
+                dfs(grid, path, m + 1, n);
+                dfs(grid, path, m - 1, n);
+                dfs(grid, path, m, n + 1);
+                dfs(grid, path, m, n - 1);
             }
         }
 
