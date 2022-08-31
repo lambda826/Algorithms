@@ -1,4 +1,4 @@
-package questions._11_graph;
+package questions._11_graph.bipartition;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -56,7 +56,6 @@ Constraints:
     If graph[u] contains v, then graph[v] contains u.
 
 */
-
 public class _0785_Is_Graph_Bipartite {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

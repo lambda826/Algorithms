@@ -29,7 +29,7 @@ public class BuildGraph {
     // Undirected
     // Unweighted
     // The vertices are strings or of other types
-    public static <V> Map<V, List<V>> buildGraph_Undirected_Unweighted(V[] edges[]) {
+    public static <V> Map<V, List<V>> buildGraph_Undirected_Unweighted(V[][] edges) {
         Map<V, List<V>> graph = new HashMap<>();
         for (V[] edge : edges) {
             graph.putIfAbsent(edge[0], new ArrayList<>());
@@ -48,7 +48,7 @@ public class BuildGraph {
     public static <W> Map<Integer, W>[] buildGraph_Undirected_Weighted(int N, int[][] edges, W[] weights) {
         Map<Integer, W>[] graph = new Map[N];
         for (int i = 0; i < graph.length; ++i) {
-            graph[i] = new HashMap<Integer, W>();
+            graph[i] = new HashMap<>();
         }
         for (int i = 0; i < edges.length; ++i) {
             graph[edges[i][0]].put(edges[i][1], weights[i]);
@@ -60,8 +60,8 @@ public class BuildGraph {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Directed
     // Weighted
-    // The verices are strings or of other types
-    public static <V, W> Map<V, Map<V, W>> buildGraph_Undirected_Unweighted(V[] edges[], W[] weights) {
+    // The vertices are strings or of other types
+    public static <V, W> Map<V, Map<V, W>> buildGraph_Undirected_Unweighted(V[][] edges, W[] weights) {
         Map<V, Map<V, W>> graph = new HashMap<>();
         for (int i = 0; i < edges.length; ++i) {
             graph.putIfAbsent(edges[i][0], new HashMap<>());
