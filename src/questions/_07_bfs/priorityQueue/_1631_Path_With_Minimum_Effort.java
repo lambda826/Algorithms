@@ -92,4 +92,64 @@ public class _1631_Path_With_Minimum_Effort {
             return maxSoFar[x - 1][y - 1];
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Solution_UF {
+
+        public int minimumEffortPath(int[][] heights) {
+            int row = heights.length;
+            int col = heights[0].length;
+            int[][] efforts = new int[(row - 1) * col + row * (col - 1)][];
+            int count = 0;
+            for (int r = 0; r < row; ++r) {
+                for (int c = 0; c < col; ++c) {
+                    int a1 = r * col + c;
+                    int a2 = a1 + 1;
+                    int a3 = (r + 1) * col + c;
+                    if (r + 1 < row) {
+                        efforts[count++] = new int[] { Math.abs(heights[r][c] - heights[r + 1][c]), a1, a3 };
+                    }
+                    if (c + 1 < col) {
+                        efforts[count++] = new int[] { Math.abs(heights[r][c] - heights[r][c + 1]), a1, a2 };
+                    }
+                }
+            }
+            Arrays.sort(efforts, Comparator.comparingInt(a -> a[0]));
+
+            int[] parent = new int[row * col];
+            int[] height = new int[row * col];
+            for (int i = 0; i < parent.length; ++i) {
+                parent[i] = i;
+            }
+            int min = 0;
+            for (int[] effort : efforts) {
+                union(parent, height, effort[1], effort[2]);
+                min = effort[0];
+                if (find(parent, 0) == find(parent, parent.length - 1)) {
+                    break;
+                }
+            }
+            return min;
+        }
+
+        private int find(int[] parent, int i) {
+            return parent[i] == i ? i : (parent[i] = find(parent, parent[i]));
+        }
+
+        private void union(int[] parent, int[] height, int i, int j) {
+            int ii = find(parent, i);
+            int jj = find(parent, j);
+            if (ii != jj) {
+                if (height[ii] < height[jj]) {
+                    parent[ii] = jj;
+                } else {
+                    parent[jj] = ii;
+                    if (height[ii] == height[jj]) {
+                        ++height[ii];
+                    }
+                }
+            }
+        }
+    }
 }
