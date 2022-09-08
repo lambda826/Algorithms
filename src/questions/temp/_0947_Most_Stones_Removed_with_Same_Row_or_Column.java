@@ -1,11 +1,8 @@
-/**
- *  @author Yunxiang He
- *  @date 03/13/2019
- */
-
 package questions.temp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,50 +41,55 @@ public class _0947_Most_Stones_Removed_with_Same_Row_or_Column {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // this problem is reduced to find the # of edges of the graph
     // it is a connectivity problem of graph
-    int[] root;
-    int[] size;
-
-    public int removeStones_UF(int[][] stones) {
-        int n = stones.length;
-        root = new int[n];
-        size = new int[n];
-        // init
-        for (int i = 0; i < n; ++i) {
-            root[i] = i;
-            size[i] = 1;
-        }
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                // union
-                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1]) {
-                    int r1 = find(i);
-                    int r2 = find(j);
-                    if (r1 != r2) {
-                        if (size[r1] < size[r2]) {
-                            root[r1] = r2;
-                            size[r2] += size[r1];
-                        } else {
-                            root[r2] = r1;
-                            size[r1] += size[r2];
-                        }
-                    }
+    class Solution_UF {
+        public int removeStones(int[][] stones) {
+            Map<Integer, Integer> map = new HashMap();
+            Map<Integer, Integer> height = new HashMap();
+            int n = stones.length;
+            int[] count = { 0 };
+            Arrays.sort(stones, Comparator.comparingInt(a -> a[0]));
+            for (int i = 0; i < n - 1; ++i) {
+                if (stones[i][0] == stones[i + 1][0]) {
+                    union(map, height, stones[i][0] * n + stones[i][1], stones[i + 1][0] * n + stones[i + 1][1], count);
                 }
             }
+
+            Arrays.sort(stones, Comparator.comparingInt(a -> a[1]));
+            for (int i = 0; i < n - 1; ++i) {
+                if (stones[i][1] == stones[i + 1][1]) {
+                    union(map, height, stones[i][0] * n + stones[i][1], stones[i + 1][0] * n + stones[i + 1][1], count);
+                }
+            }
+
+            return count[0];
         }
-        int sum = 0;
-        for (int i = 0; i < n; ++i) {
-            if (root[i] == i) {
-                sum += size[i] - 1;
+
+        private int find(Map<Integer, Integer> map, int i) {
+            if (!map.containsKey(i)) {
+                map.put(i, i);
+            }
+            if (map.get(i) == i) {
+                return i;
+            }
+            return map.compute(i, (k, v) -> find(map, map.get(k)));
+        }
+
+        private void union(Map<Integer, Integer> map, Map<Integer, Integer> height, int i, int j, int[] count) {
+            int ii = find(map, i);
+            int jj = find(map, j);
+            if (ii != jj) {
+                ++count[0];
+                if (height.getOrDefault(ii, 0) < height.getOrDefault(jj, 0)) {
+                    map.put(ii, jj);
+                } else {
+                    map.put(jj, ii);
+                    if (height.getOrDefault(ii, 0) == height.getOrDefault(jj, 0)) {
+                        height.put(ii, height.getOrDefault(ii, 0) + 1);
+                    }
+                }
+
             }
         }
-        return sum;
-    }
-
-    private int find(int idx) {
-        if (root[idx] == idx) {
-            return idx;
-        }
-        return root[idx] = find(root[idx]);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
