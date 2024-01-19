@@ -10,8 +10,6 @@
 package common;
 
 
-import static jdk.nashorn.internal.objects.Global.println;
-
 /**
  *  The {@code Date} class is an immutable data type to encapsulate a
  *  date (day, month, and year).
@@ -230,23 +228,23 @@ public class Date implements Comparable<Date> {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        Date today = new Date(2, 25, 2004);
-        println(today);
-        for (int i = 0; i < 10; i++) {
-            today = today.next();
-            println(today);
-        }
-
-        println(today.isAfter(today.next()));
-        println(today.isAfter(today));
-        println(today.next().isAfter(today));
-
-        Date birthday = new Date(10, 16, 1971);
-        println(birthday);
-        for (int i = 0; i < 10; i++) {
-            birthday = birthday.next();
-            println(birthday);
-        }
+//        Date today = new Date(2, 25, 2004);
+//        println(today);
+//        for (int i = 0; i < 10; i++) {
+//            today = today.next();
+//            println(today);
+//        }
+//
+//        println(today.isAfter(today.next()));
+//        println(today.isAfter(today));
+//        println(today.next().isAfter(today));
+//
+//        Date birthday = new Date(10, 16, 1971);
+//        println(birthday);
+//        for (int i = 0; i < 10; i++) {
+//            birthday = birthday.next();
+//            println(birthday);
+//        }
     }
 
 }
