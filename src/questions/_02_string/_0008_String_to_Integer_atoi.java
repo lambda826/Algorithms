@@ -98,48 +98,55 @@ Constraints:
 
 public class _0008_String_to_Integer_atoi {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
+
         public int myAtoi(String s) {
-            if (s == null || s == "" || s.length() == 0) {
-                return 0;
-            }
-            // 1. Trim whitespace
-            s = s.trim();
             if (s.length() == 0) {
                 return 0;
             }
-
-            // 2. Check sign
-            int sign = 1;
-            int index = 0;
-            if (s.charAt(0) == '-' || s.charAt(0) == '+') {
-                sign = s.charAt(0) == '+' ? 1 : -1;
-                ++index;
+            int i = trimHead(s);
+            if (i >= s.length()) {
+                return 0;
             }
+            int sign = 1;
+            if (s.charAt(i) == '-') {
+                ++i;
+                sign = -1;
+            } else if (s.charAt(i) == '+') {
+                ++i;
+            }
+            return calculate(s, sign, i);
+        }
 
-            // 3. Get Digits
-            int total = 0;
-            while (index < s.length()) {
-                int digit = s.charAt(index) - '0';
-                if (digit < 0 || digit > 9) {
+        private int trimHead(String s) {
+            int i = 0;
+            while (i < s.length()) {
+                if (s.charAt(i) != ' ') {
                     break;
                 }
-                // 4. Handle overflow.
-                // Note we only need to check against Integer.MAX_VALUE;
-                //      If (10 * total + digit) == 2147483647, we don't enter if block;
-                //      If (10 * total + digit) == 2147483648, we enter if block, and return either Integer.MAX_VALUE or Integer.MIN_VALUE, which covers both cases.
-                if (total > (Integer.MAX_VALUE - digit) / 10 || 10 * total > Integer.MAX_VALUE - digit) {
-                    return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-                }
-                total = 10 * total + digit;
-                ++index;
+                ++i;
             }
-
-            // 5. sign multiply total is the result.
-            return sign * total;
+            return i;
         }
+
+        private int calculate(String s, int sign, int i) {
+            int res = 0;
+            while (i < s.length()) {
+                int digit = s.charAt(i) - '0';
+                if (digit >= 0 && digit <= 9) {
+                    if (10 * res > Integer.MAX_VALUE - digit || res > (Integer.MAX_VALUE - digit) / 10) {
+                        return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                    }
+                    res = res * 10 + digit;
+                    ++i;
+                } else {
+                    break;
+                }
+            }
+            return res * sign;
+        }
+
     }
+
 
 }

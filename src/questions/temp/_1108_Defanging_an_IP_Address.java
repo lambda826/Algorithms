@@ -21,18 +21,17 @@ Constraints:
 
 public class _1108_Defanging_an_IP_Address {
 
-    /**
-     * 1. Go through each character, append each digit or "[.]"
-     */
-    public String defangIPaddr(String address) {
-        StringBuilder sb = new StringBuilder();
-        for (char ch : address.toCharArray()) {
-            if (Character.isDigit(ch)) {
-                sb.append(ch);
-            } else {
-                sb.append("[.]");
+    class Solution {
+        public String defangIPaddr(String address) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < address.length(); ++i) {
+                if (address.charAt(i) == '.') {
+                    sb.append('[.]');
+                } else {
+                    sb.append(address.charAt(i));
+                }
             }
+            return sb.toString();
         }
-        return sb.toString();
     }
 }
