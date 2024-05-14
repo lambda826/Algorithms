@@ -50,23 +50,16 @@ public class _0094_Binary_Tree_Inorder_Traversal {
     class Solution2 {
         public List<Integer> inorderTraversal(TreeNode root) {
             List<Integer> result = new ArrayList<>();
-            if (root == null) {
-                return result;
-            }
             Deque<TreeNode> stack = new ArrayDeque<>();
-            stack.offerLast(root);
-            while (!stack.isEmpty()) {
-                TreeNode last = stack.getLast();
-                if (last.left != null) {
-                    stack.offerLast(last.left);
-                    last.left = null;
+            TreeNode curr = root;
+            while (!stack.isEmpty() || curr != null) {
+                if (curr != null) {
+                    stack.offerLast(curr);
+                    curr = curr.left;
                 } else {
-                    TreeNode next = stack.pollLast();
-                    result.add(next.val);
-                    if (next.right != null) {
-                        stack.offerLast(next.right);
-                        next.right = null;
-                    }
+                    curr = stack.pollLast();
+                    result.add(curr.val);
+                    curr = curr.right;
                 }
             }
             return result;
