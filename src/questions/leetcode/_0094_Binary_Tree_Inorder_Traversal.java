@@ -30,7 +30,6 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 */
 public class _0094_Binary_Tree_Inorder_Traversal {
 
-    // recursive
     class Solution {
         public List<Integer> inorderTraversal(TreeNode root) {
             List<Integer> result = new ArrayList<>();
