@@ -1,8 +1,3 @@
-/**
- * @author Yunxiang He
- * @date Jan 29, 2018 9:55:28 PM
- */
-
 package questions.leetcode;
 
 import common.TreeNode;
@@ -15,27 +10,28 @@ import java.util.Queue;
 
 /*
 
+Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate
+between).
 
-Given a binary tree, return the zigzag level order traversal of its nodes' values. 
-(ie, from left to right, then right to left for the next level and alternate between).
+
+Example 1:
+    Input: root = [3,9,20,null,null,15,7]
+    Output: [[3],[20,9],[15,7]]
+
+Example 2:
+    Input: root = [1]
+    Output: [[1]]
+
+Example 3:
+    Input: root = []
+    Output: []
 
 
-For example:
-    Given binary tree [3,9,20,null,null,15,7],
-        3
-       / \
-      9  20
-        /  \
-       15   7
-    return its zigzag level order traversal as:
-    [
-      [3],
-      [20,9],
-      [15,7]
-    ]
+Constraints:
+    The number of nodes in the tree is in the range [0, 2000].
+    -100 <= Node.val <= 100
 
- */
-
+*/
 public class _0103_Binary_Tree_Zigzag_Level_Order_Traversal {
 
     class Solution {
