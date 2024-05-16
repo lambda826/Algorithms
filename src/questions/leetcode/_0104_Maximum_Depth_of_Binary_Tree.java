@@ -25,7 +25,6 @@ Constraints:
     -100 <= Node.val <= 100
 
 */
-
 public class _0104_Maximum_Depth_of_Binary_Tree {
 
     class Solution {
