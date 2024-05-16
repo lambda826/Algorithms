@@ -32,6 +32,16 @@ Constraints:
 public class _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
 
     class Solution {
+
+        /**
+         * Properties:
+         * - Preorder Traversal (Root, Left, Right): The first element is always the root.
+         * - Inorder Traversal (Left, Root, Right): The root element splits the array into left and right subtrees.
+         * Steps to Construct the Tree:
+         * - The first element of the preorder array is the root.
+         * - Find the root in the inorder array. This divides the inorder array into the left and right subtrees.
+         * - Recursively apply the same logic to the left and right subtrees.
+         */
         public TreeNode buildTree(int[] preorder, int[] inorder) {
             Map<Integer, Integer> map = new HashMap<>();
             for (int i = 0; i < inorder.length; ++i) {
@@ -46,8 +56,9 @@ public class _0105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
             }
             TreeNode t = new TreeNode(preorder[root]);
             int idx = map.get(t.val);
+            int leftSubtreeSize = idx - from;
             t.left = buildTree(preorder, map, root + 1, from, idx - 1);
-            t.right = buildTree(preorder, map, root + (idx - from + 1), idx + 1, to);
+            t.right = buildTree(preorder, map, root + leftSubtreeSize + 1, idx + 1, to);
             return t;
         }
     }
