@@ -4,43 +4,43 @@ import common.TreeNode;
 
 /*
 
-Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
-For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
 
 
-Example:
-    Given the sorted array: [-10,-3,0,5,9],
-    One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
-    
-          0
-         / \
-       -3   9
-       /   /
-     -10  5
+Example 1:
+    Input: nums = [-10,-3,0,5,9]
+    Output: [0,-3,9,-10,null,5]
+    Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+
+Example 2:
+    Input: nums = [1,3]
+    Output: [3,1]
+    Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
 
 
-History:
-    3/28/2020
+Constraints:
+    1 <= nums.length <= 10^4
+    -10^4 <= nums[i] <= 10^4
+    nums is sorted in a strictly increasing order.
 
 */
+class _0108_Convert_Sorted_Array_to_Binary_Search_Tree {
 
-public class _0108_Convert_Sorted_Array_to_Binary_Search_Tree {
+    class Solution {
+        public TreeNode sortedArrayToBST(int[] nums) {
+            return buildTree(nums, 0, nums.length - 1);
+        }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public TreeNode sortedArrayToBST(int[] nums) {
-        return build_DC(nums, 0, nums.length);
-    }
-
-    private TreeNode build_DC(int[] nums, int l, int r) {
-        if (l < r) {
-            int mid = (l + r) / 2;
-            TreeNode root = new TreeNode(nums[mid]);
-            root.left = build_DC(nums, l, mid);
-            root.right = build_DC(nums, mid + 1, r);
-            return root;
-        } else {
-            return null;
+        private TreeNode buildTree(int[] nums, int from, int to) {
+            if (from > to) {
+                return null;
+            } else {
+                int mid = (from + to) / 2;
+                TreeNode t = new TreeNode(nums[mid]);
+                t.left = buildTree(nums, from, mid - 1);
+                t.right = buildTree(nums, mid + 1, to);
+                return t;
+            }
         }
     }
 }
