@@ -1,4 +1,4 @@
-package questions._10_tree.traversal.ordered;
+package questions.leetcode;
 
 import common.TreeNode;
 
@@ -32,27 +32,25 @@ Constraints:
     -1000 <= Node.val <= 1000
 
 */
-
 public class _0124_Binary_Tree_Maximum_Path_Sum {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Post-order
-    public int maxPathSum(TreeNode root) {
-        int[] max = { root.val };
-        postOrder(root, max);
-        return max[0];
-    }
+    class Solution {
+        public int maxPathSum(TreeNode root) {
+            int[] max = { Integer.MIN_VALUE };
+            postOrder(root, max);
+            return max[0];
+        }
 
-    private int postOrder(TreeNode node, int[] max) {
-        if (node != null) {
-            int left = Math.max(0, postOrder(node.left, max));
-            int right = Math.max(0, postOrder(node.right, max));
-            int val = node.val + Math.max(left, right);
-            max[0] = Math.max(max[0], node.val + left + right);
-            return val;
-        } else {
-            return 0;
+        private int postOrder(TreeNode node, int[] max) {
+            if (node == null) {
+                return 0;
+            } else {
+                int left = Math.max(0, postOrder(node.left, max));
+                int right = Math.max(0, postOrder(node.right, max));
+                int maxPathSum = node.val + Math.max(left, right);
+                max[0] = Math.max(max[0], node.val + left + right);
+                return maxPathSum;
+            }
         }
     }
 }
