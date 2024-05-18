@@ -35,6 +35,14 @@ Constraints:
 public class _0124_Binary_Tree_Maximum_Path_Sum {
 
     class Solution {
+
+        /**
+         * To solve the problem of finding the maximum path sum in a binary tree, you can use a recursive approach to explore all possible paths and calculate their sums.
+         * The key here is to keep track of the maximum path sum at each node while considering two possible scenarios:
+         *
+         * - The path passes through the current node and extends to one or both of its children.
+         * - The path does not pass through the current node, but instead, the maximum path sum from either of its children is considered.
+         */
         public int maxPathSum(TreeNode root) {
             int[] max = { Integer.MIN_VALUE };
             postOrder(root, max);
