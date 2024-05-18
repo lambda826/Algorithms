@@ -1,4 +1,4 @@
-package questions._10_tree.traversal.ordered;
+package questions.leetcode;
 
 /*
 
@@ -45,28 +45,24 @@ import common.TreeNode;
 
 public class _0129_Sum_Root_to_Leaf_Numbers {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution {
+
         public int sumNumbers(TreeNode root) {
-            return perOrder(root, 0);
+            return sumNumbers(root, 0);
         }
 
-        private int perOrder(TreeNode node, int sum) {
-            int val = node.val + sum;
+        private int sumNumbers(TreeNode node, int preSum) {
             if (node.left == null && node.right == null) {
-                return val;
-            } else {
-                sum = 0;
-                if (node.left != null) {
-                    sum += perOrder(node.left, val * 10);
-                }
-                if (node.right != null) {
-                    sum += perOrder(node.right, val * 10);
-                }
-                return sum;
+                return node.val + preSum * 10;
             }
+            int sum = 0;
+            if (node.left != null) {
+                sum += sumNumbers(node.left, preSum * 10 + node.val);
+            }
+            if (node.right != null) {
+                sum += sumNumbers(node.right, preSum * 10 + node.val);
+            }
+            return sum;
         }
     }
-
 }
