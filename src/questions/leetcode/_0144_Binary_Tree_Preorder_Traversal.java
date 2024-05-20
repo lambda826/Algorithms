@@ -73,6 +73,22 @@ public class _0144_Binary_Tree_Preorder_Traversal {
     }
 
     class Solution3 {
+        /**
+         * To perform a preorder traversal of a binary tree, you can use Morris traversal, which allows you to traverse the tree without using additional space for recursion or
+         * a stack.
+         * The provided solution follows this approach.
+         * Here's a step-by-step explanation of the provided code:
+         *
+         * Traversal Loop:
+         * - Traverse the tree using curr as the current node.
+         * - If curr.left is not null, find the rightmost node of the left subtree (rightMost).
+         * - Traverse to the rightmost node of the left subtree.
+         * - If rightMost.right is null, this means it's the first time visiting this node. Add curr.val to the result list, create a thread to curr, and move curr to its left
+         * child.
+         * - If rightMost.right is not null, it means we've already visited this node. Remove the thread and move curr to its right child.
+         * - If curr.left is null, add curr.val to the result list and move curr to its right child.
+         * Return the result list.
+         */
         public List<Integer> preorderTraversal(TreeNode root) {
             List<Integer> res = new ArrayList<>();
             TreeNode curr = root;
