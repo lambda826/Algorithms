@@ -1,4 +1,4 @@
-package questions.temp;
+package questions.leetcode;
 
 import common.TreeNode;
 
