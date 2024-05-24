@@ -1,4 +1,4 @@
-package questions._10_tree.lowest_common_ancesstor;
+package questions.leetcode;
 
 import common.TreeNode;
 
@@ -48,17 +48,9 @@ Constraints:
     p and q will exist in the tree.
 
 */
-
 public class _0236_Lowest_Common_Ancestor_of_a_Binary_Tree {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // case 1: p,q reside on the left and right of the root
-    //         root is the LCA
-    // case 2: p,q reside on the left or right of the root
-    //         LCA reside on the left or right of the root
-    class Solution_PostOrder {
-
+    class Solution {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (root == null || root.val == p.val || root.val == q.val) {
                 return root;
@@ -67,10 +59,10 @@ public class _0236_Lowest_Common_Ancestor_of_a_Binary_Tree {
                 TreeNode right = lowestCommonAncestor(root.right, p, q);
                 if (left != null && right != null) {
                     return root;
-                } else if (left != null) {
-                    return left;
-                } else {
+                } else if (left == null) {
                     return right;
+                } else {
+                    return left;
                 }
             }
         }
