@@ -1,4 +1,4 @@
-package questions._10_tree.lowest_common_ancesstor;
+package questions.leetcode;
 
 import common.TreeNode;
 
@@ -41,24 +41,16 @@ Example 3:
 
 
 Constraints:
-    The number of nodes in the tree is in the range [2, 10^40].
+    The number of nodes in the tree is in the range [2, 10^4].
     -10^5 <= Node.val <= 10^5
     All Node.val are unique.
     p != q
     p and q will exist in the BST.
 
 */
-
 public class _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Utilize the property of BST
-    // 1. If current node is greater than both p and q, the LCA is on the left subtree;
-    // 2. If current node is smaller than both p and q, the LCA is on the right subtree;
-    // 3. Otherwise return current node.
     class Solution {
-
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             if (root.val > p.val && root.val > q.val) {
                 return lowestCommonAncestor(root.left, p, q);
@@ -69,5 +61,4 @@ public class _0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree {
             }
         }
     }
-
 }
