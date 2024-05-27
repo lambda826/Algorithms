@@ -31,17 +31,25 @@ Constraints:
 public class _0337_House_Robber_III {
 
     class Solution {
+        // Main function to calculate the maximum amount of money the robber can rob tonight without alerting the police.
         public int rob(TreeNode root) {
             int[] res = robHelper(root);
+            // We can choose to rob or not rob the root, so we take the maximum of the two scenarios.
             return Math.max(res[0], res[1]);
         }
 
+        // Helper function to return the maximum amount of money that can be robbed if starting from the given node.
+        // res[0] stores the maximum amount when the current node is not robbed.
+        // res[1] stores the maximum amount when the current node is robbed.
         private int[] robHelper(TreeNode node) {
-            int[] res = { 0, 0 };
+            int[] res = { 0, 0 }; // Initialize the result for the base case where the node is null.
             if (node != null) {
+                // Recursively solve for the left and right subtrees.
                 int[] left = robHelper(node.left);
                 int[] right = robHelper(node.right);
+                // If the current node is not robbed, the maximum money from the children is the sum of max values from robbing or not robbing each child.
                 res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+                // If the current node is robbed, we cannot rob its direct children, but we can take the value of this node plus the max values from not robbing its children.
                 res[1] = left[0] + right[0] + node.val;
             }
             return res;
