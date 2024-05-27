@@ -1,4 +1,4 @@
-package questions._10_tree.serialization;
+package questions.leetcode;
 
 import common.TreeNode;
 
@@ -48,54 +48,94 @@ Constraints:
     -1000 <= Node.val <= 1000
 
 */
-
 public class _0297_Serialize_and_Deserialize_Binary_Tree {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // PreOrder
-    private class Solution_DFS {
+
+    public class Codec {
 
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
             StringBuilder sb = new StringBuilder();
-            preOrderSerialize(root, sb);
+            serializeHelper(root, sb);
             return sb.toString();
         }
 
-        private void preOrderSerialize(TreeNode node, StringBuilder sb) {
+        private void serializeHelper(TreeNode node, StringBuilder sb) {
             if (node == null) {
                 sb.append("#").append(",");
             } else {
                 sb.append(node.val).append(",");
-                preOrderSerialize(node.left, sb);
-                preOrderSerialize(node.right, sb);
+                serializeHelper(node.left, sb);
+                serializeHelper(node.right, sb);
             }
         }
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
-            return preOrderDeserialize(data.split(","), new int[] { 0 });
+            return deserializeHelper(data.split(","), new int[] { 0 });
         }
 
-        private TreeNode preOrderDeserialize(String[] data, int[] index) {
+        private TreeNode deserializeHelper(String[] data, int[] index) {
             if (data[index[0]].equals("#")) {
                 return null;
             } else {
                 TreeNode node = new TreeNode(Integer.parseInt(data[index[0]]));
                 ++index[0];
-                node.left = preOrderDeserialize(data, index);
+                node.left = deserializeHelper(data, index);
                 ++index[0];
-                node.right = preOrderDeserialize(data, index);
+                node.right = deserializeHelper(data, index);
                 return node;
             }
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // BFS Level traversal
-    private class Solution_BFS {
+    public class Codec2 {
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            StringBuilder sb = new StringBuilder();
+            serializeHelper(root, sb);
+            return sb.toString();
+        }
+
+        private void serializeHelper(TreeNode node, StringBuilder sb) {
+            sb.append("(");
+            if (node != null) {
+                sb.append(node.val + 1000);
+                serializeHelper(node.left, sb);
+                serializeHelper(node.right, sb);
+            }
+            sb.append(")");
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            return deserializeHelper(data, new int[] { 0 });
+        }
+
+        private TreeNode deserializeHelper(String data, int[] idx) {
+            TreeNode node = null;
+            if (idx[0] != data.length()) {
+                int val = 0;
+                if (data.charAt(idx[0]) == '(') {
+                    while (Character.isDigit(data.charAt(++idx[0]))) {
+                        val = 10 * val + (data.charAt(idx[0]) - '0');
+                    }
+                    if (data.charAt(idx[0]) == '(') {
+                        node = new TreeNode(val - 1000);
+                        node.left = deserializeHelper(data, idx);
+                        node.right = deserializeHelper(data, idx);
+                    }
+                }
+                if (data.charAt(idx[0]) == ')') {
+                    ++idx[0];
+                }
+            }
+            return node;
+        }
+    }
+
+    public class Codec3 {
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
             StringBuilder sb = new StringBuilder();
