@@ -31,6 +31,26 @@ Constraints:
 public class _0669_Trim_a_Binary_Search_Tree {
 
     class Solution {
+        /**
+         * Problem Breakdown
+         * Binary Search Tree Properties:
+         * The left child of a node contains only nodes with values less than the node’s value.
+         * The right child of a node contains only nodes with values greater than the node’s value.
+         *
+         * Trimming the Tree:
+         * If the current node’s value is less than the lower boundary (low),
+         * - then we discard the current node and all nodes in its left subtree because all values in the left subtree will also be less than low.
+         * - Thus, we only need to consider the right subtree.
+         * If the current node’s value is greater than the upper boundary (high),
+         * - then we discard the current node and all nodes in its right subtree because all values in the right subtree will also be greater than high.
+         * - Thus, we only need to consider the left subtree.
+         * If the current node’s value is within the range [low,high], we recursively trim both the left and right subtrees and retain the current node.
+         *
+         * Uniqueness of the Answer:
+         * The problem guarantees a unique answer because the BST properties ensure there’s only one way to maintain the relative structure while trimming nodes outside the
+         * specified range.
+         **/
+
         public TreeNode trimBST(TreeNode root, int low, int high) {
             if (root == null) {
                 return null;
