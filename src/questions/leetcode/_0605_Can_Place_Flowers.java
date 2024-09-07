@@ -23,7 +23,6 @@ Constraints:
     There are no two adjacent flowers in flowerbed.
     0 <= n <= flowerbed.length
 
-
 */
 public class _0605_Can_Place_Flowers {
 
