@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-14
+ * @author: Yunxiang He
+ * @date : 2018-10-14
  */
 
 package questions.lintcode;
@@ -77,6 +77,12 @@ public class __1621_Cut_Connection {
 
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(new __1621_Cut_Connection()
-                .removeOne(new int[][] { { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 1, 0, 1, 1 } }, 1, 1)));
+                                                   .removeOne(new int[][] { { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 1, 1, 1, 1, 1 },
+                                                                            { 1, 1, 0, 1, 0, 1, 1 } }, 1, 1)));
     }
 }

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 17, 2018 4:15:31 PM
+ * @author Yunxiang He
+ * @date Jan 17, 2018 4:15:31 PM
  */
 
 package questions.temp;
@@ -157,7 +157,7 @@ public class _0475_Heaters {
         for (int h : heaters) {
             // Watch out for overflow here
             long loRange = h - radius;
-            long hiRange = (long) (h + radius);
+            long hiRange = h + radius;
             while (houses[i] >= loRange && houses[i] <= hiRange) {
                 if (i >= houses.length - 1) {
                     return true;

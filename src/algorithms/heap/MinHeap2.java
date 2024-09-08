@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-29
+ * @author: Yunxiang He
+ * @date : 2018-10-29
  */
 
 package algorithms.heap;
@@ -9,14 +9,12 @@ import java.util.Arrays;
 
 public class MinHeap2 {
 
-    private int[] nums;
+    private final int[] nums;
     private int heapMaxIndex;
 
     public MinHeap2(int[] data, int length) {
         nums = new int[length];
-        for (int i = 0; i < data.length; i++) {
-            nums[i] = data[i];
-        }
+        System.arraycopy(data, 0, nums, 0, data.length);
         heapMaxIndex = data.length - 1;
         buildHeap();
     }

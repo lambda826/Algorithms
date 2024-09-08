@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-28 05:39
+ * @author: Yunxiang He
+ * @date : 2018-06-28 05:39
  */
 
 package questions.temp;
@@ -75,12 +75,14 @@ public class _0840_Magic_Squares_In_Grid {
                 }
             }
         }
-        if (grid[row - 1][col - 1] + grid[row - 1][col] + grid[row - 1][col + 1] != 15 || grid[row][col - 1] + grid[row][col + 1] != 10 || grid[row + 1][col - 1] + grid[row + 1][col] + grid[row + 1][col + 1] != 15
-                || grid[row - 1][col - 1] + grid[row][col - 1] + grid[row + 1][col - 1] != 15 || grid[row - 1][col] + grid[row + 1][col] != 10 || grid[row - 1][col + 1] + grid[row][col + 1] + grid[row + 1][col + 1] != 15
-                || grid[row - 1][col - 1] + grid[row + 1][col + 1] != 10 || grid[row - 1][col + 1] + grid[row + 1][col - 1] != 10) {
-            return false;
-        }
-        return true;
+        return grid[row - 1][col - 1] + grid[row - 1][col] + grid[row - 1][col + 1] == 15
+               && grid[row][col - 1] + grid[row][col + 1] == 10
+               && grid[row + 1][col - 1] + grid[row + 1][col] + grid[row + 1][col + 1] == 15
+               && grid[row - 1][col - 1] + grid[row][col - 1] + grid[row + 1][col - 1] == 15
+               && grid[row - 1][col] + grid[row + 1][col] == 10
+               && grid[row - 1][col + 1] + grid[row][col + 1] + grid[row + 1][col + 1] == 15
+               && grid[row - 1][col - 1] + grid[row + 1][col + 1] == 10
+               && grid[row - 1][col + 1] + grid[row + 1][col - 1] == 10;
     }
 
     public static void main(String[] args) {

@@ -1,10 +1,11 @@
 /**
- *  @author Yunxiang He
- *  @date 2018-07-20 17:30
+ * @author Yunxiang He
+ * @date 2018-07-20 17:30
  */
 
 package questions.temp;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,7 +48,7 @@ public class _0720_Longest_Word_in_Dictionary {
         boolean hasWord = false;
     }
 
-    private Node root = new Node();
+    private final Node root = new Node();
     private String result = "";
 
     public String longestWord_Trie(String[] words) {
@@ -56,7 +57,7 @@ public class _0720_Longest_Word_in_Dictionary {
         }
         StringBuilder sb = new StringBuilder();
         getLongest(root, sb);
-        return result.toString();
+        return result;
     }
 
     private void put(Node root, String key) {
@@ -90,9 +91,7 @@ public class _0720_Longest_Word_in_Dictionary {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public String longestWord_Hash(String[] words) {
         Set<String> set = new HashSet<>();
-        for (String word : words) {
-            set.add(word);
-        }
+        Collections.addAll(set, words);
         String result = "";
         for (String word : words) {
             if (word.length() > result.length() || word.length() == result.length() && word.compareTo(result) < 0) {

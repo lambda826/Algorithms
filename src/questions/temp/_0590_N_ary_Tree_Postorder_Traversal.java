@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -24,7 +24,7 @@ Note:
 
 public class _0590_N_ary_Tree_Postorder_Traversal {
 
-    private List<Integer> list = new ArrayList<>();
+    private final List<Integer> list = new ArrayList<>();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

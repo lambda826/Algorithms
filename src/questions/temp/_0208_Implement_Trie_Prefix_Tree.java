@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-25 14:40
+ * @author: Yunxiang He
+ * @date : 2018-07-25 14:40
  */
 
 package questions.temp;
@@ -33,7 +33,7 @@ public class _0208_Implement_Trie_Prefix_Tree {
         boolean hasWord = false;
     }
 
-    private Node root;
+    private final Node root;
 
     public _0208_Implement_Trie_Prefix_Tree() {
         root = new Node();

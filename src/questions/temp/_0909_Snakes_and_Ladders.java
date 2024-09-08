@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-11-06
+ * @author: Yunxiang He
+ * @date : 2018-11-06
  */
 
 package questions.temp;
@@ -98,11 +98,7 @@ public class _0909_Snakes_and_Ladders {
     }
 
     private boolean goalTest(int n, int goal) {
-        if (n == goal) {
-            return true;
-        } else {
-            return false;
-        }
+        return n == goal;
     }
 
     public static void main(String[] args) {

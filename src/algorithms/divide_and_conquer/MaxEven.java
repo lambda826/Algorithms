@@ -1,9 +1,9 @@
 /**
- *    Copyright 2017 Yunxiang He
+ * Copyright 2017 Yunxiang He
  *
- *    All right reserved.
+ * All right reserved.
  *
- *    Create on Oct 10, 2017 8:54:34 AM
+ * Create on Oct 10, 2017 8:54:34 AM
  */
 package algorithms.divide_and_conquer;
 

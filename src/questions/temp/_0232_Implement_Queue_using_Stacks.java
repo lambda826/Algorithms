@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -37,8 +37,8 @@ public class _0232_Implement_Queue_using_Stacks {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Deque<Integer> stack1;
-    private Deque<Integer> stack2;
+    private final Deque<Integer> stack1;
+    private final Deque<Integer> stack2;
 
     public _0232_Implement_Queue_using_Stacks() {
         stack1 = new ArrayDeque<>();

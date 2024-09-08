@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-30 04:06
+ * @author: Yunxiang He
+ * @date : 2018-07-30 04:06
  */
 
 package questions.temp;
@@ -51,7 +51,7 @@ public class _0875_Koko_Eating_Bananas {
             sum += i;
         }
         int min = (int) (sum / H);
-        if (min * H < sum) {
+        if ((long) min * H < sum) {
             min++;
         }
         while (true) {

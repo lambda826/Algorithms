@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/25/2019
+ * @author Yunxiang He
+ * @date 03/25/2019
  */
 
 package questions.temp;
@@ -41,7 +41,6 @@ public class _0973_K_Closest_Points_to_Origin {
         if (from < to) {
             int idx = partition(points, from, to);
             if (idx == K) {
-                return;
             } else if (idx > K) {
                 quickSelect(points, from, idx - 1, K);
             } else if (idx < K) {

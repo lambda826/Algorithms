@@ -1,4 +1,3 @@
-
 package questions.temp;
 
 import java.util.ArrayDeque;
@@ -31,8 +30,8 @@ public class _0155_Min_Stack {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static class Solution1 {
-        private Deque<Integer> data;
-        private Deque<Integer> min;
+        private final Deque<Integer> data;
+        private final Deque<Integer> min;
 
         public Solution1() {
             data = new ArrayDeque<>();
@@ -63,8 +62,8 @@ public class _0155_Min_Stack {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Push a new number onto the min-tracker Stack if, and only if, it was less than or equal to the current minimum.
     private static class SolutionOptimized {
-        private Deque<Integer> data;
-        private Deque<Integer> min;
+        private final Deque<Integer> data;
+        private final Deque<Integer> min;
 
         /** initialize your data structure here. */
         public SolutionOptimized() {

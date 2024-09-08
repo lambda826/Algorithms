@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-30 03:13
+ * @author: Yunxiang He
+ * @date : 2018-07-30 03:13
  */
 
 package questions.temp;
@@ -40,7 +40,7 @@ public class _0528_Random_Pick_with_Weight {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private int[] arr;
+    private final int[] arr;
 
     public _0528_Random_Pick_with_Weight(int[] w) {
         arr = new int[w.length];

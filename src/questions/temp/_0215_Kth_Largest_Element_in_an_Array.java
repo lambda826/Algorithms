@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 01/02/2018
+ * @author Yunxiang He
+ * @date 01/02/2018
  */
 
 package questions.temp;
@@ -64,7 +64,6 @@ public class _0215_Kth_Largest_Element_in_an_Array {
         if (from < to) {
             int idx = partition(nums, from, to, k);
             if (idx == k) {
-                return;
             } else if (idx > k) {
                 quickSelect(nums, from, idx - 1, k);
             } else {

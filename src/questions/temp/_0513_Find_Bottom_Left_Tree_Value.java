@@ -1,91 +1,71 @@
-/**
- *  @author: Yunxiang He
- *  @date  : 2018-08-02 02:43
- */
-
 package questions.temp;
 
 import common.TreeNode;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 /*
 
-Given a binary tree, find the leftmost value in the last row of the tree.
+Given the root of a binary tree, return the leftmost value in the last row of the tree.
+
 
 Example 1:
-Input:
+    Input: root = [2,1,3]
+    Output: 1
+Example 2:
+    Input: root = [1,2,3,4,null,5,6,null,null,7]
+    Output: 7
 
-    2
-   / \
-  1   3
-
-Output:
-1
-
-Example 2: 
-Input:
-
-        1
-       / \
-      2   3
-     /   / \
-    4   5   6
-       /
-      7
-
-Output:
-7
-
-Note: You may assume the tree (i.e., the given root node) is not NULL.
+Constraints:
+    The number of nodes in the tree is in the range [1, 10^4].
+    -2^31 <= Node.val <= 2^31 - 1
 
 */
-
 public class _0513_Find_Bottom_Left_Tree_Value {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int findBottomLeftValue_BFS(TreeNode root) {
-        Queue<TreeNode> que = new LinkedList<>();
-        que.add(root);
-        int leftMost = 0;
-        while (!que.isEmpty()) {
-            int size = que.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = que.remove();
-                if (i == 0) {
-                    leftMost = node.val;
-                }
-                if (node.left != null) {
-                    que.add(node.left);
-                }
-                if (node.right != null) {
-                    que.add(node.right);
+    class Solution {
+        public int findBottomLeftValue(TreeNode root) {
+            Queue<TreeNode> queue = new ArrayDeque<>();
+            queue.offer(root);
+            int res = root.val;
+            while (!queue.isEmpty()) {
+                int levelSize = queue.size();
+                boolean first = true;
+                while (levelSize-- > 0) {
+                    TreeNode node = queue.poll();
+                    if (first) {
+                        res = node.val;
+                        first = false;
+                    }
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
                 }
             }
+            return res;
         }
-        return leftMost;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private int leftMost = 0;
-    private int d = -1;
+    class Solution2 {
+        public int findBottomLeftValue(TreeNode root) {
+            int[] res = { 0 };
+            dfs(root, 0, new int[] { -1 }, res);
+            return res[0];
+        }
 
-    public int findBottomLeftValue_DFS_Recursion(TreeNode root) {
-        dfs(root, 0);
-        return leftMost;
-    }
-
-    private void dfs(TreeNode node, int depth) {
-        if (node != null) {
-            if (depth > d) {
-                leftMost = node.val;
-                d = depth;
+        private void dfs(TreeNode node, int depth, int[] maxDepth, int[] res) {
+            if (node != null) {
+                if (depth > maxDepth[0]) {
+                    res[0] = node.val;
+                    maxDepth[0] = depth;
+                }
+                dfs(node.left, depth + 1, maxDepth, res);
+                dfs(node.right, depth + 1, maxDepth, res);
             }
-            dfs(node.left, depth + 1);
-            dfs(node.right, depth + 1);
         }
     }
 }

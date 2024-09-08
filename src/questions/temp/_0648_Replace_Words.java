@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-25 11:35
+ * @author: Yunxiang He
+ * @date : 2018-07-25 11:35
  */
 
 package questions.temp;
@@ -102,7 +102,7 @@ public class _0648_Replace_Words {
 
     public static void main(String[] args) {
         _0648_Replace_Words test = new _0648_Replace_Words();
-        String res = test.replaceWords_Trie(Arrays.asList(new String[] { "cat", "bat", "rat" }), "the cattle was rattled by the battery");
+        String res = test.replaceWords_Trie(Arrays.asList("cat", "bat", "rat"), "the cattle was rattled by the battery");
         System.out.println(res);
     }
 }

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-04
+ * @author: Yunxiang He
+ * @date : 2018-10-04
  */
 
 package questions.lintcode;
@@ -78,7 +78,7 @@ public class __1632_Count_email_groups {
     }
 
     public static void main(String[] args) {
-        System.out.println(new __1632_Count_email_groups().countGroups(Arrays.asList(new String[] { "aa+bb.cc@jiu.zhang.com", "aa++bb.cc@jiu.zhang.com", "a+b+v+c@jiuzhang.com" })));
+        System.out.println(new __1632_Count_email_groups().countGroups(Arrays.asList("aa+bb.cc@jiu.zhang.com", "aa++bb.cc@jiu.zhang.com", "a+b+v+c@jiuzhang.com")));
         //    System.out.println(new __1632_Count_email_groups().countGroups(Arrays.asList(new String[] { "ab.cd+cd@jiu.zhang.com", "ab.cd+cd@jiuzhang.com", "ab+cd.cd@jiuzhang.com" })));
     }
 }

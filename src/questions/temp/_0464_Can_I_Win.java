@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Dec 26, 2017 11:40:25 PM
+ * @author Yunxiang He
+ * @date Dec 26, 2017 11:40:25 PM
  */
 
 package questions.temp;
@@ -44,7 +44,7 @@ public class _0464_Can_I_Win {
     // Recursion + DP + Bit manipulation
     // Guarantee to win means the opponent loses in every iteration
     // HashMap to record whether the first move can win or not
-    private HashMap<Integer, Boolean> dpMap = new HashMap<>();
+    private final HashMap<Integer, Boolean> dpMap = new HashMap<>();
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
         if (desiredTotal <= 0) {
@@ -88,7 +88,7 @@ public class _0464_Can_I_Win {
     // Cautious for when to copy the array
     // Every iteration, have to copy the state and the array
     // Use a map to record the value that has occurred
-    private HashMap<String, Integer> map = new HashMap<>();
+    private final HashMap<String, Integer> map = new HashMap<>();
 
     public boolean canIWin1(int maxChoosableInteger, int desiredTotal) {
         if (desiredTotal == 0) {
@@ -109,7 +109,7 @@ public class _0464_Can_I_Win {
             return false;
         }
         int res = max(nums, Integer.MIN_VALUE, Integer.MAX_VALUE, desiredTotal, key);
-        return res <= 0 ? false : true;
+        return res > 0;
     }
 
     private int max(int[] nums, int alfa, int beta, int state, String key) {

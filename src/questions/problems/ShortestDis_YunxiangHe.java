@@ -1,8 +1,8 @@
 package questions.problems;
 
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-11-12
+ * @author: Yunxiang He
+ * @date : 2018-11-12
  */
 
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ public class ShortestDis_YunxiangHe {
     private static final int GUARD = -2;
     private static final int ITEM = -1;
     private static final int PASS = 0;
-    private int[][] dirs = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+    private final int[][] dirs = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
     private int[][] board;
     private int row;
     private int col;

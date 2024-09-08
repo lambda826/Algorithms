@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/28/2019
+ * @author Yunxiang He
+ * @date 02/28/2019
  */
 
 package questions.problems;
@@ -70,7 +70,7 @@ public class Maximum_Minimum_Path_in_Matrix {
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 dp[i][j] = Math.min(Math.max(dp[i - 1][j], dp[i][j - 1]), // 每次选点的时候,因为路径只可能是从上或者从左, 所以选其中较大的, 再去合当前值比较.即可
-                        matrix[i][j]);
+                                    matrix[i][j]);
             }
         }
         return dp[n - 1][m - 1];

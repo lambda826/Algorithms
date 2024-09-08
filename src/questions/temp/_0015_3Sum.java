@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 10/11/2017
+ * @author Yunxiang He
+ * @date 10/11/2017
  */
 
 package questions.temp;
@@ -47,7 +47,7 @@ public class _0015_3Sum {
                 int r = nums.length - 1;
                 while (l < r) {
                     if (nums[l] + nums[r] == -nums[i]) {
-                        res.add(Arrays.asList(new Integer[] { nums[i], nums[l++], nums[r--] }));
+                        res.add(Arrays.asList(nums[i], nums[l++], nums[r--]));
                         while (l < r && nums[l] == nums[l - 1]) {
                             ++l;
                         }

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/28/2019
+ * @author Yunxiang He
+ * @date 02/28/2019
  */
 
 package questions.problems;
@@ -36,8 +36,8 @@ public class MST {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Map<String, String> root = new HashMap<String, String>();
-    private Map<String, Integer> size = new HashMap<>();
+    private final Map<String, String> root = new HashMap<String, String>();
+    private final Map<String, Integer> size = new HashMap<>();
 
     public List<Connection> getLowCost(List<Connection> connections) {
         Collections.sort(connections, (c1, c2) -> (c1.cost - c2.cost));

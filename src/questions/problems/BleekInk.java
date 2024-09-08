@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 2018-11-02 16:47
+ * @author Yunxiang He
+ * @date 2018-11-02 16:47
  */
 
 package questions.problems;
@@ -12,8 +12,8 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class BleekInk {
-    private static int[] dirX = { 0, 1, 0, -1 };
-    private static int[] dirY = { -1, 0, 1, 0 };
+    private static final int[] dirX = { 0, 1, 0, -1 };
+    private static final int[] dirY = { -1, 0, 1, 0 };
 
     public static void main(String[] args) {
         List<Integer> res = new ArrayList<>();

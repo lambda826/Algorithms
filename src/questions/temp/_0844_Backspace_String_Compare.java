@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -115,7 +115,7 @@ public class _0844_Backspace_String_Compare {
                 sb.append(ch);
             }
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
         return sb.toString();
     }
 
@@ -144,7 +144,7 @@ public class _0844_Backspace_String_Compare {
                 }
             }
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
         return sb.toString();
     }
 }

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/28/2019
+ * @author Yunxiang He
+ * @date 02/28/2019
  */
 
 package questions.lintcode;
@@ -52,7 +52,7 @@ public class __0533_Two_Sum_Closest_to_target {
             } else {
                 l++;
             }
-            min = Math.min(min, (int) Math.abs(sum - target));
+            min = Math.min(min, Math.abs(sum - target));
         }
         return min;
     }

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-11-11
+ * @author: Yunxiang He
+ * @date : 2018-11-11
  */
 
 package questions.problems;
@@ -29,8 +29,8 @@ public class Longest_Subarray {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxLength(Arrays.asList(new Integer[] { 1, 2, 3 }), 3));
-        System.out.println(maxLength(Arrays.asList(new Integer[] { 3, 1, 2, 3 }), 4));
-        System.out.println(maxLength(Arrays.asList(new Integer[] { 4, 3, 1, 2, 1 }), 4));
+        System.out.println(maxLength(Arrays.asList(1, 2, 3), 3));
+        System.out.println(maxLength(Arrays.asList(3, 1, 2, 3), 4));
+        System.out.println(maxLength(Arrays.asList(4, 3, 1, 2, 1), 4));
     }
 }

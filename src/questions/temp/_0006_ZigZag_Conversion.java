@@ -29,7 +29,7 @@ public class _0006_ZigZag_Conversion {
      * Tips:
      * Corner case: ("", 1), ("A", 1), ("AB", 1)
      * --------------------------------------------------------------
-     *  Time complexity : O(n)
+     * Time complexity : O(n)
      * Space complexity : O(1)
      */
     public String convert(String s, int numRows) {
@@ -44,10 +44,7 @@ public class _0006_ZigZag_Conversion {
         for (int r = 0; r < numRows; r++) {
             int index = r;
             int index2 = index + 2 * (numRows - r) - 2;
-            boolean flag = true;
-            if (index2 == numRows - 1 || index2 == step) {
-                flag = false;
-            }
+            boolean flag = index2 != numRows - 1 && index2 != step;
             while (index < s.length()) {
                 sb.append(s.charAt(index));
                 index += step;

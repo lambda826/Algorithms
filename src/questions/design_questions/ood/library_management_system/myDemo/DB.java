@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/23/2019
+ * @author Yunxiang He
+ * @date 03/23/2019
  */
 
 package questions.design_questions.ood.library_management_system.myDemo;
@@ -16,10 +16,10 @@ import java.util.Set;
 public enum DB {
 
     DB;
-    private Set<Book> books = new HashSet<>();
-    private Set<User> users = new HashSet<>();
-    private Map<User, Set<Book>> user_book = new HashMap<>();
-    private Map<Book, User> book_user = new HashMap<>();
+    private final Set<Book> books = new HashSet<>();
+    private final Set<User> users = new HashSet<>();
+    private final Map<User, Set<Book>> user_book = new HashMap<>();
+    private final Map<Book, User> book_user = new HashMap<>();
 
     public Set<Book> getBooks() {
         return books;

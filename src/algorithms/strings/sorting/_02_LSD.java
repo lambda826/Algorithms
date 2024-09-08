@@ -1,6 +1,6 @@
 /**
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 package algorithms.strings.sorting;
 
@@ -75,9 +75,7 @@ public class _02_LSD {
             }
 
             // copy back
-            for (int i = 0; i < n; i++) {
-                a[i] = aux[i];
-            }
+            System.arraycopy(aux, 0, a, 0, n);
         }
     }
 
@@ -147,9 +145,7 @@ public class _02_LSD {
             }
 
             // copy back
-            for (int i = 0; i < n; i++) {
-                a[i] = aux[i];
-            }
+            System.arraycopy(aux, 0, a, 0, n);
         }
         System.out.println(Arrays.toString(a));
     }

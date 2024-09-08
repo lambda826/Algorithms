@@ -1,16 +1,16 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-17
+ * @author: Yunxiang He
+ * @date : 2018-10-17
  */
 
 package algorithms.tree;
 
 public class ArraySegmentTree<T> {
 
-    private T tree[];
-    private T data[];
+    private final T[] tree;
+    private final T[] data;
 
-    private Merger<T> merger;
+    private final Merger<T> merger;
 
     public interface Merger<T> {
         T merge(T a, T b);
@@ -19,9 +19,7 @@ public class ArraySegmentTree<T> {
     public ArraySegmentTree(T[] arr, Merger<T> merger) {
         this.merger = merger;
         data = (T[]) new Object[arr.length];
-        for (int i = 0; i < data.length; i++) {
-            data[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, data, 0, data.length);
 
         this.tree = (T[]) new Object[data.length * 4];
         buildSegmentTree(0, 0, data.length - 1);

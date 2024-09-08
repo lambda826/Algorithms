@@ -53,9 +53,9 @@ public class _1636_Sort_Array_by_Increasing_Frequency {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
         return Arrays.stream(nums).boxed().sorted(
-                (a, b) -> map.get(a) - map.get(b) == 0
-                        ? b - a
-                        : (map.get(a) - map.get(b)))
+                         (a, b) -> map.get(a) - map.get(b) == 0
+                                   ? b - a
+                                   : (map.get(a) - map.get(b)))
                 .mapToInt(Integer::intValue).toArray();
 
     }

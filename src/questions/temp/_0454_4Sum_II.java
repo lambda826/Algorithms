@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 29, 2018 9:55:28 PM
+ * @author Yunxiang He
+ * @date Jan 29, 2018 9:55:28 PM
  */
 
 package questions.temp;
@@ -44,7 +44,7 @@ public class _0454_4Sum_II {
         Map<Integer, Integer> map = new HashMap<>();
         for (int a : A) {
             for (int b : B) {
-                int x = 0 - a - b;
+                int x = -a - b;
                 map.put(x, map.getOrDefault(x, 0) + 1);
             }
         }

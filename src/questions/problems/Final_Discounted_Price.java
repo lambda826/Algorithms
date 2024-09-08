@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-11-11
+ * @author: Yunxiang He
+ * @date : 2018-11-11
  */
 
 package questions.problems;
@@ -42,13 +42,13 @@ public class Final_Discounted_Price {
     }
 
     public static void main(String[] args) {
-        finalPrice(Arrays.asList(new Integer[] { 2, 3, 1, 2, 4, 2, 2_147_483_647 }));
+        finalPrice(Arrays.asList(2, 3, 1, 2, 4, 2, 2_147_483_647));
         System.out.println();
-        finalPrice(Arrays.asList(new Integer[] { 5, 1, 3, 4, 6, 2, }));
+        finalPrice(Arrays.asList(5, 1, 3, 4, 6, 2));
         System.out.println();
-        finalPrice(Arrays.asList(new Integer[] { 1, 3, 3, 2, 5, }));
+        finalPrice(Arrays.asList(1, 3, 3, 2, 5));
         System.out.println();
-        finalPrice(Arrays.asList(new Integer[] { 1 }));
+        finalPrice(Arrays.asList(1));
 
     }
 }

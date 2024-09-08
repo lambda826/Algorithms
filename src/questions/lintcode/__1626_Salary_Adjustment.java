@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-14
+ * @author: Yunxiang He
+ * @date : 2018-10-14
  */
 
 package questions.lintcode;

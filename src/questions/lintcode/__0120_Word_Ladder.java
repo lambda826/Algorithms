@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/16/2019
+ * @author Yunxiang He
+ * @date 02/16/2019
  */
 
 package questions.lintcode;
@@ -39,7 +39,7 @@ public class __0120_Word_Ladder {
     public static void main(String[] args) {
         String start = "hit";
         String end = "cog";
-        Set<String> dict = new HashSet<>(Arrays.asList(new String[] { "hot", "dot", "dog", "lot", "log" }));
+        Set<String> dict = new HashSet<>(Arrays.asList("hot", "dot", "dog", "lot", "log"));
         System.out.println(new __0120_Word_Ladder().ladderLength(start, end, dict));
     }
 

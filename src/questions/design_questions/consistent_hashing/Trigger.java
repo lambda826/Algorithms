@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-11-06
+ * @author: Yunxiang He
+ * @date : 2018-11-06
  */
 
 package questions.design_questions.consistent_hashing;
@@ -23,7 +23,7 @@ public class Trigger implements Serializable {
 
     private long lastRunTime = -1;
 
-    private Status _status = Status.INITED;
+    private final Status _status = Status.INITED;
 
     private int status = _status.getIntValue();
 
@@ -90,11 +90,11 @@ public class Trigger implements Serializable {
         this.id = id;
     }
 
-    public static enum Status {
+    public enum Status {
 
         INITED(1), DEPLOYED(2), UNDEPLOYED(3);
 
-        private int status;
+        private final int status;
 
         Status(int status) {
             this.status = status;

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-23 18:12
+ * @author: Yunxiang He
+ * @date : 2018-07-23 18:12
  */
 
 package questions.temp;
@@ -57,8 +57,8 @@ public class _0421_Maximum_XOR_of_Two_Numbers_in_an_Array {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private TrieNode root = new TrieNode();
-    private int mask = 1073741824;
+    private final TrieNode root = new TrieNode();
+    private final int mask = 1073741824;
 
     public int findMaximumXOR_Trie(int[] nums) {
         for (int num : nums) {

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-02
+ * @author: Yunxiang He
+ * @date : 2018-10-02
  */
 
 package questions.problems;

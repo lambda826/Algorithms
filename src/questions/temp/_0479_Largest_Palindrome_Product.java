@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 07/31/2018
+ * @author Yunxiang He
+ * @date 07/31/2018
  */
 
 package questions.temp;
@@ -34,7 +34,7 @@ public class _0479_Largest_Palindrome_Product {
         long max = (long) Math.pow(10, n) - 1;
         long min = max / 10;
         for (long left = max; left > min; left--) {
-            long right = Long.parseLong(new StringBuilder("" + left).reverse().toString());
+            long right = Long.parseLong(new StringBuilder(String.valueOf(left)).reverse().toString());
             long target = left * (max + 1) + right;
             for (long i = max; i * i >= target; i--) {
                 if (target % i == 0) {

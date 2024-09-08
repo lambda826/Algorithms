@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-26 19:40
+ * @author: Yunxiang He
+ * @date : 2018-07-26 19:40
  */
 
 package questions.temp;
@@ -92,7 +92,7 @@ public class __0642_Design_Search_Autocomplete_System {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private StringBuilder input = new StringBuilder();
-    private Node root;
+    private final Node root;
 
     public __0642_Design_Search_Autocomplete_System(String[] sentences, int[] times) {
         root = new Node();

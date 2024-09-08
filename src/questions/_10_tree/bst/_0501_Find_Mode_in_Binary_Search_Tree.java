@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/19/2019
+ * @author Yunxiang He
+ * @date 02/19/2019
  */
 
 package questions._10_tree.bst;
@@ -50,7 +50,7 @@ public class _0501_Find_Mode_in_Binary_Search_Tree {
     private int count = 0;
     private int max = 0;
     private Integer pre = null;
-    private List<Integer> list = new ArrayList<>();
+    private final List<Integer> list = new ArrayList<>();
 
     public int[] findMode(TreeNode root) {
         inorder(root);

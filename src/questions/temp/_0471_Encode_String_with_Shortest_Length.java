@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/21/2019
+ * @author Yunxiang He
+ * @date 02/21/2019
  */
 
 package questions.temp;
@@ -145,7 +145,7 @@ public class _0471_Encode_String_with_Shortest_Length {
             if (times * pattern.length() != s.length()) {
                 continue;
             }
-            String candidate = Integer.toString(times) + "[" + encode(pattern) + "]";
+            String candidate = times + "[" + encode(pattern) + "]";
             if (candidate.length() < ret.length()) {
                 ret = candidate;
             }

@@ -63,8 +63,7 @@ public class _0339_Nested_List_Weight_Sum {
     }
 
 
-
-   private static class NestedInteger {
+    private static class NestedInteger {
 
         private List<NestedInteger> list;
         private int value;

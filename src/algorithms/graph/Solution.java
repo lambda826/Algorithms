@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/21/2019
+ * @author Yunxiang He
+ * @date 02/21/2019
  */
 
 package algorithms.graph;
@@ -26,7 +26,6 @@ class Solution {
         if (temp.size() == k) {
             list.add(new ArrayList<>(temp));
         } else if (start == arr.length) {
-            return;
         } else if (temp.size() < k) {
             // We choose the element
             temp.add(arr[start]);

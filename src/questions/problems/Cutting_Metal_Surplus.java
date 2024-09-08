@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-09-23
+ * @author: Yunxiang He
+ * @date : 2018-09-23
  */
 
 package questions.problems;
@@ -26,6 +26,6 @@ public class Cutting_Metal_Surplus {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxProfit(1, 10, Arrays.asList(new Integer[] { 30, 59, 110 })));
+        System.out.println(maxProfit(1, 10, Arrays.asList(30, 59, 110)));
     }
 }

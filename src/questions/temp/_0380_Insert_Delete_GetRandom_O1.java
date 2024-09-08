@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 05/23/2018
+ * @author Yunxiang He
+ * @date 05/23/2018
  */
 
 package questions.temp;
@@ -58,9 +58,9 @@ public class _0380_Insert_Delete_GetRandom_O1 {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private List<Integer> data;
-    private Map<Integer, Integer> map;
-    private Random rand;
+    private final List<Integer> data;
+    private final Map<Integer, Integer> map;
+    private final Random rand;
 
     public _0380_Insert_Delete_GetRandom_O1() {
         data = new ArrayList<>();

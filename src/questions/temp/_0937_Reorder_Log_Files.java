@@ -38,11 +38,11 @@ public class _0937_Reorder_Log_Files {
     /**
      * 1. Write a comparator to sort the array
      * 2. If the first string is a digit-log
-     *     2.1. If the second string is a digit-log, keep the original order, return 0
-     *     2.2. If the second string is a letter-log, the letter-log should be in front, return 1
+     * 2.1. If the second string is a digit-log, keep the original order, return 0
+     * 2.2. If the second string is a letter-log, the letter-log should be in front, return 1
      * 3. If the first string is a letter-log
-     *     3.1 If the second string is a digit-log, keep the original order, return -1
-     *     3.2 If the second string is also a letter-log, compare the strings, if there is a tie, compare the identifier
+     * 3.1 If the second string is a digit-log, keep the original order, return -1
+     * 3.2 If the second string is also a letter-log, compare the strings, if there is a tie, compare the identifier
      */
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (a, b) -> {

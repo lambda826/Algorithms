@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 01/22/2018
+ * @author Yunxiang He
+ * @date 01/22/2018
  */
 
 package questions.problems;
@@ -28,7 +28,7 @@ public class Maximum_Sum_Increasing_Subsequence {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int maxSumIS_DP(int arr[]) {
+    public int maxSumIS_DP(int[] arr) {
         int max = 0;
         int n = arr.length;
         if (n > 0) {

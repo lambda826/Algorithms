@@ -27,7 +27,6 @@ public class Facebook_Merge_Two_Interval_Lists {
     class Solution_TowPointer {
 
 
-
         public List<Interval> mergeTwoIntervalLists(List<Interval> interval1, List<Interval> interval2) {
             List<Interval> res = new ArrayList<>();
             Collections.sort(interval1, Comparator.comparingInt(interval -> interval.start));

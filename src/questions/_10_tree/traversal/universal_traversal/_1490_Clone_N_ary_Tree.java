@@ -52,7 +52,7 @@ public class _1490_Clone_N_ary_Tree {
             while (!queue.isEmpty()) {
                 Node curr = queue.poll();
                 Node currClone = queueClone.poll();
-                for (Node child: curr.children) {
+                for (Node child : curr.children) {
                     queue.offer(child);
                     Node cloneChild = clone(child);
                     currClone.children.add(cloneChild);

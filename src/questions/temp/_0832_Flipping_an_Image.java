@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-22 11:44
+ * @author: Yunxiang He
+ * @date : 2018-06-22 11:44
  */
 
 package questions.temp;
@@ -38,9 +38,6 @@ public class _0832_Flipping_an_Image {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int[][] flipAndInvertImage(int[][] A) {
-        if (A.length == 0) {
-            return A;
-        }
         for (int[] row : A) {
             int left = 0;
             int right = row.length - 1;

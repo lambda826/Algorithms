@@ -1,4 +1,11 @@
-package questions._10_tree.traversal.ordered;
+package questions.leetcode;
+
+import common.TreeNode;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /*
 
@@ -34,14 +41,6 @@ Constraints:
     0 <= k <= 1000
 
 */
-
-import common.TreeNode;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public class _0863_All_Nodes_Distance_K_in_Binary_Tree {
 
 
@@ -51,7 +50,7 @@ public class _0863_All_Nodes_Distance_K_in_Binary_Tree {
         public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
             // Find all the root nodes including target itself through post-order traversal
             List<TreeNode> roots = new ArrayList<>();
-            boolean[] targetFound = {false};
+            boolean[] targetFound = { false };
             postOrder(root, target, targetFound, roots);
 
             // dfs based on the roots

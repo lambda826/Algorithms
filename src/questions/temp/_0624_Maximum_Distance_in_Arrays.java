@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-29 03:06
+ * @author: Yunxiang He
+ * @date : 2018-06-29 03:06
  */
 
 package questions.temp;
@@ -39,7 +39,6 @@ public class _0624_Maximum_Distance_in_Arrays {
         int min = first.get(0);
         int max = first.get(first.size() - 1);
         int res = Integer.MIN_VALUE;
-        ;
         for (int i = 1; i < arrays.size(); i++) {
             List<Integer> list = arrays.get(i);
             res = Math.max(res, max - list.get(0));

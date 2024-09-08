@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 04/09/2019
+ * @author Yunxiang He
+ * @date 04/09/2019
  */
 
 package questions.temp;
@@ -52,7 +52,7 @@ public class _0588_Design_In_Memory_File_System {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private FileEntity root;
+    private final FileEntity root;
 
     public _0588_Design_In_Memory_File_System() {
         root = new FileEntity();

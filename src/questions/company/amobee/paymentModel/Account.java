@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/01/2019
+ * @author Yunxiang He
+ * @date 03/01/2019
  */
 
 package questions.company.amobee.paymentModel;

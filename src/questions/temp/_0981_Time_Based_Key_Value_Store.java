@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/21/2019
+ * @author Yunxiang He
+ * @date 02/21/2019
  */
 
 package questions.temp;
@@ -56,7 +56,7 @@ public class _0981_Time_Based_Key_Value_Store {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class TreeMapSolution {
 
-        private Map<String, TreeMap<Integer, String>> key_time_value;
+        private final Map<String, TreeMap<Integer, String>> key_time_value;
 
         public TreeMapSolution() {
             key_time_value = new HashMap<>();
@@ -82,7 +82,7 @@ public class _0981_Time_Based_Key_Value_Store {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class BinarySearchSolution {
 
-        private Map<String, Map<Integer, String>> key_time_value;
+        private final Map<String, Map<Integer, String>> key_time_value;
 
         public BinarySearchSolution() {
             key_time_value = new HashMap<>();

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-17 01:06
+ * @author: Yunxiang He
+ * @date : 2018-07-17 01:06
  */
 
 package questions.temp;
@@ -37,8 +37,16 @@ public class _0246_Strobogrammatic_Number {
         int left = 0;
         int right = num.length() - 1;
         while (left <= right) {
-            if (num.charAt(left) == '0' && num.charAt(right) != '0' || num.charAt(left) == '1' && num.charAt(right) != '1' || num.charAt(left) == '2' || num.charAt(left) == '3' || num.charAt(left) == '4' || num.charAt(left) == '5'
-                    || num.charAt(left) == '6' && num.charAt(right) != '9' || num.charAt(left) == '7' || num.charAt(left) == '8' && num.charAt(right) != '8' || num.charAt(left) == '9' && num.charAt(right) != '6') {
+            if (num.charAt(left) == '0' && num.charAt(right) != '0'
+                || num.charAt(left) == '1' && num.charAt(right) != '1'
+                || num.charAt(left) == '2'
+                || num.charAt(left) == '3'
+                || num.charAt(left) == '4'
+                || num.charAt(left) == '5'
+                || num.charAt(left) == '6' && num.charAt(right) != '9'
+                || num.charAt(left) == '7'
+                || num.charAt(left) == '8' && num.charAt(right) != '8'
+                || num.charAt(left) == '9' && num.charAt(right) != '6') {
                 return false;
             }
             left++;

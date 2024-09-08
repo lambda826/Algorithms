@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -37,7 +37,7 @@ public class _0225_Implement_Stack_using_Queues {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private Queue<Integer> queue;
+    private final Queue<Integer> queue;
 
     public _0225_Implement_Stack_using_Queues() {
         queue = new ArrayDeque<>();

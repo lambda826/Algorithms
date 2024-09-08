@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Dec 25, 2017 11:57:10 PM
+ * @author Yunxiang He
+ * @date Dec 25, 2017 11:57:10 PM
  */
 
 package questions._05_binarySearch;
@@ -28,7 +28,7 @@ Return 6.
 
 public class _0374_Guess_Number_Higher_or_Lower {
 
-    private int n = 1702766719;
+    private final int n = 1702766719;
 
     private int guess(int i) {
         if (i > n) {

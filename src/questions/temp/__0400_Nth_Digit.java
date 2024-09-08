@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-17 11:47
+ * @author: Yunxiang He
+ * @date : 2018-07-17 11:47
  */
 
 package questions.temp;
@@ -52,6 +52,6 @@ public class __0400_Nth_Digit {
     }
 
     public static void main(String[] args) {
-        System.out.println(new __0400_Nth_Digit().findNthDigit(10^5));
+        System.out.println(new __0400_Nth_Digit().findNthDigit(10 ^ 5));
     }
 }

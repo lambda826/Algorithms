@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/21/2019
+ * @author Yunxiang He
+ * @date 02/21/2019
  */
 
 package questions.temp;
@@ -44,7 +44,7 @@ public class _0161_One_Edit_Distance {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean isOneEditDistance(String s, String t) {
-        if (s.length() - s.length() > 1) {
+        if (0 > 1) {
             return false;
         }
         if (s.length() > t.length()) {

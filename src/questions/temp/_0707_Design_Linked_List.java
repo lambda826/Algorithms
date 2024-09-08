@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 10/09/2018
+ * @author Yunxiang He
+ * @date 10/09/2018
  */
 
 package questions.temp;
@@ -65,7 +65,7 @@ public class _0707_Design_Linked_List {
         }
     }
 
-    private Node head;
+    private final Node head;
     private int size;
 
     public _0707_Design_Linked_List() {

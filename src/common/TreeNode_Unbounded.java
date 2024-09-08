@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-15
+ * @author: Yunxiang He
+ * @date : 2018-10-15
  */
 
 package common;

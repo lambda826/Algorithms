@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 05/23/2018
+ * @author Yunxiang He
+ * @date 05/23/2018
  */
 
 package questions.temp;
@@ -34,19 +34,19 @@ Follow up:
 
 public class _0144_Binary_Tree_Preorder_Traversal {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        preorder(root, res);
-        return res;
-    }
+    class Solution {
+        public List<Integer> preorderTraversal(TreeNode root) {
+            List<Integer> res = new ArrayList<>();
+            preorderTraversal(root, res);
+            return res;
+        }
 
-    private void preorder(TreeNode node, List<Integer> res) {
-        if (node != null) {
-            res.add(node.val);
-            preorder(node.left, res);
-            preorder(node.right, res);
+        private void preorderTraversal(TreeNode node, List<Integer> res) {
+            if (node != null) {
+                res.add(node.val);
+                preorderTraversal(node.left, res);
+                preorderTraversal(node.right, res);
+            }
         }
     }
 

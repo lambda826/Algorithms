@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-20 18:08
+ * @author: Yunxiang He
+ * @date : 2018-06-20 18:08
  */
 
 package algorithms.greedy;

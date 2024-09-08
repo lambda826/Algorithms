@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Feb 8, 2018 4:47:36 PM
+ * @author Yunxiang He
+ * @date Feb 8, 2018 4:47:36 PM
  */
 
 package algorithms.tree;
@@ -119,7 +119,7 @@ public class BST2<T> {
         } else if (compareResult > 0) {
             t.right = insert(x, t.right);
         } else {
-            ; // Duplicate; do nothing
+            // Duplicate; do nothing
         }
         return t;
     }

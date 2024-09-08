@@ -14,5 +14,4 @@ package questions.temp;
 public class _0482_License_Key_Formatting {
 
 
-
 }

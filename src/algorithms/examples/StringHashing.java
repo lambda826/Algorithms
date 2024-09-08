@@ -16,8 +16,8 @@ public class StringHashing {
     }
 
     /**
-     * This hash function assumes that Key has at least three characters. 
-     * The value 27 represents the number of letters in the English alphabet, plus the blank, and 729 is 272. 
+     * This hash function assumes that Key has at least three characters.
+     * The value 27 represents the number of letters in the English alphabet, plus the blank, and 729 is 272.
      * If these are random and the table size is 10,007, as before, then we would expect a reasonably equitable distribution.
      */
     public static int hashingString2(String key, int tableSize) {
@@ -26,9 +26,10 @@ public class StringHashing {
 
     /**
      * This hash function involves all characters in the key and can generally be expected to distribute well
-     * The code computes a polynomial function (of 37) by use of Horner’s rule. 
+     * The code computes a polynomial function (of 37) by use of Horner’s rule.
      * If the keys are very long, the hash function will take too long to compute
-     * Some programmers implement their hash function by using only the characters in the odd spaces, with the idea that the time saved computing the hash function will make up for a slightly less evenly distributed function.
+     * Some programmers implement their hash function by using only the characters in the odd spaces, with the idea that the time saved computing the hash function will make up
+     * for a slightly less evenly distributed function.
      */
     public static int hashingString3(String key, int tableSize) {
         int hashVal = 0;

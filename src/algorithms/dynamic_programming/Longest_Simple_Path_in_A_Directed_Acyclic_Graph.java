@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 2018-09-18 10:32
+ * @author Yunxiang He
+ * @date 2018-09-18 10:32
  */
 
 package algorithms.dynamic_programming;

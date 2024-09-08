@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -24,7 +24,7 @@ Example:
 
 public class _0284_Peeking_Iterator implements Iterator<Integer> {
 
-    private Iterator<Integer> iterator;
+    private final Iterator<Integer> iterator;
     private Integer peek;
 
     public _0284_Peeking_Iterator(Iterator<Integer> iterator) {

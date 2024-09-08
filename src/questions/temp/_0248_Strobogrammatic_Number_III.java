@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -69,7 +69,6 @@ public class _0248_Strobogrammatic_Number_III {
                 if (compare(low, n) && compare(n, high)) {
                     count++;
                 }
-                return;
             } else if (n.length() == low.length() && compare(low, n)) {
                 count++;
             } else if (n.length() == high.length() && compare(n, high)) {

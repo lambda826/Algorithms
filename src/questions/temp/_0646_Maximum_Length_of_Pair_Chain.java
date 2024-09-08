@@ -1,11 +1,12 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 29, 2018 9:55:28 PM
+ * @author Yunxiang He
+ * @date Jan 29, 2018 9:55:28 PM
  */
 
 package questions.temp;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -33,7 +34,7 @@ The number of given pairs will be in the range [1, 1000].
 
 public class _0646_Maximum_Length_of_Pair_Chain {
 
-    private Comparator<int[]> comparator = new Comparator<int[]>() {
+    private final Comparator<int[]> comparator = new Comparator<int[]>() {
         @Override
         public int compare(int[] o1, int[] o2) {
             if (o1[1] < o2[1]) {
@@ -52,9 +53,7 @@ public class _0646_Maximum_Length_of_Pair_Chain {
     public int findLongestChain_Greedy(int[][] pairs) {
         //        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
         PriorityQueue<int[]> pq = new PriorityQueue<>(comparator);
-        for (int[] i : pairs) {
-            pq.add(i);
-        }
+        Collections.addAll(pq, pairs);
         int count = 1;
         int[] i = pq.poll();
         int[] j = null;

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/07/2019
+ * @author Yunxiang He
+ * @date 03/07/2019
  */
 
 package algorithms.heap;
@@ -101,7 +101,7 @@ public class MaxHeap<T extends Comparable<T>> {
     }
 
     public static void main(String[] args) {
-        MaxHeap<Integer> maxHeap = new MaxHeap<>(new ArrayList<>(Arrays.asList(new Integer[] { 6, 4, 2, 3, 1, 7, 9 })));
+        MaxHeap<Integer> maxHeap = new MaxHeap<>(new ArrayList<>(Arrays.asList(6, 4, 2, 3, 1, 7, 9)));
         System.out.println(maxHeap.heapSort());
     }
 }

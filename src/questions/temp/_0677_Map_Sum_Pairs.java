@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 2018-07-22 17:29
+ * @author Yunxiang He
+ * @date 2018-07-22 17:29
  */
 
 package questions.temp;
@@ -32,7 +32,7 @@ public class _0677_Map_Sum_Pairs {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class MapSum_Trie {
-        private Trie root = new Trie();
+        private final Trie root = new Trie();
 
         private class Trie {
             Trie[] next = new Trie[26];

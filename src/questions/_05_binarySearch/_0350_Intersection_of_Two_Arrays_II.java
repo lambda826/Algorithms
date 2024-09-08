@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 14, 2018 2:09:55 AM
+ * @author Yunxiang He
+ * @date Jan 14, 2018 2:09:55 AM
  */
 
 package questions._05_binarySearch;

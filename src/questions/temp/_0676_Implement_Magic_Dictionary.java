@@ -1,10 +1,11 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-23 13:32
+ * @author: Yunxiang He
+ * @date : 2018-07-23 13:32
  */
 
 package questions.temp;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -138,9 +139,7 @@ public class _0676_Implement_Magic_Dictionary {
         private final Set<String> set = new HashSet<>();
 
         public void buildDict(String[] dict) {
-            for (String word : dict) {
-                set.add(word);
-            }
+            Collections.addAll(set, dict);
         }
 
         public boolean search(String word) {

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 12/30/2017
+ * @author Yunxiang He
+ * @date 12/30/2017
  */
 
 package questions.temp;

@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 07/31/2018
+ * @author Yunxiang He
+ * @date 07/31/2018
  */
 
 package questions.temp;
@@ -51,8 +51,8 @@ public class _0703_Kth_Largest_Element_in_a_Stream {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Default min-heap
     // The priority queue keeps the most k largest elements
-    private PriorityQueue<Integer> pq;
-    private int k;
+    private final PriorityQueue<Integer> pq;
+    private final int k;
 
     public _0703_Kth_Largest_Element_in_a_Stream(int k, int[] nums) {
         this.k = k;

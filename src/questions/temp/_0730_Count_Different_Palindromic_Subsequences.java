@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -74,7 +74,7 @@ public class _0730_Count_Different_Palindromic_Subsequences {
                 } else { // If the end points doesn't equal, then deduct the overlapped part dp[i + 1][j - 1]
                     dp[i][j] = dp[i + 1][j] + dp[i][j - 1] - dp[i + 1][j - 1];
                 }
-                dp[i][j] = (dp[i][j] < 0) ? dp[i][j] + 10^400007 : dp[i][j] % 10^400007;
+                dp[i][j] = (dp[i][j] < 0) ? dp[i][j] + 10 ^ 400007 : dp[i][j] % 10 ^ 400007;
             }
         }
         return dp[0][n - 1];

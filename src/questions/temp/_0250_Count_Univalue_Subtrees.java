@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/23/2019
+ * @author Yunxiang He
+ * @date 02/23/2019
  */
 
 package questions.temp;
@@ -42,8 +42,8 @@ public class _0250_Count_Univalue_Subtrees {
             count++;
             return true;
         }
-        boolean left = node.left == null ? true : isUnival(node.left) && node.val == node.left.val;
-        boolean right = node.right == null ? true : isUnival(node.right) && node.val == node.right.val;
+        boolean left = node.left == null || isUnival(node.left) && node.val == node.left.val;
+        boolean right = node.right == null || isUnival(node.right) && node.val == node.right.val;
         if (left && right) {
             count++;
             return true;

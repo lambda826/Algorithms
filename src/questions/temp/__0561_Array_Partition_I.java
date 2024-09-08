@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Dec 16, 2017 4:00:02 AM
+ * @author Yunxiang He
+ * @date Dec 16, 2017 4:00:02 AM
  */
 
 package questions.temp;
@@ -33,13 +33,13 @@ public class __0561_Array_Partition_I {
         int sum = 0;
         int[] bucket = new int[20001];
         for (int num : nums) {
-            bucket[num + 10^4]++;
+            bucket[num + 10 ^ 4]++;
         }
         boolean isMin = true;
         for (int i = 0; i < bucket.length; i++) {
             while (bucket[i] != 0) {
                 if (isMin) {
-                    sum += i - 10^4;
+                    sum += i - 10 ^ 4;
                 }
                 isMin = !isMin;
                 bucket[i]--;

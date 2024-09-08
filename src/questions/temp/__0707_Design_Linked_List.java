@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-30 23:51
+ * @author: Yunxiang He
+ * @date : 2018-07-30 23:51
  */
 
 package questions.temp;
@@ -51,7 +51,7 @@ Please do not use the built-in LinkedList library.
 
 public class __0707_Design_Linked_List {
 
-    private Node head;
+    private final Node head;
     private Node tail;
 
     private int size;

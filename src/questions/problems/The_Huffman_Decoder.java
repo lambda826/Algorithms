@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-09-29
+ * @author: Yunxiang He
+ * @date : 2018-09-29
  */
 
 package questions.problems;
@@ -39,6 +39,6 @@ public class The_Huffman_Decoder {
     }
 
     public static void main(String[] args) {
-        System.out.println(decode(Arrays.asList(new String[] { "a\t100100", "b\t100101", "c\t110001", "d\t100000", "[newline]\t111111", "p\t111110", "q\t000001" }), "111110000001100100111111100101110001111110"));
+        System.out.println(decode(Arrays.asList("a\t100100", "b\t100101", "c\t110001", "d\t100000", "[newline]\t111111", "p\t111110", "q\t000001"), "111110000001100100111111100101110001111110"));
     }
 }

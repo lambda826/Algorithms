@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 12, 2018 9:22:02 PM
+ * @author Yunxiang He
+ * @date Jan 12, 2018 9:22:02 PM
  */
 
 package questions.temp;
@@ -24,8 +24,8 @@ m.next(5) = (10 + 3 + 5) / 3
 public class _0346_Moving_Average_from_Data_Stream {
 
     private int sum;
-    private int size;
-    private Queue<Integer> queue;
+    private final int size;
+    private final Queue<Integer> queue;
 
     /** Initialize your data structure here. */
     public _0346_Moving_Average_from_Data_Stream(int size) {

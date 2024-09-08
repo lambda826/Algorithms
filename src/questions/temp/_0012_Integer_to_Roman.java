@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Dec 24, 2017 12:45:23 AM
+ * @author Yunxiang He
+ * @date Dec 24, 2017 12:45:23 AM
  */
 
 package questions.temp;
@@ -18,10 +18,10 @@ public class _0012_Integer_to_Roman {
     // Solution 1
     // Denote every digit by Roman
     public String intToRoman(int num) {
-        String M[] = { "", "M", "MM", "MMM" };
-        String C[] = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
-        String X[] = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-        String I[] = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+        String[] M = { "", "M", "MM", "MMM" };
+        String[] C = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+        String[] X = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+        String[] I = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
         return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
     }
 

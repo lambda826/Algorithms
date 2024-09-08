@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-04-04 02:16
+ * @author: Yunxiang He
+ * @date : 2018-04-04 02:16
  */
 
 package algorithms.strings.sorting;

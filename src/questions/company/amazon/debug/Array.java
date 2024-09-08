@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 02/17/2019
+ * @author Yunxiang He
+ * @date 02/17/2019
  */
 
 package questions.company.amazon.debug;
@@ -13,7 +13,7 @@ public class Array {
         System.out.println(Arrays.toString(sortArray(new int[] { 1, 4, 3, 2, 5 })));
     }
 
-    public static int[] sortArray(int arr[]) {
+    public static int[] sortArray(int[] arr) {
         int len = arr.length;
         int small, pos, i, j, temp;
         for (i = 0; i <= len - 1; i++) {

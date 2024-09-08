@@ -49,6 +49,7 @@ public class _0304_Range_Sum_Query_2D_Immutable {
     class NumMatrix {
 
         int[][] prefixSum;
+
         public NumMatrix(int[][] matrix) {
             this.prefixSum = new int[matrix.length + 1][matrix[0].length + 1];
             for (int i = 0; i < matrix.length; ++i) {

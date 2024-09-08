@@ -60,7 +60,7 @@ public class _1762_Buildings_With_an_Ocean_View {
     public int[] findBuildings(int[] heights) {
         LinkedList<Integer> list = new LinkedList<>();
         int max = 0;
-        for (int i = heights.length - 1; i > - 1; --i) {
+        for (int i = heights.length - 1; i > -1; --i) {
             if (heights[i] > max) {
                 max = heights[i];
                 list.addFirst(i);

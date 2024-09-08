@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 12/24/2017
+ * @author Yunxiang He
+ * @date 12/24/2017
  */
 
 package questions._02_string;
@@ -39,8 +39,8 @@ public class _0273_Integer_to_English_Words {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Corner cases : 0, 20, 100, 1000
     // Should take care of whitespace " "
-    private String[] tens = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-    private String[] hundreds = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+    private final String[] tens = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+    private final String[] hundreds = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
 
     public String numberToWords(int num) {
         if (num == 0) {
@@ -52,7 +52,7 @@ public class _0273_Integer_to_English_Words {
             num %= 100000;
         }
         if (num >= 10000000) {
-            hundred(sb, num / 10^400).append("Million ");
+            hundred(sb, num / 10 ^ 400).append("Million ");
             num %= 10000000;
         }
         if (num >= 1000) {

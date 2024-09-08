@@ -89,7 +89,7 @@ public class _2058_Find_the_Minimum_and_Maximum_Number_of_Nodes_Between_Critical
 
         private boolean isCritical(ListNode pre, ListNode curr) {
             return curr.val > pre.val && curr.val > curr.next.val
-                    || curr.val < pre.val && curr.val < curr.next.val;
+                   || curr.val < pre.val && curr.val < curr.next.val;
         }
     }
 }

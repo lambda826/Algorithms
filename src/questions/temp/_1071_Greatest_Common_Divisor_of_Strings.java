@@ -36,10 +36,10 @@ public class _1071_Greatest_Common_Divisor_of_Strings {
      * 3. Otherwise return ""
      *
      * Approve:
-     *      If the gcd length substring cannot divide the strings, then no other smaller divisor substring can divide the input strings
-     *      Because: 1) The smaller divisor substring must can divide the gcd length substring
-     *               2) If smaller divisor substring can divide the input strings, then the gcd length substring must can divide the input strings
-     *               3) Swap the conclusion and condition, the statement keeps valid
+     * If the gcd length substring cannot divide the strings, then no other smaller divisor substring can divide the input strings
+     * Because: 1) The smaller divisor substring must can divide the gcd length substring
+     * 2) If smaller divisor substring can divide the input strings, then the gcd length substring must can divide the input strings
+     * 3) Swap the conclusion and condition, the statement keeps valid
      */
     public static String gcdOfStrings(String str1, String str2) {
         String gcd = str1.substring(0, gcd(Math.max(str1.length(), str2.length()), Math.min(str1.length(), str2.length())));

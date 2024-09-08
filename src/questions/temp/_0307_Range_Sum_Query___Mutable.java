@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -29,8 +29,8 @@ public class _0307_Range_Sum_Query___Mutable {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private int[] dp;
-    private int[] nums;
+    private final int[] dp;
+    private final int[] nums;
 
     public _0307_Range_Sum_Query___Mutable(int[] nums) {
         this.nums = nums;

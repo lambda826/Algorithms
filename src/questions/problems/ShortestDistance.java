@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 2018-11-12 14:04
+ * @author Yunxiang He
+ * @date 2018-11-12 14:04
  */
 
 package questions.problems;
@@ -11,7 +11,7 @@ import java.util.Queue;
 public class ShortestDistance {
     private static int row;
     private static int col;
-    private static int[][] dirs = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+    private static final int[][] dirs = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

@@ -66,7 +66,7 @@ public class _0286_Walls_and_Gates {
         }
 
         // BFS every empty room start from the gates, common.mark the shortest distance
-        int[] dir = {-1, 0, 1, 0, -1};
+        int[] dir = { -1, 0, 1, 0, -1 };
         int dis = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();

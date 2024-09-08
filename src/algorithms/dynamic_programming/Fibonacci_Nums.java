@@ -1,9 +1,9 @@
 /**
- *    Copyright 2017 Yunxiang He
+ * Copyright 2017 Yunxiang He
  *
- *    All right reserved.
+ * All right reserved.
  *
- *    Create on Oct 20, 2017 1:30:06 AM
+ * Create on Oct 20, 2017 1:30:06 AM
  */
 package algorithms.dynamic_programming;
 

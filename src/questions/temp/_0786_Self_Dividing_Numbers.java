@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 12, 2018 7:04:34 PM
+ * @author Yunxiang He
+ * @date Jan 12, 2018 7:04:34 PM
  */
 
 package questions.temp;
@@ -50,7 +50,7 @@ public class _0786_Self_Dividing_Numbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(10 % 10);
+        System.out.println(0);
         _0786_Self_Dividing_Numbers test = new _0786_Self_Dividing_Numbers();
         test.selfDividingNumbers(1, 22);
     }

@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-13 10:00
+ * @author: Yunxiang He
+ * @date : 2018-07-13 10:00
  */
 
 package questions.temp;
@@ -35,7 +35,7 @@ public class __0028_Implement_strStr {
         }
         if (needle.length() <= haystack.length()) {
             for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
-                if (haystack.substring(i, i + needle.length()).equals(needle)) {
+                if (haystack.startsWith(needle, i)) {
                     return i;
                 }
             }

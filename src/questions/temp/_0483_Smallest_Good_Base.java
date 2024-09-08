@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 20, 2018 7:03:36 AM
+ * @author Yunxiang He
+ * @date Jan 20, 2018 7:03:36 AM
  */
 
 package questions.temp;
@@ -48,7 +48,7 @@ public class _0483_Smallest_Good_Base {
         for (int x = 62; x >= 2; x--) {
             // e.g. 
             // If num = 16, then x should x < 4, because the base is at least 2
-            if ((1 << x) < num) {
+            if ((1L << x) < num) {
                 long base = (long) (Math.pow(num, 1.0 / x));
                 if (base >= 2) {
                     long sum = 0;
@@ -73,7 +73,7 @@ public class _0483_Smallest_Good_Base {
             num = num * 10 + c - '0';
         }
         for (int x = 64; x >= 1; x--) {
-            if ((1 << x) < num) {
+            if ((1L << x) < num) {
                 long k = helper(num, x);
                 if (k != -1) {
                     return String.valueOf(k);
@@ -127,11 +127,7 @@ public class _0483_Smallest_Good_Base {
             temp += Math.pow(base, i);
             i++;
         }
-        if (temp == num) {
-            return true;
-        } else {
-            return false;
-        }
+        return temp == num;
     }
 
 

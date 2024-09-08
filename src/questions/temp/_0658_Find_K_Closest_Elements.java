@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Dec 28, 2017 5:21:57 AM
+ * @author Yunxiang He
+ * @date Dec 28, 2017 5:21:57 AM
  */
 
 package questions.temp;
@@ -120,7 +120,7 @@ public class _0658_Find_K_Closest_Elements {
 
     public static void main(String[] args) {
         List<Integer> list2 = new _0658_Find_K_Closest_Elements().findClosestElements_BinarySearch(new int[] { 1, 3, 4, 7, 12, 23, 34, 35, 55, 57 }, 2, 9);
-        for (int i : (ArrayList<Integer>) list2) {
+        for (int i : list2) {
             System.out.println(i);
         }
 

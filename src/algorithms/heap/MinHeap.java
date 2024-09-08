@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/07/2019
+ * @author Yunxiang He
+ * @date 03/07/2019
  */
 
 package algorithms.heap;

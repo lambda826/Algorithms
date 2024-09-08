@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-06-27
+ * @author: Yunxiang He
+ * @date : 2018-06-27
  */
 
 package questions.temp;
@@ -37,7 +37,7 @@ public class _0829_Consecutive_Numbers_Sum {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int consecutiveNumbersSum(int N) {
         int res = 1;
-        long sum = N * 2;
+        long sum = N * 2L;
         N = (N + 1) / 2;
         for (long a = 1L; a < N; a++) {
             long temp = sum + a * a - a;

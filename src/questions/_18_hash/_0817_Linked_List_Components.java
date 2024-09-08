@@ -1,4 +1,3 @@
-
 package questions._18_hash;
 
 import common.ListNode;

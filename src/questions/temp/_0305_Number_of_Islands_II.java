@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-08-06 16:06
+ * @author: Yunxiang He
+ * @date : 2018-08-06 16:06
  */
 
 package questions.temp;
@@ -56,7 +56,7 @@ public class _0305_Number_of_Islands_II {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private int[] dirs = { -1, 0, 1, 0, -1 };
+    private final int[] dirs = { -1, 0, 1, 0, -1 };
 
     public List<Integer> numIslands2_UF(int m, int n, int[][] positions) {
         List<Integer> res = new ArrayList<>();

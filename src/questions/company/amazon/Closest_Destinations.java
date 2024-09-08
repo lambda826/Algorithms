@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 10/03/2018
+ * @author Yunxiang He
+ * @date 10/03/2018
  */
 
 package questions.company.amazon;
@@ -44,7 +44,6 @@ public class Closest_Destinations {
         if (from < to) {
             int idx = partition(allLocations, from, to);
             if (idx == K) {
-                return;
             } else if (idx > K) {
                 quickSelect(allLocations, from, idx - 1, K);
             } else if (idx < K) {

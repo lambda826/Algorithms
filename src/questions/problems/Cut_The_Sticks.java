@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-09-19
+ * @author: Yunxiang He
+ * @date : 2018-09-19
  */
 
 package questions.problems;
@@ -30,7 +30,7 @@ public class Cut_The_Sticks {
     }
 
     public static void main(String[] args) {
-        List<Integer> lengths = Arrays.asList(new Integer[] { 1, 2, 3, 4, 3, 3, 2, 1 });
+        List<Integer> lengths = Arrays.asList(1, 2, 3, 4, 3, 3, 2, 1);
         System.out.println(cutSticks(lengths));
     }
 }

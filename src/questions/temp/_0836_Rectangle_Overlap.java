@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-16 13:14
+ * @author: Yunxiang He
+ * @date : 2018-07-16 13:14
  */
 
 package questions.temp;
@@ -37,10 +37,7 @@ public class _0836_Rectangle_Overlap {
         if (rec1[0] > rec2[0]) {
             return isRectangleOverlap(rec2, rec1);
         }
-        if (rec1[2] > rec2[0] && !(rec1[1] > rec2[3] || rec1[3] < rec2[1])) {
-            return true;
-        }
-        return false;
+        return rec1[2] > rec2[0] && !(rec1[1] > rec2[3] || rec1[3] < rec2[1]);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

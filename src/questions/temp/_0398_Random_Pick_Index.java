@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/03/2019
+ * @author Yunxiang He
+ * @date 03/03/2019
  */
 
 package questions.temp;
@@ -38,8 +38,8 @@ public class _0398_Random_Pick_Index {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 三个func，一个add一个remove和一个randompick，时间都要O(1)，follow up如果有dup怎么办，如何根据time和space做tradeoff
-    private Random rand;
-    private Map<Integer, List<Integer>> map;
+    private final Random rand;
+    private final Map<Integer, List<Integer>> map;
 
     public _0398_Random_Pick_Index(int[] nums) {
         rand = new Random();

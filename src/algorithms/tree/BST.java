@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-15
+ * @author: Yunxiang He
+ * @date : 2018-10-15
  */
 
 package algorithms.tree;
@@ -25,7 +25,6 @@ public class BST {
         TreeNode.postorder(root);
         System.out.println();
     }
-
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

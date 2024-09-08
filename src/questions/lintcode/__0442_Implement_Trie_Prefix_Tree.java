@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 03/09/2019
+ * @author Yunxiang He
+ * @date 03/09/2019
  */
 
 package questions.lintcode;
@@ -50,7 +50,7 @@ public class __0442_Implement_Trie_Prefix_Tree {
             boolean hasWord = false;
         }
 
-        private Node root;
+        private final Node root;
 
         public Trie() {
             root = new Node();

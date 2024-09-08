@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-07-08 14:19
+ * @author: Yunxiang He
+ * @date : 2018-07-08 14:19
  */
 
 package questions.temp;
@@ -38,7 +38,7 @@ public class _0520_Detect_Capital {
     public boolean detectCapitalUse(String word) {
         boolean firstCap = Character.isUpperCase(word.charAt(0));
         if (word.length() > 1) {
-            boolean secCap = firstCap ? Character.isUpperCase(word.charAt(1)) : false;
+            boolean secCap = firstCap && Character.isUpperCase(word.charAt(1));
             for (int i = 1; i < word.length(); i++) {
                 if (secCap != Character.isUpperCase(word.charAt(i))) {
                     return false;

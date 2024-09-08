@@ -1,9 +1,9 @@
 /**
- *    Copyright 2017 Yunxiang He
+ * Copyright 2017 Yunxiang He
  *
- *    All right reserved.
+ * All right reserved.
  *
- *    Create on Oct 25, 2017 10:24:57 PM
+ * Create on Oct 25, 2017 10:24:57 PM
  */
 package common;
 

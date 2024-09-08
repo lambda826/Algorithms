@@ -30,7 +30,7 @@ public class _0917_Reverse_Only_Letters {
     public String reverseOnlyLetters(String S) {
         char[] chs = S.toCharArray();
         int i = 0;
-        int j = chs.length -1;
+        int j = chs.length - 1;
         while (i < j) {
             while (i < j && !Character.isLetter(chs[i])) {
                 ++i;

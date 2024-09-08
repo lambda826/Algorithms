@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date Jan 29, 2018 9:55:28 PM
+ * @author Yunxiang He
+ * @date Jan 29, 2018 9:55:28 PM
  */
 
 package questions.temp;
@@ -150,7 +150,7 @@ public class _0433_Minimum_Genetic_Mutation {
                 return false;
             }
         }
-        return count == 1 ? true : false;
+        return count == 1;
     }
 
     public static void main(String[] args) {

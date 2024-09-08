@@ -1,6 +1,6 @@
 /**
- *  @author Yunxiang He
- *  @date 06/22/2018
+ * @author Yunxiang He
+ * @date 06/22/2018
  */
 
 package questions.temp;
@@ -65,9 +65,9 @@ public class _0444_Sequence_Reconstruction {
 
     public static void main(String[] args) {
         List<List<Integer>> l = new ArrayList<>();
-        l.add(Arrays.asList(new Integer[] { 1 }));
-        l.add(Arrays.asList(new Integer[] { 1 }));
-        l.add(Arrays.asList(new Integer[] { 1 }));
+        l.add(Arrays.asList(1));
+        l.add(Arrays.asList(1));
+        l.add(Arrays.asList(1));
         System.out.println(new _0444_Sequence_Reconstruction().sequenceReconstruction(new int[] { 1 }, l));
     }
 

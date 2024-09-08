@@ -1,6 +1,6 @@
 /**
- *  @author: Yunxiang He
- *  @date  : 2018-10-03
+ * @author: Yunxiang He
+ * @date : 2018-10-03
  */
 
 package questions.problems;
@@ -15,15 +15,15 @@ import java.util.Map;
 public class Optimizing_Route {
 
     public static void main(String[] args) {
-        List<Integer> l1 = Arrays.asList(new Integer[] { 1, 3000 });
-        List<Integer> l2 = Arrays.asList(new Integer[] { 2, 5000 });
-        List<Integer> l3 = Arrays.asList(new Integer[] { 3, 7000 });
-        List<Integer> l4 = Arrays.asList(new Integer[] { 4, 10000 });
+        List<Integer> l1 = Arrays.asList(1, 3000);
+        List<Integer> l2 = Arrays.asList(2, 5000);
+        List<Integer> l3 = Arrays.asList(3, 7000);
+        List<Integer> l4 = Arrays.asList(4, 10000);
 
-        List<Integer> l5 = Arrays.asList(new Integer[] { 1, 2000 });
-        List<Integer> l6 = Arrays.asList(new Integer[] { 2, 3000 });
-        List<Integer> l7 = Arrays.asList(new Integer[] { 3, 4000 });
-        List<Integer> l8 = Arrays.asList(new Integer[] { 4, 5000 });
+        List<Integer> l5 = Arrays.asList(1, 2000);
+        List<Integer> l6 = Arrays.asList(2, 3000);
+        List<Integer> l7 = Arrays.asList(3, 4000);
+        List<Integer> l8 = Arrays.asList(4, 5000);
 
         List<List<Integer>> f = new ArrayList<>();
         List<List<Integer>> r = new ArrayList<>();
