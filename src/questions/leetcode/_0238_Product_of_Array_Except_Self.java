@@ -1,4 +1,4 @@
-package questions.temp;
+package questions.leetcode;
 
 /*
 
@@ -28,24 +28,20 @@ Follow up:
 */
 public class _0238_Product_of_Array_Except_Self {
 
-    public static void main(String[] args) {
-        new _0238_Product_of_Array_Except_Self().productExceptSelf(new int[] { 0, 1, 2, 3 });
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int[] productExceptSelf(int[] nums) {
-        int[] res = new int[nums.length];
-        int left = 1;
-        for (int i = 0; i < nums.length; ++i) {
-            res[i] = left;
-            left *= nums[i];
+    class Solution {
+        public int[] productExceptSelf(int[] nums) {
+            int[] res = new int[nums.length];
+            int left = 1;
+            for (int i = 0; i < nums.length; ++i) {
+                res[i] = left;
+                left *= nums[i];
+            }
+            int right = 1;
+            for (int i = nums.length - 1; i >= 0; --i) {
+                res[i] *= right;
+                right *= nums[i];
+            }
+            return res;
         }
-        int right = 1;
-        for (int i = nums.length - 1; i >= 0; --i) {
-            res[i] *= right;
-            right *= nums[i];
-        }
-        return res;
     }
 }
