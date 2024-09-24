@@ -1,11 +1,10 @@
-package questions._11_graph;
+package questions.leetcode;
 
 import common.GraphNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
@@ -75,77 +74,51 @@ Constraints:
     The Graph is connected and all nodes can be visited starting from the given node.
 
 */
-
 public class _0133_Clone_Graph {
 
-    class Node {
-
-        public int val;
-        public List<Node> neighbors;
-
-        public Node() {
-            val = 0;
-            neighbors = new ArrayList<>();
+    class Solution_DFS {
+        public GraphNode cloneGraph(GraphNode graphNode) {
+            if (graphNode == null) {
+                return null;
+            }
+            return dfs(graphNode, new HashMap<>());
         }
 
-        public Node(int _val) {
-            val = _val;
-            neighbors = new ArrayList<>();
-        }
-
-        public Node(int _val, ArrayList<Node> _neighbors) {
-            val = _val;
-            neighbors = _neighbors;
+        private GraphNode dfs(GraphNode GraphNode, Map<Integer, GraphNode> visited) {
+            if (!visited.containsKey(GraphNode.val)) {
+                GraphNode cloned = new GraphNode(GraphNode.val, new ArrayList<>());
+                visited.put(cloned.val, cloned);
+                for (GraphNode neighbor : GraphNode.neighbors) {
+                    cloned.neighbors.add(dfs(neighbor, visited));
+                }
+            }
+            return visited.get(GraphNode.val);
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_DFS {
-
-        public Node cloneGraph(Node node) {
-            return dfs(node, new HashMap<>());
-        }
-
-        private Node dfs(Node node, Map<Node, Node> visited) {
+    class Solution_BFS {
+        public GraphNode cloneGraph(GraphNode node) {
             if (node == null) {
                 return null;
             }
-            if (!visited.containsKey(node)) {
-                Node clone = new Node(node.val);
-                visited.put(node, clone);
-                for (Node nei : node.neighbors) {
-                    clone.neighbors.add(dfs(nei, visited));
+            Queue<GraphNode> queue = new ArrayDeque<>();
+            Map<Integer, GraphNode> visited = new HashMap<>();
+            visited.put(node.val, new GraphNode(node.val, new ArrayList<>()));
+            queue.offer(node);
+            while (!queue.isEmpty()) {
+                GraphNode next = queue.poll();
+                for (GraphNode neighbor : next.neighbors) {
+                    if (!visited.containsKey(neighbor.val)) {
+                        visited.put(neighbor.val, new GraphNode(neighbor.val, new ArrayList<>()));
+                        queue.offer(neighbor);
+                    }
+                    visited.get(next.val)
+                        .neighbors
+                        .add(visited.get(neighbor.val));
                 }
             }
-            return visited.get(node);
+            return visited.get(node.val);
         }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public GraphNode cloneGraph_BFS(GraphNode node) {
-        if (node == null) {
-            return null;
-        }
-        Map<Integer, GraphNode> visited = new HashMap<>();
-        Queue<GraphNode> que = new LinkedList<>();
-        que.add(node);
-        GraphNode clone = new GraphNode(node.val);
-        GraphNode root = clone;
-        visited.put(clone.val, clone);
-        while (!que.isEmpty()) {
-            node = que.remove();
-            clone = visited.get(node.val);
-            for (GraphNode neighbor : node.neighbors) {
-                if (!visited.containsKey(neighbor.val)) {
-                    visited.put(neighbor.val, new GraphNode(neighbor.val));
-                    que.add(neighbor);
-                }
-                clone.neighbors.add(visited.get(neighbor.val));
-            }
-        }
-        return root;
     }
 
 }

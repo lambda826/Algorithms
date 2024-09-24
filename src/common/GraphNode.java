@@ -1,8 +1,3 @@
-/**
- * @author Yunxiang He
- * @date 02/27/2018
- */
-
 package common;
 
 import java.util.ArrayList;

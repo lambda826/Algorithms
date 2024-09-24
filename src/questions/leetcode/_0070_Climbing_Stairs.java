@@ -34,7 +34,7 @@ public class _0070_Climbing_Stairs {
         public int climbStairs(int n) {
             int pre1 = 1;
             int pre2 = 0;
-            int curr = 1;
+            int curr = 0;
             for (int i = 1; i <= n; ++i) {
                 curr = pre1 + pre2;
                 pre2 = pre1;

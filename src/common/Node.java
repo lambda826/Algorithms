@@ -1,8 +1,3 @@
-/**
- * @author: Yunxiang He
- * @date : 2018-07-31 14:20
- */
-
 package common;
 
 import java.util.List;
@@ -25,13 +20,18 @@ public class Node {
     public Node prev;
     public Node next;
     public Node child;
-    public List<Node> children;
+    public List<Node> neighbors;
 
     public Node() {
     }
 
-    public Node(int _val) {
+    public Node(int val) {
+        this.val = val;
+    }
+
+    public Node(int _val, List<Node> neighbors) {
         val = _val;
+        this.neighbors = neighbors;
     }
 
     public Node(int _val, boolean _isLeaf, Node _topLeft, Node _topRight, Node _bottomLeft, Node _bottomRight) {

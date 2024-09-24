@@ -68,11 +68,11 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
 
         private void preOrderSerialize(Node currentNode, StringBuilder sb) {
             sb.append(currentNode.val).append(","); // first visit current node
-            if (currentNode.children == null) {
+            if (currentNode.neighbors == null) {
                 sb.append(0).append(","); // append # of children as 0 if there is no children
             } else {
-                sb.append(currentNode.children.size()).append(","); // append # of children
-                for (Node child : currentNode.children) {
+                sb.append(currentNode.neighbors.size()).append(","); // append # of children
+                for (Node child : currentNode.neighbors) {
                     preOrderSerialize(child, sb);
                 }
             }
@@ -89,11 +89,11 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
         private Node preOrderDeserialize(String[] data, int[] index) {
             Node node = new Node(Integer.parseInt(data[index[0]]));
             ++index[0];
-            node.children = new ArrayList<>();
+            node.neighbors = new ArrayList<>();
             int numOfChildren = Integer.parseInt(data[index[0]]);
             for (int i = 0; i < numOfChildren; ++i) {
                 ++index[0];
-                node.children.add(preOrderDeserialize(data, index));
+                node.neighbors.add(preOrderDeserialize(data, index));
             }
             return node;
         }
@@ -115,8 +115,8 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
             if (node != null) {
                 sb.append(node.val);
                 sb.append("[");
-                if (node.children != null) {
-                    for (Node child : node.children) {
+                if (node.neighbors != null) {
+                    for (Node child : node.neighbors) {
                         serialize(child, sb);
                     }
                 }
@@ -140,7 +140,7 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
             }
             // Create new node
             Node node = new Node(Integer.parseInt(data.substring(left, start)));
-            node.children = new ArrayList<>();
+            node.neighbors = new ArrayList<>();
             // Check whether the node has children
             if (++start < --right) {
                 // Create child nodes
@@ -162,7 +162,7 @@ public class _0428_Serialize_and_Deserialize_N_ary_Tree {
                     // when found a closure, do a deeper recursion
                     if (count == 0) {
                         if (start < index) {
-                            node.children.add(deserialize(data, start, index));
+                            node.neighbors.add(deserialize(data, start, index));
                             start = index;
                         }
                     }

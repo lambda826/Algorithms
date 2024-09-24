@@ -1,9 +1,4 @@
-/**
- * @author Yunxiang He
- * @date 01/25/2018
- */
-
-package questions.temp;
+package questions.leetcode;
 
 /*
 

@@ -52,10 +52,10 @@ public class _1490_Clone_N_ary_Tree {
             while (!queue.isEmpty()) {
                 Node curr = queue.poll();
                 Node currClone = queueClone.poll();
-                for (Node child : curr.children) {
+                for (Node child : curr.neighbors) {
                     queue.offer(child);
                     Node cloneChild = clone(child);
-                    currClone.children.add(cloneChild);
+                    currClone.neighbors.add(cloneChild);
                     queueClone.offer(cloneChild);
                 }
             }
@@ -65,8 +65,8 @@ public class _1490_Clone_N_ary_Tree {
 
     private Node clone(Node node) {
         Node cloned = new Node(node.val);
-        if (node.children == null) {
-            cloned.children = null;
+        if (node.neighbors == null) {
+            cloned.neighbors = null;
         }
         return cloned;
     }
