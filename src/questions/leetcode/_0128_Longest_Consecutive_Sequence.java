@@ -1,4 +1,4 @@
-package questions._18_hash;
+package questions.leetcode;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,37 +33,31 @@ Constraints:
 */
 public class _0128_Longest_Consecutive_Sequence {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_Hashing {
-
+    class Solution {
         public int longestConsecutive(int[] nums) {
+            int max = 0;
             Set<Integer> set = new HashSet<>();
             for (int num : nums) {
                 set.add(num);
             }
-            int max = 0;
             for (int num : set) {
-                // Calculate count only if num is the leftmost number.
                 if (!set.contains(num - 1)) {
-                    int count = 1;
-                    while (set.contains(num + 1)) {
-                        count++;
+                    int cnt = 0;
+                    while (set.contains(num)) {
+                        cnt++;
                         num++;
                     }
-                    max = Math.max(max, count);
+                    max = Math.max(max, cnt);
                 }
             }
             return max;
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution_UF {
 
-        private Map<Integer, Integer> map = new HashMap<>();
-        private Map<Integer, Integer> size = new HashMap<>();
+        private final Map<Integer, Integer> map = new HashMap<>();
+        private final Map<Integer, Integer> size = new HashMap<>();
 
         public int longestConsecutive(int[] nums) {
             for (int num : nums) {
