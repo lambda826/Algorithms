@@ -1,4 +1,4 @@
-package questions._02_string.palindrome;
+package questions.leetcode;
 
 /*
 
@@ -35,15 +35,8 @@ Constraints:
     s consist of only digits and English letters.
 
 */
-
 public class _0005_Longest_Palindromic_Substring {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Expand Around Center approach
-    //
-    // Time complexity : O(n^2)
-    // Space complexity : O(1)
     class Solution {
 
         public String longestPalindrome(String s) {
@@ -73,35 +66,31 @@ public class _0005_Longest_Palindromic_Substring {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution_DP {
         public String longestPalindrome(String s) {
             int len = s.length();
             boolean[][] dp = new boolean[len][len];
-            int start = 0;
-            int end = 0;
-            int max = 0;
-            for (int l = 0; l < len; ++l) {
-                for (int i = 0, j = i + l; j < len; ++i, ++j) {
-                    if (i == j) {
+            int left = 0;
+            int right = 0;
+            for (int i = 0; i < len - 1; ++i) {
+                dp[i][i] = true;
+                if (s.charAt(i) == s.charAt(i + 1)) {
+                    dp[i][i + 1] = true;
+                    left = i;
+                    right = i + 1;
+                }
+            }
+            for (int k = 2; k < len; ++k) {
+                for (int i = 0; i + k < len; ++i) {
+                    int j = i + k;
+                    if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
                         dp[i][j] = true;
-                    } else {
-                        boolean isSame = s.charAt(i) == s.charAt(j);
-                        if (i + 1 == j) {
-                            dp[i][j] = isSame;
-                        } else {
-                            dp[i][j] = isSame && dp[i + 1][j - 1];
-                        }
-                    }
-                    if (dp[i][j] && j - i > max) {
-                        max = j - i;
-                        start = i;
-                        end = j;
+                        left = i;
+                        right = j;
                     }
                 }
             }
-            return s.substring(start, end + 1);
+            return s.substring(left, right + 1);
         }
     }
 }
