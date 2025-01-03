@@ -1,4 +1,4 @@
-package questions.leetcode;
+package questions.leetcode.slidewindow;
 
 /*
 
@@ -37,12 +37,10 @@ public class _0003_Longest_Substring_Without_Repeating_Characters {
             int[] chs = new int[256];
             while (right < s.length()) {
                 if (chs[s.charAt(right)] == 0) {
-                    ++chs[s.charAt(right)];
-                    ++right;
+                    ++chs[s.charAt(right++)];
                     max = Math.max(max, right - left);
                 } else {
-                    --chs[s.charAt(left)];
-                    ++left;
+                    --chs[s.charAt(left++)];
                 }
             }
             return max;
