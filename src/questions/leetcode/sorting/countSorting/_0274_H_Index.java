@@ -1,4 +1,4 @@
-package questions._06_sorting.countSort;
+package questions.leetcode.sorting.countSorting;
 
 import java.util.Arrays;
 
@@ -36,34 +36,23 @@ Constraints:
 
 public class _0274_H_Index {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Solution_CountingSort {
+    class Solution {
         public int hIndex(int[] citations) {
-            int[] counts = new int[citations.length + 1];
-            for (int i = 0; i < citations.length; ++i) {
-                if (citations[i] >= citations.length) {
-                    ++counts[citations.length];
-                } else {
-                    ++counts[citations[i]];
-                }
+            int[] arr = new int[1001];
+            for (int citation : citations) {
+                arr[citation]++;
             }
-
-            int sum = 0;
             int h = 0;
-            for (int i = counts.length - 1; i >= 0; --i) {
-                sum += counts[i];
-                if (sum >= i) {
-                    h = i;
-                    break;
+            for (int i = arr.length - 1; i >= 0; --i) {
+                h += arr[i];
+                if (h >= i) {
+                    return i;
                 }
             }
-            return h;
+            return 0;
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class Solution_Sort {
 
         public int hIndex(int[] citations) {
