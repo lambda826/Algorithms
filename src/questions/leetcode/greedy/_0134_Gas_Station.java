@@ -60,14 +60,14 @@ public class _0134_Gas_Station {
             for (int i = 0; i < gas.length; ++i) {
                 int gain = gas[i] - cost[i];
                 total += gain;
-                if (sum + gain <= 0) {
+                if (sum + gain < 0) {
                     sum = 0;
                     start = i + 1;
                 } else {
                     sum += gain;
                 }
             }
-            return total < 0 ? -1 : start % gas.length;
+            return total < 0 ? -1 : start;
         }
     }
 }
