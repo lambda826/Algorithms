@@ -1,12 +1,4 @@
-/**
- * @author Yunxiang He
- * @date 10/05/2017
- */
-
-package questions.temp;
-
-import java.util.HashMap;
-import java.util.Map;
+package questions.leetcode.string;
 
 /*
 
@@ -60,30 +52,43 @@ Example 5:
 
 public class _0013_Roman_to_Integer {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int romanToInt(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-        char[] chars = s.toCharArray();
-        int sum = 0;
-        int curr = 0;
-        int prev = 0;
-        for (char c : chars) {
-            curr = map.get(c);
-            if (prev >= curr) {
-                sum = prev + sum;
-            } else {
-                sum = -prev + sum;
+    class Solution {
+        public int romanToInt(String s) {
+            int sum = 0;
+            int pre = 0;
+            int curr = 0;
+            for (int i = 0; i < s.length(); ++i) {
+                switch (s.charAt(i)) {
+                    case 'I':
+                        curr = 1;
+                        break;
+                    case 'V':
+                        curr = 5;
+                        break;
+                    case 'X':
+                        curr = 10;
+                        break;
+                    case 'L':
+                        curr = 50;
+                        break;
+                    case 'C':
+                        curr = 100;
+                        break;
+                    case 'D':
+                        curr = 500;
+                        break;
+                    case 'M':
+                        curr = 1000;
+                        break;
+                }
+                if (curr > pre) {
+                    sum -= pre;
+                } else {
+                    sum += pre;
+                }
+                pre = curr;
             }
-            prev = curr;
+            return sum + curr;
         }
-        return sum + curr;
     }
 }
