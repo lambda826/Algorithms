@@ -28,47 +28,10 @@ Constraints:
     0 <= height[i] <= 10^5
 
 */
-
 public class _0042_Trapping_Rain_Water {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Two Pointers:
-    // Use two pointers to point left and right point;
-    // In each iteration, move the smaller one to which the pointer points,
-    //      because the smaller one determines how much water it can trap at most;
-    // When the next point has a smaller value then the leftMax or rightMax, it means the water can be trapped.
-    class Solution_TwoPointer {
-
-        public int trap(int[] height) {
-            int left = 0;
-            int right = height.length - 1;
-            int leftMax = height[left];
-            int rightMax = height[right];
-            int sum = 0;
-            while (left < right) {
-                if (height[left] < height[right]) {
-                    if (height[left] < leftMax) {
-                        sum += leftMax - height[left];
-                    } else {
-                        leftMax = height[left];
-                    }
-                    ++left;
-                } else {
-                    if (height[right] < rightMax) {
-                        sum += rightMax - height[right];
-                    } else {
-                        rightMax = height[right];
-                    }
-                    --right;
-                }
-            }
-            return sum;
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // monotonous stack
     public int trap2(int[] height) {
         Deque<Integer> stack = new ArrayDeque<>();
@@ -85,5 +48,55 @@ public class _0042_Trapping_Rain_Water {
             }
         }
         return amt;
+    }
+
+    /**
+     * Key Idea:
+     * At any point, consider the pointers left and right.
+     * If height[left] < height[right],
+     * we know that there's a wall height[right] (or potentially an even higher one further right, stored in right_max) that is taller than height[left].
+     * This means the amount of water trapped at the left pointer position is limited by the maximum height encountered so far from the left (left_max).
+     * We don't need to know the absolute max_right for the entire array yet,
+     * because the water level at left is capped by the shorter of the left/right boundaries relevant to it.
+     */
+    class Solution {
+
+        public int trap(int[] height) {
+            int left = 0;
+            int right = height.length - 1;
+            int leftMax = 0;
+            int rightMax = 0;
+            int totalWater = 0;
+
+            while (left < right) {
+                // Process based on the shorter potential wall height
+                if (height[left] < height[right]) {
+                    // Left side is potentially the limiting wall
+                    if (height[left] >= leftMax) {
+                        // Found a new potential left wall, update max
+                        leftMax = height[left];
+                    } else {
+                        // Current bar is shorter than leftMax, can trap water
+                        // Water level is determined by leftMax because we know
+                        // height[right] (or rightMax) is >= height[left], and
+                        // leftMax <= height[right] implicitly.
+                        totalWater += leftMax - height[left];
+                    }
+                    left++; // Move left pointer inwards
+                } else {
+                    // Right side is potentially the limiting wall (or equal)
+                    if (height[right] >= rightMax) {
+                        // Found a new potential right wall, update max
+                        rightMax = height[right];
+                    } else {
+                        // Current bar is shorter than rightMax, can trap water
+                        // Water level is determined by rightMax
+                        totalWater += rightMax - height[right];
+                    }
+                    right--; // Move right pointer inwards
+                }
+            }
+            return totalWater;
+        }
     }
 }
