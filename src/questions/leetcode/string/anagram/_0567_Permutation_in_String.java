@@ -39,11 +39,14 @@ public class _0567_Permutation_in_String {
             int count = s1.length();
             while (right < s1.length()) {
                 int k = s2.charAt(right) - 'a';
+                // found an unmatched character
                 if (arr[k] <= 0) {
                     count++;
                 } else {
+                    // found a matched character
                     count--;
                 }
+                // When the character is countered into the array, we do subtraction (-)
                 arr[k]--;
                 right++;
             }
@@ -54,17 +57,23 @@ public class _0567_Permutation_in_String {
                 int l = s2.charAt(left) - 'a';
                 int r = s2.charAt(right) - 'a';
                 if (l != r) {
+                    // found an unmatched character
                     if (arr[l] >= 0) {
                         count++;
                     } else {
+                        // found a matched character
                         count--;
                     }
+                    // When the character is leaving from the array, we do addition (+)
                     arr[l]++;
+                    // found an unmatched character
                     if (arr[r] <= 0) {
                         count++;
                     } else {
+                        // found a matched character
                         count--;
                     }
+                    // When the character is countered into the array, we do addition (+)
                     arr[r]--;
                     if (count == 0) {
                         return true;
