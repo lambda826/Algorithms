@@ -1,4 +1,4 @@
-package questions.leetcode;
+package questions.leetcode.tree;
 
 import common.TreeNode;
 
@@ -22,6 +22,7 @@ Example 1:
 Example 2:
     Input: root = [1,2,3], targetSum = 5
     Output: []
+
 Example 3:
     Input: root = [1,2], targetSum = 0
     Output: []
@@ -36,23 +37,29 @@ Constraints:
 public class _0113_Path_Sum_II {
 
     class Solution {
+
+        List<List<Integer>> result = new ArrayList<>();
+
         public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-            List<List<Integer>> res = new ArrayList<>();
-            dfs(root, targetSum, new LinkedList<>(), res);
-            return res;
+            LinkedList<Integer> path = new LinkedList<>();
+            if (root != null) {
+                dfs(root, path, targetSum);
+            }
+            return result;
         }
 
-        private void dfs(TreeNode node, int sum, LinkedList<Integer> list, List<List<Integer>> res) {
-            if (node != null) {
-                sum = sum - node.val;
-                list.addLast(node.val);
-                if (node.left == null && node.right == null && sum == 0) {
-                    res.add(new ArrayList<>(list));
-                }
-                dfs(node.left, sum, list, res);
-                dfs(node.right, sum, list, res);
-                list.removeLast();
+        private void dfs(TreeNode node, LinkedList<Integer> path, int targetSum) {
+            path.add(node.val);
+            if (node.left == null && node.right == null && node.val == targetSum) {
+                result.add(new ArrayList<>(path));
             }
+            if (node.left != null) {
+                dfs(node.left, path, targetSum - node.val);
+            }
+            if (node.right != null) {
+                dfs(node.right, path, targetSum - node.val);
+            }
+            path.removeLast();
         }
     }
 }
