@@ -1,6 +1,9 @@
-package questions.leetcode;
+package questions.leetcode.tree;
 
 import common.TreeNode;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 
@@ -42,7 +45,7 @@ public class _0337_House_Robber_III {
         // res[0] stores the maximum amount when the current node is not robbed.
         // res[1] stores the maximum amount when the current node is robbed.
         private int[] robHelper(TreeNode node) {
-            int[] res = { 0, 0 }; // Initialize the result for the base case where the node is null.
+            int[] res = {0, 0}; // Initialize the result for the base case where the node is null.
             if (node != null) {
                 // Recursively solve for the left and right subtrees.
                 int[] left = robHelper(node.left);
@@ -53,6 +56,37 @@ public class _0337_House_Robber_III {
                 res[1] = left[0] + right[0] + node.val;
             }
             return res;
+        }
+    }
+
+    class Solution2 {
+        public int rob(TreeNode root) {
+            Map<TreeNode, Map<Boolean, Integer>> dp = new HashMap<>();
+            return Math.max(rob(root, true, dp), rob(root, false, dp));
+        }
+
+        private int rob(TreeNode node, boolean isRob, Map<TreeNode, Map<Boolean, Integer>> dp) {
+            if (node == null) {
+                return 0;
+            }
+            if (dp.containsKey(node)) {
+                if (dp.get(node).containsKey(isRob)) {
+                    return dp.get(node).get(isRob);
+                }
+            } else {
+                dp.put(node, new HashMap<>());
+            }
+            int sum = 0;
+            if (isRob) {
+                int left = rob(node.left, false, dp);
+                int right = rob(node.right, false, dp);
+                sum = node.val + left + right;
+            } else {
+                sum = Math.max(rob(node.left, false, dp), rob(node.left, true, dp))
+                        + Math.max(rob(node.right, false, dp), rob(node.right, true, dp));
+            }
+            dp.get(node).put(isRob, sum);
+            return sum;
         }
     }
 }
