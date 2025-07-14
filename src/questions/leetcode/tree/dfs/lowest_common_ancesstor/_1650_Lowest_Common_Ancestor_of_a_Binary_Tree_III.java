@@ -1,5 +1,9 @@
-package questions._10_tree.lowest_common_ancesstor;
+package questions.leetcode.tree.dfs.lowest_common_ancesstor;
 
+import common.Node;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*
 
@@ -37,54 +41,57 @@ Example 3:
         1
 
 Constraints:
-    The number of nodes in the tree is in the range [2, 10^40].
-    -10^5 <= Node.val <= 10^5
+    The number of nodes in the tree is in the range [2, 10^5].
+    -10^9 <= Node.val <= 10^9
     All Node.val are unique.
     p != q
     p and q exist in the tree.
 
 */
 
-import common.Node;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*
+    // Definition for a Node.
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node parent;
+    };
+    */
     class Solution_CountDepth {
-        public Node lowestCommonAncestor2(Node p, Node q) {
-            int lc = getLc(p);
-            int rc = getLc(q);
-            while (lc > rc) {
-                --lc;
-                p = p.parent;
+
+        public Node lowestCommonAncestor(Node p, Node q) {
+            int pStep = 0;
+            int qStep = 0;
+            Node pp = p;
+            Node qq = q;
+            while (pp != null) {
+                pp = pp.parent;
+                pStep++;
             }
-            while (lc < rc) {
-                --rc;
+            while (qq != null) {
+                qq = qq.parent;
+                qStep++;
+            }
+            while (pStep < qStep) {
                 q = q.parent;
+                qStep--;
+            }
+            while (pStep > qStep) {
+                p = p.parent;
+                pStep--;
             }
             while (p != q) {
                 p = p.parent;
                 q = q.parent;
             }
             return p;
-        }
 
-        private int getLc(Node node) {
-            int depth = 0;
-            while (node != null) {
-                node = node.parent;
-                ++depth;
-            }
-            return depth;
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 1. Use a stack to store parents;
     // 2. Find the last equal parent.
     class Solution_CompareParent {
@@ -108,4 +115,5 @@ public class _1650_Lowest_Common_Ancestor_of_a_Binary_Tree_III {
             }
         }
     }
+
 }

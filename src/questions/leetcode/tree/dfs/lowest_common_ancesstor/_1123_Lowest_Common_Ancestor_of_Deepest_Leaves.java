@@ -1,4 +1,4 @@
-package questions._10_tree.lowest_common_ancesstor;
+package questions.leetcode.tree.dfs.lowest_common_ancesstor;
 
 import common.TreeNode;
 

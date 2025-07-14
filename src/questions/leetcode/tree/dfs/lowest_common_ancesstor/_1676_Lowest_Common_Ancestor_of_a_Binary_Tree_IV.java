@@ -1,4 +1,4 @@
-package questions._10_tree.lowest_common_ancesstor;
+package questions.leetcode.tree.dfs.lowest_common_ancesstor;
 
 
 /*
@@ -81,11 +81,7 @@ public class _1676_Lowest_Common_Ancestor_of_a_Binary_Tree_IV {
                     return node;
                 } else if (left != null) {
                     return left;
-                } else if (right != null) {
-                    return right;
-                } else {
-                    return null;
-                }
+                } else return right;
             }
         }
     }
