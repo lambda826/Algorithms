@@ -1,4 +1,4 @@
-package questions._07_bfs;
+package questions.leetcode.tree.bfs;
 
 import common.TreeNode;
 
