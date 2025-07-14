@@ -1,4 +1,4 @@
-package questions.leetcode;
+package questions.leetcode.tree.dfs.lowest_common_ancesstor;
 
 import common.TreeNode;
 
@@ -52,17 +52,21 @@ public class _0236_Lowest_Common_Ancestor_of_a_Binary_Tree {
 
     class Solution {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-            if (root == null || root.val == p.val || root.val == q.val) {
-                return root;
+            if (root == null) {
+                return null;
+            } else if (root == p) {
+                return p;
+            } else if (root == q) {
+                return q;
             } else {
                 TreeNode left = lowestCommonAncestor(root.left, p, q);
                 TreeNode right = lowestCommonAncestor(root.right, p, q);
-                if (left != null && right != null) {
-                    return root;
-                } else if (left == null) {
+                if (left == null) {
                     return right;
-                } else {
+                } else if (right == null) {
                     return left;
+                } else {
+                    return root;
                 }
             }
         }
