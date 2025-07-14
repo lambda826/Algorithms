@@ -1,4 +1,4 @@
-package questions.leetcode.tree;
+package questions.leetcode.tree.dfs;
 
 import common.TreeNode;
 
@@ -29,6 +29,7 @@ Example 1:
         The AND node evaluates to False AND True = False.
         The OR node evaluates to True OR False = True.
         The root node evaluates to True, so we return true.
+
 Example 2:
     Input:
         root = [0]

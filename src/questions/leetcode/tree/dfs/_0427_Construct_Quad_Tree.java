@@ -1,4 +1,4 @@
-package questions.leetcode.tree;
+package questions.leetcode.tree.dfs;
 
 import common.Node;
 

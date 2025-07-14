@@ -1,4 +1,4 @@
-package questions.leetcode.tree;
+package questions.leetcode.tree.dfs;
 
 import common.TreeNode;
 
@@ -19,6 +19,7 @@ Example 1:
     Explanation: There are two paths whose sum equals targetSum:
                     5 + 4 + 11 + 2 = 22
                     5 + 8 + 4 + 5 = 22
+
 Example 2:
     Input: root = [1,2,3], targetSum = 5
     Output: []
@@ -36,6 +37,21 @@ Constraints:
 */
 public class _0113_Path_Sum_II {
 
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
     class Solution {
 
         List<List<Integer>> result = new ArrayList<>();
