@@ -1,4 +1,4 @@
-package questions.leetcode.slidewindow;
+package questions.leetcode.two_pointers;
 
 /*
 

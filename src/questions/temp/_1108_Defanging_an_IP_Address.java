@@ -26,7 +26,7 @@ public class _1108_Defanging_an_IP_Address {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < address.length(); ++i) {
                 if (address.charAt(i) == '.') {
-                    sb.append('[.]');
+                    sb.append("[.]");
                 } else {
                     sb.append(address.charAt(i));
                 }

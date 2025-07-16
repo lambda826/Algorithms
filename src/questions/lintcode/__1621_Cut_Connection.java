@@ -5,8 +5,6 @@
 
 package questions.lintcode;
 
-import java.util.Arrays;
-
 /*
 
 Given a matrix consists of 0 and 1, the first line is the roof.
@@ -75,14 +73,4 @@ public class __1621_Cut_Connection {
         return matrix;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.deepToString(new __1621_Cut_Connection()
-                                                   .removeOne(new int[][] { { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 1, 1, 1, 1, 1 },
-                                                                            { 1, 1, 0, 1, 0, 1, 1 } }, 1, 1)));
-    }
 }
