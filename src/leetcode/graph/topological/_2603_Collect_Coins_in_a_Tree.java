@@ -1,6 +1,9 @@
 package leetcode.graph.topological;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 /*
 There exists an undirected and unrooted tree with n nodes indexed from 0 to n - 1.
@@ -71,94 +74,79 @@ public class _2603_Collect_Coins_in_a_Tree {
     class Solution {
         public int collectTheCoins(int[] coins, int[][] edges) {
             int n = coins.length;
-            if (n <= 1) {
+            if (n <= 2) {
                 return 0;
             }
-            int[] degree = new int[n];
-            List<Integer>[] graph = buildGraph(edges, degree);
-            Queue<Integer> leaves = new ArrayDeque<>();
-
-            boolean[] active = new boolean[n];
-            Arrays.fill(active, true);
-
-            // --- First Pruning: Removing leaves with no coins ---
+            List<Integer>[] graph = new List[n];
+            int[] degrees = new int[n];
+            buildGraph(edges, graph, degrees);
+            // First prune:
+            Queue<Integer> queue = new ArrayDeque<>();
             for (int i = 0; i < n; ++i) {
-                if (degree[i] == 1 && coins[i] == 0) {
-                    leaves.offer(i);
-                    active[i] = false;
+                if (degrees[i] == 1 && coins[i] == 0) {
+                    queue.offer(i);
                 }
             }
-
-            while (!leaves.isEmpty()) {
-                int u = leaves.poll();
-                for (int v : graph[u]) {
-                    if (active[v]) {
-                        degree[v]--;
-                        if (degree[v] == 1 && coins[v] == 0) {
-                            leaves.offer(v);
-                            active[v] = false;
+            while (!queue.isEmpty()) {
+                int curr = queue.poll();
+                degrees[curr] = 0;
+                for (int next : graph[curr]) {
+                    if (degrees[next] != 0) {
+                        degrees[next]--;
+                        if (degrees[next] == 1 && coins[next] == 0) {
+                            queue.offer(next);
                         }
                     }
                 }
             }
 
-            // --- Second Pruning: Removing 2 layers of leaves ---
-            Queue<Integer> secondPruningQueue = new ArrayDeque<>();
+            // Second prune:
             for (int i = 0; i < n; ++i) {
-                if (active[i] && degree[i] == 1) {
-                    secondPruningQueue.offer(i);
+                if (degrees[i] == 1) {
+                    queue.offer(i);
                 }
             }
-
-            // Perform this pruning for two "steps" or "layers".
-            // Each step removes one layer of current leaves.
-            for (int k = 0; k < 2; k++) {
-                int currentLevelSize = secondPruningQueue.size();
-                if (currentLevelSize == 0) {
-                    break;
-                }
-
-                for (int i = 0; i < currentLevelSize; i++) {
-                    int u = secondPruningQueue.poll();
-                    if (!active[u]) {
-                        continue;
-                    }
-                    active[u] = false;
-                    for (int v : graph[u]) {
-                        if (active[v]) {
-                            degree[v]--;
-                            if (degree[v] == 1) {
-                                secondPruningQueue.offer(v);
+            for (int k = 0; k < 2; ++k) {
+                int size = queue.size();
+                while (size-- > 0) {
+                    int curr = queue.poll();
+                    degrees[curr] = 0;
+                    // This is important. Because we are using degrees[i] == 0 to indicate if the node is active.
+                    // We can't decrease the degree in the second iteration.
+                    if (k == 0) {
+                        for (int next : graph[curr]) {
+                            if (degrees[next] != 0) {
+                                degrees[next]--;
+                                if (degrees[next] == 1) {
+                                    queue.offer(next);
+                                }
                             }
                         }
                     }
                 }
             }
-
-            // Correct final calculation: Count the edges that remain between active nodes.
-            int remainingEdges = 0;
+            int sum = 0;
             for (int[] edge : edges) {
-                int u = edge[0];
-                int v = edge[1];
-                if (active[u] && active[v]) {
-                    remainingEdges++;
+                if (degrees[edge[0]] != 0 && degrees[edge[1]] != 0) {
+                    sum++;
                 }
             }
-            return remainingEdges * 2;
+            return 2 * sum;
         }
 
-        private List<Integer>[] buildGraph(int[][] edges, int[] degree) {
-            List<Integer>[] graph = new List[degree.length];
-            for (int i = 0; i < degree.length; i++) {
-                graph[i] = new ArrayList<>();
-            }
+        private void buildGraph(int[][] edges, List<Integer>[] graph, int[] degrees) {
             for (int[] edge : edges) {
+                if (graph[edge[0]] == null) {
+                    graph[edge[0]] = new ArrayList<>();
+                }
                 graph[edge[0]].add(edge[1]);
-                degree[edge[0]]++;
+                if (graph[edge[1]] == null) {
+                    graph[edge[1]] = new ArrayList<>();
+                }
                 graph[edge[1]].add(edge[0]);
-                degree[edge[1]]++;
+                degrees[edge[0]]++;
+                degrees[edge[1]]++;
             }
-            return graph;
         }
     }
 }
