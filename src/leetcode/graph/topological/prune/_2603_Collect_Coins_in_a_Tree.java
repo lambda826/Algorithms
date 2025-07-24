@@ -1,4 +1,4 @@
-package leetcode.graph.topological;
+package leetcode.graph.topological.prune;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
