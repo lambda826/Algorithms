@@ -39,7 +39,7 @@ Example 3:
 Constraints:
     2 <= n == moveTime.length <= 50
     2 <= m == moveTime[i].length <= 50
-    0 <= moveTime[i][j] <= 109
+    0 <= moveTime[i][j] <= 10^9
 
 */
 public class _3341_Find_Minimum_Time_to_Reach_Last_Room_I {
@@ -63,7 +63,7 @@ public class _3341_Find_Minimum_Time_to_Reach_Last_Room_I {
             // 起点 (0, 0) 的到达时间为 0
             minDist[0][0] = 0;
             // 将起点加入队列，开始搜索
-            queue.offer(new int[]{ 0, 0 });
+            queue.offer(new int[] { 0, 0 });
             // 当队列中还有待处理的房间时，循环继续
             while (!queue.isEmpty()) {
                 // 从队列头部取出一个房间进行处理
@@ -74,12 +74,11 @@ public class _3341_Find_Minimum_Time_to_Reach_Last_Room_I {
                 for (int i = 0; i < 4; ++i) {
                     int x = r + dir[i];     // 邻居的行坐标
                     int y = c + dir[i + 1]; // 邻居的列坐标
-                    int currDist = minDist[r][c]; // 获取到达当前房间 (r, c) 所需的最小时间
                     // 检查邻居坐标是否在网格范围内
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         // 核心计算逻辑：计算到达邻居 (x, y) 的时间。
                         // 必须在 max(当前时间, 邻居的准入时间) 之后才能出发，移动再 +1。
-                        int newTime = Math.max(currDist, moveTime[x][y]) + 1;
+                        int newTime = Math.max(minDist[r][c], moveTime[x][y]) + 1;
 
                         // 松弛操作 (Relaxation)
                         // 如果通过当前房间到达邻居的时间 newTime < 之前记录的到达邻居的时间 minDist[x][y]，
@@ -88,7 +87,7 @@ public class _3341_Find_Minimum_Time_to_Reach_Last_Room_I {
                             // 更新到达邻居的最小时间
                             minDist[x][y] = newTime;
                             // 将更新过的邻居加入队列，以便后续从它出发继续探索
-                            queue.offer(new int[]{ x, y });
+                            queue.offer(new int[] { x, y });
                         }
                     }
                 }
