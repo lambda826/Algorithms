@@ -1,6 +1,8 @@
 package leetcode.graph.shortestpath;
 
 import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /*
@@ -95,5 +97,43 @@ public class _3341_Find_Minimum_Time_to_Reach_Last_Room_I {
             // 所有可达路径都探索完毕后，返回到达右下角终点的最小时间
             return minDist[m - 1][n - 1];
         }
+    }
+
+    class Solution2 {
+        public int minTimeToReach(int[][] moveTime) {
+            int m = moveTime.length;
+            int n = moveTime[0].length;
+            int[][] minDist = new int[m][n];
+            for (int i = 0; i < m; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    minDist[i][j] = Integer.MAX_VALUE;
+                }
+            }
+            PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> minDist[a[0]][a[1]]));
+            int[] dir = { 0, 1, 0, -1, 0 };
+            minDist[0][0] = 0;
+
+            minHeap.offer(new int[] { 0, 0 });
+            while (!minHeap.isEmpty()) {
+                int[] curr = minHeap.poll();
+                if (curr[0] == m - 1 && curr[1] == n - 1) {
+                    break;
+                }
+                for (int i = 0; i < 4; ++i) {
+                    int x = curr[0] + dir[i];
+                    int y = curr[1] + dir[i + 1];
+                    int currDist = minDist[curr[0]][curr[1]];
+                    if (x >= 0 && x < m && y >= 0 && y < n) {
+                        int min = Math.max(currDist, moveTime[x][y]) + 1;
+                        if (min < minDist[x][y]) {
+                            minDist[x][y] = min;
+                            minHeap.offer(new int[] { x, y });
+                        }
+                    }
+                }
+            }
+            return minDist[m - 1][n - 1];
+        }
+
     }
 }

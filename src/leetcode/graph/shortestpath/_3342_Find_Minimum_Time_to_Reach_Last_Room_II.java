@@ -105,37 +105,29 @@ public class _3342_Find_Minimum_Time_to_Reach_Last_Room_II {
             for (int i = 0; i < m; ++i) {
                 Arrays.fill(dist[i], Integer.MAX_VALUE);
             }
-            // 使用标准队列 (ArrayDeque)，遵循先进先出 (FIFO) 原则。
-            // 这使得算法的行为类似于 SPFA 或带有重入队的广度优先搜索 (BFS)。
-            // 它不能保证每次都处理路径最短的节点。
             Queue<int[]> queue = new ArrayDeque<>();
-            // 设置起点 (0,0) 的到达时间为 0
             dist[0][0] = 0;
-            // 将起点加入队列
             queue.offer(new int[] { 0, 0 });
-            // 当队列不为空时，持续进行搜索
+            int step = 1;
             while (!queue.isEmpty()) {
-                int[] curr = queue.poll();
-                int r = curr[0];
-                int c = curr[1];
-                int step = ((r + c) % 2 == 0) ? 1 : 2;
-                for (int i = 0; i < 4; ++i) {
-                    int rr = r + dir[i];
-                    int cc = c + dir[i + 1];
-                    // 检查邻居坐标是否在网格范围内
-                    if (rr >= 0 && rr < m && cc >= 0 && cc < n) {
-                        // 核心计算逻辑：与 Dijkstra 实现完全相同
-                        int newTime = Math.max(dist[r][c], moveTime[rr][cc]) + step;
-                        // 松弛操作，如果找到一条更短的路径
-                        if (newTime < dist[rr][cc]) {
-                            // 更新最短时间
-                            dist[rr][cc] = newTime;
-                            // 将邻居重新加入队列，即使它之前已经在队列里或被处理过。
-                            // 这是 SPFA 与 Dijkstra 的一个关键区别。
-                            queue.offer(new int[] { rr, cc });
+                int size = queue.size();
+                while (size-- > 0) {
+                    int[] curr = queue.poll();
+                    int r = curr[0];
+                    int c = curr[1];
+                    for (int i = 0; i < 4; ++i) {
+                        int rr = r + dir[i];
+                        int cc = c + dir[i + 1];
+                        if (rr >= 0 && rr < m && cc >= 0 && cc < n) {
+                            int newTime = Math.max(dist[r][c], moveTime[rr][cc]) + step;
+                            if (newTime < dist[rr][cc]) {
+                                dist[rr][cc] = newTime;
+                                queue.offer(new int[] { rr, cc });
+                            }
                         }
                     }
                 }
+                step = step == 1 ? 2 : 1;
             }
             return dist[m - 1][n - 1];
         }
