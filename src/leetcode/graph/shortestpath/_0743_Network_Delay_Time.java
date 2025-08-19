@@ -40,7 +40,6 @@ Constraints:
 */
 public class _0743_Network_Delay_Time {
 
-
     /**
      * <h2>743. Network Delay Time — Dijkstra (Min-Heap) Solution</h2>
      *
@@ -94,13 +93,27 @@ public class _0743_Network_Delay_Time {
     public static final class Solution {
 
         /**
+         * Computes the time for a signal from {@code k} to reach all nodes, or {@code -1} if impossible.
+         *
+         * @param times edges as {@code [u, v, w]} triples; nodes are labeled {@code 1..n}
+         * @param n     number of nodes
+         * @param k     source node (1-based)
+         * @return the maximum shortest-path distance from {@code k} to any node, or {@code -1} if any node is unreachable
+         */
+        public int networkDelayTime(int[][] times, int n, int k) {
+            List<Edge>[] graph = buildGraph(times, n);
+            int[] dist = dijkstra(graph, k);
+            return maxDistanceOrNegOne(dist, n);
+        }
+
+        /**
          * Builds an adjacency list for a directed, weighted graph.
          *
          * @param times edges as {@code [u, v, w]} triples
          * @param n     number of nodes (1-based indexing)
          * @return {@code graph[u]} = list of outgoing edges from {@code u}
          */
-        private static List<Edge>[] buildGraph(int[][] times, int n) {
+        private List<Edge>[] buildGraph(int[][] times, int n) {
             @SuppressWarnings("unchecked")
             List<Edge>[] g = new List[n + 1];
             for (int i = 1; i <= n; i++) {
@@ -120,7 +133,7 @@ public class _0743_Network_Delay_Time {
          * @return array {@code dist} where {@code dist[i]} is the shortest distance from {@code s} to {@code i};
          * unreachable nodes have {@code Integer.MAX_VALUE}
          */
-        private static int[] dijkstra(List<Edge>[] graph, int s) {
+        private int[] dijkstra(List<Edge>[] graph, int s) {
             int n = graph.length - 1;
             int[] dist = new int[n + 1];
 
@@ -156,7 +169,7 @@ public class _0743_Network_Delay_Time {
          * @param n    number of nodes
          * @return {@code -1} if any {@code dist[i] == Integer.MAX_VALUE}, else the maximum {@code dist[i]}
          */
-        private static int maxDistanceOrNegOne(int[] dist, int n) {
+        private int maxDistanceOrNegOne(int[] dist, int n) {
             int max = 0;
             for (int i = 1; i <= n; i++) {
                 if (dist[i] == Integer.MAX_VALUE) {
@@ -169,23 +182,10 @@ public class _0743_Network_Delay_Time {
             return max;
         }
 
-        /**
-         * Computes the time for a signal from {@code k} to reach all nodes, or {@code -1} if impossible.
-         *
-         * @param times edges as {@code [u, v, w]} triples; nodes are labeled {@code 1..n}
-         * @param n     number of nodes
-         * @param k     source node (1-based)
-         * @return the maximum shortest-path distance from {@code k} to any node, or {@code -1} if any node is unreachable
-         */
-        public int networkDelayTime(int[][] times, int n, int k) {
-            List<Edge>[] graph = buildGraph(times, n);
-            int[] dist = dijkstra(graph, k);
-            return maxDistanceOrNegOne(dist, n);
-        }
-
         private record Edge(int to, int w) { }
 
         private record State(int node, int dist) { }
+
     }
 
 }
