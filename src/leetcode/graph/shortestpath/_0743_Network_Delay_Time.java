@@ -92,6 +92,10 @@ public class _0743_Network_Delay_Time {
      */
     public static final class Solution {
 
+        private record Edge(int to, int w) { }
+
+        private record State(int node, int dist) { }
+
         /**
          * Computes the time for a signal from {@code k} to reach all nodes, or {@code -1} if impossible.
          *
@@ -181,10 +185,6 @@ public class _0743_Network_Delay_Time {
             }
             return max;
         }
-
-        private record Edge(int to, int w) { }
-
-        private record State(int node, int dist) { }
 
     }
 
