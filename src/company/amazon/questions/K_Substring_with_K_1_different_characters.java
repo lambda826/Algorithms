@@ -3,7 +3,7 @@
  * @date 02/28/2019
  */
 
-package questions.company.amazon.questions;
+package company.amazon.questions;
 
 import java.util.ArrayList;
 import java.util.List;

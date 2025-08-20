@@ -3,7 +3,7 @@
  * @date 02/17/2019
  */
 
-package questions.company.amazon.debug;
+package company.amazon.debug;
 
 import java.util.Arrays;
 

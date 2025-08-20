@@ -1,4 +1,4 @@
-package questions.company;
+package company;
 
 public interface Google {
 }

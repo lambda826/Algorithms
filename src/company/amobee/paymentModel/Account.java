@@ -3,7 +3,7 @@
  * @date 03/01/2019
  */
 
-package questions.company.amobee.paymentModel;
+package company.amobee.paymentModel;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package questions.company.airbnb.chanllenge29;
+package company.airbnb.chanllenge29;
 
 /*
 

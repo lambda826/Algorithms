@@ -3,7 +3,7 @@
  * @date 02/14/2019
  */
 
-package questions.company.amobee;
+package company.amobee;
 
 
 import questions.problems.All_Path_Sum;
