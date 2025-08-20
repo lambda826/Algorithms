@@ -94,98 +94,46 @@ public class _0743_Network_Delay_Time {
 
         private record Edge(int to, int w) { }
 
-        private record State(int node, int dist) { }
-
-        /**
-         * Computes the time for a signal from {@code k} to reach all nodes, or {@code -1} if impossible.
-         *
-         * @param times edges as {@code [u, v, w]} triples; nodes are labeled {@code 1..n}
-         * @param n     number of nodes
-         * @param k     source node (1-based)
-         * @return the maximum shortest-path distance from {@code k} to any node, or {@code -1} if any node is unreachable
-         */
         public int networkDelayTime(int[][] times, int n, int k) {
-            List<Edge>[] graph = buildGraph(times, n);
-            int[] dist = dijkstra(graph, k);
-            return maxDistanceOrNegOne(dist, n);
-        }
-
-        /**
-         * Builds an adjacency list for a directed, weighted graph.
-         *
-         * @param times edges as {@code [u, v, w]} triples
-         * @param n     number of nodes (1-based indexing)
-         * @return {@code graph[u]} = list of outgoing edges from {@code u}
-         */
-        private List<Edge>[] buildGraph(int[][] times, int n) {
-            @SuppressWarnings("unchecked")
-            List<Edge>[] g = new List[n + 1];
-            for (int i = 1; i <= n; i++) {
-                g[i] = new ArrayList<>();
+            List<Edge>[] graph = new List[n + 1];
+            for (int i = 1; i < graph.length; ++i) {
+                graph[i] = new ArrayList<>();
             }
-            for (int[] t : times) {
-                g[t[0]].add(new Edge(t[1], t[2]));
+            for (int[] time : times) {
+                graph[time[0]].add(new Edge(time[1], time[2]));
             }
-            return g;
-        }
 
-        /**
-         * Dijkstra's algorithm from a single source.
-         *
-         * @param graph adjacency list with non-negative edge weights
-         * @param s     source node (1-based)
-         * @return array {@code dist} where {@code dist[i]} is the shortest distance from {@code s} to {@code i};
-         * unreachable nodes have {@code Integer.MAX_VALUE}
-         */
-        private int[] dijkstra(List<Edge>[] graph, int s) {
-            int n = graph.length - 1;
             int[] dist = new int[n + 1];
-
             Arrays.fill(dist, Integer.MAX_VALUE);
-            dist[s] = 0;
-
-            PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingInt(State::dist));
-            pq.offer(new State(s, 0));
-
-            while (!pq.isEmpty()) {
-                State cur = pq.poll();
-
-                // Skip if a better path to cur.node was already found.
-                if (cur.dist() != dist[cur.node()]) {
+            dist[k] = 0;
+            PriorityQueue<Edge> minHeap = new PriorityQueue<>(Comparator.comparingInt(e -> dist[e.to]));
+            boolean[] visited = new boolean[n + 1];
+            minHeap.offer(new Edge(k, 0));
+            while (!minHeap.isEmpty()) {
+                Edge curr = minHeap.poll();
+                if (visited[curr.to]) {
                     continue;
                 }
-
-                for (Edge e : graph[cur.node()]) {
-                    int cand = cur.dist() + e.w();
-                    if (cand < dist[e.to()]) {
-                        dist[e.to()] = cand;
-                        pq.offer(new State(e.to(), cand));
+                visited[curr.to] = true;
+                for (Edge nei : graph[curr.to]) {
+                    int newDist = dist[curr.to] + nei.w;
+                    if (newDist < dist[nei.to]) {
+                        dist[nei.to] = newDist;
+                        minHeap.offer(nei);
                     }
                 }
             }
-            return dist;
-        }
 
-        /**
-         * Returns the maximum finite distance in {@code dist[1..n]}; if any node is unreachable, returns {@code -1}.
-         *
-         * @param dist distance array from source
-         * @param n    number of nodes
-         * @return {@code -1} if any {@code dist[i] == Integer.MAX_VALUE}, else the maximum {@code dist[i]}
-         */
-        private int maxDistanceOrNegOne(int[] dist, int n) {
             int max = 0;
-            for (int i = 1; i <= n; i++) {
+            for (int i = 1; i < dist.length; ++i) {
                 if (dist[i] == Integer.MAX_VALUE) {
                     return -1;
-                }
-                if (dist[i] > max) {
-                    max = dist[i];
+                } else {
+                    max = Math.max(max, dist[i]);
                 }
             }
             return max;
         }
-
     }
 
 }
