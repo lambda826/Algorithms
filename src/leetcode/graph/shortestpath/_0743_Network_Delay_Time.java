@@ -7,133 +7,148 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /*
+You are given a directed, weighted graph with n nodes labeled 1..n. Each edge is represented by
+times[i] = [u, v, w], meaning a directed edge from node u to node v with travel time w.
 
-You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi),
-where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target.
-
-We will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal.
-If it is impossible for all the n nodes to receive the signal, return -1.
+Starting from node k, a signal is sent out. Your task is to determine how long it takes for all
+nodes to receive the signal. If it is impossible for all nodes to be reached, return -1.
 
 
-Example 1:
-    Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
-    Output: 2
+Examples:
+    Example 1:
+        Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+        Output: 2
+        Explanation: From 2 → 1 takes 1, 2 → 3 takes 1, and the fastest to 4 is 2 → 3 → 4 with total time 2.
 
-Example 2:
-    Input: times = [[1,2,1]], n = 2, k = 1
-    Output: 1
+    Example 2:
+        Input: times = [[1,2,1]], n = 2, k = 1
+        Output: 1
 
-Example 3:
-    Input: times = [[1,2,1]], n = 2, k = 2
-    Output: -1
+    Example 3:
+        Input: times = [[1,2,1]], n = 2, k = 2
+        Output: -1
+        Explanation: There is no path between 2 and 1.
 
 
 Constraints:
-    1 <= k <= n <= 100
+    1 <= n <= 100
     1 <= times.length <= 6000
-    times[i].length == 3
-    1 <= ui, vi <= n
-    ui != vi
-    0 <= wi <= 100
-    All the pairs (ui, vi) are unique. (i.e., no multiple edges.)
-
+    times[i] = [u, v, w] with 1 <= u, v <= n, u != v, and 1 <= w <= 100
+    1 <= k <= n
 */
 public class _0743_Network_Delay_Time {
 
     /**
-     * <h2>743. Network Delay Time — Dijkstra (Min-Heap) Solution</h2>
+     * <h2>743. Network Delay Time — Dijkstra (min-heap)</h2>
      *
-     * <p><b>Goal.</b> Given a directed graph with non-negative edge weights and a start node {@code k},
-     * compute the time needed for a signal to reach <em>all</em> nodes. If any node is unreachable, return {@code -1}.
-     * Otherwise return the maximum shortest-path distance from {@code k} to any node.</p>
+     * <h3>Goal/Problem summary</h3>
+     * Given a directed weighted graph and a start node {@code k}, find the minimum time for the
+     * signal to reach all nodes; return {@code -1} if any node is unreachable.
      *
-     * <h3>Approach (Why Dijkstra)</h3>
+     * <h3>Constraints/Assumptions</h3>
      * <ul>
-     *   <li>All edge weights are non-negative. This is exactly the setting where Dijkstra's algorithm is correct and efficient.</li>
-     *   <li>We maintain a distance array {@code dist[i]} = best-known distance from {@code k} to node {@code i}.</li>
-     *   <li>A min-heap (priority queue) orders frontier nodes by their current best distance.</li>
+     *   <li>{@code 1 <= n <= 100}, {@code m = times.length <= 6000}</li>
+     *   <li>Nodes labeled {@code 1..n}; edge weights are positive integers</li>
+     *   <li>Multiple edges are naturally handled by relaxation (the faster one wins)</li>
      * </ul>
+     *
+     * <h3>Approach</h3>
+     * Classic Dijkstra with a min-heap over non-negative edge weights.
      *
      * <h3>Algorithm</h3>
      * <ol>
-     *   <li>Build an adjacency list {@code graph[u]} = list of outgoing edges {@code (v, w)}.</li>
-     *   <li>Initialize {@code dist[*] = Integer.MAX_VALUE}, {@code dist[k] = 0}. Push {@code (k, 0)} into the PQ.</li>
-     *   <li>While the PQ is not empty:
-     *     <ul>
-     *       <li>Pop the state {@code (u, d)} with the smallest {@code d}.</li>
-     *       <li><b>Stale check:</b> if {@code d != dist[u]}, skip; we've already found a better path to {@code u}.</li>
-     *       <li>Relax all edges {@code u -> v} with weight {@code w}: if {@code d + w < dist[v]}, update and push.</li>
-     *     </ul>
+     *   <li>Build adjacency list {@code g[1..n]} with directed edges {@code u -> (v, w)}.</li>
+     *   <li>Initialize {@code dist[i] = Integer.MAX_VALUE}, set {@code dist[k] = 0}.</li>
+     *   <li>Push {@code (k, 0)} into a min-heap keyed by current distance.</li>
+     *   <li>While heap not empty:
+     *     <ol type="a">
+     *       <li>Pop {@code cur}; if {@code cur.dist > dist[cur.node]} (stale), continue.</li>
+     *       <li>For each outgoing edge {@code (cur.node -> v, w)}:
+     *           if {@code cur.dist + w < dist[v]}, update {@code dist[v]} and push {@code (v, dist[v])}.</li>
+     *     </ol>
      *   </li>
-     *   <li>After the loop, if any {@code dist[i] == Integer.MAX_VALUE}, return {@code -1} (unreachable).
-     *       Otherwise return the maximum value in {@code dist[1..n]}.</li>
+     *   <li>Return {@code max(dist[1..n])}; if any {@code dist[i] == Integer.MAX_VALUE}, return {@code -1}.</li>
      * </ol>
      *
-     * <h3>Correctness (Key Invariant)</h3>
-     * <ul>
-     *   <li>When a node {@code u} is popped from the PQ and passes the stale check,
-     *       {@code dist[u]} is final (shortest) because all edge weights are non-negative.</li>
-     *   <li>Any older, suboptimal entries for the same node are detected by the stale check and ignored.</li>
-     * </ul>
+     * <h3>Correctness / Key Invariant</h3>
+     * With non-negative weights, when a node is popped with the minimal tentative distance, that distance is final.
+     * The stale-entry check ensures only optimal states are expanded.
      *
      * <h3>Complexity</h3>
+     * Time {@code O((n + m) log n)}; Space {@code O(n + m)}.
+     *
+     * <h3>Edge Cases & Pitfalls</h3>
      * <ul>
-     *   <li>Time: {@code O(E log V)} — each relaxation pushes at most a few PQ entries; heap ops are {@code log V}.</li>
-     *   <li>Space: {@code O(V + E)} for the adjacency list, distance array, and PQ.</li>
+     *   <li>Disconnected graph → return {@code -1}.</li>
+     *   <li>Use {@code Integer.MAX_VALUE} as {@code INF}; guard the relaxation to avoid adding to {@code INF}.</li>
+     *   <li>Do not base heap order on a mutable external array; carry the key inside the state.</li>
      * </ul>
      *
      * <h3>Implementation Notes</h3>
      * <ul>
-     *   <li>Uses Java records for small immutable carriers: {@code Edge(to, w)} and {@code State(node, dist)}.</li>
-     *   <li>Distances initialize to {@code Integer.MAX_VALUE}. We compute candidate sums in {@code long} to avoid overflow,
-     *       then bounds-check before casting back to {@code int}.</li>
-     *   <li>Style constraints: braces on all control statements; no single-line control statements.</li>
+     *   <li>Use {@code record Edge(int to, int w)} and {@code record State(int node, int dist)}.</li>
+     *   <li>Min-heap comparator: {@code Comparator.comparingInt((State s) -> s.dist)}.</li>
+     *   <li>All control statements use braces; short names with normal imports (IDE auto-import is fine).</li>
+     * </ul>
+     *
+     * <h3>Alternatives/Variants</h3>
+     * <ul>
+     *   <li>Bellman–Ford ({@code O(n*m)}), useful for validation but slower.</li>
      * </ul>
      */
-    public static final class Solution {
+    static class Solution {
 
         private record Edge(int to, int w) { }
 
         public int networkDelayTime(int[][] times, int n, int k) {
-            List<Edge>[] graph = new List[n + 1];
-            for (int i = 1; i < graph.length; ++i) {
-                graph[i] = new ArrayList<>();
+            // Build graph (1..n)
+            List<Edge>[] g = new ArrayList[n + 1];
+            for (int i = 1; i <= n; i++) {
+                g[i] = new ArrayList<>();
             }
-            for (int[] time : times) {
-                graph[time[0]].add(new Edge(time[1], time[2]));
+            for (int[] t : times) {
+                g[t[0]].add(new Edge(t[1], t[2]));
             }
 
+            // Distances
             int[] dist = new int[n + 1];
             Arrays.fill(dist, Integer.MAX_VALUE);
             dist[k] = 0;
-            PriorityQueue<Edge> minHeap = new PriorityQueue<>(Comparator.comparingInt(e -> dist[e.to]));
-            boolean[] visited = new boolean[n + 1];
-            minHeap.offer(new Edge(k, 0));
-            while (!minHeap.isEmpty()) {
-                Edge curr = minHeap.poll();
-                if (visited[curr.to]) {
+
+            // Min-heap by current best distance
+            PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingInt((State s) -> s.dist));
+            pq.offer(new State(k, 0));
+
+            while (!pq.isEmpty()) {
+                State cur = pq.poll();
+                // Stale-entry check
+                if (cur.dist > dist[cur.node]) {
                     continue;
                 }
-                visited[curr.to] = true;
-                for (Edge nei : graph[curr.to]) {
-                    int newDist = dist[curr.to] + nei.w;
-                    if (newDist < dist[nei.to]) {
-                        dist[nei.to] = newDist;
-                        minHeap.offer(nei);
+                for (Edge e : g[cur.node]) {
+                    if (dist[cur.node] != Integer.MAX_VALUE) {
+                        int nd = cur.dist + e.w;
+                        if (nd < dist[e.to]) {
+                            dist[e.to] = nd;
+                            pq.offer(new State(e.to, nd));
+                        }
                     }
                 }
             }
 
-            int max = 0;
-            for (int i = 1; i < dist.length; ++i) {
+            // Compute the answer: max distance among reachable nodes
+            int ans = 0;
+            for (int i = 1; i <= n; i++) {
                 if (dist[i] == Integer.MAX_VALUE) {
                     return -1;
-                } else {
-                    max = Math.max(max, dist[i]);
+                }
+                if (dist[i] > ans) {
+                    ans = dist[i];
                 }
             }
-            return max;
+            return ans;
         }
-    }
 
+        private record State(int node, int dist) { }
+    }
 }
