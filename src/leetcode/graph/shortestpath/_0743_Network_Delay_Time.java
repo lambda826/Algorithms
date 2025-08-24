@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /*
-You are given a directed, weighted graph with n nodes labeled 1..n. Each edge is represented by
-times[i] = [u, v, w], meaning a directed edge from node u to node v with travel time w.
-
-Starting from node k, a signal is sent out. Your task is to determine how long it takes for all
-nodes to receive the signal. If it is impossible for all nodes to be reached, return -1.
+Description:
+    You are given a directed, weighted graph with n nodes labeled 1..n. Each edge is represented by
+    times[i] = [u, v, w], meaning a directed edge from node u to node v with travel time w.
+    Starting from node k, send a signal to all nodes. Return the time it takes for all nodes to receive
+    the signal; if any node is unreachable, return -1.
 
 
 Examples:
     Example 1:
         Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
         Output: 2
-        Explanation: From 2 → 1 takes 1, 2 → 3 takes 1, and the fastest to 4 is 2 → 3 → 4 with total time 2.
+        Explanation: From 2→1 takes 1, 2→3 takes 1, and the fastest to 4 is 2→3→4 with total time 2.
 
     Example 2:
         Input: times = [[1,2,1]], n = 2, k = 1
@@ -102,7 +102,7 @@ public class _0743_Network_Delay_Time {
 
         public int networkDelayTime(int[][] times, int n, int k) {
             // Build graph (1..n)
-            List<Edge>[] g = new ArrayList[n + 1];
+            List<Edge>[] g = new List[n + 1];
             for (int i = 1; i <= n; i++) {
                 g[i] = new ArrayList<>();
             }
@@ -116,37 +116,35 @@ public class _0743_Network_Delay_Time {
             dist[k] = 0;
 
             // Min-heap by current best distance
-            PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingInt((State s) -> s.dist));
+            PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingInt(State::dist));
             pq.offer(new State(k, 0));
 
             while (!pq.isEmpty()) {
-                State cur = pq.poll();
+                State curr = pq.poll();
                 // Stale-entry check
-                if (cur.dist > dist[cur.node]) {
+                if (curr.dist > dist[curr.node]) {
                     continue;
                 }
-                for (Edge e : g[cur.node]) {
-                    if (dist[cur.node] != Integer.MAX_VALUE) {
-                        int nd = cur.dist + e.w;
-                        if (nd < dist[e.to]) {
-                            dist[e.to] = nd;
-                            pq.offer(new State(e.to, nd));
+                for (Edge e : g[curr.node]) {
+                    if (dist[curr.node] != Integer.MAX_VALUE) {
+                        int newDist = curr.dist + e.w;
+                        if (newDist < dist[e.to]) {
+                            dist[e.to] = newDist;
+                            pq.offer(new State(e.to, newDist));
                         }
                     }
                 }
             }
 
             // Compute the answer: max distance among reachable nodes
-            int ans = 0;
+            int max = 0;
             for (int i = 1; i <= n; i++) {
                 if (dist[i] == Integer.MAX_VALUE) {
                     return -1;
                 }
-                if (dist[i] > ans) {
-                    ans = dist[i];
-                }
+                max = Math.max(max, dist[i]);
             }
-            return ans;
+            return max;
         }
 
         private record State(int node, int dist) { }
