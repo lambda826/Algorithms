@@ -100,6 +100,8 @@ public class _0743_Network_Delay_Time {
 
         private record Edge(int to, int w) { }
 
+        private record State(int node, int dist) { }
+
         public int networkDelayTime(int[][] times, int n, int k) {
             // Build graph (1..n)
             List<Edge>[] g = new List[n + 1];
@@ -147,6 +149,5 @@ public class _0743_Network_Delay_Time {
             return max;
         }
 
-        private record State(int node, int dist) { }
     }
 }
