@@ -106,46 +106,40 @@ public class _1631_Path_With_Minimum_Effort {
                 Arrays.fill(dist[i], Integer.MAX_VALUE);
             }
             dist[0][0] = 0;
-
-            PriorityQueue<State> pq = new PriorityQueue<>();
-            pq.offer(new State(0, 0, 0));
+            PriorityQueue<State> minHeap = new PriorityQueue<>(Comparator.comparingInt(State::effort));
+            minHeap.offer(new State(0, 0, 0));
 
             int[][] dirs = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
-            while (!pq.isEmpty()) {
-                State cur = pq.poll();
+            while (!minHeap.isEmpty()) {
+                State curr = minHeap.poll();
 
                 // stale-entry check
-                if (cur.effort > dist[cur.r][cur.c]) {
+                if (curr.effort > dist[curr.r][curr.c]) {
                     continue;
                 }
-                if (cur.r == m - 1 && cur.c == n - 1) {
-                    return cur.effort;
+                if (curr.r == m - 1 && curr.c == n - 1) {
+                    return curr.effort;
                 }
 
                 for (int[] d : dirs) {
-                    int nr = cur.r + d[0];
-                    int nc = cur.c + d[1];
-                    if (nr < 0 || nr >= m || nc < 0 || nc >= n) {
+                    int newR = curr.r + d[0];
+                    int newC = curr.c + d[1];
+                    if (newR < 0 || newR >= m || newC < 0 || newC >= n) {
                         continue;
                     }
-                    int step = Math.abs(heights[cur.r][cur.c] - heights[nr][nc]);
-                    int ne = Math.max(cur.effort, step);
-                    if (ne < dist[nr][nc]) {
-                        dist[nr][nc] = ne;
-                        pq.offer(new State(nr, nc, ne));
+                    int step = Math.abs(heights[curr.r][curr.c] - heights[newR][newC]);
+                    int newEffort = Math.max(curr.effort, step);
+                    if (newEffort < dist[newR][newC]) {
+                        dist[newR][newC] = newEffort;
+                        minHeap.offer(new State(newR, newC, newEffort));
                     }
                 }
             }
             return 0; // fallback
         }
 
-        private record State(int r, int c, int effort) implements Comparable<State> {
-            @Override
-            public int compareTo(State o) {
-                return Integer.compare(this.effort, o.effort);
-            }
-        }
+        private record State(int r, int c, int effort) { }
     }
 
     // Optional alternative: Kruskal + Union-Find (MST of grid edges by effort)
