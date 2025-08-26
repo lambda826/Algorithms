@@ -1,5 +1,10 @@
 package leetcode.graph.shortestpath;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+
 /*
 You are given an undirected weighted graph of n nodes (0-indexed), represented by an edge list
 where edges[i] = [a, b] denotes an undirected edge between nodes a and b, and succProb[i] is the
@@ -107,12 +112,13 @@ public class _1514_Path_with_Maximum_Probability {
         private record State(int node, double prob) { }
 
         public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
-            java.util.List<Adj>[] g = new java.util.ArrayList[n];
+            List<Adj>[] g = new List[n];
             for (int i = 0; i < n; i++) {
-                g[i] = new java.util.ArrayList<>();
+                g[i] = new ArrayList<>();
             }
             for (int i = 0; i < edges.length; i++) {
-                int u = edges[i][0], v = edges[i][1];
+                int u = edges[i][0];
+                int v = edges[i][1];
                 double p = succProb[i];
                 g[u].add(new Adj(v, p));
                 g[v].add(new Adj(u, p));
@@ -121,22 +127,21 @@ public class _1514_Path_with_Maximum_Probability {
             double[] prob = new double[n];
             prob[start] = 1.0d;
 
-            java.util.PriorityQueue<State> pq =
-                    new java.util.PriorityQueue<>(java.util.Comparator.<State>comparingDouble(s -> s.prob).reversed());
+            PriorityQueue<State> pq = new PriorityQueue<>(Comparator.comparingDouble(State::prob).reversed());
             pq.offer(new State(start, 1.0d));
 
             while (!pq.isEmpty()) {
-                State cur = pq.poll();
+                State curr = pq.poll();
 
                 // 过期条目检查（stale-entry check）
-                if (cur.prob < prob[cur.node]) {
+                if (curr.prob < prob[curr.node]) {
                     continue;
                 }
-                if (cur.node == end) {
-                    return cur.prob; // 第一次弹出 end 即为最优
+                if (curr.node == end) {
+                    return curr.prob; // 第一次弹出 end 即为最优
                 }
-                for (Adj adj : g[cur.node]) {
-                    double newProb = cur.prob * adj.p;
+                for (Adj adj : g[curr.node]) {
+                    double newProb = curr.prob * adj.p;
                     if (newProb > prob[adj.to]) {
                         prob[adj.to] = newProb;
                         pq.offer(new State(adj.to, newProb));
